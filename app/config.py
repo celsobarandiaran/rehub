@@ -21,7 +21,8 @@ CONTRASENA_DUENO = os.environ.get("REHUB_CONTRASENA") or ("" if EN_LA_NUBE else 
 CLAVE_SESION = os.environ.get("REHUB_CLAVE_SESION") or ("" if EN_LA_NUBE else "solo-para-pruebas-en-local")
 
 # Base de datos: SQLite en local; en la nube, la de Supabase (Postgres en Frankfurt).
-CARPETA_LOCAL = RAIZ / "datos_locales"
+# Carpeta de datos en local (base SQLite y archivos). Las pruebas usan otra para no borrar la de verdad.
+CARPETA_LOCAL = Path(os.environ.get("REHUB_CARPETA_LOCAL") or (RAIZ / "datos_locales"))
 URL_BASE_DATOS = os.environ.get("DATABASE_URL") or f"sqlite:///{CARPETA_LOCAL / 'rehub.db'}"
 
 # Almacén de archivos (PDF y fotos): carpeta local o Supabase Storage.

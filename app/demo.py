@@ -31,13 +31,15 @@ class Estado:
         self.contadores = {"facturas": 0, "gastos": 0, "nominas": 0, "cierres": 0, "correos": 0, "ventas": 0.0}
         self.ia_pendientes = 0
         self.ia_estado = ""
+        self.ia_ultimo = ""
         self.terminado = False
         self.error = ""
 
     def json(self):
         return {"en_marcha": self.en_marcha, "pausa": self.pausa, "dia": self.dia.isoformat() if self.dia else None, "n_dia": self.n_dia,
                 "total_dias": self.total_dias, "ticker": list(self.ticker), "contadores": self.contadores, "ia_pendientes": self.ia_pendientes,
-                "ia_estado": self.ia_estado, "terminado": self.terminado, "error": self.error, "segundos_por_dia": self.segundos_por_dia}
+                "ia_estado": self.ia_estado, "terminado": self.terminado, "error": self.error, "segundos_por_dia": self.segundos_por_dia,
+                "ia_activa": _hilo_ia is not None and _hilo_ia.is_alive(), "ia_ultimo": self.ia_ultimo}
 
 
 ESTADO = Estado()
@@ -198,6 +200,8 @@ def _bucle_ia():
                 n = procesar.procesar_pendientes(s, hoy_demo(), config.NOMBRE_RESTAURANTE, maximo=2)
                 s.commit()
             ESTADO.ia_estado = "" if n else ESTADO.ia_estado
+            if n:
+                ESTADO.ia_ultimo = f"{n} leídos a las {time.strftime('%H:%M:%S')}"
         except ia.CuotaAgotada:
             ESTADO.ia_estado = "Se ha acabado el tope diario de la IA gratuita: lo pendiente se leerá cuando se renueve."
             time.sleep(300)
