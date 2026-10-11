@@ -90,8 +90,10 @@ def nuevos(desde_epoch: int | None = None, maximo=50) -> list[dict]:
     for m in reversed(ids):  # de más antiguo a más nuevo
         msg = _get(f"messages/{m['id']}", format="full")
         para = _cabecera(msg, "To") + " " + _cabecera(msg, "Delivered-To")
-        alias = re.search(r"\+(\w+)@", para)
         de = _cabecera(msg, "From")
+        # El alias (+proveedor, +cliente…) va en el destinatario; en los correos de demo que la propia cuenta
+        # se manda a sí misma va en el remitente.
+        alias = re.search(r"\+(\w+)@", para) or re.search(r"\+(\w+)@", de)
         nombre = re.sub(r"\s*<.*>", "", de).strip().strip('"') or de
         adjuntos = []
         for p in _partes(msg["payload"]):
