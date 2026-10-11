@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block titulo %}Ajustes{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">{{ pantalla.icono }}</span><h2>Ajustes</h2><span class="sub">Conexiones, usuarios y demo</span></div>
+  <div class="grid g2">
+    <div class="card"><h3>🔌 Conexiones</h3>
+      <table class="peq resp">
+        <tr><th>Qué</th><th>Dónde</th><th>Estado</th></tr>
+        <tr><td>Datos</td><td>{{ "Supabase (Frankfurt)" if config.URL_BASE_DATOS.startswith("postgres") else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
+        <tr><td>Archivos</td><td>{{ "Supabase (Frankfurt)" if config.ALMACEN == "supabase" else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
+        <tr><td>Correo</td><td>{{ config.GMAIL_CUENTA }}</td><td>{% if config.GMAIL_REFRESH_TOKEN %}<span class="chip c-ok">Conectado</span>{% else %}<span class="chip c-rev">Sin conectar</span>{% endif %}</td></tr>
+        <tr><td>Inteligencia artificial</td><td>Gemini</td><td>{% if config.GEMINI_API_KEY %}<span class="chip c-ok">Clave puesta</span>{% else %}<span class="chip c-rev">Sin clave</span>{% endif %}</td></tr>
+      </table>
+    </div>
+    <div class="card"><h3>👥 Usuarios y perfiles</h3>
+      <table class="peq resp">
+        <tr><th>Perfil</th><th>Ve</th><th>Estado</th></tr>
+        {% for clave, nombre in perfiles.NOMBRES_PERFIL.items() %}
+        <tr><td>{{ nombre }}</td><td>{{ perfiles.menu_para(clave)|map(attribute="titulo")|join(", ") }}</td>
+          <td>{% if perfiles.perfil_activo(clave) %}<span class="chip c-ok">Activo</span>{% else %}<span class="chip c-est">Preparado, sin activar</span>{% endif %}</td></tr>
+        {% endfor %}
+      </table>
+      <div class="peq mut" style="margin-top:8px">Oficina no ve salarios por persona ni el banco. Trabajador no ve ningún precio y solo su turno.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>🎬 Demo</h3>
+    <div class="mut">Cargar demo, Enviar al correo, Reiniciar demo y Autodestruir llegan en la sesión 3.</div>
+  </div>
+  <div class="peq mut" style="margin-top:14px">ReHub versión {{ config.VERSION }}</div>
+</section>
+{% endblock %}

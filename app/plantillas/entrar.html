@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrar · ReHub</title>
+<link rel="stylesheet" href="/static/estilo.css">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/static/icono-192.png">
+<link rel="apple-touch-icon" href="/static/icono-192.png">
+<meta name="theme-color" content="#1f4d3a">
+</head>
+<body style="display:grid;place-items:center;min-height:100vh;padding:16px">
+  <form method="post" action="/entrar" class="card pila" style="width:100%;max-width:360px">
+    <div class="logo" style="color:var(--verde);font-size:24px"><span class="dot">R</span>ReHub</div>
+    <div class="mut">{{ config.NOMBRE_RESTAURANTE }}</div>
+    <label for="clave"><b>Contraseña</b></label>
+    <input class="campo" id="clave" name="clave" type="password" autocomplete="current-password" autofocus required>
+    {% if error %}<div class="alerta r">{{ error }}</div>{% endif %}
+    <button class="btn pri grande" type="submit" style="width:100%;justify-content:center">Entrar</button>
+  </form>
+</body>
+</html>

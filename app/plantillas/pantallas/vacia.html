@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block titulo %}{{ pantalla.titulo }}{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">{{ pantalla.icono }}</span><h2>{{ pantalla.titulo }}</h2></div>
+  <div class="card pila" style="max-width:560px">
+    <b>Todavía no hay datos.</b>
+    <div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b> para llenar la app con los 3 meses de {{ config.NOMBRE_RESTAURANTE }}.</div>
+  </div>
+</section>
+{% endblock %}

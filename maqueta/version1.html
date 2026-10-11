@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReHub · Maqueta</title>
+<style>
+:root{
+  --verde:#1f4d3a; --verde2:#2d6a4f; --crema:#faf7f2; --papel:#ffffff; --tinta:#1d1d1b; --gris:#6b6b66;
+  --linea:#e6e1d8; --teja:#c8553d; --oro:#d9a441; --ok:#2e7d4f; --mal:#c0392b; --aviso:#d08a00; --suave:#f2eee6;
+  --sombra:0 1px 2px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--crema);color:var(--tinta);font-size:15px;line-height:1.45}
+a{color:inherit}
+/* Cabecera y menú */
+.top{position:sticky;top:0;z-index:20;background:var(--verde);color:#fff;display:flex;align-items:center;gap:14px;padding:10px 18px}
+.logo{font-weight:800;font-size:20px;letter-spacing:.3px;display:flex;align-items:center;gap:8px}
+.logo span.dot{width:26px;height:26px;border-radius:8px;background:var(--oro);display:inline-grid;place-items:center;color:var(--verde);font-size:15px}
+.top .rest{opacity:.85;font-size:14px}
+.top .user{margin-left:auto;font-size:13px;background:rgba(255,255,255,.14);padding:5px 10px;border-radius:20px;white-space:nowrap}
+.layout{display:flex}
+nav.menu{position:sticky;top:50px;align-self:flex-start;height:calc(100vh - 50px);width:210px;flex:none;background:var(--papel);border-right:1px solid var(--linea);padding:14px 10px;overflow:auto}
+nav.menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--tinta);font-weight:500}
+nav.menu a:hover{background:var(--suave)}
+nav.menu a .n{width:22px;height:22px;border-radius:6px;background:var(--suave);display:grid;place-items:center;font-size:12px;color:var(--gris);flex:none}
+a.merc{color:#2c4f9e;font-weight:600;text-decoration:none;border-bottom:1px dashed #9db0d8}
+a.merc:hover{color:var(--verde)}
+nav.menu a.sub-menu{padding-left:22px;font-size:14px;color:var(--gris)}
+nav.menu .sep{height:1px;background:var(--linea);margin:10px 4px}
+nav.menu .nota{font-size:12px;color:var(--gris);padding:6px 12px}
+main{flex:1;min-width:0;padding:22px 26px 80px}
+.aviso-maqueta{background:#fff7e6;border:1px solid #f0d9a6;color:#7a5a12;border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:22px}
+/* Pantallas */
+section.pant{background:transparent;margin:0 0 46px;scroll-margin-top:66px}
+.pant-cab{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.pant-cab h2{margin:0;font-size:24px}
+.pant-cab .num{color:var(--teja);font-weight:700}
+.pant-cab .sub{color:var(--gris);font-size:14px}
+.perfiles{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.pf{font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;border:1px solid var(--linea);background:var(--papel);color:var(--gris)}
+.pf.si{background:#e7f2ec;border-color:#bcd9c8;color:var(--verde)}
+.card{background:var(--papel);border:1px solid var(--linea);border-radius:14px;box-shadow:var(--sombra);padding:16px}
+.card h3{margin:0 0 10px;font-size:16px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g-35{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--linea);background:var(--papel);border-radius:10px;padding:8px 14px;font:inherit;font-weight:600;font-size:14px;cursor:default;color:var(--tinta)}
+.btn.pri{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn.teja{background:var(--teja);border-color:var(--teja);color:#fff}
+.btn.peligro{background:#fff;border-color:var(--mal);color:var(--mal)}
+.btn.grande{padding:14px 18px;font-size:16px;border-radius:12px}
+.fila{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:20px;background:var(--suave);color:var(--gris);white-space:nowrap}
+.c-fact{background:#e8eefb;color:#2c4f9e}.c-res{background:#e7f2ec;color:var(--ok)}.c-queja{background:#fbe9e6;color:var(--mal)}
+.c-pub{background:#f0efed;color:#888}.c-nom{background:#f3e9fa;color:#7a3fa0}.c-gasto{background:#fff2dc;color:#9a6200}.c-con{background:#e6f4f6;color:#1d6f7d}
+.c-rev{background:#fff2dc;color:#9a6200}.c-dup{background:#fbe9e6;color:var(--mal)}.c-ok{background:#e7f2ec;color:var(--ok)}.c-est{background:#eef0f4;color:#4a5568}
+.estrella{background:#fff4d6;color:#8a6100}.vaca{background:#e7f2ec;color:var(--ok)}.puzle{background:#e8eefb;color:#2c4f9e}.perro{background:#f0efed;color:#666}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--gris);font-weight:600;padding:8px;border-bottom:1px solid var(--linea);white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid var(--linea);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tabla{overflow-x:auto}
+.mut{color:var(--gris)}
+.peq{font-size:13px}
+.kpi .v{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:13px;color:var(--gris)}
+.kpi .d{font-size:13px;margin-top:4px}
+.sem{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.s-v{background:var(--ok)}.s-a{background:var(--aviso)}.s-r{background:var(--mal)}
+.alerta{border-radius:12px;padding:10px 14px;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+.alerta.r{background:#fbe9e6;color:#8c2a1f}.alerta.a{background:#fff4dc;color:#7a5200}.alerta.v{background:#e7f2ec;color:#1f5a38}
+.alerta b{white-space:nowrap}
+.pila>*+*{margin-top:10px}
+input.campo,select.campo,textarea.campo{font:inherit;border:1px solid var(--linea);border-radius:10px;padding:8px 12px;background:#fff;width:100%}
+textarea.campo{min-height:150px;resize:vertical}
+/* Bandeja */
+.correo{display:flex;gap:10px;padding:10px 8px;border-bottom:1px solid var(--linea);align-items:flex-start}
+.correo:last-child{border-bottom:0}
+.correo.sel{background:#f5f9f6;border-radius:10px}
+.av{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff}
+.correo .q{flex:1;min-width:0}
+.correo .q .r{display:flex;justify-content:space-between;gap:8px}
+.correo .q .as{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nuevo{width:8px;height:8px;border-radius:50%;background:var(--teja);display:inline-block;margin-right:4px}
+/* Documentos */
+.arbol{font-size:14px}
+.arbol div{padding:4px 6px;border-radius:8px}
+.arbol .on{background:#e7f2ec;color:var(--verde);font-weight:600}
+.arbol .i1{padding-left:18px}.arbol .i2{padding-left:34px}
+/* Documentos: calendario */
+.seg{display:grid;grid-template-columns:repeat(4,1fr);background:var(--suave);border-radius:10px;padding:3px;gap:3px}
+.seg span{text-align:center;padding:6px 0;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;color:var(--gris)}
+.seg span.on{background:var(--papel);color:var(--verde);box-shadow:var(--sombra)}
+.btn.flecha{padding:2px 12px;font-size:18px;cursor:pointer}
+.meses{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.meses span{text-align:center;padding:6px 0;border-radius:8px;font-size:13px;color:#b5b1a8;cursor:pointer}
+.meses span.hay{color:var(--tinta);font-weight:600}
+.meses span.on{background:var(--verde);color:#fff}
+.meses span.rango{background:#e7f2ec;color:var(--verde)}
+.meses span.vista{outline:2px solid var(--oro);outline-offset:-2px}
+.dias{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;font-size:13px}
+.dias .cab{font-size:11px;color:var(--gris);font-weight:600;padding:2px 0}
+.dias .d{padding:6px 0 8px;border-radius:8px;position:relative;cursor:pointer}
+.dias .d.hay::after{content:"";position:absolute;left:50%;bottom:2px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--ok)}
+.dias .d.rango{background:#e7f2ec}
+.dias .d.on{background:var(--verde);color:#fff}
+.dias .d.on::after{background:#fff}
+.cal.apagado .dias,.cal.apagado .meses{opacity:.35}
+/* Documentos: pestañas y grupos */
+.pestanas{display:flex;gap:4px;border-bottom:1px solid var(--linea);overflow-x:auto}
+.pestanas span{padding:8px 12px;font-weight:600;font-size:14px;color:var(--gris);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.pestanas span.on{color:var(--verde);border-color:var(--verde)}
+.seg-c{display:inline-grid;grid-template-columns:repeat(3,auto);min-width:250px}
+.seg-c span{padding:5px 12px}
+tr.cat td{background:var(--verde);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+tr.fac{cursor:pointer}
+tr.fac:hover td{background:#f7f4ee}
+tr.fac.sel td{background:#fff4d6}
+tr.fac.sel td:first-child{box-shadow:inset 4px 0 0 var(--oro)}
+tr.cat td .mut{color:#dfe9e3}
+tr.grupo td{background:var(--suave);font-weight:700;cursor:pointer}
+tr.grupo td:first-child{padding-left:18px}
+tr.grupo td .flechita{display:inline-block;width:14px;color:var(--gris)}
+tr.oculto{display:none}
+/* Ajustes: demo en línea de tiempo */
+.reproductor{border:1px solid var(--linea);border-radius:12px;padding:12px;background:#fbfaf7}
+.tl-fecha{display:flex;justify-content:space-between;align-items:baseline;font-size:17px}
+.tl-barra{position:relative;height:12px;border-radius:8px;background:var(--suave);overflow:visible}
+.tl-barra i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--verde2),var(--oro));transition:width .25s linear}
+.tl-marca{position:absolute;top:-3px;width:4px;height:18px;border-radius:2px;background:var(--teja)}
+.tl-cont b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.tl-ticker{height:150px;overflow:hidden;border-top:1px solid var(--linea);padding-top:6px;font-size:13px}
+.tl-ticker div{padding:3px 0;animation:entra .35s ease-out}
+.tl-ticker .al{color:var(--mal);font-weight:600}
+@keyframes entra{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.act-mini{margin-left:auto;text-decoration:none;font-size:13px;font-weight:600;background:var(--oro);color:var(--verde);padding:5px 12px;border-radius:20px;white-space:nowrap}
+.act-mini + .tl-mini, .act-mini ~ .user{margin-left:8px}
+.act-mini.hecho{display:none}
+.act-mini.hecho ~ .user{margin-left:auto}
+.act-mini.hecho ~ .tl-mini[style*="flex"]{margin-left:auto}
+.act-mini.hecho ~ .tl-mini[style*="flex"] + .user{margin-left:8px}
+@media (max-width:520px){.act-mini span{display:none}}
+.tl-mini{display:none;align-items:center;gap:8px;font-size:13px;background:rgba(255,255,255,.14);padding:5px 10px;border-radius:20px;margin-left:auto}
+.tl-mini .punto{width:8px;height:8px;border-radius:50%;background:var(--oro);animation:late 1s infinite}
+.tl-mini[style*="flex"] + .user{margin-left:8px}
+@keyframes late{50%{opacity:.3}}
+/* Asistente en todas las pantallas */
+.asis-btn{position:fixed;right:20px;bottom:20px;z-index:40;display:flex;align-items:center;gap:8px;background:var(--teja);color:#fff;border-radius:30px;padding:12px 18px;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.2);cursor:pointer;border:0;font:inherit}
+.asis{position:fixed;right:20px;bottom:84px;z-index:40;width:370px;max-width:calc(100vw - 32px);max-height:min(560px,calc(100vh - 120px));display:none;flex-direction:column;background:var(--papel);border:1px solid var(--linea);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);overflow:hidden}
+.asis.abierto{display:flex}
+.asis-cab{background:var(--verde);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.asis-cab .cara{width:30px;height:30px;border-radius:50%;background:var(--oro);display:grid;place-items:center;color:var(--verde);font-weight:800}
+.asis-cab .x{margin-left:auto;cursor:pointer;opacity:.8;font-size:18px}
+.asis-cuerpo{padding:12px 14px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.burbuja{max-width:88%;padding:8px 12px;border-radius:14px;line-height:1.4}
+.burbuja.ia{background:var(--suave);border-bottom-left-radius:4px;align-self:flex-start}
+.burbuja.yo{background:var(--verde);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.sugeridas{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.sugeridas span{font-size:12px;border:1px solid #bcd9c8;color:var(--verde);background:#f3f9f5;border-radius:16px;padding:4px 10px;cursor:pointer}
+.asis-pie{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--linea)}
+.asis-pie input{flex:1}
+@media (max-width:520px){.asis-btn{right:12px;bottom:12px;padding:12px 14px}.asis-btn .txt{display:none}.asis{right:8px;left:8px;bottom:74px;width:auto;max-width:none}}
+/* Recepción (móvil) */
+.movil{max-width:360px;margin:0 auto;border:10px solid #222;border-radius:34px;background:var(--crema);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.movil .barra{background:var(--verde);color:#fff;padding:12px 14px;font-weight:700;display:flex;justify-content:space-between}
+.movil .cuerpo{padding:14px}
+.foto{height:150px;border-radius:12px;background:linear-gradient(135deg,#dfe8e3,#c7d6ce);display:grid;place-items:center;position:relative;overflow:hidden}
+.etiqueta{background:#fff;border:1px dashed #9aa;border-radius:6px;padding:8px 10px;font-family:Consolas,monospace;font-size:12px;transform:rotate(-3deg);box-shadow:0 2px 6px rgba(0,0,0,.1)}
+.leido{background:#fff;border:1px solid var(--linea);border-radius:12px;padding:12px;margin-top:12px}
+.leido .l{display:flex;justify-content:space-between;font-size:14px;padding:3px 0}
+/* Platos: matriz */
+.matriz{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.matriz div{border-radius:12px;padding:12px;font-size:13px}
+.barra-h{height:10px;border-radius:6px;background:var(--suave);overflow:hidden}
+.barra-h i{display:block;height:100%;background:var(--verde2)}
+/* Personal */
+.cuad td,.cuad th{text-align:center;padding:6px 4px}
+.t{display:inline-block;min-width:44px;padding:3px 4px;border-radius:6px;font-size:12px;font-weight:600}
+.t-m{background:#e8eefb;color:#2c4f9e}.t-n{background:#f3e9fa;color:#7a3fa0}.t-p{background:#e7f2ec;color:var(--ok)}.t-l{background:#f0efed;color:#999}
+/* Ajustes */
+.zona-roja{border:2px solid #f0c4bd;background:#fffafa}
+.pie{color:var(--gris);font-size:13px;text-align:center;margin-top:30px}
+svg text{font-family:inherit}
+/* Responsive */
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g-35{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:820px){
+  .layout{display:block}
+  nav.menu{position:sticky;top:50px;z-index:15;width:auto;height:auto;display:flex;gap:4px;overflow-x:auto;padding:8px 10px;border-right:0;border-bottom:1px solid var(--linea);white-space:nowrap}
+  nav.menu a{padding:7px 10px;font-size:14px}
+  nav.menu .sep,nav.menu .nota{display:none}
+  main{padding:16px 16px 60px}
+  .g2,.g3,.docs{grid-template-columns:minmax(0,1fr)!important}
+  .top .rest{display:none}
+  section.pant{scroll-margin-top:110px}
+}
+@media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.kpi .v{font-size:21px}.pant-cab h2{font-size:21px}.perfiles{margin-left:0}.ocultar-movil{display:none}td{overflow-wrap:anywhere}.card{overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo"><span class="dot">R</span>ReHub</div>
+  <div class="rest">Restaurante La Plaza · oficina</div>
+  <a class="act-mini" href="#ajustes" title="Hay una versión nueva: pulsa para actualizar">🔄 <span>Actualizar</span></a>
+  <div class="tl-mini" id="tlMini"><span class="punto"></span><span id="tlMiniTxt">Demo en marcha</span></div>
+  <div class="user">👤 Dueño · Salir</div>
+</header>
+
+<div class="layout">
+<nav class="menu" aria-label="Pantallas">
+  <a href="#bandeja"><span class="n">1</span>Bandeja</a>
+  <a href="#documentos"><span class="n">2</span>Documentos</a>
+  <a href="#recepcion"><span class="n">3</span>Recepción</a>
+  <a href="#hoy"><span class="n">4</span>Hoy</a>
+  <a href="#cuadro"><span class="n">5</span>Cuadro del día</a>
+  <a href="#platos"><span class="n">6</span>Platos</a>
+  <a href="#precios" class="sub-menu"><span class="n">↳</span>Precios</a>
+  <a href="#personal"><span class="n">7</span>Personal</a>
+  <a href="#dueno"><span class="n">8</span>Dueño</a>
+  <a href="#ajustes"><span class="n">9</span>Ajustes</a>
+  <div class="sep"></div>
+  <div class="nota">Maqueta para aprobar. Los botones no funcionan y todos los datos son inventados.</div>
+</nav>
+
+<main>
+<div class="aviso-maqueta">✏️ <b>Maqueta</b>: así se verán las 9 pantallas. Los botones todavía no hacen nada y todos los nombres y cifras son <b>inventados</b> (Restaurante La Plaza). Las etiquetas de colores arriba a la derecha de cada pantalla dicen qué perfil podrá verla cuando se activen los usuarios de oficina y de trabajador.</div>
+
+<!-- 1 BANDEJA -->
+<section class="pant" id="bandeja">
+  <div class="pant-cab"><span class="num">1</span><h2>Bandeja</h2><span class="sub">Correos leídos, clasificados y con respuesta propuesta</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="fila" style="margin-bottom:12px">
+    <span class="chip">Todos 41</span><span class="chip c-fact">Facturas 12</span><span class="chip c-res">Reservas 5</span><span class="chip c-con">Consultas 3</span><span class="chip c-queja">Quejas 1</span><span class="chip c-nom">Nóminas 4</span><span class="chip c-gasto">Gastos 6</span><span class="chip c-pub">Publicidad 8</span>
+    <span style="margin-left:auto" class="fila"><span class="btn">⬆️ Subir PDF o foto</span><span class="btn">🔄 Revisar correo</span></span>
+  </div>
+  <div class="grid g-35">
+    <div class="card" style="padding:8px">
+      <div class="correo sel"><div class="av" style="background:#2d6a4f">MG</div><div class="q"><div class="r"><b><span class="nuevo"></span>Marta García</b><span class="mut peq">09:42</span></div><div class="as">Reserva para el sábado, 8 personas</div><div class="fila peq"><span class="chip c-res">Reserva</span><span class="mut">+cliente</span><span class="chip c-rev">Respuesta lista</span></div></div></div>
+      <div class="correo"><div class="av" style="background:#2c4f9e">PM</div><div class="q"><div class="r"><b><span class="nuevo"></span>Pescados Mar Nou</b><span class="mut peq">08:15</span></div><div class="as">Factura F-2026-0412 · 412,30 €</div><div class="fila peq"><span class="chip c-fact">Factura</span><span class="mut">+proveedor</span><span class="chip c-ok">Archivada</span></div></div></div>
+      <div class="correo"><div class="av" style="background:#c0392b">JR</div><div class="q"><div class="r"><b>Jordi Ribas</b><span class="mut peq">ayer</span></div><div class="as">Esperamos 50 minutos el segundo plato…</div><div class="fila peq"><span class="chip c-queja">Queja</span><span class="mut">+cliente</span><span class="chip c-rev">Respuesta lista</span></div></div></div>
+      <div class="correo"><div class="av" style="background:#9a6200">CV</div><div class="q"><div class="r"><b>Carnes Vallès</b><span class="mut peq">ayer</span></div><div class="as">Factura C-8841 · 688,15 €</div><div class="fila peq"><span class="chip c-fact">Factura</span><span class="mut">+proveedor</span><span class="chip c-dup">Posible duplicada</span></div></div></div>
+      <div class="correo"><div class="av" style="background:#7a3fa0">GA</div><div class="q"><div class="r"><b>Gestoría Albà</b><span class="mut peq">30 sep</span></div><div class="as">Nóminas de septiembre</div><div class="fila peq"><span class="chip c-nom">Nóminas</span><span class="mut">+gestoria</span><span class="chip c-ok">4 archivadas</span></div></div></div>
+      <div class="correo"><div class="av" style="background:#999">PR</div><div class="q"><div class="r"><b>ProMenu Ofertas</b><span class="mut peq">30 sep</span></div><div class="as">¡Digitaliza tu carta con un 40 % de descuento!</div><div class="fila peq"><span class="chip c-pub">Publicidad</span><span class="mut">sin respuesta</span></div></div></div>
+    </div>
+    <div class="card pila">
+      <div class="fila"><span class="chip c-res">Reserva</span><span class="mut peq">De: Marta García &lt;laplaza.rehub+cliente@gmail.com&gt;</span></div>
+      <div><b>Reserva para el sábado, 8 personas</b></div>
+      <div class="peq" style="background:var(--suave);border-radius:10px;padding:10px">Hola, queríamos reservar mesa para 8 personas este sábado 17 de octubre a las 21:30. Somos un cumpleaños, ¿podría ser en la planta de arriba? Gracias, Marta.</div>
+      <div class="grid g3 peq">
+        <div><span class="mut">Fecha</span><br><b>sáb 17/10/2026</b></div><div><span class="mut">Hora</span><br><b>21:30</b></div><div><span class="mut">Personas</span><br><b>8</b></div>
+      </div>
+      <div><b class="peq">Respuesta propuesta</b> <span class="mut peq">(redactada por la IA; no se envía hasta que pulses Enviar)</span></div>
+      <textarea class="campo">Hola, Marta:
+
+Gracias por escribirnos. Te confirmamos la reserva para 8 personas el sábado 17 de octubre a las 21:30 en la planta de arriba, ideal para celebrar el cumpleaños.
+
+Si queréis tarta o algún detalle especial, dínoslo y lo preparamos.
+
+Un saludo,
+Restaurante La Plaza</textarea>
+      <div class="fila"><span class="btn pri">✉️ Enviar</span><span class="btn">✏️ Cambiar tono</span><span class="btn">Descartar</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 DOCUMENTOS -->
+<section class="pant" id="documentos">
+  <div class="pant-cab"><span class="num">2</span><h2>Documentos</h2><span class="sub">PDF archivados por año, mes y tipo, con sus datos sacados</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="grid docs" style="grid-template-columns:minmax(0,270px) minmax(0,1fr)">
+    <div class="card cal pila">
+      <h3 style="margin:0">📅 Fechas</h3>
+      <div class="seg" id="calModo"><span data-m="todo">Todo</span><span data-m="anio">Año</span><span data-m="mes" class="on">Mes</span><span data-m="dia">Día</span></div>
+      <div class="fila" style="justify-content:space-between"><span class="btn flecha">‹</span><b id="calTitulo">Octubre 2026</b><span class="btn flecha">›</span></div>
+      <div class="meses" id="calMeses"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span class="hay">Ago</span><span class="hay">Sep</span><span class="hay on">Oct</span><span>Nov</span><span>Dic</span></div>
+      <div class="dias" id="calDias"></div>
+      <div class="peq mut" id="calInfo">Mostrando <b>octubre 2026</b>: 44 documentos.</div>
+      <div class="fila peq" id="calTipos"></div>
+      <div class="peq mut">Un punto verde = ese día hay documentos. Pulsa un día, un mes, el año o "Todo".</div>
+    </div>
+    <div class="card pila">
+      <div class="fila"><input class="campo" style="flex:1;min-width:180px" value="" placeholder="🔍 Buscar por proveedor, número, importe o producto…"><span class="chip c-rev">2 por revisar</span><span class="chip c-dup">1 duplicada</span></div>
+      <div class="pestanas" id="docTipo"><span data-t="fact" class="on">📄 Facturas</span><span data-t="gasto">🧾 Gastos</span><span data-t="nom">👥 Nóminas</span><span data-t="cierre">📊 Cierres</span><span data-t="otros">📎 Otros</span></div>
+      <div class="fila peq" id="docOrdenFila"><span class="mut">Ordenar por:</span><div class="seg seg-c" id="docOrden"><span data-o="grupo" class="on" id="docOrdenGrupo">Proveedor</span><span data-o="fecha">Fecha</span><span data-o="importe">Importe</span></div><span class="mut" id="docResumen"></span></div>
+      <div class="tabla" id="docLista"></div>
+      <div class="peq pila" id="docLineas" style="background:var(--suave);border-radius:10px;padding:10px">
+        <div class="fila" style="justify-content:space-between"><b id="cmpTitulo">Líneas</b><span class="btn pri" id="cmpBtn">🔎 Comparar con Mercabarna</span></div>
+        <div class="tabla"><table id="cmpTabla" style="background:#fff;border-radius:8px"></table></div>
+        <div class="mut" id="cmpNota">Las líneas alimentan el coste de los platos y el stock.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 RECEPCIÓN -->
+<section class="pant" id="recepcion">
+  <div class="pant-cab"><span class="num">3</span><h2>Recepción</h2><span class="sub">Foto a la etiqueta al llegar el pedido; lo que entra y hasta cuándo vale</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf si">Trabajador (sin precios)</span></div></div>
+  <div class="grid g2">
+    <div class="movil">
+      <div class="barra"><span>📷 Recepción</span><span>La Plaza</span></div>
+      <div class="cuerpo">
+        <div class="btn teja grande" style="width:100%;justify-content:center">📸 Hacer foto a la etiqueta</div>
+        <div class="foto" style="margin-top:12px"><div class="etiqueta">LUBINA FRESCA<br>Lote: L2610-07<br>Peso neto: 4,20 kg<br>Cad.: 13/10/2026<br>Pescados Mar Nou</div></div>
+        <div class="leido">
+          <div class="l"><span class="mut">Producto</span><b>Lubina fresca</b></div>
+          <div class="l"><span class="mut">Proveedor</span><b>Pescados Mar Nou</b></div>
+          <div class="l"><span class="mut">Caduca</span><b style="color:var(--teja)">mar 13/10/2026</b></div>
+          <div class="l"><span class="mut">Lote · peso</span><b>L2610-07 · 4,20 kg</b></div>
+          <div class="l"><span class="mut">Factura</span><b>F-2026-0412, línea 1 ✔</b></div>
+          <div class="l"><span class="mut">Coste</span><b>62,58 €</b></div>
+        </div>
+        <div class="fila" style="margin-top:12px"><span class="btn pri" style="flex:1;justify-content:center">✔ Correcto</span><span class="btn">📅 Corregir fecha</span><span class="btn">🔁 Repetir</span></div>
+      </div>
+    </div>
+    <div class="pila">
+      <div class="card"><h3>⏰ Caduca hoy y mañana</h3>
+        <table>
+          <tr><th>Producto</th><th>Queda</th><th>Caduca</th><th></th></tr>
+          <tr><td>Calamar</td><td>1,8 kg</td><td><b style="color:var(--mal)">hoy</b></td><td><span class="chip c-ok">foto</span></td></tr>
+          <tr><td>Mejillón</td><td>2,5 kg</td><td><b style="color:var(--mal)">hoy</b></td><td><span class="chip c-est">estimada</span></td></tr>
+          <tr><td>Solomillo de cerdo</td><td>3,1 kg</td><td><b style="color:var(--aviso)">mañana</b></td><td><span class="chip c-ok">foto</span></td></tr>
+          <tr><td>Rúcula</td><td>0,8 kg</td><td><b style="color:var(--aviso)">mañana</b></td><td><span class="chip c-est">estimada</span></td></tr>
+        </table>
+        <div class="peq mut" style="margin-top:8px">"Estimada": sin foto, se calcula desde la fecha de compra (pescado 2 días, carne 3-5, verdura 5-7, seco y congelado meses).</div>
+      </div>
+      <div class="grid g2">
+        <div class="card kpi"><div class="l">Mermas de octubre</div><div class="v" style="color:var(--mal)">186 €</div><div class="d mut">Caducado o desaparecido sin venderse</div></div>
+        <div class="card kpi"><div class="l">Productos en cámara</div><div class="v">34</div><div class="d mut">Stock teórico: comprado menos lo vendido según recetas</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 HOY -->
+<section class="pant" id="hoy">
+  <div class="pant-cab"><span class="num">4</span><h2>Hoy</h2><span class="sub">Domingo 11 de octubre: qué empujar y cuánto se espera vender</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf si">Trabajador (sin precios)</span></div></div>
+  <div class="grid g-35">
+    <div class="card pila"><h3>🍽️ Platos a empujar hoy</h3>
+      <div class="alerta v"><b>1. Calamares a la andaluza</b><div>El calamar caduca hoy y deja un 74 % de margen.<br><i>"Hoy los calamares están recién llegados y salen buenísimos, ¿os pongo una ración para compartir?"</i></div></div>
+      <div class="alerta v"><b>2. Arroz negro</b><div>Usa calamar y es de los que más gana (vaca).<br><i>"El arroz negro es el de la casa, para dos sale perfecto."</i></div></div>
+      <div class="alerta v"><b>3. Mejillones a la marinera</b><div>El mejillón caduca hoy; margen del 71 %.<br><i>"Para picar mientras esperáis, los mejillones vuelan."</i></div></div>
+      <div class="peq mut">Elegidos por margen, por lo que caduca y por la previsión del día.</div>
+    </div>
+    <div class="pila">
+      <div class="card kpi"><div class="l">Previsión de ventas de hoy</div><div class="v">2.640 €</div><div class="d">≈ 118 cubiertos · <span style="color:var(--ok)">+18 % sobre un domingo normal</span></div>
+        <div class="peq mut" style="margin-top:6px">Por: histórico de domingos, Fira de la Tardor en la plaza y buen tiempo.</div>
+        <svg viewBox="0 0 300 70" width="100%" height="70" aria-label="Ventas por franja previstas">
+          <g fill="#2d6a4f"><rect x="10" y="40" width="28" height="25" rx="3"/><rect x="48" y="12" width="28" height="53" rx="3"/><rect x="86" y="20" width="28" height="45" rx="3"/><rect x="124" y="50" width="28" height="15" rx="3"/><rect x="162" y="45" width="28" height="20" rx="3"/><rect x="200" y="18" width="28" height="47" rx="3"/><rect x="238" y="30" width="28" height="35" rx="3"/></g>
+        </svg>
+        <div class="fila peq mut" style="justify-content:space-between"><span>12h</span><span>14h</span><span>16h</span><span>18h</span><span>20h</span><span>22h</span></div>
+      </div>
+      <div class="card"><h3>📅 Esta semana cerca</h3>
+        <table class="peq">
+          <tr><td><b>dom 11</b></td><td>Fira de la Tardor (plaza)</td><td><span class="chip c-ok">más gente</span></td></tr>
+          <tr><td><b>mar 13</b></td><td>Concierto en el Palau, 21:00</td><td><span class="chip c-ok">cenas antes</span></td></tr>
+          <tr><td><b>sáb 17</b></td><td>Partido de fútbol, 18:30</td><td><span class="chip c-rev">tarde floja</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 CUADRO DEL DÍA -->
+<section class="pant" id="cuadro">
+  <div class="pant-cab"><span class="num">5</span><h2>Cuadro del día</h2><span class="sub">Cierre de caja de ayer, sábado 10 de octubre</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="grid g4">
+    <div class="card kpi"><div class="l">Ventas</div><div class="v">3.184 €</div><div class="d mut">142 cubiertos</div></div>
+    <div class="card kpi"><div class="l">Tarjeta</div><div class="v">2.395 €</div><div class="d mut">75 %</div></div>
+    <div class="card kpi"><div class="l">Efectivo</div><div class="v">789 €</div><div class="d mut">25 %</div></div>
+    <div class="card kpi"><div class="l">Gastos del día</div><div class="v">64 €</div><div class="d mut">2 tickets (hielo, mercado)</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card pila"><h3>💶 Caja</h3>
+      <div class="fila" style="justify-content:space-between"><span>Fondo inicial</span><b>150,00 €</b></div>
+      <div class="fila" style="justify-content:space-between"><span>+ Efectivo de ventas</span><b>789,00 €</b></div>
+      <div class="fila" style="justify-content:space-between"><span>− Gastos pagados en efectivo</span><b>64,00 €</b></div>
+      <div class="fila" style="justify-content:space-between;border-top:1px solid var(--linea);padding-top:8px"><span><b>Caja esperada</b></span><b>875,00 €</b></div>
+      <label class="peq">Efectivo contado</label><input class="campo" value="855,00 €">
+      <div class="alerta r"><b>⚠ Descuadre</b><div>Faltan <b>20,00 €</b>. Revisa propinas, cambios o un ticket sin apuntar.</div></div>
+    </div>
+    <div class="card pila"><h3>🔔 Avisos</h3>
+      <div class="alerta r"><b>Factura duplicada</b><div>Carnes Vallès C-8841 llegó dos veces (05/10 y 09/10). No la pagues dos veces.</div></div>
+      <div class="alerta a"><b>Subida de precio</b><div>Lubina: de 12,80 a 14,90 €/kg (+16 %) en Pescados Mar Nou desde el 1 de octubre.</div></div>
+      <div class="alerta a"><b>Subida de precio</b><div>Entrecot: de 21,50 a 24,20 €/kg (+13 %) en Carnes Vallès desde el 15 de septiembre.</div></div>
+      <h3 style="margin-top:6px">Resumen por mes</h3>
+      <table class="peq"><tr><th>Mes</th><th class="num">Ventas</th><th class="num">Gastos</th><th class="num">Descuadres</th></tr>
+        <tr><td>Agosto</td><td class="num">71.420 €</td><td class="num">1.310 €</td><td class="num">−35 €</td></tr>
+        <tr><td>Septiembre</td><td class="num">62.880 €</td><td class="num">1.145 €</td><td class="num">0 €</td></tr>
+        <tr><td>Octubre (hasta día 10)</td><td class="num">21.960 €</td><td class="num">402 €</td><td class="num">−20 €</td></tr></table>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PLATOS -->
+<section class="pant" id="platos">
+  <div class="pant-cab"><span class="num">6</span><h2>Platos</h2><span class="sub">Lo que cuesta, lo que deja y lo que se vende cada plato</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="alerta a" style="margin-bottom:12px"><b>⚠ Coste en subida</b><div>La <b>lubina a la sal</b> cuesta ahora 7,45 € en vez de 6,40 € (+16 %) por la última factura de Pescados Mar Nou. Margen: de 70 % a 65 %.</div></div>
+  <div class="grid g-35">
+    <div class="card tabla"><table>
+      <tr><th>Plato</th><th class="num">Precio</th><th class="num">Coste</th><th class="num">Margen</th><th class="num">Vendidos</th><th>Tipo</th></tr>
+      <tr><td>Arroz negro</td><td class="num">16,50</td><td class="num">3,90</td><td class="num">12,60 · 76 %</td><td class="num">412</td><td><span class="chip estrella">⭐ Estrella</span></td></tr>
+      <tr><td>Calamares a la andaluza</td><td class="num">13,00</td><td class="num">3,40</td><td class="num">9,60 · 74 %</td><td class="num">520</td><td><span class="chip estrella">⭐ Estrella</span></td></tr>
+      <tr><td>Patatas bravas</td><td class="num">6,50</td><td class="num">1,10</td><td class="num">5,40 · 83 %</td><td class="num">890</td><td><span class="chip estrella">⭐ Estrella</span></td></tr>
+      <tr><td>Entrecot a la brasa</td><td class="num">22,00</td><td class="num">9,80</td><td class="num">12,20 · 55 %</td><td class="num">365</td><td><span class="chip vaca">🐄 Vaca</span></td></tr>
+      <tr><td>Lubina a la sal</td><td class="num">21,00</td><td class="num">7,45</td><td class="num">13,55 · 65 %</td><td class="num">96</td><td><span class="chip puzle">🧩 Puzle</span></td></tr>
+      <tr><td>Canelones de la abuela</td><td class="num">12,00</td><td class="num">2,60</td><td class="num">9,40 · 78 %</td><td class="num">88</td><td><span class="chip puzle">🧩 Puzle</span></td></tr>
+      <tr><td>Ensalada de cabra</td><td class="num">11,50</td><td class="num">4,30</td><td class="num">7,20 · 63 %</td><td class="num">54</td><td><span class="chip perro">🐕 Perro</span></td></tr>
+      <tr><td colspan="6" class="mut peq">… y 18 platos más (25 en total)</td></tr>
+    </table></div>
+    <div class="pila">
+      <div class="card"><h3>Qué hacer con cada tipo</h3>
+        <div class="matriz">
+          <div class="estrella"><b>⭐ Estrella</b><br>Se vende mucho y deja mucho. Que no falte y que se vea.</div>
+          <div class="puzle"><b>🧩 Puzle</b><br>Deja mucho pero se vende poco. Recomendarlo y mejorar foto o nombre.</div>
+          <div class="vaca"><b>🐄 Vaca</b><br>Se vende mucho pero deja poco. Ajustar ración o subir precio un poco.</div>
+          <div class="perro"><b>🐕 Perro</b><br>Ni se vende ni deja. Cambiarlo o quitarlo de la carta.</div>
+        </div>
+      </div>
+      <div class="card pila"><h3>✏️ Receta: Arroz negro (1 ración)</h3>
+        <table class="peq">
+          <tr><th>Ingrediente</th><th class="num">Cantidad</th><th class="num">€</th></tr>
+          <tr><td>Arroz bomba</td><td class="num">0,100 kg</td><td class="num">0,38</td></tr>
+          <tr><td>Calamar</td><td class="num">0,150 kg</td><td class="num">1,73</td></tr>
+          <tr><td>Tinta de calamar</td><td class="num">0,008 kg</td><td class="num">0,52</td></tr>
+          <tr><td>Fumet, sofrito y aceite</td><td class="num">—</td><td class="num">1,27</td></tr>
+        </table>
+        <div class="fila"><label class="peq">Precio de venta</label><input class="campo" style="width:110px" value="16,50 €"><span class="btn pri">Guardar</span><span class="mut peq">El margen cambia al momento.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="card pila" id="precios" style="margin-top:14px;scroll-margin-top:66px">
+    <div class="fila" style="justify-content:space-between"><h3 style="margin:0">🔎 Precios: tus proveedores frente a Mercabarna</h3>
+      <div class="fila peq"><span class="mut">Margen razonable del proveedor:</span><input class="campo" id="pMargen" type="number" value="60" min="0" max="300" style="width:80px"><span class="mut">%</span></div></div>
+    <div class="peq mut">Mercabarna es el mercado central de Barcelona y publica cada día lo que cuesta la fruta, la verdura y el pescado al por mayor. Tu proveedor compra ahí o parecido y le suma su margen, la limpieza y el transporte, así que <b>lo normal es pagar algo más</b>. Aquí se ve cuánto más, y dónde merece la pena buscar otro proveedor o negociar.</div>
+    <div class="grid g3" id="pResumen"></div>
+    <div class="tabla"><table id="pTabla"></table></div>
+    <div class="fila"><span class="btn pri">✉️ Pedir precio a otro proveedor</span><a class="btn" href="https://www.mercabarna.es/cercador-empreses/es_index/" target="_blank" rel="noopener">🏪 Buscar mayoristas en Mercabarna</a><span class="btn">🔄 Actualizar precios de Mercabarna</span></div>
+    <div class="peq mut">Precios de Mercabarna: <b>datos reales</b>, media de septiembre de 2026 sacada de su web. Lo que te cobra cada proveedor y los kilos al mes son <b>ejemplos inventados</b>. Carne, bebida y pan no están en Mercabarna: esos se comparan solo entre tus proveedores.</div>
+  </div>
+</section>
+
+<!-- 7 PERSONAL -->
+<section class="pant" id="personal">
+  <div class="pant-cab"><span class="num">7</span><h2>Personal</h2><span class="sub">Turnos y coste de personal frente a lo que se vende en cada franja</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina (sin salarios)</span><span class="pf si">Trabajador (solo su turno)</span></div></div>
+  <div class="grid g-35">
+    <div class="card tabla pila"><h3>Horarios · semana del 12 al 18 de octubre</h3>
+      <table class="cuad">
+        <tr><th style="text-align:left">Persona</th><th>Lun 12</th><th>Mar 13</th><th>Mié 14</th><th>Jue 15</th><th>Vie 16</th><th>Sáb 17</th><th>Dom 18</th><th>Horas</th></tr>
+        <tr><td style="text-align:left">Laura (sala)</td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-l">libre</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><b>40 h</b></td></tr>
+        <tr><td style="text-align:left">Óscar (sala)</td><td><span class="t t-n">16:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><span class="t t-n">16:00–24:00</span></td><td><span class="t t-n">16:00–24:00</span></td><td><span class="t t-n">16:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><b>40 h</b></td></tr>
+        <tr><td style="text-align:left">Rosa (cocina)</td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><b>40 h</b></td></tr>
+        <tr><td style="text-align:left">Iván (cocina)</td><td><span class="t t-l">libre</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-n">16:00–24:00</span></td><td><span class="t t-l">libre</span></td><td><span class="t t-m">10:00–18:00</span></td><td><b>40 h</b></td></tr>
+      </table>
+      <div class="peq mut"><span class="t t-m">Mañana</span> 10-18 h · <span class="t t-n">Tarde-noche</span> 16-24 h · <span class="t t-p">Partido</span> 12:30-16:30 y 20-24 h. Pulsa una casilla para cambiar la hora. Avisa si alguien pasa de 9 h en un día o de 40 h en la semana.</div>
+      <h3 style="margin-top:6px">Viernes 16: quién está a cada hora</h3>
+      <svg viewBox="0 0 640 190" width="100%" aria-label="Horario del viernes por horas">
+        <g font-size="11" fill="#6b6b66">
+          <text x="82" y="14">10 h</text><text x="160" y="14">12 h</text><text x="238" y="14">14 h</text><text x="316" y="14">16 h</text><text x="394" y="14">18 h</text><text x="472" y="14">20 h</text><text x="550" y="14">22 h</text><text x="612" y="14">24 h</text>
+          <g stroke="#eee9df"><line x1="90" y1="20" x2="90" y2="150"/><line x1="168" y1="20" x2="168" y2="150"/><line x1="246" y1="20" x2="246" y2="150"/><line x1="324" y1="20" x2="324" y2="150"/><line x1="402" y1="20" x2="402" y2="150"/><line x1="480" y1="20" x2="480" y2="150"/><line x1="558" y1="20" x2="558" y2="150"/><line x1="636" y1="20" x2="636" y2="150"/></g>
+        </g>
+        <g font-size="12" fill="#1d1d1b"><text x="4" y="39">Laura</text><text x="4" y="65">Óscar</text><text x="4" y="91">Rosa</text><text x="4" y="117">Iván</text><text x="4" y="143">Ventas</text></g>
+        <g fill="#2d6a4f"><rect x="187.5" y="26" width="156" height="18" rx="5"/><rect x="480" y="26" width="156" height="18" rx="5"/><rect x="187.5" y="78" width="156" height="18" rx="5"/><rect x="480" y="78" width="156" height="18" rx="5"/></g>
+        <g fill="#2c4f9e"><rect x="324" y="52" width="312" height="18" rx="5"/><rect x="324" y="104" width="312" height="18" rx="5"/></g>
+        <g fill="#c8553d">
+          <rect x="91" y="130" width="37" height="18" rx="3" fill-opacity="0.08"/><rect x="130" y="130" width="37" height="18" rx="3" fill-opacity="0.3"/><rect x="169" y="130" width="37" height="18" rx="3" fill-opacity="0.95"/><rect x="208" y="130" width="37" height="18" rx="3" fill-opacity="0.95"/><rect x="247" y="130" width="37" height="18" rx="3" fill-opacity="0.3"/><rect x="286" y="130" width="37" height="18" rx="3" fill-opacity="0.08"/><rect x="325" y="130" width="37" height="18" rx="3" fill-opacity="0.08"/>
+          <rect x="364" y="130" width="37" height="18" rx="3" fill-opacity="0.08"/><rect x="403" y="130" width="37" height="18" rx="3" fill-opacity="0.3"/><rect x="442" y="130" width="37" height="18" rx="3" fill-opacity="0.6"/><rect x="481" y="130" width="37" height="18" rx="3" fill-opacity="0.95"/><rect x="520" y="130" width="37" height="18" rx="3" fill-opacity="0.95"/><rect x="559" y="130" width="37" height="18" rx="3" fill-opacity="0.6"/><rect x="598" y="130" width="37" height="18" rx="3" fill-opacity="0.3"/>
+        </g>
+        <text x="90" y="178" font-size="11" fill="#6b6b66">Cuanto más oscuro, más se vende. De 16 a 19 h hay 2 personas para muy poca venta; de 21 a 23 h, mucha venta con 2 en sala.</text>
+      </svg>
+    </div>
+    <div class="card pila"><h3>Coste de personal frente a ventas, por franja</h3>
+      <svg viewBox="0 0 330 150" width="100%" aria-label="Coste de personal y ventas por franja">
+        <g font-size="10" fill="#6b6b66"><text x="8" y="146">12-14</text><text x="62" y="146">14-16</text><text x="116" y="146">16-19</text><text x="170" y="146">19-21</text><text x="224" y="146">21-23</text><text x="278" y="146">23-24</text></g>
+        <g fill="#2d6a4f"><rect x="10" y="60" width="18" height="74" rx="2"/><rect x="64" y="30" width="18" height="104" rx="2"/><rect x="118" y="118" width="18" height="16" rx="2"/><rect x="172" y="80" width="18" height="54" rx="2"/><rect x="226" y="20" width="18" height="114" rx="2"/><rect x="280" y="104" width="18" height="30" rx="2"/></g>
+        <g fill="#c8553d"><rect x="30" y="100" width="18" height="34" rx="2"/><rect x="84" y="100" width="18" height="34" rx="2"/><rect x="138" y="96" width="18" height="38" rx="2"/><rect x="192" y="104" width="18" height="30" rx="2"/><rect x="246" y="108" width="18" height="26" rx="2"/><rect x="300" y="110" width="18" height="24" rx="2"/></g>
+      </svg>
+      <div class="fila peq"><span><span class="sem" style="background:#2d6a4f;border-radius:3px"></span>Ventas</span><span><span class="sem" style="background:#c8553d;border-radius:3px"></span>Coste de personal</span></div>
+      <div class="alerta a"><b>Sobran manos</b><div>De 16 a 19 h hay 2 personas y apenas se vende: el personal cuesta más de lo que entra.</div></div>
+      <div class="alerta r"><b>Faltan manos</b><div>Viernes y sábado de 21 a 23h: mucha venta con 2 en sala. Ahí vienen las esperas.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 DUEÑO -->
+<section class="pant" id="dueno">
+  <div class="pant-cab"><span class="num">8</span><h2>Dueño</h2><span class="sub">Cómo va el negocio · septiembre de 2026</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="grid g4">
+    <div class="card kpi"><div class="l">Ventas del mes</div><div class="v">62.880 €</div><div class="d" style="color:var(--mal)">−12 % frente a agosto</div></div>
+    <div class="card kpi"><div class="l"><span class="sem s-a"></span>Coste de comida</div><div class="v">36,2 %</div><div class="d mut">Lo normal: 28-35 %</div></div>
+    <div class="card kpi"><div class="l"><span class="sem s-r"></span>Coste de personal</div><div class="v">39,8 %</div><div class="d mut">Lo normal: 30-35 %</div></div>
+    <div class="card kpi"><div class="l"><span class="sem s-v"></span>Beneficio real</div><div class="v">3.215 €</div><div class="d mut">5,1 % de las ventas</div></div>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h3>Gastos del mes</h3>
+      <table class="peq">
+        <tr><td>Comida y bebida</td><td class="num">22.762 €</td></tr>
+        <tr><td>Personal</td><td class="num">25.026 €</td></tr>
+        <tr><td>Alquiler</td><td class="num">2.420 €</td></tr>
+        <tr><td>Luz y gas</td><td class="num">1.648 €</td></tr>
+        <tr><td>Seguros, cuotas y otros</td><td class="num">7.809 €</td></tr>
+        <tr><td><b>Total</b></td><td class="num"><b>59.665 €</b></td></tr>
+      </table>
+    </div>
+    <div class="card"><h3>⚡ Luz y gas por cubierto</h3>
+      <table class="peq">
+        <tr><th>Mes</th><th class="num">Luz</th><th class="num">Gas</th><th class="num">€/cubierto</th></tr>
+        <tr><td>Agosto</td><td class="num">4.950 kWh</td><td class="num">2.100 kWh</td><td class="num">0,52</td></tr>
+        <tr><td>Septiembre</td><td class="num">4.420 kWh</td><td class="num">1.980 kWh</td><td class="num">0,58</td></tr>
+        <tr><td>Octubre*</td><td class="num">—</td><td class="num">—</td><td class="num">0,63</td></tr>
+      </table>
+      <div class="alerta a" style="margin-top:8px"><b>Sube</b><div>El coste por cubierto ha subido un 21 % desde agosto.</div></div>
+    </div>
+    <div class="card kpi"><h3>⚖️ Punto de equilibrio</h3>
+      <div class="v">1.985 €/día</div><div class="d mut">Lo que hay que vender cada día para cubrir todos los gastos.</div>
+      <div class="barra-h" style="margin-top:12px"><i style="width:100%"></i></div>
+      <div class="d">Media de septiembre: <b>2.096 €/día</b> <span style="color:var(--ok)">(+5,6 % por encima)</span></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>💰 Caja en los próximos 30 días</h3>
+    <div class="peq mut" style="margin:-4px 0 8px">La línea verde es <b>el dinero que habrá en el banco cada día</b>. Sube un poco cada día con lo que se vende y baja de golpe los días de pagos grandes. La raya roja es el mínimo que conviene tener siempre (3.000 €).</div>
+    <div id="cajaGraf"></div>
+    <div class="grid g4 peq" style="margin:8px 0">
+      <div><span class="mut">Hoy, 11 oct</span><br><b>2.300 €</b></div>
+      <div><span class="mut">Entra cada día (neto)</span><br><b>≈ +1.000 €</b></div>
+      <div><span class="mut">Punto más bajo</span><br><b style="color:var(--mal)">1.615 € el 20 oct</b></div>
+      <div><span class="mut">Dentro de 30 días</span><br><b>13.938 €</b></div>
+    </div>
+    <div class="alerta r"><b>⚠ Va a faltar dinero</b><div>El 20 de octubre coinciden el IVA del trimestre (unos 8.950 €, <b>aproximado</b>: lo he calculado con tus ventas y tus facturas y lo cambiaré por la cifra exacta cuando llegue el correo de la gestoría) y la luz (734,90 €): la caja baja a <b>1.615 €</b>, por debajo del mínimo. Conviene pedir a Hacienda pagar el IVA a plazos, retrasar unos días el pago a un proveedor o guardar dinero desde hoy.</div></div>
+  </div>
+</section>
+
+<!-- 9 AJUSTES -->
+<section class="pant" id="ajustes">
+  <div class="pant-cab"><span class="num">9</span><h2>Ajustes</h2><span class="sub">Demo, usuarios y conexiones</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="grid g2">
+    <div class="card pila"><h3>🎬 Demo</h3>
+      <div class="reproductor pila" id="tl">
+        <div class="fila"><span class="btn pri grande tl-play" id="tlPlay">▶ Cargar demo</span>
+          <div class="seg seg-c" id="tlVel" style="min-width:0"><span data-v="1000" class="on">1 día = 1 s</span><span data-v="500">2 días/s</span><span data-v="200">5 días/s</span></div>
+          <span class="btn" id="tlFin">⏭ Ir al final</span></div>
+        <div class="peq mut">Los 71 días de La Plaza (1 de agosto a 10 de octubre) van entrando uno a uno, como si cada día fuera un segundo: correos, facturas, tickets, nóminas y cierres de caja. Todas las pantallas se actualizan mientras avanza.</div>
+        <div class="tl-fecha"><b id="tlDia">Sin empezar</b><span class="mut peq" id="tlCuenta">día 0 de 71</span></div>
+        <div class="tl-barra"><i id="tlBarra"></i><span class="tl-marca" style="left:64.8%" title="15 sep: sube el entrecot"></span><span class="tl-marca" style="left:87.3%" title="1 oct: sube la lubina"></span><span class="tl-marca" style="left:98.6%" title="9 oct: factura duplicada"></span></div>
+        <div class="fila peq mut" style="justify-content:space-between"><span>1 ago</span><span>1 sep</span><span>1 oct</span><span>10 oct</span></div>
+        <div class="grid g4 tl-cont">
+          <div><span class="mut peq">Facturas</span><b id="tcF">0</b></div><div><span class="mut peq">Gastos</span><b id="tcG">0</b></div>
+          <div><span class="mut peq">Nóminas</span><b id="tcN">0</b></div><div><span class="mut peq">Ventas acumuladas</span><b id="tcV">0 €</b></div>
+        </div>
+        <div class="tl-ticker" id="tlTicker"><div class="mut peq">Aquí irán apareciendo los documentos según llegan.</div></div>
+      </div>
+      <div class="fila"><span class="btn grande">✉️ Enviar al correo</span><span class="peq mut">Manda 15 correos desde los alias para verlos llegar y clasificarse en directo.</span></div>
+      <div class="fila"><span class="btn grande">🧹 Reiniciar demo</span><span class="peq mut">Borra los datos y deja la app vacía.</span></div>
+      <div class="card zona-roja pila" style="box-shadow:none">
+        <b style="color:var(--mal)">💣 Autodestruir</b>
+        <div class="peq">Borra todos los datos y archivos, quita el permiso de Gmail y elimina lo que se pueda del alojamiento y de Google Cloud. Después te enseña los enlaces para borrar tú la cuenta de Gmail y las cuentas del alojamiento.</div>
+        <div class="fila"><input class="campo" style="flex:1;min-width:160px" placeholder="Escribe DESTRUIR para confirmar"><span class="btn peligro">Autodestruir</span></div>
+      </div>
+    </div>
+    <div class="pila">
+      <div class="card"><h3>👥 Usuarios y perfiles</h3>
+        <table class="peq">
+          <tr><th>Usuario</th><th>Perfil</th><th>Estado</th></tr>
+          <tr><td>Dueño</td><td>Todo</td><td><span class="chip c-ok">Activo</span></td></tr>
+          <tr><td>— (añadir)</td><td>Oficina</td><td><span class="chip c-est">Preparado, sin activar</span></td></tr>
+          <tr><td>— (añadir)</td><td>Trabajador</td><td><span class="chip c-est">Preparado, sin activar</span></td></tr>
+        </table>
+        <div class="peq mut" style="margin-top:8px"><b>Oficina</b>: Bandeja, Documentos, Cuadro del día, Platos y Personal sin salarios. <b>Trabajador</b>: Recepción, su turno y la lista del día, sin ningún precio.</div>
+        <div class="fila" style="margin-top:8px"><span class="btn">➕ Añadir usuario</span></div>
+      </div>
+      <div class="card pila"><h3>🔄 Actualizar</h3>
+        <div class="fila" style="justify-content:space-between"><span>Versión de la app</span><b>1.0 · 11/10/2026</b></div>
+        <div class="alerta v" id="actAviso"><b>Nueva versión 1.1</b><div>Facturas en dos grupos (comida y local) y horarios con horas. Tus datos no se tocan.</div></div>
+        <div class="fila"><span class="btn pri grande" id="actBtn">🔄 Actualizar ahora</span><span class="peq mut" id="actTxt">Recarga la app con la última versión, vuelve a leer el correo y recalcula todas las pantallas. No borra nada.</span></div>
+      </div>
+      <div class="card"><h3>🔌 Conexiones</h3>
+        <table class="peq">
+          <tr><td>Correo</td><td>laplaza.rehub@gmail.com</td><td><span class="chip c-ok">Conectado</span></td></tr>
+          <tr><td>Inteligencia artificial</td><td>Gemini</td><td><span class="chip c-ok">Funciona</span></td></tr>
+          <tr><td>Datos y archivos</td><td>Europa (Frankfurt)</td><td><span class="chip c-ok">412 MB libres</span></td></tr>
+          <tr><td>Contraseña</td><td>••••••••</td><td><span class="btn" style="padding:4px 10px">Cambiar</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pie">ReHub · maqueta v1 · datos inventados de Restaurante La Plaza</div>
+</main>
+</div>
+<button class="asis-btn" id="asisBtn" type="button">💬 <span class="txt">Asistente</span></button>
+<div class="asis" id="asis" role="dialog" aria-label="Asistente">
+  <div class="asis-cab"><span class="cara">R</span><div><b>Asistente</b><div class="peq" style="opacity:.85" id="asisDonde">Bandeja</div></div><span class="x" id="asisX">✕</span></div>
+  <div class="asis-cuerpo" id="asisCuerpo"></div>
+  <div class="sugeridas" id="asisSug"></div>
+  <div class="asis-pie"><input class="campo" placeholder="Pregúntame lo que quieras…"><span class="btn pri">Enviar</span></div>
+</div>
+<script>
+/* Enlace a Mercabarna: abre en una pestaña nueva la consulta oficial de ese producto (media del mes de referencia). */
+(function(){
+  var COD={"Lubina fresca":["2","2411921"],"Lubina de cultivo":["2","2411921"],"Calamar":["2","243101"],"Mejillón":["2","2452021"],
+           "Tomate maduro":["3","326GBZ"],"Cebolla seca":["3","322BAA"],"Patata":["3","320BBA"],"Pimiento rojo":["3","326EBB"],"Limón":["3","310AAA"]};
+  window.enlaceMercabarna=function(producto,texto){return COD[producto]?'<a href="#" class="merc" data-p="'+producto+'" title="Ver este precio en la web de Mercabarna">'+texto+' ↗</a>':texto};
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a.merc");if(!a)return;e.preventDefault();
+    var c=COD[a.dataset.p],f=document.createElement("form");
+    f.method="post";f.target="_blank";f.action="https://www.mercabarna.es/serveis/es_estadistiques-productes/"+(c[0]==="2"?"?sector=2":"")+"#resultats";
+    var v={sector:c[0],grup:"",producte:c[1],arees:"0",origen:"",periode:"3","data-inici":"01-09-2026","data-final":"30-09-2026",exportField:"",generar:"Generar estadísticas"};
+    Object.keys(v).forEach(function(k){var i=document.createElement("input");i.type="hidden";i.name=k;i.value=v[k];f.appendChild(i)});
+    document.body.appendChild(f);f.submit();f.remove();
+  });
+})();
+
+/* Solo para la maqueta: gráfico de caja a 30 días con los pagos señalados. Cifras de ejemplo. */
+(function(){
+  var HOY=2300,DIARIO=1000,MIN=3000;
+  var PAGOS={9:[["IVA trimestral",8950],["Luz",734.9]],10:[["Gas",418.3]],20:[["Nóminas",5652]],21:[["Alquiler",2420],["Seguro",186.4]]};
+  var MES=["oct","nov"],v=[HOY],s=HOY;
+  for(var d=1;d<=30;d++){s+=DIARIO;(PAGOS[d]||[]).forEach(function(p){s-=p[1]});v.push(s)}
+  function fecha(d){var f=new Date(2026,9,11+d);return f.getDate()+" "+MES[f.getMonth()-9]}
+  function eur0(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+  var X=function(d){return 60+d*18.8},Y=function(e){return 180-e/15000*155};
+  var h='<svg viewBox="0 0 640 215" width="100%" aria-label="Dinero en el banco los próximos 30 días">';
+  [0,5000,10000,15000].forEach(function(e){h+='<line x1="60" x2="630" y1="'+Y(e)+'" y2="'+Y(e)+'" stroke="#eee9df"/><text x="54" y="'+(Y(e)+4)+'" font-size="11" fill="#6b6b66" text-anchor="end">'+eur0(e)+' €</text>'});
+  h+='<rect x="60" y="'+Y(MIN)+'" width="570" height="'+(Y(0)-Y(MIN))+'" fill="#c0392b" fill-opacity="0.07"/>';
+  h+='<line x1="60" x2="630" y1="'+Y(MIN)+'" y2="'+Y(MIN)+'" stroke="#c0392b" stroke-dasharray="5 4"/><text x="626" y="'+(Y(MIN)-5)+'" font-size="11" fill="#c0392b" text-anchor="end">mínimo 3.000 €</text>';
+  h+='<polyline fill="none" stroke="#2d6a4f" stroke-width="3" stroke-linejoin="round" points="'+v.map(function(e,d){return X(d)+","+Y(e)}).join(" ")+'"/>';
+  [0,5,10,15,20,25,30].forEach(function(d){h+='<text x="'+X(d)+'" y="200" font-size="11" fill="#6b6b66" text-anchor="'+(d===30?"end":"middle")+'">'+(d===0?"hoy":fecha(d))+'</text>'});
+  // Pagos grandes: número sobre el punto y explicación debajo del dibujo
+  var GRANDES=[[9,"IVA del trimestre y luz",9684.9,'<span class="chip c-rev">IVA aproximado · esperando a la gestoría</span>'],[20,"Nóminas",5652,'<span class="chip c-ok">confirmado por la gestoría</span>'],[21,"Alquiler y seguro",2606.4,'<span class="chip c-ok">fijo</span>']],lista="";
+  GRANDES.forEach(function(g,i){
+    var d=g[0],bajo=v[d]<MIN,x=X(d)+(i===2?14:0),y=Y(v[d]);
+    h+='<circle cx="'+X(d)+'" cy="'+y+'" r="5" fill="'+(bajo?"#c0392b":"#c8553d")+'"/>';
+    h+='<circle cx="'+x+'" cy="'+(y-16)+'" r="9" fill="'+(bajo?"#c0392b":"#c8553d")+'"/><text x="'+x+'" y="'+(y-12)+'" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">'+(i+1)+'</text>';
+    lista+='<div><span class="sem" style="background:'+(bajo?"#c0392b":"#c8553d")+'"></span><b>'+(i+1)+'. '+fecha(d)+'</b> · '+g[1]+': <b>−'+eur0(g[2])+' €</b> → quedan '+eur0(v[d])+' €'+(bajo?' <b style="color:#c0392b">(por debajo del mínimo)</b>':'')+' '+g[3]+'</div>';
+  });
+  h+='<circle cx="'+X(10)+'" cy="'+Y(v[10])+'" r="3" fill="#c8553d"/>';
+  h+='<circle cx="'+X(0)+'" cy="'+Y(v[0])+'" r="5" fill="#2d6a4f"/>';
+  h+='<text x="'+(X(30)-4)+'" y="'+(Y(v[30])-10)+'" font-size="11" font-weight="600" fill="#2d6a4f" text-anchor="end">'+eur0(v[30])+' €</text>';
+  document.getElementById("cajaGraf").innerHTML=h+'</svg><div class="pila peq" style="margin-top:4px">'+lista+'</div>';
+})();
+/* Solo para la maqueta: comparador con Mercabarna. Mercabarna = media real de septiembre de 2026; precio del proveedor y kilos = ejemplo. */
+(function(){
+  var P=[ // producto, proveedor, tu precio €/kg, Mercabarna €/kg, nombre en Mercabarna, kg al mes (ejemplo)
+    ["Lubina de cultivo","Pescados Mar Nou",14.90,8.06,"Lubina de cultivo fresca",18.06],
+    ["Calamar","Pescados Mar Nou",11.50,16.66,"Calamar fresco",12.9,"Mercabarna: calamar fresco 16,66 €; descongelado 6,88 €. ¿Seguro que el tuyo es fresco?"],
+    ["Mejillón","Pescados Mar Nou",4.20,1.70,"Mejillón fresco",21.5],
+    ["Tomate maduro","Hortalizas del Prat",1.45,0.70,"Tomate maduro",66],
+    ["Cebolla seca","Hortalizas del Prat",0.85,0.40,"Cebolla seca",44],
+    ["Patata","Hortalizas del Prat",0.95,0.70,"Patata blanca Mona Lisa",88],
+    ["Pimiento rojo","Hortalizas del Prat",3.20,2.60,"Pimiento rojo",17.6],
+    ["Limón","Hortalizas del Prat",1.60,1.10,"Limón",22]
+  ];
+  function eur(x){var p=x.toFixed(2).split(".");return p[0].replace(/\B(?=(\d{3})+(?!\d))/g,".")+","+p[1]}
+  function pinta(){
+    var m=(+document.getElementById("pMargen").value||0)/100,ahorro=0,caros=0,raros=0;
+    var h='<tr><th>Producto</th><th>Proveedor</th><th class="num">Te cobra</th><th class="num">Mercabarna</th><th class="num">Diferencia</th><th>Qué hacer</th></tr>';
+    P.slice().sort(function(a,b){return (b[2]/b[3])-(a[2]/a[3])}).forEach(function(p){
+      var dif=p[2]/p[3]-1,lim=p[3]*(1+m),chip,txt;
+      if(dif<0){chip='<span class="chip c-fact">más barato que el mercado</span>';txt=p[6]||"Comprueba la calidad.";raros++}
+      else if(p[2]<=lim){chip='<span class="chip c-ok">razonable</span>';txt="Bien de precio."}
+      else{var a=(p[2]-lim)*p[5];ahorro+=a;caros++;
+        chip='<span class="chip '+(dif>1?'c-dup':'c-rev')+'">caro</span>';
+        txt="Si lo pagaras a "+eur(lim)+" € ahorrarías unos <b>"+eur(a)+" €/mes</b>. Negocia o pide precio a otro.";}
+      h+='<tr><td><b>'+p[0]+'</b></td><td>'+p[1]+'</td><td class="num">'+eur(p[2])+' €/kg</td><td class="num">'+window.enlaceMercabarna(p[0],eur(p[3])+' €/kg')+'</td><td class="num">'+(dif>=0?"+":"")+Math.round(dif*100)+' % '+chip+'</td><td class="peq">'+txt+'</td></tr>';
+    });
+    document.getElementById("pTabla").innerHTML=h;
+    document.getElementById("pResumen").innerHTML=
+      '<div class="card kpi" style="box-shadow:none"><div class="l">Productos caros</div><div class="v" style="color:var(--mal)">'+caros+' de '+P.length+'</div><div class="d mut">por encima del margen razonable</div></div>'+
+      '<div class="card kpi" style="box-shadow:none"><div class="l">Ahorro posible</div><div class="v" style="color:var(--ok)">'+eur(ahorro)+' €/mes</div><div class="d mut">≈ '+eur(ahorro*12)+' € al año (ejemplo)</div></div>'+
+      '<div class="card kpi" style="box-shadow:none"><div class="l">Para revisar</div><div class="v">'+raros+'</div><div class="d mut">más barato que el mercado: mira la calidad</div></div>';
+  }
+  document.getElementById("pMargen").addEventListener("input",pinta);
+  pinta();
+})();
+/* Solo para la maqueta: líneas de la factura elegida y comparación con Mercabarna.
+   Mercabarna = media real de septiembre de 2026. Precios de proveedor, cantidades y entregas al mes = ejemplo. */
+(function(){
+  var MERC={"Lubina fresca":8.06,"Calamar":16.66,"Mejillón":1.70,"Tomate maduro":0.70,"Cebolla seca":0.40,"Patata":0.70,"Pimiento rojo":2.60,"Limón":1.10};
+  var NOCMP={"Bacalao desalado":"Mercabarna no tiene un producto igual","Gamba roja":"Mercabarna solo da «gamba» en general","Perejil":"se compra por manojo, no por kilo"};
+  // Facturas en el mismo orden que la lista de Documentos: título, unidad de las líneas, entregas al mes, líneas [producto, cantidad, precio]
+  var F=[
+    ["Fincas Ronda (alquiler) · A-10/26","",0,[["Alquiler de octubre",1,2000.00]]],
+    ["Seguros Previsora · SP-26-1043","",0,[["Seguro multirriesgo de octubre",1,186.40]]],
+    ["Carnes Vallès · C-8841 (5/10)","kg",4.3,[["Entrecot",14,24.20],["Solomillo de cerdo",10,11.90],["Pollo",20,4.35],["Jamón ibérico loncheado",3,26.93]]],
+    ["Endesa (luz) · LZ-77120","",0,[["Electricidad de septiembre",1,607.36]]],
+    ["Naturgy (gas) · NG-55102","",0,[["Gas de septiembre",1,345.70]]],
+    ["Bebidas Sol · BS-2210","ud",2,[["Cerveza (barril 30 l)",4,89.50],["Agua 1,5 l (caja de 6)",10,3.90],["Refrescos (caja de 24)",2,22.41]]],
+    ["Hortalizas del Prat · nº por revisar","kg",2.2,[["Tomate maduro",30,1.45],["Cebolla seca",20,0.85],["Patata",40,0.95],["Pimiento rojo",8,3.20],["Limón",10,1.60],["Perejil",4,0.52,"manojos"]]],
+    ["Carnes Vallès · C-8841 (9/10, duplicada)","kg",4.3,[["Entrecot",14,24.20],["Solomillo de cerdo",10,11.90],["Pollo",20,4.35],["Jamón ibérico loncheado",3,26.93]]],
+    ["Pescados Mar Nou · F-2026-0412","kg",4.3,[["Lubina fresca",4.2,14.90],["Calamar",3.0,11.50],["Mejillón",5.0,4.20],["Bacalao desalado",4.0,21.90],["Gamba roja",3.0,56.38]]]
+  ];
+  var MARGEN=0.60,sel=8,on=false;
+  function eur(x){var p=Math.abs(x).toFixed(2).split(".");return (x<0?"−":"")+p[0].replace(/\B(?=(\d{3})+(?!\d))/g,".")+","+p[1]}
+  function pinta(){
+    var f=F[sel],u=f[1],ent=f[2],sePuede=f[3].some(function(l){return MERC[l[0]]});
+    document.getElementById("cmpTitulo").textContent="Líneas de "+f[0];
+    var b=document.getElementById("cmpBtn");b.style.display=sePuede?"":"none";b.textContent=on?"✕ Quitar comparación":"🔎 Comparar con Mercabarna";
+    var cmp=on&&sePuede,h='<tr><th>Producto</th><th class="num">Cantidad</th><th class="num">Precio</th><th class="num">Importe</th>'+(cmp?'<th class="num">Mercabarna</th><th class="num">Diferencia</th><th class="num">En este pedido</th><th class="num">En un mes</th>':'')+'</tr>';
+    var tPed=0,tMes=0,tMesMerc=0;
+    f[3].forEach(function(l){
+      var imp=l[1]*l[2];
+      h+='<tr><td>'+l[0]+'</td><td class="num">'+(u?eur(l[1]).replace(",00","")+" "+(l[3]||u):"—")+'</td><td class="num">'+eur(l[2])+' €</td><td class="num">'+eur(imp)+' €</td>';
+      if(cmp){
+        var m=MERC[l[0]];
+        if(!m){h+='<td class="num mut">—</td><td colspan="3" class="mut">No comparable: '+(NOCMP[l[0]]||"no está en Mercabarna")+'</td>'}
+        else{
+          var d=l[2]/m-1,raz=m*(1+MARGEN),ped=Math.max(0,(l[2]-raz)*l[1]),mes=ped*ent;tPed+=ped;tMes+=mes;tMesMerc+=Math.max(0,(l[2]-m)*l[1]*ent);
+          var chip=d<0?'<span class="chip c-fact">'+Math.round(d*100)+' %</span>':(l[2]<=raz?'<span class="chip c-ok">+'+Math.round(d*100)+' %</span>':'<span class="chip '+(d>1?'c-dup':'c-rev')+'">+'+Math.round(d*100)+' %</span>');
+          h+='<td class="num">'+window.enlaceMercabarna(l[0],eur(m)+' €')+'</td><td class="num">'+chip+'</td>'+
+             (d<0?'<td colspan="2" class="peq">Más barato que el mercado: ¿seguro que es fresco?</td>':
+              l[2]<=raz?'<td class="num mut">0 €</td><td class="num mut">0 €</td>':
+              '<td class="num"><b style="color:var(--ok)">'+eur(ped)+' €</b></td><td class="num"><b style="color:var(--ok)">'+eur(mes)+' €</b></td>');
+        }
+      }
+      h+='</tr>';
+    });
+    document.getElementById("cmpTabla").innerHTML=h;
+    var nota=document.getElementById("cmpNota");
+    if(!sePuede)nota.innerHTML=f[1]?"Ningún producto de esta factura está en Mercabarna (carne, bebida…): se compara solo con tus otros proveedores.":"Factura del local: no se compara con Mercabarna.";
+    else if(!cmp)nota.innerHTML="Pulsa <b>Comparar con Mercabarna</b> para ver cuánto cambiaría el precio de cada producto.";
+    else nota.innerHTML='<b>Si consigues un precio razonable</b> (Mercabarna + '+Math.round(MARGEN*100)+' %) ahorras <b style="color:var(--ok)">'+eur(tPed)+' € en este pedido</b> y unos <b style="color:var(--ok)">'+eur(tMes)+' € al mes</b> (este proveedor te entrega unas '+String(ent).replace(".",",")+' veces al mes).<br>'+
+      'Comprando tú directamente en Mercabarna, a precio de mercado, serían hasta '+eur(tMesMerc)+' € al mes, pero tendrías que ir a buscarlo y darte de alta como comprador (esto último no lo he comprobado). <a href="#precios">Ver todos los productos en Precios →</a>';
+  }
+  window.verFactura=function(i){if(i!==sel){sel=i;on=false}pinta()};
+  document.getElementById("cmpBtn").addEventListener("click",function(){on=!on;pinta()});
+  pinta();
+})();
+/* Solo para la maqueta: botón Actualizar */
+(function(){
+  var b=document.getElementById("actBtn");
+  b.addEventListener("click",function(){
+    b.textContent="⏳ Actualizando…";
+    setTimeout(function(){
+      b.textContent="✔ Al día";document.getElementById("actAviso").style.display="none";
+      document.getElementById("actTxt").textContent="Ya tienes la versión 1.1. Correo leído y pantallas recalculadas hace un momento.";
+      document.querySelector(".act-mini").classList.add("hecho");
+    },1600);
+  });
+})();
+/* Solo para la maqueta: asistente que cambia según la pantalla que estás viendo. Respuestas de ejemplo. */
+(function(){
+  var A={
+    bandeja:{n:"Bandeja",hola:"Hola. Hoy han llegado 2 correos nuevos: una reserva para 8 y una factura de Pescados Mar Nou. La reserva tiene la respuesta lista.",q:[
+      ["¿Qué correos necesitan respuesta?","Dos: la reserva de Marta García (sábado, 8 personas) y la queja de Jordi Ribas. Las dos tienen respuesta propuesta; solo falta que las leas y pulses Enviar."],
+      ["Contesta la queja con un tono más cercano","Te propongo: «Jordi, tienes toda la razón y lo sentimos de verdad. El sábado faltó una persona en sala y se notó. Nos gustaría invitaros a un postre la próxima vez.» ¿La pongo en el borrador?"],
+      ["¿Hay alguna factura rara?","Sí: la de Carnes Vallès C-8841 ha llegado dos veces (5 y 9 de octubre). La segunda está marcada como duplicada para que no se pague dos veces."]]},
+    documentos:{n:"Documentos",hola:"Puedo buscarte cualquier factura, gasto o nómina, o sumarte lo que quieras por fechas.",q:[
+      ["¿Cuánto hemos pagado a Carnes Vallès en septiembre?","2.684,30 € en 4 facturas (7, 14, 21 y 28 de septiembre). Es un 6 % más que en agosto."],
+      ["¿Qué facturas vencen esta semana?","Dos: Endesa (734,90 €, el 20/10) y Naturgy (418,30 €, el 21/10)."],
+      ["¿Qué hay por revisar?","La factura escaneada de Hortalizas del Prat del 8/10: no se lee el número. Ábrela y escríbelo a mano."]]},
+    recepcion:{n:"Recepción",hola:"Haz una foto a la etiqueta y te digo qué es, cuándo caduca y con qué factura casa.",q:[
+      ["¿Qué tengo que gastar hoy?","Calamar (1,8 kg) y mejillón (2,5 kg) caducan hoy. Mañana, el solomillo de cerdo y la rúcula."],
+      ["¿Cuánto hemos tirado este mes?","186 € de mermas en octubre. Lo que más: 2,1 kg de lubina (31 €) y lechuga (18 €)."],
+      ["¿Llegó todo el pedido de pescado?","De la factura F-2026-0412 faltan por fotografiar el bacalao y la gamba. El resto ya está registrado."]]},
+    hoy:{n:"Hoy",hola:"Hoy se esperan unos 118 cubiertos por la Fira de la Tardor. Te propongo empujar calamares, arroz negro y mejillones.",q:[
+      ["¿Por qué esos tres platos?","Porque usan calamar y mejillón que caducan hoy, y los tres dejan más de un 70 % de margen."],
+      ["Dame una frase para los camareros","«Hoy los calamares están recién llegados; ¿os pongo una ración para compartir mientras miráis la carta?»"],
+      ["¿Cómo irá el sábado con el partido?","Previsión: tarde floja (de 17 a 20 h, un 30 % menos) y cena normal. Bastan 2 en sala por la tarde."]]},
+    cuadro:{n:"Cuadro del día",hola:"Ayer se vendieron 3.184 €. El efectivo contado no cuadra: faltan 20 €.",q:[
+      ["¿Por qué puede faltar dinero?","Lo más habitual: un ticket de gasto pagado en efectivo sin apuntar, o un cambio mal dado. Ayer hubo 2 gastos en efectivo; mira si hay un tercero."],
+      ["¿Cómo vamos este mes frente al anterior?","Octubre lleva 21.960 € en 10 días, unos 2.196 € al día: un 5 % más que la media de septiembre."],
+      ["¿Qué proveedor ha subido precios?","Pescados Mar Nou (lubina +16 %) y Carnes Vallès (entrecot +13 %)."]]},
+    platos:{n:"Platos",hola:"Tienes 3 estrellas, 1 vaca, 2 puzles y 1 perro en lo que se ve. La lubina ha subido de coste.",q:[
+      ["¿Qué plato debería quitar?","La ensalada de cabra: se vende poco (54) y deja poco (63 %). Puedes cambiarla por otra ensalada con ingredientes que ya compras."],
+      ["¿Cuánto tendría que subir la lubina?","Para volver al 70 % de margen, de 21,00 € a 24,80 €. Si no quieres subir tanto, a 23,00 € quedaría en el 68 %."],
+      ["¿Cuál es el plato que más dinero deja en total?","El arroz negro: 412 raciones × 12,60 € = 5.191 € de margen en 3 meses."]]},
+    personal:{n:"Personal",hola:"Por las tardes sobra gente y los viernes y sábados por la noche falta en sala.",q:[
+      ["¿Qué cambio de turnos me propones?","Que Óscar entre a las 19:00 en vez de a las 16:00 de lunes a jueves, y que esas horas las haga el domingo por la noche. Se quitan horas de tarde floja y se refuerza cuando más se vende."],
+      ["¿Cuánto cuesta abrir de 16 a 19 h?","Unos 95 € de personal por tarde para unos 120 € de ventas. Casi no compensa."],
+      ["¿Quién trabaja el sábado?","Laura y Óscar en sala y Rosa en cocina, los tres con horario partido (12:30-16:30 y 20-24 h). Iván libra."]]},
+    dueno:{n:"Dueño",hola:"Septiembre cerró con 3.215 € de beneficio. El personal está en 39,8 %, por encima de lo normal.",q:[
+      ["¿Qué es lo más urgente?","La caja del 20 de octubre: coinciden el IVA del trimestre (8.950 €) y la luz, y bajaría a 1.615 €. Conviene mover un pago o guardar dinero desde hoy."],
+      ["¿Cómo bajo el coste de personal?","Ajustando las tardes de 16 a 19 h. Con los cambios propuestos, el personal bajaría a un 36 % aproximado."],
+      ["Explícame el punto de equilibrio","Es lo que hay que vender cada día para no perder dinero: 1.985 €. En septiembre se vendieron 2.096 € de media, solo un 5,6 % por encima."]]},
+    ajustes:{n:"Ajustes",hola:"Desde aquí cargas la demo, la reinicias o la borras entera.",q:[
+      ["¿Qué hace exactamente Autodestruir?","Borra todos los datos y archivos, quita el permiso de Gmail y elimina lo que pueda del alojamiento y de Google Cloud. Luego te enseña los enlaces para borrar tú las cuentas."],
+      ["¿Cómo añado a alguien de la oficina?","Pulsa «Añadir usuario», elige el perfil Oficina y ponle una contraseña. Verá todo menos los salarios y la pantalla Dueño."],
+      ["¿Cuánto dura la demo?","Unos 71 segundos a 1 día por segundo. Puedes pausarla o ir más rápido."]]}
+  };
+  var ORDEN=["bandeja","documentos","recepcion","hoy","cuadro","platos","personal","dueno","ajustes"];
+  var actual="bandeja",panel=document.getElementById("asis"),cuerpo=document.getElementById("asisCuerpo");
+  function burbuja(t,quien){var b=document.createElement("div");b.className="burbuja "+quien;b.textContent=t;cuerpo.appendChild(b);cuerpo.scrollTop=cuerpo.scrollHeight}
+  function prepara(id){
+    actual=id;var a=A[id];document.getElementById("asisDonde").textContent=a.n;
+    cuerpo.innerHTML="";burbuja(a.hola,"ia");
+    document.getElementById("asisSug").innerHTML=a.q.map(function(q,i){return '<span data-i="'+i+'">'+q[0]+'</span>'}).join("");
+  }
+  document.getElementById("asisSug").addEventListener("click",function(e){var i=e.target.dataset.i;if(i===undefined)return;var q=A[actual].q[i];burbuja(q[0],"yo");setTimeout(function(){burbuja(q[1],"ia")},450)});
+  document.getElementById("asisBtn").addEventListener("click",function(){panel.classList.toggle("abierto")});
+  document.getElementById("asisX").addEventListener("click",function(){panel.classList.remove("abierto")});
+  // Cambia de tema según la pantalla que está a la vista
+  function mira(){var mejor=null;ORDEN.forEach(function(id){var r=document.getElementById(id).getBoundingClientRect();if(r.top<window.innerHeight*0.45)mejor=id});mejor=mejor||"bandeja";if(mejor!==actual)prepara(mejor)}
+  window.addEventListener("scroll",mira,{passive:true});
+  prepara("bandeja");mira();setInterval(mira,700);
+})();
+</script>
+<script>
+/* Solo para la maqueta: el calendario de Documentos responde a los clics con cifras de ejemplo.
+   Un día y luego otro = periodo entre los dos (aunque sean de meses distintos).
+   Un mes y luego otro = periodo de meses. */
+(function(){
+  var NOMBRES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  var CORTOS=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+  // [facturas, gastos, nóminas, cierres, otros] por mes (ejemplo inventado)
+  var MES={7:[21,9,4,31,2],8:[20,8,4,30,2],9:[9,3,0,10,1]};
+  var ULTIMO={7:31,8:30,9:10}; // hasta qué día hay documentos (hoy es 11/10)
+  // Reparte los documentos de cada mes entre sus días, para que día, periodo y mes sumen lo mismo.
+  var DIA={};
+  Object.keys(MES).forEach(function(m){
+    m=+m;var L=ULTIMO[m];
+    for(var d=1;d<=L;d++)DIA[m*100+d]=[0,0,0,0,0];
+    MES[m].forEach(function(c,i){for(var k=0;k<c;k++){var d=(i===2)?L:1+Math.floor(k*L/c);DIA[m*100+d][i]++}});
+  });
+  var st={modo:"mes",ini:null,fin:null,mesIni:9,mesFin:9,vista:9};
+  var cal=document.querySelector(".cal");
+  function sum(a){return a.reduce(function(x,y){return x+y},0)}
+  function suma(desde,hasta){var t=[0,0,0,0,0];Object.keys(DIA).forEach(function(k){k=+k;if(k>=desde&&k<=hasta)DIA[k].forEach(function(v,i){t[i]+=v})});return t}
+  function txt(o){var m=Math.floor(o/100),d=o%100;return d+" "+CORTOS[m].toLowerCase()}
+  function tipos(a){
+    var n=["Facturas","Gastos","Nóminas","Cierres","Otros"],c=["c-fact","c-gasto","c-nom","c-con",""];
+    document.getElementById("calTipos").innerHTML=a.map(function(v,i){return v?'<span class="chip '+c[i]+'">'+n[i]+' '+v+'</span>':""}).join("");
+  }
+  function rango(){ // devuelve [desde, hasta] como mes*100+día
+    if(st.modo==="todo"||st.modo==="anio")return [0,1231];
+    if(st.modo==="mes")return [st.mesIni*100+1,st.mesFin*100+31];
+    if(st.modo==="dia")return st.fin===null?[st.ini,st.ini]:[Math.min(st.ini,st.fin),Math.max(st.ini,st.fin)];
+  }
+  function pinta(){
+    cal.classList.toggle("apagado",st.modo==="todo");
+    document.querySelectorAll("#calModo span").forEach(function(s){s.classList.toggle("on",s.dataset.m===st.modo)});
+    var r=rango();
+    document.querySelectorAll("#calMeses span").forEach(function(s,i){
+      var dentro=st.modo!=="todo"&&i*100+31>=r[0]&&i*100+1<=r[1];
+      s.classList.toggle("on",st.modo==="mes"&&dentro);
+      s.classList.toggle("rango",st.modo==="dia"&&dentro);
+      s.classList.toggle("vista",i===st.vista);
+    });
+    var cab=["L","M","X","J","V","S","D"].map(function(x){return '<div class="cab">'+x+'</div>'}).join("");
+    var primero=(new Date(2026,st.vista,1).getDay()+6)%7, total=new Date(2026,st.vista+1,0).getDate(), h=cab;
+    for(var i=0;i<primero;i++)h+='<div></div>';
+    for(var d=1;d<=total;d++){
+      var o=st.vista*100+d,hay=!!DIA[o],dentro=st.modo!=="todo"&&o>=r[0]&&o<=r[1];
+      var extremo=st.modo==="dia"&&(o===r[0]||o===r[1]);
+      h+='<div class="d'+(hay?" hay":"")+(extremo?" on":(dentro?" rango":""))+'" data-d="'+d+'">'+d+'</div>';
+    }
+    document.getElementById("calDias").innerHTML=h;
+    var t,a=suma(r[0],r[1]),info;
+    if(st.modo==="todo"){t="Todo";info="<b>todos los documentos</b>";}
+    else if(st.modo==="anio"){t="2026";info="<b>todo 2026</b>";}
+    else if(st.modo==="mes"){
+      t=st.mesIni===st.mesFin?NOMBRES[st.mesIni][0].toUpperCase()+NOMBRES[st.mesIni].slice(1)+" 2026":CORTOS[st.mesIni]+" – "+CORTOS[st.mesFin]+" 2026";
+      info=st.mesIni===st.mesFin?"<b>"+NOMBRES[st.mesIni]+" de 2026</b>":"<b>de "+NOMBRES[st.mesIni]+" a "+NOMBRES[st.mesFin]+" de 2026</b>";
+    }else{
+      if(r[0]===r[1]){t=txt(r[0])+" 2026";info="<b>el "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" de 2026</b>";}
+      else{t=txt(r[0])+" – "+txt(r[1])+" 2026";info="<b>del "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" al "+(r[1]%100)+" de "+NOMBRES[Math.floor(r[1]/100)]+"</b>";}
+    }
+    document.getElementById("calTitulo").textContent=t;
+    var pista=st.modo==="dia"&&st.fin===null?' <span class="mut">Pulsa otro día (de este u otro mes) para elegir un periodo.</span>':(st.modo==="mes"&&st.mesIni===st.mesFin?' <span class="mut">Pulsa otro mes para elegir varios.</span>':"");
+    document.getElementById("calInfo").innerHTML="Mostrando "+info+": "+sum(a)+(sum(a)===1?" documento.":" documentos.")+pista;
+    tipos(a);
+  }
+  document.getElementById("calModo").addEventListener("click",function(e){
+    var m=e.target.dataset.m;if(!m)return;st.modo=m;
+    if(m==="dia"){st.ini=st.vista*100+(st.vista===9?10:1);st.fin=null}
+    if(m==="mes"){st.mesIni=st.mesFin=st.vista}
+    pinta();
+  });
+  document.getElementById("calMeses").addEventListener("click",function(e){
+    var i=CORTOS.indexOf(e.target.textContent);if(i<0)return;
+    if(st.modo==="dia"&&st.fin===null){st.vista=i;pinta();return} // día pendiente: solo cambia el mes que se ve
+    if(st.modo==="mes"&&st.mesIni===st.mesFin&&i!==st.mesIni){st.mesFin=Math.max(i,st.mesIni);st.mesIni=Math.min(i,st.mesIni)}
+    else{st.mesIni=st.mesFin=i}
+    st.modo="mes";st.vista=i;pinta();
+  });
+  document.getElementById("calDias").addEventListener("click",function(e){
+    var d=+e.target.dataset.d;if(!d)return;var o=st.vista*100+d;
+    if(st.modo==="dia"&&st.fin===null&&o!==st.ini){st.fin=o}
+    else{st.ini=o;st.fin=null}
+    st.modo="dia";pinta();
+  });
+  document.querySelectorAll(".cal .flecha").forEach(function(b,i){b.addEventListener("click",function(){st.vista=Math.min(11,Math.max(0,st.vista+(i?1:-1)));if(st.modo==="mes"&&st.mesIni===st.mesFin)st.mesIni=st.mesFin=st.vista;pinta()})});
+  pinta();
+})();
+
+/* Solo para la maqueta: lista de Documentos ordenable por proveedor (facturas) o por tipo (gastos). Datos de ejemplo de octubre. */
+(function(){
+  var OK='<span class="chip c-ok">Correcto</span>';
+  var FACT=[
+    {f:"2026-10-01",p:"Fincas Ronda (alquiler)",n:"A-10/26",b:2000.00,i:420.00,t:2420.00,v:"05/10",e:'<span class="chip c-ok">Pagada</span>'},
+    {f:"2026-10-01",p:"Seguros Previsora",n:"SP-26-1043",b:186.40,i:0,t:186.40,v:"05/10",e:'<span class="chip c-ok">Pagada</span>'},
+    {f:"2026-10-05",p:"Carnes Vallès",n:"C-8841",b:625.59,i:62.56,t:688.15,v:"01/11",e:OK},
+    {f:"2026-10-05",p:"Endesa (luz)",n:"LZ-77120",b:607.36,i:127.54,t:734.90,v:"20/10",e:OK},
+    {f:"2026-10-06",p:"Naturgy (gas)",n:"NG-55102",b:345.70,i:72.60,t:418.30,v:"21/10",e:OK},
+    {f:"2026-10-07",p:"Bebidas Sol",n:"BS-2210",b:441.82,i:92.78,t:534.60,v:"06/11",e:OK},
+    {f:"2026-10-08",p:"Hortalizas del Prat",n:null,b:142.18,i:14.22,t:156.40,v:"08/10",e:'<span class="chip c-rev">Escaneada: nº no legible</span>',img:1},
+    {f:"2026-10-09",p:"Carnes Vallès",n:"C-8841",b:625.59,i:62.56,t:688.15,v:"08/11",e:'<span class="chip c-dup">Duplicada de C-8841 (05/10)</span>'},
+    {f:"2026-10-10",p:"Pescados Mar Nou",n:"F-2026-0412",b:374.82,i:37.48,t:412.30,v:"09/11",e:OK}
+  ];
+  var GASTO=[
+    {f:"2026-10-06",p:"Reparaciones y mantenimiento",q:"Ferretería Sant Pere",d:"Grifo del baño y juntas",t:42.35,e:OK},
+    {f:"2026-10-10",p:"Hielo y bebida",q:"Hielo Cubitos BCN",d:"2 sacos de hielo de 10 kg",t:18.00,e:OK},
+    {f:"2026-10-10",p:"Mercado (compras sueltas)",q:"Mercat de la Boqueria",d:"Hierbas, limones y fresas",t:46.00,e:OK}
+  ];
+  var COMIDA=["Carnes Vallès","Pescados Mar Nou","Hortalizas del Prat","Bebidas Sol","Forn de Pa Sant Jaume"];
+  var CATS=[["comida","🍽️ Comida y bebida","cuenta para el coste de comida"],["local","🏠 Local y servicios","alquiler, luz, gas, agua, seguros, limpieza…"]];
+  var TIPOS_GASTO=["Mercado (compras sueltas)","Hielo y bebida","Reparaciones y mantenimiento","Material y menaje","Transporte y aparcamiento","Otros"];
+  var st={tipo:"fact",orden:"grupo",abiertos:{},cerradas:{},sel:8};
+  function eur(x){var p=x.toFixed(2).split(".");return p[0].replace(/\B(?=(\d{3})+(?!\d))/g,".")+","+p[1]}
+  function fFecha(s){var p=s.split("-");return p[2]+"/"+p[1]}
+  function nombreArchivo(r){return r.q?"🧾 "+r.f+" "+r.q+" "+eur(r.t)+".jpg":(r.img?"🖼️ ":"📄 ")+r.f+" "+r.p.replace(/ \(.*\)/,"")+" "+eur(r.t)+".pdf"}
+  function filaFact(r,g){var fi=FACT.indexOf(r);return '<tr data-fi="'+fi+'" class="fac'+(fi===st.sel?' sel':'')+(g&&!st.abiertos[g]?' oculto':'')+'"'+(g?' data-g="'+g+'"':'')+'><td>'+nombreArchivo(r)+'</td><td>'+r.p+'</td><td>'+(r.n||'<span class="chip c-rev">revisar</span>')+'</td><td class="num">'+eur(r.b)+'</td><td class="num">'+eur(r.i)+'</td><td class="num"><b>'+eur(r.t)+'</b></td><td>'+r.v+'</td><td>'+r.e+'</td></tr>'}
+  function filaGasto(r,g){return '<tr'+(g?' data-g="'+g+'"':'')+(g&&!st.abiertos[g]?' class="oculto"':'')+'><td>'+nombreArchivo(r)+'</td><td>'+fFecha(r.f)+'</td><td>'+r.q+'</td><td>'+r.d+'</td><td>'+r.p+'</td><td class="num"><b>'+eur(r.t)+'</b></td><td>'+r.e+'</td></tr>'}
+  /* Nóminas de agosto y septiembre (las de octubre llegan el 31). Coste empresa = bruto + seguridad social de la empresa. */
+  var NOM=[];
+  [["Laura","Camarera",[1850,1488.40,2432.75],[1750,1412.35,2301.25]],["Óscar","Camarero",[1600,1298.60,2104.00],[1600,1298.60,2104.00]],
+   ["Rosa","Cocinera",[2000,1586.20,2630.00],[2000,1586.20,2630.00]],["Iván","Ayudante de cocina",[1680,1354.90,2209.20],[1680,1354.90,2209.20]]].forEach(function(e){
+    NOM.push({f:"2026-08-31",p:e[0],pu:e[1],mes:"agosto",b:e[2][0],ne:e[2][1],t:e[2][2],e:OK+(e[0]==="Laura"?' <span class="chip c-est">horas extra</span>':"")});
+    NOM.push({f:"2026-09-30",p:e[0],pu:e[1],mes:"septiembre",b:e[3][0],ne:e[3][1],t:e[3][2],e:OK});
+  });
+  /* Cierres de caja de octubre (cuadran con el Cuadro del día: 21.960 € en 10 días) */
+  var CIE=[[1,1890,84],[2,2640,118],[3,3020,134],[4,2510,112],[5,1420,63],[6,1580,70],[7,1640,73],[8,1805,80],[9,2271,101],[10,3184,142]].map(function(c){
+    var tar=c[0]===10?2395:Math.round(c[1]*0.75),dia=new Date(2026,9,c[0]);
+    return {f:"2026-10-"+("0"+c[0]).slice(-2),p:c[0]<=4?"Semana del 28 sep al 4 oct":"Semana del 5 al 11 oct",dia:["dom","lun","mar","mié","jue","vie","sáb"][dia.getDay()]+" "+c[0]+"/10",cu:c[2],tar:tar,ef:c[1]-tar,t:c[1],des:c[0]===10?-20:0};
+  });
+  var OTR=[{f:"2026-10-02",p:"Contratos",q2:"Frío Industrial Llobregat",d:"Contrato de mantenimiento de la cámara frigorífica (1 año)",t:0}];
+  function vis(r,g){return '<tr'+(g?' data-g="'+g+'"':'')+(g&&!st.abiertos[g]?' class="oculto"':'')+'>'}
+  var CFG={
+    fact:{datos:function(){return FACT},grupo:"Grupo y proveedor",n:["factura","facturas"],cols:8,fila:filaFact,
+      cab:'<tr><th>Archivo</th><th>Proveedor</th><th>Nº</th><th class="num">Base</th><th class="num">IVA</th><th class="num">Total</th><th>Vence</th><th>Estado</th></tr>'},
+    gasto:{datos:function(){return GASTO},grupo:"Tipo de gasto",claves:TIPOS_GASTO,n:["gasto","gastos"],cols:7,fila:filaGasto,
+      cab:'<tr><th>Archivo</th><th>Fecha</th><th>Dónde</th><th>Qué</th><th>Tipo</th><th class="num">Total</th><th>Estado</th></tr>'},
+    nom:{datos:function(){return NOM},grupo:"Empleado",n:["nómina","nóminas"],cols:8,nota:"Las de octubre llegarán el 31.",
+      cab:'<tr><th>Archivo</th><th>Empleado</th><th>Puesto</th><th>Mes</th><th class="num">Bruto</th><th class="num">Neto</th><th class="num">Coste empresa</th><th>Estado</th></tr>',
+      fila:function(r,g){return vis(r,g)+'<td>📄 '+r.f+' Nómina '+r.p+' '+eur(r.t)+'.pdf</td><td>'+r.p+'</td><td>'+r.pu+'</td><td>'+r.mes+'</td><td class="num">'+eur(r.b)+'</td><td class="num">'+eur(r.ne)+'</td><td class="num"><b>'+eur(r.t)+'</b></td><td>'+r.e+'</td></tr>'}},
+    cierre:{datos:function(){return CIE},grupo:"Semana",n:["cierre","cierres"],cols:7,
+      cab:'<tr><th>Archivo</th><th>Día</th><th class="num">Cubiertos</th><th class="num">Tarjeta</th><th class="num">Efectivo</th><th class="num">Ventas</th><th>Caja</th></tr>',
+      fila:function(r,g){return vis(r,g)+'<td>📊 '+r.f+' Cierre TPV '+eur(r.t)+'.pdf</td><td>'+r.dia+'</td><td class="num">'+r.cu+'</td><td class="num">'+eur(r.tar)+'</td><td class="num">'+eur(r.ef)+'</td><td class="num"><b>'+eur(r.t)+'</b></td><td>'+(r.des?'<span class="chip c-dup">Descuadre '+eur(r.des)+' €</span>':'<span class="chip c-ok">Cuadra</span>')+'</td></tr>'}},
+    otros:{datos:function(){return OTR},grupo:null,n:["documento","documentos"],cols:4,sinTotal:true,
+      cab:'<tr><th>Archivo</th><th>Fecha</th><th>De</th><th>Qué es</th></tr>',
+      fila:function(r){return '<tr><td>📎 '+r.f+' '+r.q2+'.pdf</td><td>'+fFecha(r.f)+'</td><td>'+r.q2+'</td><td>'+r.d+'</td></tr>'}}
+  };
+  function pinta(){
+    var C=CFG[st.tipo];
+    document.querySelectorAll("#docTipo span").forEach(function(s){s.classList.toggle("on",s.dataset.t===st.tipo)});
+    if(!C.grupo&&st.orden==="grupo")st.orden="fecha";
+    document.querySelectorAll("#docOrden span").forEach(function(s){s.classList.toggle("on",s.dataset.o===st.orden)});
+    document.getElementById("docOrdenFila").style.display=C.sinTotal?"none":"flex";
+    document.getElementById("docOrdenGrupo").style.display=C.grupo?"":"none";
+    document.getElementById("docOrdenGrupo").textContent=C.grupo||"";
+    document.getElementById("docLineas").style.display=st.tipo==="fact"?"block":"none";
+    var caja=document.getElementById("docLista"),res=document.getElementById("docResumen");
+    var datos=C.datos().slice(),total=datos.reduce(function(a,r){return a+r.t},0),h='<table>'+C.cab;
+    res.textContent=datos.length+" "+(datos.length===1?C.n[0]:C.n[1])+(C.sinTotal?"":" · "+eur(total)+" €")+(C.nota?" · "+C.nota:"");
+    if(st.orden==="grupo"&&C.grupo){
+      var grupos={};datos.forEach(function(r){(grupos[r.p]=grupos[r.p]||[]).push(r)});
+      var claves=(C.claves||Object.keys(grupos)).slice();
+      if(st.tipo!=="cierre")claves.sort(function(a,b){var ta=(grupos[a]||[]).reduce(function(s,r){return s+r.t},0),tb=(grupos[b]||[]).reduce(function(s,r){return s+r.t},0);return tb-ta});
+      // Facturas: dos bloques, primero comida y bebida, después local y servicios
+      if(st.tipo==="fact"){
+        var orden=[];
+        CATS.forEach(function(cat){
+          var ks=claves.filter(function(k){return (COMIDA.indexOf(k)>=0)===(cat[0]==="comida")});
+          var sub=ks.reduce(function(s,k){return s+grupos[k].reduce(function(a,r){return a+r.t},0)},0);
+          var cerrada=!!st.cerradas[cat[0]],n=ks.reduce(function(s,k){return s+grupos[k].length},0);
+          orden.push({cab:'<tr class="cat" data-cat="'+cat[0]+'"><td colspan="'+(C.cols-1)+'"><span class="flechita" style="color:#fff">'+(cerrada?"▸":"▾")+'</span>'+cat[1]+' <span class="mut peq" style="font-weight:400">· '+n+' facturas · '+cat[2]+'</span></td><td class="num">'+eur(sub)+' €</td></tr>'});
+          if(!cerrada)ks.forEach(function(k){orden.push(k)});
+        });
+        claves=orden;
+      }
+      claves.forEach(function(k){
+        if(k.cab){h+=k.cab;return}
+        var l=grupos[k]||[],sub=l.reduce(function(s,r){return s+r.t},0),ab=!!st.abiertos[k];
+        h+='<tr class="grupo" data-k="'+k+'"><td colspan="'+(C.cols-1)+'"><span class="flechita">'+(l.length?(ab?"▾":"▸"):"")+'</span>'+k+' <span class="mut peq" style="font-weight:400">· '+l.length+" "+(l.length===1?C.n[0]:C.n[1])+'</span></td><td class="num">'+eur(sub)+' €</td></tr>';
+        l.sort(function(a,b){return a.f<b.f?-1:1}).forEach(function(r){h+=C.fila(r,k)});
+      });
+    }else{
+      datos.sort(st.orden==="importe"?function(a,b){return b.t-a.t}:function(a,b){return a.f<b.f?1:-1});
+      datos.forEach(function(r){h+=C.fila(r)});
+    }
+    caja.innerHTML=h+'</table>';
+  }
+  document.getElementById("docTipo").addEventListener("click",function(e){var t=e.target.dataset.t;if(!t)return;st.tipo=t;st.orden="grupo";st.abiertos={"Carnes Vallès":1,"Pescados Mar Nou":1,"Laura":1,"Semana del 5 al 11 oct":1};pinta()});
+  document.getElementById("docOrden").addEventListener("click",function(e){var o=e.target.dataset.o;if(!o)return;st.orden=o;pinta()});
+  document.getElementById("docLista").addEventListener("click",function(e){
+    var cat=e.target.closest("tr.cat");if(cat){st.cerradas[cat.dataset.cat]=!st.cerradas[cat.dataset.cat];pinta();return}
+    var fac=e.target.closest("tr.fac");if(fac){st.sel=+fac.dataset.fi;pinta();if(window.verFactura)window.verFactura(st.sel);return}
+    var tr=e.target.closest("tr.grupo");if(!tr)return;var k=tr.dataset.k;st.abiertos[k]=!st.abiertos[k];pinta()});
+  st.abiertos["Carnes Vallès"]=true;st.abiertos["Pescados Mar Nou"]=true;
+  pinta();
+})();
+
+/* Solo para la maqueta: "Cargar demo" como línea de tiempo, 1 día = 1 segundo. Cifras de ejemplo. */
+(function(){
+  var DIAS=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  var MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre"];
+  var BASE=[2600,1500,1600,1700,1900,2700,3100];
+  var TIPOS_G=[["Mercat de la Boqueria","mercado",46],["Hielo Cubitos BCN","hielo",18],["Ferretería Sant Pere","reparación",42.35],["Makro","material",64.9],["Parking Catedral","transporte",12.5]];
+  var EMPLEADOS=["Laura","Óscar","Rosa","Iván"];
+  function eur(x){var p=x.toFixed(2).split(".");return p[0].replace(/\B(?=(\d{3})+(?!\d))/g,".")+","+p[1]}
+  function eur0(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+  // Construye los 71 días con lo que llega cada uno
+  var lista=[],n=0;
+  for(var f=new Date(2026,7,1);f<=new Date(2026,9,10);f.setDate(f.getDate()+1)){
+    n++;var d=f.getDate(),m=f.getMonth(),w=f.getDay(),ult=new Date(2026,m+1,0).getDate(),items=[];
+    var venta=BASE[w]*(m===7?1.15:1)*(0.875+((n*37)%17)/100);
+    function fa(p,x){items.push({t:"f",txt:"📄 Factura "+p+" · "+eur(x)+" €"})}
+    if(d===1){fa("Fincas Ronda (alquiler)",2420);fa("Seguros Previsora",186.4)}
+    if(d===5)fa("Endesa (luz)",[812.4,768.1,734.9][m-7]);
+    if(d===6)fa("Naturgy (gas)",[452.1,431.8,418.3][m-7]);
+    if(w===1)fa("Carnes Vallès",620+(n*13)%80);
+    if(w===4)fa("Pescados Mar Nou",380+(n*11)%60);
+    if(w===3&&n%2)fa("Hortalizas del Prat",140+(n*7)%40);
+    if(d===7||d===21)fa("Bebidas Sol",480+(n*19)%90);
+    if(d===15)fa("Neteges Brillant (limpieza)",96.8);
+    if(d===ult)fa("Forn de Pa Sant Jaume",[388.6,352.2][m-7]);
+    if(n%7===3||n%7===6){var g=TIPOS_G[n%5];items.push({t:"g",txt:"🧾 Ticket "+g[0]+" ("+g[1]+") · "+eur(g[2])+" €"})}
+    if(d===ult&&m<9)EMPLEADOS.forEach(function(e){items.push({t:"n",txt:"👥 Nómina "+e+" · "+MESES[m]})});
+    if(m===8&&d===15)items.push({t:"a",txt:"⚠ Subida de precio: entrecot de 21,50 a 24,20 €/kg (+13 %)"});
+    if(m===9&&d===1)items.push({t:"a",txt:"⚠ Subida de precio: lubina de 12,80 a 14,90 €/kg (+16 %)"});
+    if(m===9&&d===9){fa("Carnes Vallès",688.15);items.push({t:"a",txt:"⚠ Factura duplicada: Carnes Vallès C-8841 ya llegó el 5 de octubre"})}
+    items.push({t:"c",txt:"📊 Cierre de caja · "+eur0(venta)+" €",v:venta});
+    lista.push({fecha:DIAS[w]+" "+d+" de "+MESES[m]+" de 2026",corta:d+" "+MESES[m].slice(0,3),items:items});
+  }
+  var TOTAL=lista.length,i=0,timer=null,vel=1000,c={f:0,g:0,n:0,v:0};
+  var $=function(id){return document.getElementById(id)};
+  function paso(){
+    if(i>=TOTAL){para();$("tlPlay").textContent="↺ Volver a empezar";$("tlMiniTxt").textContent="Demo cargada";setTimeout(function(){$("tlMini").style.display="none"},2500);return}
+    var dia=lista[i++],tk=$("tlTicker");
+    if(i===1)tk.innerHTML="";
+    dia.items.forEach(function(it){
+      if(it.t==="f")c.f++;if(it.t==="g")c.g++;if(it.t==="n")c.n++;if(it.v)c.v+=it.v;
+      var el=document.createElement("div");if(it.t==="a")el.className="al";
+      el.innerHTML='<span class="mut">'+dia.corta+'</span> · '+it.txt;tk.insertBefore(el,tk.firstChild);
+    });
+    while(tk.children.length>9)tk.removeChild(tk.lastChild);
+    $("tlDia").textContent=dia.fecha[0].toUpperCase()+dia.fecha.slice(1);
+    $("tlCuenta").textContent="día "+i+" de "+TOTAL;
+    $("tlBarra").style.width=(i/TOTAL*100)+"%";
+    $("tcF").textContent=c.f;$("tcG").textContent=c.g;$("tcN").textContent=c.n;$("tcV").textContent=eur0(c.v)+" €";
+    $("tlMiniTxt").textContent=dia.corta+" · día "+i+"/"+TOTAL;
+  }
+  function empieza(){if(i>=TOTAL){i=0;c={f:0,g:0,n:0,v:0}}$("tlMini").style.display="flex";$("tlPlay").textContent="⏸ Pausa";timer=setInterval(paso,vel);paso()}
+  function para(){clearInterval(timer);timer=null;if(i<TOTAL)$("tlPlay").textContent="▶ Seguir"}
+  $("tlPlay").addEventListener("click",function(){timer?para():empieza()});
+  $("tlFin").addEventListener("click",function(){if(i>=TOTAL)return;$("tlMini").style.display="flex";para();while(i<TOTAL)paso();paso()});
+  $("tlVel").addEventListener("click",function(e){var v=+e.target.dataset.v;if(!v)return;vel=v;document.querySelectorAll("#tlVel span").forEach(function(s){s.classList.toggle("on",+s.dataset.v===v)});if(timer){clearInterval(timer);timer=setInterval(paso,vel)}});
+})();
+</script>
+</body>
+</html>

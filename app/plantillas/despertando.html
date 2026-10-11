@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Despertando · ReHub</title>
+<link rel="stylesheet" href="/static/estilo.css">
+<style>
+.sol{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#f3c96b,#d9a441);margin:0 auto;animation:latir 1.6s ease-in-out infinite;box-shadow:0 0 0 0 rgba(217,164,65,.5)}
+@keyframes latir{0%{transform:scale(.92);box-shadow:0 0 0 0 rgba(217,164,65,.45)}70%{transform:scale(1);box-shadow:0 0 0 24px rgba(217,164,65,0)}100%{transform:scale(.92)}}
+</style>
+</head>
+<body style="display:grid;place-items:center;min-height:100vh;padding:16px;text-align:center">
+  <div class="card pila" style="max-width:380px">
+    <div class="sol"></div>
+    <h2 style="margin:8px 0 0">Despertando ReHub…</h2>
+    <div class="mut" id="txt">La app estaba descansando porque nadie la usaba. Tarda menos de un minuto.</div>
+    <div class="prog"><i id="barra" style="width:5%"></i></div>
+  </div>
+<script>
+var t0=Date.now();
+function prueba(){
+  document.getElementById("barra").style.width=Math.min(95,5+(Date.now()-t0)/600)+"%";
+  fetch("/salud",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
+    if(d.ok&&d.base_de_datos){document.getElementById("barra").style.width="100%";location.href="/";}
+    else setTimeout(prueba,2000);
+  }).catch(function(){setTimeout(prueba,2000)});
+}
+prueba();
+</script>
+</body>
+</html>

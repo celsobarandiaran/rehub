@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}ReHub{% endblock %} · {{ config.NOMBRE_RESTAURANTE }}</title>
+<link rel="stylesheet" href="/static/estilo.css">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/static/icono-192.png">
+<link rel="apple-touch-icon" href="/static/icono-192.png">
+<meta name="theme-color" content="#1f4d3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ReHub">
+</head>
+<body>
+<header class="top">
+  <div class="logo"><span class="dot">R</span>ReHub</div>
+  <div class="rest">{{ config.NOMBRE_RESTAURANTE }}</div>
+  <a class="user" href="/salir" style="text-decoration:none">👤 {{ perfiles.NOMBRES_PERFIL[perfil] if perfil else "" }} · Salir</a>
+</header>
+<div class="layout">
+<nav class="menu" aria-label="Pantallas">
+  {% for p in menu %}
+  <a href="/p/{{ p.id }}"{% if p.id == actual %} style="background:var(--suave);font-weight:700"{% endif %}><span class="n">{{ loop.index }}</span>{{ p.titulo }}</a>
+  {% endfor %}
+</nav>
+<main>
+{% block contenido %}{% endblock %}
+</main>
+</div>
+</body>
+</html>
