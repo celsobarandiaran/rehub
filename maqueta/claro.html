@@ -525,10 +525,33 @@ input.campo:focus,select.campo:focus,textarea.campo:focus{outline:2px solid #c7d
   .asis-btn{width:52px;height:52px;padding:0}
 }
 @media (max-width:520px){.cmp-bar .eti{display:none}.kpi .v{font-size:24px}.pant-cab h2{font-size:22px}.card.kpi{padding-right:34px}.card.kpi::after{right:12px;top:14px}}
+
+/* ===================== TODO PLEGADO AL ABRIR ===================== */
+/* Patrón común: cabecera con flechita ▸/▾ a la izquierda, cursor de mano; el cuerpo se oculta con .cerrado */
+.pleg-cab{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;cursor:pointer;user-select:none;min-height:28px}
+.pleg-cab .flechita{margin-top:5px}
+.pleg-cab h3{margin:0;flex:1 1 200px;min-width:0}/* la flechita y el título siempre en la misma línea; si no cabe, el botón baja */
+.pleg-cab .flechita{display:inline-block;width:14px;flex:none;color:var(--gris);font-size:13px;line-height:1}
+.pleg-cab .flechita::before{content:"▾"}
+.pleg.cerrado>.pleg-cab .flechita::before{content:"▸"}
+.pleg-cab:hover .flechita,.pleg-cab:hover h3{color:var(--verde)}
+.pleg.cerrado>.pleg-cuerpo{display:none}
+.card.pleg.cerrado{padding-top:14px;padding-bottom:14px}
+.pleg-cab .btn{font-size:13px;padding:4px 10px;min-height:0}
+/* Sitios vacíos hasta que se pincha algo (bandeja, proveedor, competidor, factura) */
+.vacio{display:grid;place-items:center;min-height:150px;text-align:center;color:var(--gris);font-size:14px;padding:20px;border:1px dashed var(--linea);border-radius:12px;background:#fafafa}
+.vacio b{display:block;color:var(--tinta);font-size:15px;margin-bottom:4px}
+.card>.vacio{border:0;background:transparent;min-height:120px}
+/* Documentos: la rejilla de días solo en el modo Día */
+.cal.sin-dias .dias{display:none}
+/* Competencia: categorías plegadas dentro de la ficha */
+#compFicha tr.cat:not(.notiene) td{cursor:pointer}
+#compFicha tr.cat.notiene td{cursor:default}
+@media (max-width:820px){.pleg-cab{min-height:40px}.pleg-cab .btn{min-height:36px}}
 </style>
 </head>
 <body>
-<div class="cmp-bar"><span class="eti">Comparar estética:</span> <a href="index.html">Estilo actual (verde)</a><a class="on" href="claro.html" aria-current="page">Estilo claro (Haddock)</a></div>
+<div class="cmp-bar"><span class="eti">Comparar estética:</span> <a class="on" href="claro.html" aria-current="page">A · Claro (Haddock)</a><a href="index.html">B · Verde (actual)</a><a href="mezcla.html">C · Mezcla</a></div>
 
 <header class="top">
   <div class="logo"><span class="dot">R</span>rehub</div>
@@ -542,17 +565,17 @@ input.campo:focus,select.campo:focus,textarea.campo:focus{outline:2px solid #c7d
 <nav class="menu" aria-label="Pantallas">
   <div class="marca"><span class="dot">R</span>rehub</div>
   <div class="selector" title="Cambiar de restaurante (en la maqueta solo hay uno)"><span class="ico">🍴</span><div><b>Restaurante La Plaza</b><span class="dir">Plaça Major, 3</span></div><span class="flechas">▴<br>▾</span></div>
-  <div class="grupo" data-g="oficina"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg></span>Oficina<span class="chev">▾</span></div>
+  <div class="grupo cerrado" data-g="oficina"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg></span>Oficina<span class="chev">▾</span></div>
     <a href="#bandeja"><span class="n">1</span>Bandeja<span class="cont" title="2 respuestas listas y 1 correo sin clasificar">3</span></a>
     <a href="#documentos"><span class="n">2</span>Documentos<span class="cont" title="2 por revisar, 1 duplicada y 1 sin número">4</span></a>
     <a href="#proveedores"><span class="n">3</span>Proveedores<span class="nuevo-m">nuevo</span></a>
   </div>
-  <div class="grupo" data-g="cocina"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M3 15h18M12 4v2"/></svg></span>Cocina y sala<span class="chev">▾</span></div>
+  <div class="grupo cerrado" data-g="cocina"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M3 15h18M12 4v2"/></svg></span>Cocina y sala<span class="chev">▾</span></div>
     <a href="#recepcion"><span class="n">4</span>Recepción<span class="cont" title="1 albarán con diferencia">1</span></a>
     <a href="#hoy"><span class="n">5</span>Hoy<span class="cont" title="2 avisos rojos">2</span></a>
     <a href="#carta"><span class="n">7</span>Carta</a>
   </div>
-  <div class="grupo" data-g="negocio"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 14 15 20 8"/><path d="M4 21h16"/></svg></span>Negocio<span class="chev">▾</span></div>
+  <div class="grupo cerrado" data-g="negocio"><div class="gt"><span class="ico"><svg viewBox="0 0 24 24"><polyline points="4 17 10 11 14 15 20 8"/><path d="M4 21h16"/></svg></span>Negocio<span class="chev">▾</span></div>
     <a href="#cuadro"><span class="n">6</span>Cuadro del día</a>
     <a href="#competencia"><span class="n">8</span>Competencia<span class="nuevo-m">nuevo</span></a>
     <a href="#personal"><span class="n">9</span>Personal</a>
@@ -584,7 +607,10 @@ input.campo:focus,select.campo:focus,textarea.campo:focus{outline:2px solid #c7d
   </div>
   <div class="grid g-35">
     <div class="card" style="padding:8px" id="bzLista"></div>
-    <div class="card pila">
+    <div class="card pila" id="bzPanel">
+      <div class="vacio" id="bzVacio"><div><b>Pulsa un correo para verlo</b>Aquí aparece el correo abierto (la factura, la reserva o la queja) y la respuesta que propone la IA.</div></div>
+      <div class="pila" id="bzOtro" style="display:none"></div>
+      <div class="pila" id="bzMarta" style="display:none">
       <div class="accion">
         <div><span class="et">Enviar</span><div class="preg">¿Le envío este correo a Marta García?</div>
           <div class="caja"><b>Re: Reserva para el sábado, 8 personas</b><span>Te confirmamos la reserva para 8 personas el sábado 17 de octubre a las 21:30 en la planta de arriba…</span></div></div>
@@ -607,6 +633,7 @@ Si queréis tarta o algún detalle especial, dínoslo y lo preparamos.
 Un saludo,
 Restaurante La Plaza</textarea>
       <div class="fila"><span class="btn">✏️ Cambiar tono</span><span class="btn">Descartar</span><span class="peq mut">Para enviar, el botón azul de arriba.</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -631,6 +658,7 @@ Restaurante La Plaza</textarea>
       <div class="pestanas" id="docTipo"><span data-t="fact" class="on">📄 Facturas</span><span data-t="gasto">🧾 Gastos</span><span data-t="nom">👥 Nóminas</span><span data-t="cierre">📊 Cierres</span><span data-t="otros">📎 Otros</span></div>
       <div class="fila peq" id="docOrdenFila"><span class="mut">Ordenar por:</span><div class="seg seg-c" id="docOrden"><span data-o="grupo" class="on" id="docOrdenGrupo">Proveedor</span><span data-o="fecha">Fecha</span><span data-o="importe">Importe</span></div><span class="mut" id="docResumen"></span></div>
       <div class="tabla" id="docLista"></div>
+      <div class="peq mut" id="docLineasVacio" style="background:var(--suave);border-radius:10px;padding:10px">Pulsa un bloque para ver sus proveedores, un proveedor para ver sus facturas y una factura para ver aquí sus líneas y compararlas con Mercabarna.</div>
       <div class="peq pila" id="docLineas" style="background:var(--suave);border-radius:10px;padding:10px">
         <div class="fila" style="justify-content:space-between"><b id="cmpTitulo">Líneas</b><span class="btn pri" id="cmpBtn">🔎 Comparar con Mercabarna</span></div>
         <div class="tabla"><table id="cmpTabla" class="resp" style="background:#fff;border-radius:8px"></table></div>
@@ -820,19 +848,24 @@ Restaurante La Plaza</textarea>
     <div class="peq mut">Precio de venta y "deja" <span class="sin-iva">sin IVA</span> (el precio de carta, con IVA, va debajo en gris). Vendidos: últimos 3 meses, del cierre de caja. "Deja mucho" = más euros por unidad que la media de su parte de la carta; "vende mucho" = más del 70 % de lo que vendería cada plato si todos se vendieran igual. Pulsa una categoría para abrirla o cerrarla. En <b>Competencia</b>, "¿mal casado?" sirve para corregir con qué plato de los demás se compara.</div>
   </div>
   <div class="grid g2" style="margin-top:14px">
-    <div class="card pila">
-      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienen ellos y tú no</h3><span class="btn" data-add="ellos" style="padding:4px 10px;font-size:13px">➕ añadir a mano</span></div>
-      <div class="fila" id="cartaEllosForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><input class="campo" placeholder="Precio €" type="number" step="0.10" style="width:100px"><span class="btn pri">Añadir</span></div>
-      <div class="pila" id="cartaEllos"></div>
+    <div class="card pila pleg cerrado">
+      <div class="pleg-cab"><span class="flechita"></span><h3>Platos que tienen ellos y tú no</h3><span class="btn" data-add="ellos">➕ añadir a mano</span></div>
+      <div class="pleg-cuerpo pila">
+        <div class="fila" id="cartaEllosForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><input class="campo" placeholder="Precio €" type="number" step="0.10" style="width:100px"><span class="btn pri">Añadir</span></div>
+        <div class="pila" id="cartaEllos"></div>
+      </div>
     </div>
-    <div class="card pila">
-      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienes tú y ellos no</h3><span class="btn" data-add="yo" style="padding:4px 10px;font-size:13px">➕ añadir a mano</span></div>
-      <div class="fila" id="cartaYoForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><span class="btn pri">Añadir</span></div>
-      <div class="pila" id="cartaYo"></div>
+    <div class="card pila pleg cerrado">
+      <div class="pleg-cab"><span class="flechita"></span><h3>Platos que tienes tú y ellos no</h3><span class="btn" data-add="yo">➕ añadir a mano</span></div>
+      <div class="pleg-cuerpo pila">
+        <div class="fila" id="cartaYoForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><span class="btn pri">Añadir</span></div>
+        <div class="pila" id="cartaYo"></div>
+      </div>
     </div>
   </div>
-  <div class="card pila" style="margin-top:14px" id="recetas">
-    <div class="fila" style="justify-content:space-between"><h3 style="margin:0">📖 Recetas</h3><span class="btn pri" id="recNueva">➕ Añadir receta</span></div>
+  <div class="card pila pleg cerrado" style="margin-top:14px" id="recetas">
+    <div class="pleg-cab"><span class="flechita"></span><h3>📖 Recetas <span class="mut peq" style="font-weight:400" id="recCuentaCab"></span></h3><span class="btn pri" id="recNueva">➕ Añadir receta</span></div>
+    <div class="pleg-cuerpo pila">
     <div class="peq mut">Cada receta usa el <b>último precio</b> de cada ingrediente en las facturas: si un proveedor sube un precio, el coste del plato cambia solo. Cantidades por ración, ya limpias (una lubina entera en filete rinde la mitad, así que su kilo limpio cuesta el doble).</div>
     <div class="grid g2">
       <div class="recetas" id="recLista"></div>
@@ -847,6 +880,7 @@ Restaurante La Plaza</textarea>
         <div class="fila"><span class="btn pri" id="recGuardar">Guardar receta</span><span class="btn" id="recCancelar">Cancelar</span></div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -856,13 +890,15 @@ Restaurante La Plaza</textarea>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf">Oficina</span><span class="pf">Trabajador</span></div></div>
   <div class="objecion"><b>Mis objeciones:</b> (1) la valoración de Google Maps se puede leer con el servicio oficial de Google, pero para activarlo Google pide una cuenta de pago con tarjeta, aunque el uso pequeño sea gratis (lo dejo como "escrita a mano" en la demo; el coste exacto, sin comprobar). (2) Emparejar platos de cartas distintas ("calamares" frente a "rabas") lo hará la IA y a veces se equivocará: cada pareja dudosa queda "por revisar". (3) Las cartas en la web cambian y la app no se entera sola: hay que volver a subirlas de vez en cuando. Es buena idea para la demo y para vender; no la dejaría fuera.</div>
   <div class="grid provs" style="grid-template-columns:minmax(0,320px) minmax(0,1fr)">
-    <div class="card pila">
-      <h3>Tus competidores</h3>
-      <div class="lista-prov" id="compLista"></div>
-      <div class="subida pila">
-        <b>➕ Añadir competidor</b>
-        <div class="fila" style="justify-content:center"><span class="btn">📸 Foto de su carta</span><span class="btn">🔗 Enlace a su carta</span></div>
-        <div class="peq mut">Nombre y dirección de su ficha de Google Maps. Solo datos públicos: su carta y su valoración. Nada de sus ventas ni de sus redes.</div>
+    <div class="card pila pleg cerrado">
+      <div class="pleg-cab"><span class="flechita"></span><h3>Tus competidores <span class="mut peq" style="font-weight:400">· 3 a menos de 500 m</span></h3></div>
+      <div class="pleg-cuerpo pila">
+        <div class="lista-prov" id="compLista"></div>
+        <div class="subida pila">
+          <b>➕ Añadir competidor</b>
+          <div class="fila" style="justify-content:center"><span class="btn">📸 Foto de su carta</span><span class="btn">🔗 Enlace a su carta</span></div>
+          <div class="peq mut">Nombre y dirección de su ficha de Google Maps. Solo datos públicos: su carta y su valoración. Nada de sus ventas ni de sus redes.</div>
+        </div>
       </div>
     </div>
     <div class="card pila" id="compFicha"></div>
@@ -873,8 +909,9 @@ Restaurante La Plaza</textarea>
 <section class="pant" id="personal">
   <div class="pant-cab"><span class="num">9</span><h2>Personal</h2><span class="sub">Horarios, coste por hora y coste de personal frente a lo que se vende en cada franja</span>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina (sin salarios)</span><span class="pf si">Trabajador (solo su turno)</span></div></div>
-  <div class="grid g-35">
-    <div class="card tabla pila"><h3>Horarios · semana del 12 al 18 de octubre</h3>
+  <div class="pila">
+    <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita"></span><h3>🗓️ Horarios <span class="mut peq" style="font-weight:400">· semana del 12 al 18 de octubre</span></h3></div>
+      <div class="pleg-cuerpo tabla pila">
       <table class="cuad">
         <tr><th style="text-align:left">Persona</th><th>Lun 12</th><th>Mar 13</th><th>Mié 14</th><th>Jue 15</th><th>Vie 16</th><th>Sáb 17</th><th>Dom 18</th><th>Horas</th><th>€/hora</th></tr>
         <tr><td style="text-align:left">Laura (sala)</td><td><span class="t t-l">cerrado</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-m">10:00–18:00</span></td><td><span class="t t-l">libre</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-p">12:30–16:30<br>20:00–24:00</span></td><td><span class="t t-m">10:00–18:00</span></td><td><b>40 h</b></td><td>13,28</td></tr>
@@ -898,8 +935,10 @@ Restaurante La Plaza</textarea>
         </g>
         <text x="90" y="178" font-size="11" fill="#6b6b66">Cuanto más oscuro, más se vende. De 16 a 19 h hay 2 personas para muy poca venta; de 21 a 23 h, mucha venta con 2 en sala.</text>
       </svg>
+      </div>
     </div>
-    <div class="card pila"><h3>Coste de personal frente a ventas, por franja</h3>
+    <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita"></span><h3>📊 Coste de personal frente a ventas por franja <span class="mut peq" style="font-weight:400">· viernes</span></h3></div>
+      <div class="pleg-cuerpo pila">
       <table class="peq resp">
         <tr><th>Viernes</th><th class="num">Ventas sin IVA</th><th class="num">Personal</th><th class="num">%</th></tr>
         <tr><td>12:30 – 16:30</td><td class="num">520 €</td><td class="num">113 €</td><td class="num"><span class="chip c-ok">22 %</span></td></tr>
@@ -910,6 +949,19 @@ Restaurante La Plaza</textarea>
       <div class="cuenta">16-19 h: Óscar 3 h × 12,14 € + Iván 3 h × 12,75 € = <b>74,67 €</b> para 60 € de ventas.</div>
       <div class="alerta a"><b>Sobran manos</b><div>De 16 a 19 h el personal cuesta más de lo que entra. Con contratos fijos no se quitan horas sin más: la acción es mover esas horas a la noche, dentro del convenio.</div></div>
       <div class="alerta r"><b>Faltan manos</b><div>Viernes y sábado de 21 a 23 h: mucha venta con 2 en sala. Ahí vienen las esperas.</div></div>
+      </div>
+    </div>
+    <div class="card pleg cerrado" id="empleados"><div class="pleg-cab"><span class="flechita"></span><h3>👥 Empleados <span class="mut peq" style="font-weight:400">· 4 personas · 160 h a la semana</span></h3><span class="btn">➕ Añadir empleado</span></div>
+      <div class="pleg-cuerpo pila">
+      <table class="peq resp">
+        <tr><th>Nombre</th><th>Puesto</th><th class="num">Horas por semana</th><th class="num">Coste por hora</th></tr>
+        <tr><td>Laura</td><td>Camarera (sala)</td><td class="num">40 h</td><td class="num mut">13,28 €</td></tr>
+        <tr><td>Óscar</td><td>Camarero (sala)</td><td class="num">40 h</td><td class="num mut">12,14 €</td></tr>
+        <tr><td>Rosa</td><td>Cocinera</td><td class="num">40 h</td><td class="num mut">15,17 €</td></tr>
+        <tr><td>Iván</td><td>Ayudante de cocina</td><td class="num">40 h</td><td class="num mut">12,75 €</td></tr>
+      </table>
+      <div class="peq mut">El coste por hora (en gris) es lo que cuesta a la empresa, nómina más Seguridad Social, entre sus horas del mes; sale de las nóminas de Documentos. Oficina lo ve sin salarios; cada trabajador solo ve su turno.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1164,7 +1216,7 @@ document.addEventListener("click",function(e){
   var ARCH='<span class="chip c-ok">Archivada</span>',LISTA='<span class="chip c-rev">Respuesta lista</span>',ENV='<span class="chip c-ok">Enviada</span>';
   // fecha, hora, iniciales, color, de, proveedor (abre su ficha), asunto, tipo, extra, nuevo, seleccionado
   var C=[
-    ["2026-10-11","09:42","MG","#2d6a4f","Marta García",null,"Reserva para el sábado, 8 personas","res",'<span class="mut">+cliente</span>'+LISTA,1,1],
+    ["2026-10-11","09:42","MG","#2d6a4f","Marta García",null,"Reserva para el sábado, 8 personas","res",'<span class="mut">+cliente</span>'+LISTA,1],
     ["2026-10-11","08:15","PM","#2c4f9e","Pescados Mar Nou","Pescados Mar Nou","Factura F-2026-0412 · 412,30 €","fact",'<span class="mut">+proveedor</span>'+ARCH,1],
     ["2026-10-10","","JR","#c0392b","Jordi Ribas",null,"Esperamos 50 minutos el segundo plato…","queja",'<span class="mut">+cliente</span>'+LISTA],
     ["2026-10-10","","AY","#d08a00","Ayuntamiento (notificación)",null,"Aviso de renovación de la licencia de terraza","rev",'<span class="btn" style="padding:2px 8px;font-size:12px">Es otro</span><span class="btn" style="padding:2px 8px;font-size:12px">No es nada</span>'],
@@ -1203,7 +1255,7 @@ document.addEventListener("click",function(e){
     ["2026-08-05","","EN","#4a5568","Endesa (luz)","Endesa (luz)","Factura LZ-76440 · 774,40 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
     ["2026-08-03","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8402 · 650,00 €","fact",'<span class="mut">+proveedor</span>'+ARCH]
   ];
-  var st={modo:"mes",del:"2026-10-01",al:"2026-10-11"};
+  var st={modo:"mes",del:"2026-10-01",al:"2026-10-11",sel:null};// sel: correo abierto (ninguno al empezar)
   function largo(f){var p=f.split("-");return (+p[2])+" de "+["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"][+p[1]-1]}
   function etiqueta(c){if(c[0]==="2026-10-11")return c[1];if(c[0]==="2026-10-10")return "ayer";var p=c[0].split("-");return (+p[2])+" "+MES[+p[1]-1]}
   function rango(){
@@ -1219,10 +1271,33 @@ document.addEventListener("click",function(e){
     document.getElementById("bzCuenta").textContent=lista.length+(lista.length===1?" correo ":" correos ")+r[2];
     document.getElementById("bzChips").innerHTML='<span class="chip">Todos '+lista.length+'</span>'+Object.keys(T).filter(function(k){return n[k]}).map(function(k){return '<span class="chip '+T[k][1]+'">'+T[k][2]+' '+n[k]+'</span>'}).join("");
     document.getElementById("bzLista").innerHTML=lista.length?lista.map(function(c){
-      var de=c[5]?'<a class="prov" data-p="'+c[5]+'">'+c[4]+'</a>':c[4];
-      return '<div class="correo'+(c[10]?' sel':'')+'"><div class="av" style="background:'+c[3]+'">'+c[2]+'</div><div class="q"><div class="r"><b>'+(c[9]?'<span class="nuevo"></span>':'')+de+'</b><span class="mut peq">'+etiqueta(c)+'</span></div><div class="as">'+c[6]+'</div><div class="fila peq"><span class="chip '+T[c[7]][1]+'">'+T[c[7]][0]+'</span>'+c[8]+'</div></div></div>'}).join(""):
+      var de=c[5]?'<a class="prov" data-p="'+c[5]+'">'+c[4]+'</a>':c[4],i=C.indexOf(c);
+      return '<div class="correo punto-clic'+(i===st.sel?' sel':'')+'" data-i="'+i+'"><div class="av" style="background:'+c[3]+'">'+c[2]+'</div><div class="q"><div class="r"><b>'+(c[9]?'<span class="nuevo"></span>':'')+de+'</b><span class="mut peq">'+etiqueta(c)+'</span></div><div class="as">'+c[6]+'</div><div class="fila peq"><span class="chip '+T[c[7]][1]+'">'+T[c[7]][0]+'</span>'+c[8]+'</div></div></div>'}).join(""):
       '<div class="mut peq" style="padding:14px">No hay correos en ese periodo.</div>';
   }
+  // Abrir un correo: la parte derecha arranca vacía y solo se llena al pinchar uno de la lista
+  var TXT={fact:"Factura leída por la IA y archivada en Documentos con sus líneas, su base y su IVA. El pago se comprueba con el extracto del banco.",
+    nom:"Nóminas del mes enviadas por la gestoría: se archivan una por empleado en Documentos.",gasto:"Ticket fotografiado y archivado como gasto en Documentos.",
+    pub:"Publicidad: se archiva sin responder.",rev:"La IA no sabe qué es: dime si es otra cosa o si no es nada.",otros:"Documento archivado en Otros.",
+    res:"Reserva de un cliente. En la maqueta, el correo completo y la respuesta propuesta están en el de Marta García.",con:"Consulta de un cliente; la respuesta ya se envió."};
+  var QUEJA=["Hola, el sábado esperamos 50 minutos el segundo plato. La comida estaba bien, pero así no apetece volver. Jordi.",
+    "Hola, Jordi:\n\nSentimos mucho la espera del sábado. No es lo habitual y queremos compensarlo: os invitamos al postre en vuestra próxima visita.\n\nGracias por decírnoslo.\n\nRestaurante La Plaza"];
+  function abre(i){
+    st.sel=i;pinta();
+    var c=C[i],esMarta=c[4]==="Marta García",otro=document.getElementById("bzOtro");
+    document.getElementById("bzVacio").style.display="none";
+    document.getElementById("bzMarta").style.display=esMarta?"":"none";
+    otro.style.display=esMarta?"none":"";
+    if(esMarta)return;
+    var de=c[5]?'<a class="prov" data-p="'+c[5]+'">'+c[4]+'</a>':c[4],h='<div class="fila"><span class="chip '+T[c[7]][1]+'">'+T[c[7]][0]+'</span><span class="mut peq">De: '+de+'</span><span class="mut peq" style="margin-left:auto">'+etiqueta(c)+'</span></div><div><b>'+c[6]+'</b></div><div class="fila peq">'+c[8]+'</div>';
+    if(c[7]==="queja"){
+      h+='<div class="peq" style="background:var(--suave);border-radius:10px;padding:10px">'+QUEJA[0]+'</div><div><b class="peq">Respuesta propuesta</b> <span class="mut peq">(redactada por la IA; no se envía hasta que pulses Enviar)</span></div><textarea class="campo">'+QUEJA[1]+'</textarea><div class="fila"><span class="btn pri">✈ Enviar</span><span class="btn">✏️ Cambiar tono</span><span class="btn">Descartar</span></div>';
+    }else{
+      h+='<div class="peq" style="background:var(--suave);border-radius:10px;padding:10px">'+(TXT[c[7]]||"")+'</div><div class="fila">'+(c[7]==="fact"||c[7]==="nom"||c[7]==="gasto"||c[7]==="otros"?'<a class="btn" href="#documentos">📄 Ver en Documentos</a>':'')+(c[5]?'<a class="btn prov" data-p="'+c[5]+'" style="border-bottom:1px solid var(--linea)">🏷️ Ficha del proveedor</a>':'')+'</div>';
+    }
+    otro.innerHTML=h;
+  }
+  document.getElementById("bzLista").addEventListener("click",function(e){if(e.target.closest("a"))return;var f=e.target.closest(".correo");if(!f)return;abre(+f.dataset.i)});
   document.getElementById("bzPeriodo").addEventListener("click",function(e){var p=e.target.dataset.p;if(!p)return;st.modo=p;pinta()});
   document.getElementById("bzVer").addEventListener("click",function(){var d=document.getElementById("bzDel").value,a=document.getElementById("bzAl").value;if(!d||!a)return;st.modo="rango";st.del=d;st.al=a;pinta()});
   pinta();
@@ -1260,6 +1335,7 @@ document.addEventListener("click",function(e){
   }
   function pinta(){
     cal.classList.toggle("apagado",st.modo==="todo");
+    cal.classList.toggle("sin-dias",st.modo!=="dia");// la rejilla de días solo se ve en el modo Día
     document.querySelectorAll("#calModo span").forEach(function(s){s.classList.toggle("on",s.dataset.m===st.modo)});
     var r=rango();
     document.querySelectorAll("#calMeses span").forEach(function(s,i){
@@ -1282,7 +1358,7 @@ document.addEventListener("click",function(e){
     else if(r[0]===r[1]){t=txt(r[0])+" 2026";info="<b>el "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" de 2026</b>"}
     else{t=txt(r[0])+" – "+txt(r[1])+" 2026";info="<b>del "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" al "+(r[1]%100)+" de "+NOMBRES[Math.floor(r[1]/100)]+"</b>"}
     document.getElementById("calTitulo").textContent=t;
-    var pista=st.modo==="dia"&&st.fin===null?' <span class="mut">Pulsa otro día (de este u otro mes) para elegir un periodo.</span>':(st.modo==="mes"&&st.mesIni===st.mesFin?' <span class="mut">Pulsa otro mes para elegir varios.</span>':"");
+    var pista=st.modo==="dia"&&st.fin===null?' <span class="mut">Pulsa otro día (de este u otro mes) para elegir un periodo.</span>':(st.modo==="mes"&&st.mesIni===st.mesFin?' <span class="mut">Pulsa otro mes para elegir varios, o «Día» para ver los días.</span>':"");
     document.getElementById("calInfo").innerHTML="Mostrando "+info+": "+sum(a)+(sum(a)===1?" documento.":" documentos.")+pista;
     tipos(a);
   }
@@ -1335,7 +1411,8 @@ document.addEventListener("click",function(e){
     return {f:"2026-10-"+("0"+c[0]).slice(-2),p:c[0]<=4?"Semana del 28 sep al 4 oct":"Semana del 5 al 11 oct",dia:["dom","lun","mar","mié","jue","vie","sáb"][dia.getDay()]+" "+c[0]+"/10",cu:c[2],tar:tar,ef:c[1]-tar,t:c[1],des:c[0]===10?-20:0};
   });
   var OTR=[{f:"2026-10-02",p:"Contratos",q2:"Frío Industrial Llobregat",d:"Contrato de mantenimiento de la cámara frigorífica (1 año)",t:0}];
-  var st={tipo:"fact",orden:"grupo",abiertos:{"Carnes Vallès":1,"Pescados Mar Nou":1},cerradas:{},sel:8};
+  // Al abrir: los dos bloques cerrados, ningún proveedor abierto y ninguna factura elegida (sus líneas solo al pincharla)
+  var st={tipo:"fact",orden:"grupo",abiertos:{},cerradas:{comida:1,local:1},sel:null};
   function fFecha(s){var p=s.split("-");return p[2]+"/"+p[1]}
   function nombreArchivo(r){return r.q?"🧾 "+r.f+" "+r.q+" "+eur(r.t)+".jpg":(r.img?"🖼️ ":"📄 ")+r.f+" "+r.p.replace(/ \(.*\)/,"")+" "+eur(r.t)+".pdf"}
   function provLink(p){return COMIDA.indexOf(p)>=0||/Fincas|Seguros|Endesa|Naturgy/.test(p)?'<a class="prov" data-p="'+p+'">'+p+'</a>':p}
@@ -1364,7 +1441,8 @@ document.addEventListener("click",function(e){
     document.querySelectorAll("#docOrden span").forEach(function(s){s.classList.toggle("on",s.dataset.o===st.orden)});
     document.getElementById("docOrdenFila").style.display=C.sinTotal?"none":"flex";
     var g=document.getElementById("docOrdenGrupo");g.style.display=C.grupo?"":"none";g.textContent=C.grupo||"";
-    document.getElementById("docLineas").style.display=st.tipo==="fact"?"block":"none";
+    document.getElementById("docLineas").style.display=(st.tipo==="fact"&&st.sel!==null)?"block":"none";
+    document.getElementById("docLineasVacio").style.display=(st.tipo==="fact"&&st.sel===null)?"":"none";
     var datos=C.datos().slice(),total=datos.reduce(function(a,r){return a+r.t},0),h='<table class="resp">'+C.cab;
     document.getElementById("docResumen").textContent=datos.length+" "+(datos.length===1?C.n[0]:C.n[1])+(C.sinTotal?"":" · "+eur(total)+" €")+(C.nota?" · "+C.nota:"");
     if(st.orden==="grupo"&&C.grupo){
@@ -1394,7 +1472,7 @@ document.addEventListener("click",function(e){
     }
     document.getElementById("docLista").innerHTML=h+'</table>';
   }
-  document.getElementById("docTipo").addEventListener("click",function(e){var t=e.target.dataset.t;if(!t)return;st.tipo=t;st.orden="grupo";st.abiertos={"Carnes Vallès":1,"Pescados Mar Nou":1,"Laura":1,"Semana del 5 al 11 oct":1};pinta()});
+  document.getElementById("docTipo").addEventListener("click",function(e){var t=e.target.dataset.t;if(!t)return;st.tipo=t;st.orden="grupo";st.abiertos={};pinta()});
   document.getElementById("docOrden").addEventListener("click",function(e){var o=e.target.dataset.o;if(!o)return;st.orden=o;pinta()});
   document.getElementById("docLista").addEventListener("click",function(e){
     if(e.target.closest("a"))return;
@@ -1530,7 +1608,8 @@ document.addEventListener("click",function(e){
   // Último precio de cada producto de comida y bebida (lo usan las recetas de Carta)
   window.ULTIMOS_PRECIOS={};
   Object.keys(P).forEach(function(k){if(P[k].grupo!=="comida"&&P[k].grupo!=="bebida")return;P[k].hist.forEach(function(f){Object.keys(f.p).forEach(function(x){window.ULTIMOS_PRECIOS[x]={precio:f.p[x],u:P[k].u[x],prov:k,fecha:f.f,n:f.n}})})});
-  var sel="Pescados Mar Nou",movil=window.matchMedia("(max-width:820px)").matches,cerrados={bebida:movil,local:movil,servicios:movil};
+  // Al abrir: ningún proveedor elegido (la ficha sale vacía) y solo Comida desplegado
+  var sel=null,cerrados={bebida:true,local:true,servicios:true};
   function total(p){return p.meses[0]+p.meses[1]+p.meses[2]}
   function pr(v,u){return u==="kWh"?v.toFixed(3).replace(".",","):eur(v)}
   function lista(){
@@ -1567,6 +1646,7 @@ document.addEventListener("click",function(e){
     return h+'</div>';
   }
   function ficha(){
+    if(!sel){document.getElementById("provFicha").innerHTML='<div class="vacio"><div><b>Pulsa un proveedor</b>Aquí sale su ficha: contacto, compras por mes, sus facturas y cómo cambian sus precios.</div></div>';return}
     var p=P[sel],g=GRUPOS.filter(function(x){return x[0]===p.grupo})[0];
     var h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+sel+'</h3><span class="chip '+(p.grupo==="comida"||p.grupo==="bebida"?"c-fact":"c-est")+'">'+g[1]+'</span></div>';
     h+='<div class="peq">'+p.sum+'</div>';
@@ -1670,8 +1750,8 @@ document.addEventListener("click",function(e){
     else s+='estás en línea';
     return s+'.';
   }
-  var tab="comida",movil=window.matchMedia("(max-width:820px)").matches,abiertas={};
-  CATS.forEach(function(c,i){abiertas[c[0]]=!movil||c[0]==="Entrantes"||c[0]==="Cervezas"});
+  var tab="comida",abiertas={};// todas las categorías arrancan plegadas
+  CATS.forEach(function(c){abiertas[c[0]]=false});
   function deTab(t){return PLATOS.filter(function(x){return CATS.filter(function(c){return c[0]===x[5]})[0][1]===t})}
   function pintaCarta(){
     var R=clasifica(deTab(tab));
@@ -1731,7 +1811,7 @@ document.addEventListener("click",function(e){
   });
   document.getElementById("carta").addEventListener("click",function(e){
     var q=e.target.closest(".quitar");if(q){quitados[q.dataset.q]=1;listas();return}
-    var a=e.target.closest("[data-add]");if(a){var f=document.getElementById(a.dataset.add==="ellos"?"cartaEllosForm":"cartaYoForm");f.style.display=f.style.display==="none"?"flex":"none";if(f.style.display==="flex")f.querySelector("input").focus();return}
+    var a=e.target.closest("[data-add]");if(a){var pl=a.closest(".pleg");if(pl)pl.classList.remove("cerrado");var f=document.getElementById(a.dataset.add==="ellos"?"cartaEllosForm":"cartaYoForm");f.style.display=f.style.display==="none"?"flex":"none";if(f.style.display==="flex")f.querySelector("input").focus();return}
     var b=e.target.closest("#cartaEllosForm .btn, #cartaYoForm .btn");if(b){var form=b.parentNode,ins=form.querySelectorAll("input"),n=ins[0].value.trim();if(!n)return;
       if(form.id==="cartaEllosForm")extraEllos.push({n:n,p:+ins[1].value||0});else extraYo.push(n);
       ins.forEach(function(i){i.value=""});form.style.display="none";listas()}
@@ -1762,6 +1842,7 @@ document.addEventListener("click",function(e){
           '<div class="peq mut">'+r.ings.map(function(i){var u=UP[i[0]];return i[0]+' '+cant(i[1],u?u.u:"kg")+(u?' ('+eur(u.precio)+' €/'+u.u+', '+u.prov+' '+u.fecha+')':'')}).join(" · ")+(r.otros?' · otros '+eur(r.otros)+' €':'')+(r.nota?' · '+r.nota:'')+'</div></div>'});
     });
     document.getElementById("recLista").innerHTML=h;
+    var cab=document.getElementById("recCuentaCab");if(cab)cab.textContent="· "+RECETAS.length+" recetas";
   }
   var form=document.getElementById("recForm"),ingsEl=document.getElementById("recIngs");
   document.getElementById("recCat").innerHTML=CATS.map(function(c){return '<option>'+c[0]+'</option>'}).join("");
@@ -1774,7 +1855,7 @@ document.addEventListener("click",function(e){
     var pv=p/IVA,m=pv-c;
     document.getElementById("recCuenta").innerHTML='Coste: <b>'+eur(c)+' €</b> (con el último precio de cada ingrediente en las facturas) → precio de carta '+eur(p)+' € = '+eur(pv)+' € sin IVA → <b style="color:'+(m>0?"var(--ok)":"var(--mal)")+'">deja '+eur(m)+' €</b>'+(pv>0?' ('+Math.round(m/pv*100)+' %)':'');
   }
-  document.getElementById("recNueva").addEventListener("click",function(){form.style.display="";ingsEl.innerHTML="";filaIng("Calamar",0.15);filaIng("Arroz bomba",0.1);document.getElementById("recNombre").value="";calcula();form.scrollIntoView({behavior:"smooth",block:"nearest"})});
+  document.getElementById("recNueva").addEventListener("click",function(){document.getElementById("recetas").classList.remove("cerrado");form.style.display="";ingsEl.innerHTML="";filaIng("Calamar",0.15);filaIng("Arroz bomba",0.1);document.getElementById("recNombre").value="";calcula();form.scrollIntoView({behavior:"smooth",block:"nearest"})});
   document.getElementById("recCancelar").addEventListener("click",function(){form.style.display="none"});
   document.getElementById("recMasIng").addEventListener("click",function(){filaIng(Object.keys(UP).sort()[0],0.1);calcula()});
   form.addEventListener("input",calcula);
@@ -1789,12 +1870,13 @@ document.addEventListener("click",function(e){
   pintaRecetas();
 
   // ===== Competencia =====
-  var selC=1;
+  var selC=null,abiertasC={};// al abrir: ningún competidor elegido; en su ficha, las categorías plegadas
   function listaC(){
     document.getElementById("compLista").innerHTML=COMP.map(function(c,i){return '<div class="prov-fila'+(i===selC?' sel':'')+'" data-i="'+i+'"><div class="q"><b>'+c.n+'</b><div class="peq mut">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+' ('+eur0(c.o)+' opiniones) · '+Object.keys(c.carta).length+' productos · carta leída el '+c.leido+'</div></div><span class="mut">›</span></div>'}).join("")+
       '<div class="peq mut" style="padding:8px">Tú: ★ 4,1 (930 opiniones). Competidores <b>inventados</b>; la valoración, escrita a mano en la demo.</div>';
   }
   function fichaC(){
+    if(selC===null){document.getElementById("compFicha").innerHTML='<div class="vacio"><div><b>Pulsa un competidor</b>Abre la lista de la izquierda y elige uno: aquí salen sus precios frente a los tuyos, por categorías, y un resumen en frases.</div></div>';return}
     var c=COMP[selC],h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+c.n+'</h3><span class="mut peq">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+' · carta leída el '+c.leido+'</span></div>';
     h+='<div class="tabla"><table class="resp"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tu precio</th><th class="num">Diferencia</th><th>Aviso</th></tr>';
     var caros=[],baratos=[],mios=[],suyos=[],mias=PLATOS.map(function(x){return keyDe(x)});
@@ -1802,14 +1884,15 @@ document.addEventListener("click",function(e){
     Object.keys(c.carta).forEach(function(k){if(mias.indexOf(k)<0&&k!=="menú del día")suyos.push(nombreClave(k))});
     CATS.forEach(function(cat){
       var mine=PLATOS.filter(function(x){return x[5]===cat[0]&&c.carta[keyDe(x)]}),theirs=Object.keys(c.carta).filter(function(k){return mias.indexOf(k)<0&&EXTRAS[k]&&EXTRAS[k][1]===cat[0]});
-      if(!mine.length&&!theirs.length){h+='<tr class="cat notiene"><td colspan="4">'+cat[0]+' · no tiene '+cat[0].toLowerCase()+'</td><td></td></tr>';return}
-      h+='<tr class="cat"><td colspan="4">'+cat[0]+' <span class="mut peq" style="font-weight:400">· '+(mine.length+theirs.length)+(mine.length+theirs.length===1?' producto':' productos')+'</span></td><td class="num">'+(mine.length?mine.length+' en común':'')+'</td></tr>';
+      if(!mine.length&&!theirs.length){h+='<tr class="cat notiene"><td colspan="4"><span class="flechita"></span> '+cat[0]+' · no tiene '+cat[0].toLowerCase()+'</td><td></td></tr>';return}
+      var abC=!!abiertasC[cat[0]],oc=abC?'':' oculto';
+      h+='<tr class="cat" data-c="'+cat[0]+'"><td colspan="4"><span class="flechita">'+(abC?"▾":"▸")+'</span> '+cat[0]+' <span class="mut peq" style="font-weight:400">· '+(mine.length+theirs.length)+(mine.length+theirs.length===1?' producto':' productos')+'</span></td><td class="num">'+(mine.length?mine.length+' en común':'')+'</td></tr>';
       mine.forEach(function(x){var su=c.carta[keyDe(x)],d=x[1]/su-1,cls=d>0.03?"mas-caro":(d<-0.03?"mas-barato":"igual"),av;
         if(d<-0.05){av="Podrías subir a "+eur(su)+" €: estás un "+Math.round(-d*100)+" % por debajo.";baratos.push(x[0]+" (−"+Math.round(-d*100)+" %)")}
         else if(d>0.08){av="Estás bastante por encima: si no se vende, revisa precio o ración.";caros.push(x[0]+" (+"+Math.round(d*100)+" %)")}
         else{av="En línea.";if(d>0.03)caros.push(x[0]+" (+"+Math.round(d*100)+" %)");if(d<-0.03)baratos.push(x[0]+" (−"+Math.round(-d*100)+" %)")}
-        h+='<tr><td>'+x[0]+'</td><td class="num">'+eur(su)+' €</td><td class="num">'+eur(x[1])+' €</td><td class="num"><span class="chip '+cls+'">'+(d>=0?"+":"")+Math.round(d*100)+' %</span></td><td class="peq">'+av+'</td></tr>'});
-      theirs.forEach(function(k){h+='<tr><td>'+nombreClave(k)+'</td><td class="num">'+eur(c.carta[k])+' €</td><td class="num mut">—</td><td><span class="chip c-est">tú no lo tienes</span></td><td class="peq">Mirarlo en la lista de Carta.</td></tr>'});
+        h+='<tr class="'+oc+'"><td>'+x[0]+'</td><td class="num">'+eur(su)+' €</td><td class="num">'+eur(x[1])+' €</td><td class="num"><span class="chip '+cls+'">'+(d>=0?"+":"")+Math.round(d*100)+' %</span></td><td class="peq">'+av+'</td></tr>'});
+      theirs.forEach(function(k){h+='<tr class="'+oc+'"><td>'+nombreClave(k)+'</td><td class="num">'+eur(c.carta[k])+' €</td><td class="num mut">—</td><td><span class="chip c-est">tú no lo tienes</span></td><td class="peq">Mirarlo en la lista de Carta.</td></tr>'});
     });
     h+='</table></div><div class="peq mut">Precios de carta con IVA en los dos lados, para comparar lo mismo que ve el cliente.'+(c.carta["menú del día"]?' Además tiene <b>menú del día a '+eur(c.carta["menú del día"])+' €</b> (tú no).':'')+'</div>';
     function corta(a){return a.length>6?a.slice(0,6).join(", ")+" y "+(a.length-6)+" más":a.join(", ")}
@@ -1823,6 +1906,7 @@ document.addEventListener("click",function(e){
     document.getElementById("compFicha").innerHTML=h;
   }
   document.getElementById("compLista").addEventListener("click",function(e){var f=e.target.closest(".prov-fila");if(!f)return;selC=+f.dataset.i;listaC();fichaC()});
+  document.getElementById("compFicha").addEventListener("click",function(e){var t=e.target.closest("tr.cat");if(!t||!t.dataset.c)return;abiertasC[t.dataset.c]=!abiertasC[t.dataset.c];fichaC()});
   window.pintaCompetencia=function(){listaC();fichaC()};
   listaC();fichaC();
 })();
@@ -2023,8 +2107,14 @@ document.addEventListener("click",function(e){
 <script>
 /* ===== Estilo claro: menú por secciones, enlace activo, pestañas y carrusel del asistente ===== */
 (function(){
-  // Plegar / desplegar secciones del menú
+  // Plegar / desplegar secciones del menú (arrancan cerradas)
   document.querySelectorAll("nav.menu .gt").forEach(function(t){t.addEventListener("click",function(){t.parentNode.classList.toggle("cerrado")})});
+  // Patrón común de bloques plegables (.pleg > .pleg-cab + .pleg-cuerpo): pinchar la cabecera abre o cierra; los botones de la cabecera no pliegan
+  document.addEventListener("click",function(e){
+    var cab=e.target.closest(".pleg-cab");if(!cab)return;
+    if(e.target.closest(".btn,a,input,select,textarea,label"))return;
+    cab.parentNode.classList.toggle("cerrado");
+  });
   // Enlace activo según la pantalla visible
   var enlaces={};document.querySelectorAll("nav.menu a[href^='#']").forEach(function(a){enlaces[a.getAttribute("href").slice(1)]=a});
   var visibles={};
