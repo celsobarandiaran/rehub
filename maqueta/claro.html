@@ -544,6 +544,8 @@ input.campo:focus,select.campo:focus,textarea.campo:focus{outline:2px solid #c7d
 .card>.vacio{border:0;background:transparent;min-height:120px}
 /* Documentos: la rejilla de días solo en el modo Día */
 .cal.sin-dias .dias{display:none}
+.meses span,.dias .d{user-select:none}/* el doble clic no selecciona texto */
+#calInfo b{color:var(--tinta)}
 /* Competencia: categorías plegadas dentro de la ficha */
 #compFicha tr.cat:not(.notiene) td{cursor:pointer}
 #compFicha tr.cat.notiene td{cursor:default}
@@ -651,7 +653,7 @@ Restaurante La Plaza</textarea>
       <div class="dias" id="calDias"></div>
       <div class="peq mut" id="calInfo"></div>
       <div class="fila peq" id="calTipos"></div>
-      <div class="peq mut">Un punto verde = ese día hay documentos. Un día y luego otro eligen un periodo; un mes y luego otro, varios meses.</div>
+      <div class="peq mut">Un punto verde = ese día hay documentos. Un clic en un mes lo elige (y otro mes, varios); dos veces el mismo mes abre sus días. Un día y luego otro eligen un periodo.</div>
     </div>
     <div class="card pila">
       <div class="fila"><input class="campo" style="flex:1;min-width:180px" value="" placeholder="🔍 Buscar por proveedor, número, importe o producto…"><span class="chip c-rev">2 por revisar</span><span class="chip c-dup">1 duplicada</span><span class="chip">4 pendientes de pago</span></div>
@@ -1307,23 +1309,19 @@ document.addEventListener("click",function(e){
 (function(){
   var NOMBRES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   var CORTOS=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
-  // [facturas, gastos, nóminas, cierres, otros] por mes. Cierres: un día sí y lunes no (cierra los lunes).
-  var MES={7:[21,9,4,26,2],8:[20,8,4,26,2],9:[10,3,0,9,1]};
-  var ULTIMO={7:31,8:30,9:10};
+  // Documentos por día: [facturas, gastos, nóminas, cierres, otros]. Se rellena con las fechas reales de las listas (window.DOCS_FECHAS),
+  // así el punto verde, el recuento y la lista filtrada siempre cuadran.
   var DIA={};
-  Object.keys(MES).forEach(function(m){
-    m=+m;var L=ULTIMO[m],abiertos=[];
-    for(var d=1;d<=L;d++){DIA[m*100+d]=[0,0,0,0,0];if(new Date(2026,m,d).getDay()!==1)abiertos.push(d)}
-    MES[m].forEach(function(c,i){
-      if(i===3){abiertos.slice(0,c).forEach(function(d){DIA[m*100+d][3]++});return}
-      for(var k=0;k<c;k++){var d=(i===2)?L:1+Math.floor(k*L/c);DIA[m*100+d][i]++}
-    });
-  });
+  function ord(f){var p=f.split("-");return (+p[1]-1)*100+(+p[2])}// "2026-10-03" → 903 (mes*100+día)
+  function cargaDias(){DIA={};(window.DOCS_FECHAS||[]).forEach(function(x){var o=ord(x[0]);(DIA[o]=DIA[o]||[0,0,0,0,0])[x[1]]++})}
+  // modo: todo | anio | mes | dia. En modo Día, ini/fin son mes*100+día: ini null = el mes entero de "vista"; fin null = falta el segundo día.
   var st={modo:"mes",ini:null,fin:null,mesIni:9,mesFin:9,vista:9};
   var cal=document.querySelector(".cal");
   function sum(a){return a.reduce(function(x,y){return x+y},0)}
   function suma(desde,hasta){var t=[0,0,0,0,0];Object.keys(DIA).forEach(function(k){k=+k;if(k>=desde&&k<=hasta)DIA[k].forEach(function(v,i){t[i]+=v})});return t}
   function txt(o){var m=Math.floor(o/100),d=o%100;return d+" "+CORTOS[m].toLowerCase()}
+  function fdm(o){return (o%100)+"/"+("0"+(Math.floor(o/100)+1)).slice(-2)}// 903 → "3/10"
+  function cap(s){return s[0].toUpperCase()+s.slice(1)}
   function tipos(a){
     var n=["Facturas","Gastos","Nóminas","Cierres","Otros"],c=["c-fact","c-gasto","c-nom","c-con",""];
     document.getElementById("calTipos").innerHTML=a.map(function(v,i){return v?'<span class="chip '+c[i]+'">'+n[i]+' '+v+'</span>':""}).join("");
@@ -1331,6 +1329,7 @@ document.addEventListener("click",function(e){
   function rango(){
     if(st.modo==="todo"||st.modo==="anio")return [0,1231];
     if(st.modo==="mes")return [st.mesIni*100+1,st.mesFin*100+31];
+    if(st.ini===null)return [st.vista*100+1,st.vista*100+31];// días abiertos sin elegir ninguno: el mes entero
     return st.fin===null?[st.ini,st.ini]:[Math.min(st.ini,st.fin),Math.max(st.ini,st.fin)];
   }
   function pinta(){
@@ -1340,6 +1339,7 @@ document.addEventListener("click",function(e){
     var r=rango();
     document.querySelectorAll("#calMeses span").forEach(function(s,i){
       var dentro=st.modo!=="todo"&&i*100+31>=r[0]&&i*100+1<=r[1];
+      s.classList.toggle("hay",sum(suma(i*100+1,i*100+31))>0);
       s.classList.toggle("on",st.modo==="mes"&&dentro);s.classList.toggle("rango",st.modo==="dia"&&dentro);s.classList.toggle("vista",i===st.vista);
     });
     var h=["L","M","X","J","V","S","D"].map(function(x){return '<div class="cab">'+x+'</div>'}).join("");
@@ -1350,28 +1350,38 @@ document.addEventListener("click",function(e){
       h+='<div class="d'+(hay?" hay":"")+(extremo?" on":(dentro?" rango":""))+'" data-d="'+d+'">'+d+'</div>';
     }
     document.getElementById("calDias").innerHTML=h;
-    var t,a=suma(r[0],r[1]),info;
-    if(st.modo==="todo"){t="Todo";info="<b>todos los documentos</b>"}
-    else if(st.modo==="anio"){t="2026";info="<b>todo 2026</b>"}
-    else if(st.modo==="mes"){t=st.mesIni===st.mesFin?NOMBRES[st.mesIni][0].toUpperCase()+NOMBRES[st.mesIni].slice(1)+" 2026":CORTOS[st.mesIni]+" – "+CORTOS[st.mesFin]+" 2026";
-      info=st.mesIni===st.mesFin?"<b>"+NOMBRES[st.mesIni]+" de 2026</b>":"<b>de "+NOMBRES[st.mesIni]+" a "+NOMBRES[st.mesFin]+" de 2026</b>"}
-    else if(r[0]===r[1]){t=txt(r[0])+" 2026";info="<b>el "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" de 2026</b>"}
-    else{t=txt(r[0])+" – "+txt(r[1])+" 2026";info="<b>del "+(r[0]%100)+" de "+NOMBRES[Math.floor(r[0]/100)]+" al "+(r[1]%100)+" de "+NOMBRES[Math.floor(r[1]/100)]+"</b>"}
+    var t,a=suma(r[0],r[1]),per,pista="";
+    if(st.modo==="todo"){t="Todo";per="Todos los documentos"}
+    else if(st.modo==="anio"){t="2026";per="Año 2026"}
+    else if(st.modo==="mes"){
+      if(st.mesIni===st.mesFin){t=cap(NOMBRES[st.mesIni])+" 2026";per="Mes de "+NOMBRES[st.mesIni];pista="Pulsa otro mes para elegir varios; dos veces el mismo para ver sus días."}
+      else{t=CORTOS[st.mesIni]+" – "+CORTOS[st.mesFin]+" 2026";per="De "+NOMBRES[st.mesIni]+" a "+NOMBRES[st.mesFin]}}
+    else if(st.ini===null){t=cap(NOMBRES[st.vista])+" 2026";per=cap(NOMBRES[st.vista])+" entero";pista="Pulsa un día para elegirlo."}
+    else if(st.fin===null){t=txt(st.ini)+" 2026";per="Día "+fdm(st.ini);pista="Pulsa otro día para elegir hasta cuándo (o dos veces otro mes para ir a sus días)."}
+    else if(r[0]===r[1]){t=txt(r[0])+" 2026";per="Día "+fdm(r[0])}
+    else{t=txt(r[0])+" – "+txt(r[1])+" 2026";per="Del "+fdm(r[0])+" al "+fdm(r[1])}
     document.getElementById("calTitulo").textContent=t;
-    var pista=st.modo==="dia"&&st.fin===null?' <span class="mut">Pulsa otro día (de este u otro mes) para elegir un periodo.</span>':(st.modo==="mes"&&st.mesIni===st.mesFin?' <span class="mut">Pulsa otro mes para elegir varios, o «Día» para ver los días.</span>':"");
-    document.getElementById("calInfo").innerHTML="Mostrando "+info+": "+sum(a)+(sum(a)===1?" documento.":" documentos.")+pista;
+    document.getElementById("calInfo").innerHTML="<b>"+per+"</b> · Mostrando "+sum(a)+(sum(a)===1?" documento":" documentos")+(pista?'<br><span class="mut">'+pista+"</span>":"");
     tipos(a);
+    if(window.pintaDocs)window.pintaDocs();// la lista de documentos se filtra por el periodo elegido
   }
-  document.getElementById("calModo").addEventListener("click",function(e){var m=e.target.dataset.m;if(!m)return;st.modo=m;if(m==="dia"){st.ini=st.vista*100+(st.vista===9?10:1);st.fin=null}if(m==="mes"){st.mesIni=st.mesFin=st.vista}pinta()});
+  // Abrir la rejilla de días de un mes (segundo clic o doble clic). Si había un primer día pendiente, se conserva para poder elegir el segundo aquí.
+  function abreDias(i){st.vista=i;if(st.ini===null||st.fin!==null){st.ini=null;st.fin=null}st.modo="dia";pinta()}
+  function mesDe(e){var s=e.target.closest("#calMeses span");return s?CORTOS.indexOf(s.textContent):-1}
+  window.calPeriodo=function(){return st.modo==="todo"?null:rango()};// [desde,hasta] como mes*100+día, o null si se muestra todo
+  window.calRecarga=function(){cargaDias();pinta()};
+  window.calAbarca=function(f){var o=ord(f),r=rango();if(st.modo!=="todo"&&(o<r[0]||o>r[1])){st.modo="mes";st.mesIni=st.mesFin=st.vista=Math.floor(o/100);pinta()}};// que una fecha quede dentro del periodo
+  document.getElementById("calModo").addEventListener("click",function(e){var m=e.target.dataset.m;if(!m)return;st.modo=m;st.ini=null;st.fin=null;if(m==="mes"){st.mesIni=st.mesFin=st.vista}pinta()});
   document.getElementById("calMeses").addEventListener("click",function(e){
-    var i=CORTOS.indexOf(e.target.textContent);if(i<0)return;
-    if(st.modo==="dia"&&st.fin===null){st.vista=i;pinta();return}
+    var i=mesDe(e);if(i<0)return;
+    if(st.modo==="mes"&&st.mesIni===st.mesFin&&st.mesIni===i){abreDias(i);return}// dos veces el mismo mes: se abren sus días
     if(st.modo==="mes"&&st.mesIni===st.mesFin&&i!==st.mesIni){st.mesFin=Math.max(i,st.mesIni);st.mesIni=Math.min(i,st.mesIni)}else{st.mesIni=st.mesFin=i}
     st.modo="mes";st.vista=i;pinta();
   });
-  document.getElementById("calDias").addEventListener("click",function(e){var d=+e.target.dataset.d;if(!d)return;var o=st.vista*100+d;if(st.modo==="dia"&&st.fin===null&&o!==st.ini){st.fin=o}else{st.ini=o;st.fin=null}st.modo="dia";pinta()});
+  document.getElementById("calMeses").addEventListener("dblclick",function(e){var i=mesDe(e);if(i>=0)abreDias(i)});
+  document.getElementById("calDias").addEventListener("click",function(e){var d=+e.target.dataset.d;if(!d)return;var o=st.vista*100+d;if(st.ini!==null&&st.fin===null&&o!==st.ini){st.fin=o}else{st.ini=o;st.fin=null}st.modo="dia";pinta()});
   document.querySelectorAll(".cal .flecha").forEach(function(b,i){b.addEventListener("click",function(){st.vista=Math.min(11,Math.max(0,st.vista+(i?1:-1)));if(st.modo==="mes"&&st.mesIni===st.mesFin)st.mesIni=st.mesFin=st.vista;pinta()})});
-  pinta();
+  cargaDias();pinta();
 })();
 
 /* ===== Documentos: listas ===== */
@@ -1413,6 +1423,10 @@ document.addEventListener("click",function(e){
   var OTR=[{f:"2026-10-02",p:"Contratos",q2:"Frío Industrial Llobregat",d:"Contrato de mantenimiento de la cámara frigorífica (1 año)",t:0}];
   // Al abrir: los dos bloques cerrados, ningún proveedor abierto y ninguna factura elegida (sus líneas solo al pincharla)
   var st={tipo:"fact",orden:"grupo",abiertos:{},cerradas:{comida:1,local:1},sel:null};
+  // Fechas de todos los documentos (fecha, tipo 0-4) para el calendario: puntos verdes y recuentos
+  window.DOCS_FECHAS=[].concat(FACT.map(function(r){return [r.f,0]}),GASTO.map(function(r){return [r.f,1]}),NOM.map(function(r){return [r.f,2]}),CIE.map(function(r){return [r.f,3]}),OTR.map(function(r){return [r.f,4]}));
+  function ord(f){var p=f.split("-");return (+p[1]-1)*100+(+p[2])}
+  function enPeriodo(r){var per=window.calPeriodo?window.calPeriodo():null,o=ord(r.f);return !per||(o>=per[0]&&o<=per[1])}
   function fFecha(s){var p=s.split("-");return p[2]+"/"+p[1]}
   function nombreArchivo(r){return r.q?"🧾 "+r.f+" "+r.q+" "+eur(r.t)+".jpg":(r.img?"🖼️ ":"📄 ")+r.f+" "+r.p.replace(/ \(.*\)/,"")+" "+eur(r.t)+".pdf"}
   function provLink(p){return COMIDA.indexOf(p)>=0||/Fincas|Seguros|Endesa|Naturgy/.test(p)?'<a class="prov" data-p="'+p+'">'+p+'</a>':p}
@@ -1441,11 +1455,13 @@ document.addEventListener("click",function(e){
     document.querySelectorAll("#docOrden span").forEach(function(s){s.classList.toggle("on",s.dataset.o===st.orden)});
     document.getElementById("docOrdenFila").style.display=C.sinTotal?"none":"flex";
     var g=document.getElementById("docOrdenGrupo");g.style.display=C.grupo?"":"none";g.textContent=C.grupo||"";
-    document.getElementById("docLineas").style.display=(st.tipo==="fact"&&st.sel!==null)?"block":"none";
-    document.getElementById("docLineasVacio").style.display=(st.tipo==="fact"&&st.sel===null)?"":"none";
-    var datos=C.datos().slice(),total=datos.reduce(function(a,r){return a+r.t},0),h='<table class="resp">'+C.cab;
+    var datos=C.datos().filter(enPeriodo),total=datos.reduce(function(a,r){return a+r.t},0),h='<table class="resp">'+C.cab;
+    var selVisible=st.tipo==="fact"&&st.sel!==null&&datos.indexOf(FACT[st.sel])>=0;
+    document.getElementById("docLineas").style.display=selVisible?"block":"none";
+    document.getElementById("docLineasVacio").style.display=(st.tipo==="fact"&&!selVisible)?"":"none";
     document.getElementById("docResumen").textContent=datos.length+" "+(datos.length===1?C.n[0]:C.n[1])+(C.sinTotal?"":" · "+eur(total)+" €")+(C.nota?" · "+C.nota:"");
-    if(st.orden==="grupo"&&C.grupo){
+    if(!datos.length){h+='<tr><td colspan="'+C.cols+'" class="mut">No hay '+C.n[1]+' en el periodo elegido en el calendario.</td></tr>'}
+    else if(st.orden==="grupo"&&C.grupo){
       var grupos={};datos.forEach(function(r){(grupos[r.p]=grupos[r.p]||[]).push(r)});
       var claves=(C.claves||Object.keys(grupos)).slice();
       if(st.tipo!=="cierre")claves.sort(function(a,b){var ta=(grupos[a]||[]).reduce(function(s,r){return s+r.t},0),tb=(grupos[b]||[]).reduce(function(s,r){return s+r.t},0);return tb-ta});
@@ -1479,9 +1495,10 @@ document.addEventListener("click",function(e){
     var cat=e.target.closest("tr.cat");if(cat){st.cerradas[cat.dataset.cat]=!st.cerradas[cat.dataset.cat];pinta();return}
     var fac=e.target.closest("tr.fac");if(fac){st.sel=+fac.dataset.fi;pinta();if(window.verFactura)window.verFactura(st.sel);return}
     var tr=e.target.closest("tr.grupo");if(!tr)return;var k=tr.dataset.k;st.abiertos[k]=!st.abiertos[k];pinta()});
-  window.seleccionarFactura=function(i){st.tipo="fact";st.orden="grupo";st.sel=i;var p=FACT[i].p;st.abiertos[p]=1;st.cerradas={};pinta();if(window.verFactura)window.verFactura(i);
+  window.seleccionarFactura=function(i){st.tipo="fact";st.orden="grupo";st.sel=i;var p=FACT[i].p;st.abiertos[p]=1;st.cerradas={};if(window.calAbarca)window.calAbarca(FACT[i].f);pinta();if(window.verFactura)window.verFactura(i);
     document.getElementById("docLineas").scrollIntoView({behavior:"smooth",block:"center"})};
-  pinta();
+  window.pintaDocs=pinta;// el calendario la llama al cambiar el periodo
+  if(window.calRecarga)window.calRecarga();else pinta();
 })();
 
 /* ===== Documentos: líneas de la factura elegida y comparación con Mercabarna ===== */
@@ -2107,8 +2124,13 @@ document.addEventListener("click",function(e){
 <script>
 /* ===== Estilo claro: menú por secciones, enlace activo, pestañas y carrusel del asistente ===== */
 (function(){
-  // Plegar / desplegar secciones del menú (arrancan cerradas)
-  document.querySelectorAll("nav.menu .gt").forEach(function(t){t.addEventListener("click",function(){t.parentNode.classList.toggle("cerrado")})});
+  // Plegar / desplegar secciones del menú. Arrancan cerradas, pero las abiertas se recuerdan en localStorage ("rehub_menu": lista de data-g de .grupo)
+  var CLAVE_MENU="rehub_menu",grupos=document.querySelectorAll("nav.menu .grupo");
+  function guardaMenu(){var ab=[].filter.call(grupos,function(g){return !g.classList.contains("cerrado")}).map(function(g){return g.dataset.g});try{localStorage.setItem(CLAVE_MENU,JSON.stringify(ab))}catch(e){}}
+  try{var abiertos=JSON.parse(localStorage.getItem(CLAVE_MENU)||"null");if(abiertos&&abiertos.length!==undefined)grupos.forEach(function(g){g.classList.toggle("cerrado",abiertos.indexOf(g.dataset.g)<0)})}catch(e){}
+  document.querySelectorAll("nav.menu .gt").forEach(function(t){t.addEventListener("click",function(){t.parentNode.classList.toggle("cerrado");guardaMenu()})});
+  // Pinchar una pantalla de dentro de una sección no la cierra: se queda abierta (y así se recuerda)
+  document.querySelectorAll("nav.menu .grupo a").forEach(function(a){a.addEventListener("click",function(){a.parentNode.classList.remove("cerrado");guardaMenu()})});
   // Patrón común de bloques plegables (.pleg > .pleg-cab + .pleg-cuerpo): pinchar la cabecera abre o cierra; los botones de la cabecera no pliegan
   document.addEventListener("click",function(e){
     var cab=e.target.closest(".pleg-cab");if(!cab)return;
