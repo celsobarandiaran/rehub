@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block titulo %}Proveedores{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">🚚</span><h2>Proveedores</h2><span class="sub">Cuánto le compras a cada uno, cómo cambian sus precios y cómo contactarle</span></div>
+  {% if not hay_datos %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="grid provs" style="grid-template-columns:minmax(0,320px) minmax(0,1fr)">
+    <div class="card"><h3>Por mes <span class="sin-iva">sin IVA</span></h3>
+      <div class="lista-prov">
+        {% for x in lista %}
+        <a class="prov-fila{% if ficha.p and x.p.id == ficha.p.id %} sel{% endif %}" href="/p/proveedores?id={{ x.p.id }}" style="text-decoration:none;color:inherit">
+          <div class="q"><b>{{ x.p.nombre }}</b><div class="peq mut">{{ x.p.tipo or ("comida" if x.p.grupo == "comida" else "local") }} · {% for m in x.meses %}{{ m[:3] }}. {{ eur(x.compras[loop.index0], 0) }} €{{ " · " if not loop.last }}{% endfor %}</div>
+            {% if x.subidas %}<span class="chip c-rev">⚠ {{ x.subidas|length }} subida{{ "s" if x.subidas|length > 1 }} de precio</span>{% endif %}</div><span class="mut">›</span></a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="card pila">
+      {% if ficha.p %}{% set p = ficha.p %}
+      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">{{ p.nombre }}</h3><span class="chip {{ 'c-fact' if p.grupo == 'comida' else 'c-est' }}">{{ "🍽️ Comida y bebida" if p.grupo == "comida" else "🏠 Local y servicios" }}</span></div>
+      <div class="ficha-datos"><div><span>Teléfono</span>{{ p.telefono or "—" }}</div><div><span>Correo</span>{{ p.correo or "—" }}</div><div><span>CIF</span>{{ p.cif or "—" }}</div><div><span>Dirección</span>{{ p.direccion or "—" }}</div></div>
+      <div class="peq mut">Sacado de sus facturas y de la firma de sus correos.</div>
+      <div><b class="peq">Compras por mes</b><div class="grid g3 peq" style="margin-top:6px">{% set mx = ficha.compras|map(attribute=1)|max or 1 %}{% for m, c in ficha.compras %}<div><div class="mut">{{ m|capitalize }}</div><b>{{ eur(c, 0) }} €</b><div class="prog" style="height:8px;margin-top:4px"><i style="width:{{ (c / mx * 100)|round }}%"></i></div></div>{% endfor %}</div></div>
+      <div><b class="peq">Sus facturas</b>
+        <table class="peq resp"><tr><th>Fecha</th><th>Nº</th><th class="num">Total</th><th>Pago</th><th></th></tr>
+          {% for d in ficha.facturas[:12] %}
+          <tr><td>{{ d.fecha.strftime("%d/%m/%Y") if d.fecha else "—" }}</td><td><a href="/archivo/{{ d.id }}" target="_blank">{{ d.numero or "sin nº" }}</a>{% if d.estado == "duplicada" %} <span class="chip c-dup">duplicada</span>{% endif %}</td><td class="num">{{ eur(d.total) }} €</td>
+            <td>{% if d.estado == "duplicada" %}<span class="chip c-dup">No pagar</span>{% elif d.pagado_fecha %}<span class="chip c-ok">Pagada {{ d.pagado_fecha.strftime("%d/%m") }}</span>{% elif d.vencimiento %}<span class="chip c-rev">vence {{ d.vencimiento.strftime("%d/%m") }}</span>{% endif %}</td>
+            <td class="num">{% if d.correo_id %}<a href="/p/bandeja?id={{ d.correo_id }}" class="mut">✉ correo</a>{% endif %}</td></tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% if ficha.series %}
+      <div><b class="peq">Precio de cada producto en cada factura</b>
+        <div class="pestanas" id="provProd" style="margin-top:6px">{% for sr in ficha.series %}<span data-i="{{ loop.index0 }}" class="{{ 'on' if loop.first }}">{{ sr.producto }}{% if sr.subida %} ⚠{% endif %}</span>{% endfor %}</div>
+        <div id="provGraf"></div><div class="peq" id="provPunto"></div>
+      </div>
+      {% endif %}
+      {% if ficha.comparaciones %}
+      <div class="pila"><b class="peq">Mismo producto en dos sitios</b>
+        <table class="peq resp"><tr><th>Producto</th><th class="num">Aquí</th><th>Otro proveedor</th><th class="num">Allí</th><th class="num">Diferencia</th></tr>
+          {% for c in ficha.comparaciones %}<tr><td>{{ c.producto }}</td><td class="num">{{ eur(c.mio) }} €</td><td>{{ c.otro }} ({{ c.fecha.strftime("%d/%m") }})</td><td class="num">{{ eur(c.otro_precio) }} €</td><td class="num"><span class="chip {{ 'c-dup' if c.diferencia_pct > 5 else ('c-fact' if c.diferencia_pct < -5 else 'c-ok') }}">{{ "+" if c.diferencia_pct >= 0 }}{{ c.diferencia_pct }} %</span></td></tr>{% endfor %}
+        </table></div>
+      {% endif %}
+      <div class="fila">{% if p.correo %}<a class="btn pri" href="mailto:{{ p.correo }}">✉️ Escribirle</a>{% endif %}{% if p.telefono %}<a class="btn" href="tel:{{ p.telefono.replace(' ', '') }}">📞 Llamar</a>{% endif %}</div>
+      <script>
+        var SERIES={{ ficha.series|tojson }},MERC={{ mercabarna|tojson }};
+        function eur(x){return x.toFixed(2).replace(".",",")}
+        function pinta(i){var sr=SERIES[i],pts=sr.puntos,vals=pts.map(function(p){return p.precio}),max=Math.max.apply(null,vals)*1.15,min=Math.min.apply(null,vals)*0.85;
+          var X=function(k){return 40+k*(560/Math.max(1,pts.length-1))},Y=function(v){return 120-(v-min)/((max-min)||1)*100};
+          var h='<svg viewBox="0 0 640 150" width="100%"><polyline fill="none" stroke="#2d6a4f" stroke-width="3" points="'+pts.map(function(p,k){return X(k)+","+Y(p.precio)}).join(" ")+'"/>';
+          pts.forEach(function(p,k){var sube=k>0&&p.precio>pts[k-1].precio*1.05;h+='<g class="punto-clic" data-k="'+k+'" style="cursor:pointer"><circle cx="'+X(k)+'" cy="'+Y(p.precio)+'" r="'+(sube?8:5)+'" fill="'+(sube?"#c0392b":"#2d6a4f")+'"/><text x="'+X(k)+'" y="'+(Y(p.precio)-12)+'" font-size="11" text-anchor="middle" fill="'+(sube?"#c0392b":"#1d1d1b")+'">'+eur(p.precio)+'</text>'+(k%Math.ceil(pts.length/8)===0||k===pts.length-1?'<text x="'+X(k)+'" y="142" font-size="11" text-anchor="middle" fill="#6b6b66">'+p.fecha.slice(8,10)+"/"+p.fecha.slice(5,7)+'</text>':'')+'</g>'});
+          document.getElementById("provGraf").innerHTML=h+'</svg>';
+          document.querySelectorAll("#provProd span").forEach(function(s,j){s.classList.toggle("on",j===i)});
+          punto(i,sr.subida?sr.subida.i:pts.length-1)}
+        function punto(i,k){var sr=SERIES[i],p=sr.puntos[k],ant=k>0?sr.puntos[k-1]:null,sube=ant&&p.precio>ant.precio*1.05,m=MERC.precios[sr.codigo_mercabarna];
+          document.getElementById("provPunto").innerHTML=(sube?'<div class="alerta r"><b>Subida</b><div>':'<div class="alerta v"><b>Precio</b><div>')+sr.producto+' el '+p.fecha.slice(8,10)+'/'+p.fecha.slice(5,7)+': <b>'+eur(p.precio)+' €/'+sr.unidad+'</b> en la factura <a href="/archivo/'+p.doc+'" target="_blank">'+p.numero+' →</a>'+(ant?' · antes <b>'+eur(ant.precio)+' €</b> en '+ant.numero+' ('+ant.fecha.slice(8,10)+'/'+ant.fecha.slice(5,7)+')'+(sube?' · <b>+'+Math.round((p.precio/ant.precio-1)*100)+' %</b>':''):'')+(m?' · Mercabarna: '+eur(m.precio)+' €/kg ('+MERC.fecha+')':'')+'</div></div>'}
+        document.getElementById("provProd").addEventListener("click",function(e){if(e.target.dataset.i!==undefined)pinta(+e.target.dataset.i)});
+        document.getElementById("provGraf").addEventListener("click",function(e){var g=e.target.closest(".punto-clic");if(g)punto([].indexOf.call(document.querySelectorAll("#provProd span"),document.querySelector("#provProd span.on")),+g.dataset.k)});
+        if(SERIES.length)pinta(0);
+      </script>
+      {% else %}<div class="mut">Elige un proveedor.</div>{% endif %}
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

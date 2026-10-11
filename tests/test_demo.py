@@ -16,13 +16,21 @@ def test_cargar_demo_completa():
         time.sleep(0.2)
     assert not demo.ESTADO.error, demo.ESTADO.error
     assert time.time() - t0 < 600
+    # Sin clave de IA, las fotos que ya están en la caché (10 facturas escaneadas y 20 tickets) se leen igual;
+    # las 15 etiquetas no están en caché y se quedan esperando. Se espera a que el hilo de la IA termine.
+    for _ in range(300):
+        if demo._hilo_ia is None or not demo._hilo_ia.is_alive():
+            break
+        time.sleep(0.2)
     with db.SesionDB() as s:
         n = lambda q: s.scalar(select(func.count()).select_from(q.subquery()))  # noqa: E731
-        facturas = n(select(db.Documento).where(db.Documento.tipo == "factura"))
-        assert facturas == 60  # las 60 en PDF; las 10 escaneadas esperan a la IA
+        assert n(select(db.Documento).where(db.Documento.tipo == "factura")) == 70
+        assert n(select(db.Documento).where(db.Documento.tipo == "gasto")) == 20
         assert n(select(db.Documento).where(db.Documento.tipo == "nomina")) == 12
         assert n(select(db.Cierre)) == 61
-        assert n(select(db.Documento).where(db.Documento.estado == "leyendo")) == 45  # 10 escaneadas + 20 tickets + 15 etiquetas
+        assert n(select(db.Documento).where(db.Documento.estado == "leyendo")) == 15  # las etiquetas, sin IA
+        revisar = list(s.scalars(select(db.Documento).where(db.Documento.estado == "revisar")))
+        assert len(revisar) == 1 and "número" in revisar[0].motivo_revisar, [r.motivo_revisar for r in revisar]
         dup = list(s.scalars(select(db.Documento).where(db.Documento.estado == "duplicada")))
         assert len(dup) == 1 and dup[0].proveedor.nombre == "Carnes Vallès"
         subidas = [a.texto for a in s.scalars(select(db.Aviso).where(db.Aviso.tipo == "subida_precio"))]

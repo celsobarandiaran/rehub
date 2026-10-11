@@ -7,12 +7,13 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from datetime import date
+from datetime import date, timedelta
 
 from fastapi import HTTPException, UploadFile
 from fastapi.responses import Response
+from sqlalchemy import select
 
-from . import almacen, auth, config, db, demo, ia, perfiles, procesar, vistas
+from . import almacen, auth, calculos, config, db, demo, ia, perfiles, procesar, vistas
 
 AQUI = Path(__file__).resolve().parent
 
@@ -32,7 +33,7 @@ async def arranque(app: FastAPI):
 app = FastAPI(title="ReHub", lifespan=arranque, docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=AQUI / "static"), name="static")
 plantillas = Jinja2Templates(directory=AQUI / "plantillas")
-plantillas.env.globals.update(config=config, perfiles=perfiles)
+plantillas.env.globals.update(config=config, perfiles=perfiles, timedelta=timedelta)
 
 LIBRES = ("/entrar", "/salud", "/despertando", "/static", "/favicon.ico", "/manifest.json")
 
@@ -98,12 +99,37 @@ def pantalla(request: Request, pantalla_id: str):
     info = next(p for p in perfiles.PANTALLAS if p["id"] == pantalla_id)
     contexto = {"menu": perfiles.menu_para(perfil), "actual": pantalla_id, "pantalla": info, "perfil": perfil, "eur": vistas.eur,
                 "hay_datos": demo.hay_datos()}
+    q = request.query_params
     with db.SesionDB() as s:
+        hoy = calculos.hoy_demo(s)
+        contexto["hoy"] = hoy
         if pantalla_id == "bandeja":
-            q = request.query_params
             contexto.update(vistas.bandeja(s, q.get("cat"), int(q["id"]) if q.get("id", "").isdigit() else None, perfil))
-        if pantalla_id == "ajustes":
+        elif pantalla_id == "ajustes":
             contexto["estado_demo"] = demo.ESTADO.json()
+        elif contexto["hay_datos"]:
+            if pantalla_id == "hoy":
+                st = calculos.stock(s, hoy)
+                contexto.update(prevision=calculos.prevision(s, hoy), empujar=calculos.platos_a_empujar(s, hoy), avisos=vistas.avisos(s, hoy),
+                                caducan=st["caducan"], caja=calculos.caja_30_dias(s, hoy) if perfiles.puede_ver(perfil, "banco") else None)
+            elif pantalla_id == "cuadro":
+                contexto.update(vistas.cuadro_del_dia(s, hoy, q.get("fecha")))
+            elif pantalla_id == "carta":
+                contexto.update(carta=calculos.carta(s, hoy), tipos=calculos.TIPOS, parte=q.get("parte", "comida"))
+            elif pantalla_id == "dueno":
+                contexto.update(d=calculos.dueno(s, hoy), banco=calculos.banco(s, hoy), caja=calculos.caja_30_dias(s, hoy), normal=calculos.NORMAL)
+            elif pantalla_id == "personal":
+                lunes = date.fromisoformat(q["semana"]) if q.get("semana") else (hoy + timedelta(days=1) if hoy.weekday() == 6 else hoy - timedelta(days=hoy.weekday()))
+                contexto.update(calculos.personal_semana(s, lunes), ver_salarios=perfiles.puede_ver(perfil, "salarios_por_persona"),
+                                ver_todos=perfiles.puede_ver(perfil, "cuadrante_de_todos"), usuario_empleado=None)
+            elif pantalla_id == "recepcion":
+                contexto.update(vistas.recepcion(s, hoy, perfil))
+            elif pantalla_id == "proveedores":
+                contexto.update(lista=calculos.proveedores(s, hoy))
+                sel = int(q["id"]) if q.get("id", "").isdigit() else (contexto["lista"][0]["p"].id if contexto["lista"] else None)
+                contexto.update(ficha=calculos.ficha_proveedor(s, sel) if sel else {}, mercabarna=vistas.MERCABARNA)
+            elif pantalla_id == "competencia":
+                contexto.update(vistas.competencia(s, hoy, int(q["id"]) if q.get("id", "").isdigit() else None))
     plantilla = f"pantallas/{pantalla_id}.html"
     if not (AQUI / "plantillas" / plantilla).exists():
         plantilla = "pantallas/vacia.html"
@@ -197,6 +223,128 @@ async def subir(request: Request, archivo: UploadFile):
         cid = c.id
     demo._asegurar_hilo_ia()
     return {"ok": True, "correo_id": cid}
+
+
+# ---------------------------------------------------------------- acciones de las pantallas
+def _num(texto: str) -> float | None:
+    t = (texto or "").replace("€", "").replace(".", "").replace(",", ".").strip()
+    try:
+        return float(t) if t else None
+    except ValueError:
+        return None
+
+
+@app.post("/api/cierre/{cierre_id}/contado")
+def api_contado(request: Request, cierre_id: int, contado: str = Form("")):
+    if not perfiles.puede_ver(request.state.perfil, "costes_y_margenes"):
+        raise HTTPException(403)
+    with db.SesionDB() as s:
+        c = s.get(db.Cierre, cierre_id)
+        if not c:
+            raise HTTPException(404)
+        c.efectivo_contado = _num(contado)
+        s.commit()
+        fondo = calculos.ajuste(s, "fondo_caja", 150.0)
+        gastos = sum(g.total or 0 for g in s.scalars(select(db.Documento).where(db.Documento.tipo == "gasto", db.Documento.fecha == c.fecha)))
+        esperada = round(fondo + c.efectivo - gastos, 2)
+        return {"descuadre": round(c.efectivo_contado - esperada, 2) if c.efectivo_contado is not None else None}
+
+
+@app.post("/api/plato/{plato_id}")
+async def api_plato(request: Request, plato_id: int):
+    """Cambiar precio de carta y cantidades de la receta; el margen se recalcula al momento."""
+    if not perfiles.puede_ver(request.state.perfil, "costes_y_margenes"):
+        raise HTTPException(403)
+    form = await request.form()
+    with db.SesionDB() as s:
+        p = s.get(db.Plato, plato_id)
+        if not p:
+            raise HTTPException(404)
+        precio = _num(form.get("precio_carta", ""))
+        if precio is None or precio <= 0:
+            return JSONResponse({"error": "El precio no es válido."}, status_code=400)
+        p.precio_carta = precio
+        for i, l in enumerate(p.receta):
+            c = _num(form.get(f"cantidad_{i}", ""))
+            if c is not None and c >= 0:
+                l.cantidad = c
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/recuento")
+async def api_recuento(request: Request):
+    """Recuento de la cámara: producto -> cantidad contada. Lo que no se manda no cambia."""
+    form = await request.form()
+    with db.SesionDB() as s:
+        hoy = calculos.hoy_demo(s)
+        n = 0
+        for k, v in form.items():
+            if k.startswith("prod_") and k[5:].isdigit():
+                c = _num(v)
+                if c is not None:
+                    s.add(db.Recuento(fecha=hoy, producto_id=int(k[5:]), cantidad_contada=c))
+                    n += 1
+        s.commit()
+    return {"ok": True, "guardados": n}
+
+
+@app.post("/api/turno")
+def api_turno(request: Request, empleado_id: int = Form(...), fecha: str = Form(...), tramos: str = Form("")):
+    """tramos: '10:00-18:00' o '12:30-16:30,20:00-24:00' o vacío (libre)."""
+    if not perfiles.puede_ver(request.state.perfil, "cuadrante_de_todos"):
+        raise HTTPException(403)
+    lista = []
+    for t in [x.strip() for x in tramos.split(",") if x.strip()]:
+        try:
+            a, b = t.split("-")
+            lista.append([a.strip(), b.strip()])
+        except ValueError:
+            return JSONResponse({"error": "Escribe las horas así: 12:30-16:30,20:00-24:00"}, status_code=400)
+    with db.SesionDB() as s:
+        f = date.fromisoformat(fecha)
+        t = s.scalar(select(db.Turno).where(db.Turno.empleado_id == empleado_id, db.Turno.fecha == f))
+        if t:
+            t.tramos = lista
+        else:
+            s.add(db.Turno(empleado_id=empleado_id, fecha=f, tramos=lista))
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/competidor")
+async def api_competidor(request: Request):
+    """Añadir un competidor: nombre, distancia, valoración y su carta (foto o enlace, leída por la IA)."""
+    _solo_dueno(request)
+    form = await request.form()
+    nombre = (form.get("nombre") or "").strip()
+    if not nombre:
+        return JSONResponse({"error": "Falta el nombre."}, status_code=400)
+    carta = {}
+    archivo = form.get("archivo")
+    contenido = await archivo.read() if archivo is not None and getattr(archivo, "filename", "") else b""
+    if contenido:
+        try:
+            carta = procesar.leer_carta_competidor(contenido, archivo.content_type or "image/jpeg")
+        except (ia.SinIA, ia.CuotaAgotada):
+            return JSONResponse({"error": "La IA no está disponible ahora para leer la carta; prueba más tarde."}, status_code=503)
+    with db.SesionDB() as s:
+        c = db.Competidor(nombre=nombre, distancia_m=int(_num(form.get("distancia_m", "")) or 0), valoracion=_num(form.get("valoracion", "")),
+                          opiniones=0, carta=carta)
+        s.add(c)
+        s.commit()
+        return {"ok": True, "id": c.id, "productos": len(carta)}
+
+
+@app.post("/api/ajuste")
+def api_ajuste(request: Request, clave: str = Form(...), valor: str = Form("")):
+    _solo_dueno(request)
+    if clave not in ("dias_apertura_mes", "minimo_caja", "margen_objetivo", "fondo_caja", "valoracion_google", "iva_trimestre_confirmado"):
+        raise HTTPException(400)
+    with db.SesionDB() as s:
+        s.merge(db.Ajuste(clave=clave, valor=valor.replace(",", ".")))
+        s.commit()
+    return {"ok": True}
 
 
 @app.get("/manifest.json")

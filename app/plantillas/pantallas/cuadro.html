@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block titulo %}Cuadro del día{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">💶</span><h2>Cuadro del día</h2><span class="sub">{% if cierre %}Cierre de caja del {{ cierre.fecha.strftime("%A %d/%m/%Y")|lower }} (importes con IVA: es dinero real){% else %}Cierre de caja{% endif %}</span></div>
+  {% if not cierre %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay cierres de caja.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="fila" style="margin-bottom:12px"><span class="mut peq">Otro día:</span><input class="campo" type="date" id="fecha" value="{{ cierre.fecha.isoformat() }}" style="width:170px"><span class="mut peq">{{ "Los lunes cierra." }}</span></div>
+  <div class="grid g4">
+    <div class="card kpi"><div class="l">Ventas</div><div class="v">{{ eur(cierre.ventas_total, 0) }} €</div><div class="d mut">{{ cierre.cubiertos }} cubiertos · {{ eur(cierre.ventas_total / 1.1, 0) }} € sin IVA</div></div>
+    <div class="card kpi"><div class="l">Tarjeta</div><div class="v">{{ eur(cierre.tarjeta, 0) }} €</div><div class="d mut">llega al banco al día siguiente, menos comisión</div></div>
+    <div class="card kpi"><div class="l">Efectivo</div><div class="v">{{ eur(cierre.efectivo, 0) }} €</div><div class="d mut">{{ (cierre.efectivo / cierre.ventas_total * 100)|round|int if cierre.ventas_total else 0 }} %</div></div>
+    <div class="card kpi"><div class="l">Gastos del día</div><div class="v">{{ eur(gastos_total, 0) }} €</div><div class="d mut">{{ gastos|length }} ticket{{ "s" if gastos|length != 1 else "" }}{% if gastos %} ({{ gastos|map(attribute="categoria")|join(", ")|lower }}){% endif %}</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card pila"><h3>💶 Caja (efectivo)</h3>
+      <div class="fila" style="justify-content:space-between"><span>Fondo inicial</span><b>{{ eur(fondo) }} €</b></div>
+      <div class="fila" style="justify-content:space-between"><span>+ Efectivo de ventas</span><b>{{ eur(cierre.efectivo) }} €</b></div>
+      <div class="fila" style="justify-content:space-between"><span>− Gastos pagados en efectivo</span><b>{{ eur(gastos_total) }} €</b></div>
+      <div class="fila" style="justify-content:space-between;border-top:1px solid var(--linea);padding-top:8px"><span><b>Caja esperada</b></span><b>{{ eur(esperada) }} €</b></div>
+      <form id="formContado" class="pila">
+        <label class="peq" for="contado">Efectivo contado</label>
+        <div class="fila"><input class="campo" id="contado" name="contado" inputmode="decimal" value="{{ eur(cierre.efectivo_contado) if cierre.efectivo_contado is not none else '' }}" placeholder="0,00" style="flex:1;min-width:120px"><button class="btn pri" type="submit">Guardar</button></div>
+      </form>
+      <div id="descuadre">
+        {% if descuadre is not none %}
+          {% if descuadre|abs < 0.01 %}<div class="alerta v"><b>✔ Cuadra</b><div>El efectivo contado coincide con lo esperado.</div></div>
+          {% else %}<div class="alerta r"><b>⚠ Descuadre</b><div>{{ "Faltan" if descuadre < 0 else "Sobran" }} <b>{{ eur(descuadre|abs) }} €</b>. Revisa propinas, cambios o un ticket sin apuntar.</div></div>{% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="card pila"><h3>🏦 Banco {% if banco.hay %}<span class="chip c-ok">extracto del {{ banco.fecha.strftime("%d/%m") }}</span>{% else %}<span class="chip c-rev">sin extracto</span>{% endif %}</h3>
+      {% if banco.hay %}
+      <div class="fila" style="justify-content:space-between"><span>Saldo según el banco</span><b>{{ eur(banco.saldo) }} €</b></div>
+      <div class="fila" style="justify-content:space-between"><span>Tarjeta de este día que llegará</span><b>{{ eur(cierre.tarjeta) }} €</b></div>
+      {% if banco.sin_factura %}<div class="alerta b"><b>Recibos sin factura</b><div>{% for m in banco.sin_factura[-3:] %}{{ m.concepto|capitalize }} ({{ eur(m.importe|abs) }} €, {{ m.fecha.strftime("%d/%m") }}){{ "; " if not loop.last }}{% endfor %}. <a href="/p/dueno">Ver en Dueño →</a></div></div>{% endif %}
+      {% else %}<div class="mut">Sube el extracto del banco en Ajustes para ver aquí el saldo real.</div>{% endif %}
+      <h3 style="margin-top:6px">Resumen por mes</h3>
+      <table class="peq resp"><tr><th>Mes</th><th class="num">Ventas con IVA</th><th class="num">Cubiertos</th><th class="num">Descuadres</th></tr>
+        {% for m in meses %}<tr><td>{{ m.nombre|capitalize }}</td><td class="num">{{ eur(m.ventas, 0) }} €</td><td class="num">{{ m.cubiertos }}</td><td class="num">{{ eur(m.descuadres) }} €</td></tr>{% endfor %}
+      </table>
+      <div class="peq mut">Los avisos de precios y de facturas duplicadas están en <a href="/p/hoy">Hoy</a>.</div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("fecha").addEventListener("change",function(){location.href="/p/cuadro?fecha="+this.value});
+    document.getElementById("formContado").addEventListener("submit",function(e){e.preventDefault();var f=new FormData(e.target);
+      fetch("/api/cierre/{{ cierre.id }}/contado",{method:"POST",body:f}).then(function(r){return r.json()}).then(function(r){
+        var d=r.descuadre, h=d===null?"":(Math.abs(d)<0.01?'<div class="alerta v"><b>✔ Cuadra</b><div>El efectivo contado coincide con lo esperado.</div></div>':'<div class="alerta r"><b>⚠ Descuadre</b><div>'+(d<0?"Faltan":"Sobran")+' <b>'+Math.abs(d).toFixed(2).replace(".",",")+' €</b>. Revisa propinas, cambios o un ticket sin apuntar.</div></div>');
+        document.getElementById("descuadre").innerHTML=r.error?'<div class="alerta r">'+r.error+'</div>':h;})});
+  </script>
+  {% endif %}
+</section>
+{% endblock %}

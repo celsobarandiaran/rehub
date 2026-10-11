@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block titulo %}Competencia{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">🔎</span><h2>Competencia</h2><span class="sub">Tus precios frente a los restaurantes de alrededor, solo con datos públicos (sus cartas)</span></div>
+  {% if not hay_datos %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="grid provs" style="grid-template-columns:minmax(0,320px) minmax(0,1fr)">
+    <div class="card pila"><h3>Tus competidores</h3>
+      <div class="lista-prov">
+        {% for c in competidores %}
+        <a class="prov-fila{% if sel and c.id == sel.id %} sel{% endif %}" href="/p/competencia?id={{ c.id }}" style="text-decoration:none;color:inherit">
+          <div class="q"><b>{{ c.nombre }}</b><div class="peq mut">📍 {{ c.distancia_m }} m{% if c.valoracion %} · ★ {{ ("%.1f"|format(c.valoracion)).replace(".", ",") }} ({{ c.opiniones }} opiniones){% endif %} · {{ c.carta|length }} productos</div></div><span class="mut">›</span></a>
+        {% endfor %}
+      </div>
+      <div class="peq mut">Tú: ★ {{ ("%.1f"|format(valoracion_propia)).replace(".", ",") }}. Las valoraciones se escriben a mano (Google Maps pide una cuenta de pago para leerlas).</div>
+      <div class="subida pila"><b>➕ Añadir competidor</b>
+        <form id="formComp" class="pila">
+          <input class="campo" name="nombre" placeholder="Nombre (como en Google Maps)" required>
+          <div class="fila"><input class="campo" name="distancia_m" inputmode="numeric" placeholder="Distancia en metros" style="flex:1"><input class="campo" name="valoracion" inputmode="decimal" placeholder="★ (por ejemplo 4,3)" style="flex:1"></div>
+          <input class="campo" name="url" placeholder="Enlace a su carta (opcional)">
+          <label class="btn" style="cursor:pointer">📸 Foto de su carta (opcional)<input type="file" name="archivo" accept="image/*,.pdf" style="display:none"></label>
+          <button class="btn pri" type="submit">Añadir</button><div class="peq" id="txtComp"></div>
+        </form>
+        <div class="peq mut">Solo datos públicos: su carta y su valoración. Nada de sus ventas ni de sus redes. Emparejar sus platos con los tuyos lo hace la IA y lo dudoso queda por revisar.</div>
+      </div>
+    </div>
+    <div class="card pila">
+      {% if sel %}
+      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">{{ sel.nombre }}</h3><span class="mut peq">📍 {{ sel.distancia_m }} m{% if sel.valoracion %} · ★ {{ ("%.1f"|format(sel.valoracion)).replace(".", ",") }}{% endif %}</span></div>
+      <table class="resp"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tu precio</th><th class="num">Diferencia</th><th>Aviso</th></tr>
+        {% for f in filas %}
+        <tr><td>{{ f.nombre }}</td><td class="num">{{ eur(f.suyo) }} €</td><td class="num">{{ eur(f.mio) }} €</td><td class="num"><span class="chip {{ 'mas-caro' if f.dif > 0.03 else ('mas-barato' if f.dif < -0.03 else 'igual') }}">{{ "+" if f.dif >= 0 }}{{ (f.dif * 100)|round|int }} %</span></td><td class="peq">{{ f.aviso }}</td></tr>
+        {% endfor %}
+      </table>
+      <div class="peq mut">Precios de carta con IVA en los dos lados: es lo que ve el cliente.</div>
+      <div class="alerta b"><b>Resumen</b><div>Frente a {{ sel.nombre }} hay <b>{{ subir }}</b> producto{{ "s" if subir != 1 }} donde podrías subir el precio sin pasarte de ellos.</div></div>
+      {% else %}<div class="mut">Añade un competidor para comparar.</div>{% endif %}
+    </div>
+  </div>
+  <script>
+    document.getElementById("formComp").addEventListener("submit",function(e){e.preventDefault();document.getElementById("txtComp").textContent="Guardando…";
+      fetch("/api/competidor",{method:"POST",body:new FormData(e.target)}).then(function(r){return r.json()}).then(function(r){if(r.error)document.getElementById("txtComp").textContent=r.error;else location.href="/p/competencia?id="+r.id})});
+  </script>
+  {% endif %}
+</section>
+{% endblock %}

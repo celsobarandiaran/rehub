@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block titulo %}Carta{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">🍽️</span><h2>Carta</h2><span class="sub">Comida y bebida: lo que cuesta, lo que deja, lo que se vende y cómo está frente a la competencia</span></div>
+  {% if not hay_datos %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  {% set r = carta.resumen %}
+  <div class="grid g4">
+    <div class="card kpi"><div class="l">Lo que deja la comida (3 meses)</div><div class="v">{{ eur(r.comida.margen_total, 0) }} €</div><div class="d mut">{{ r.comida.platos }} platos</div></div>
+    <div class="card kpi"><div class="l">Lo que deja la bebida (3 meses)</div><div class="v">{{ eur(r.bebida.margen_total, 0) }} €</div><div class="d mut">{{ r.bebida.platos }} bebidas · mucho con poco trabajo</div></div>
+    <div class="card kpi"><div class="l">Más caro que la competencia</div><div class="v" style="color:var(--mal)">{{ carta.mas_caro }}</div><div class="d mut">productos</div></div>
+    <div class="card kpi"><div class="l">Más barato que la competencia</div><div class="v" style="color:var(--azul)">{{ carta.mas_barato }}</div><div class="d mut">donde podrías subir</div></div>
+  </div>
+  <div class="card pila" style="margin-top:14px">
+    <div class="pestanas"><a href="/p/carta?parte=comida" class="{{ 'on' if parte == 'comida' }}" style="text-decoration:none;padding:8px 12px;font-weight:600;border-bottom:3px solid {{ 'var(--verde)' if parte == 'comida' else 'transparent' }};color:{{ 'var(--verde)' if parte == 'comida' else 'var(--gris)' }}">🍽️ Comida</a><a href="/p/carta?parte=bebida" style="text-decoration:none;padding:8px 12px;font-weight:600;border-bottom:3px solid {{ 'var(--verde)' if parte == 'bebida' else 'transparent' }};color:{{ 'var(--verde)' if parte == 'bebida' else 'var(--gris)' }}">🍷 Bebida</a></div>
+    {% set rp = r[parte] %}
+    <div class="peq mut">{{ "Comida" if parte == "comida" else "Bebida" }}: deja de media <b>{{ eur(rp.margen_medio) }} € por unidad</b>; "se vende" a partir de <b>{{ rp.umbral }} unidades</b> en 3 meses. {% if parte == "bebida" %}El coste sale de las facturas de bebida (un barril de 30 l con un 10 % de merma da el coste de cada caña) y las unidades, del cierre de caja.{% else %}El coste sale de la receta con el último precio de cada ingrediente y su rendimiento.{% endif %}</div>
+    <div class="tabla"><table class="resp">
+      <tr><th>{{ "Plato" if parte == "comida" else "Bebida" }}</th><th class="num">Precio</th><th class="num">Coste</th><th class="num">Deja</th><th class="num">Vendidos</th><th>Tipo</th><th>Competencia</th><th>Qué hacer</th></tr>
+      {% for f in carta.filas if f.parte == parte %}
+      <tr class="fila-plato" data-id="{{ f.id }}" style="cursor:pointer">
+        <td><b>{{ f.nombre }}</b></td>
+        <td class="num">{{ eur(f.pv) }} €<div class="mut peq">carta {{ eur(f.precio_carta) }}</div></td>
+        <td class="num">{{ eur(f.coste) }} €</td>
+        <td class="num"><b>{{ eur(f.margen) }} €</b><div class="mut peq">{{ (f.margen_pct * 100)|round|int }} %</div></td>
+        <td class="num">{{ f.unidades }}</td>
+        <td><span class="chip {{ f.tipo }}">{{ tipos[f.tipo].split(" ·")[0] }}</span></td>
+        <td class="peq">{% if f.comp_n %}{{ f.comp_n }} de {{ carta.n_comp }} · media {{ eur(f.comp_media) }} € <span class="chip {{ 'mas-caro' if f.comp_dif > 0.03 else ('mas-barato' if f.comp_dif < -0.03 else 'igual') }}">{{ "+" if f.comp_dif >= 0 }}{{ (f.comp_dif * 100)|round|int }} % {{ "más caro" if f.comp_dif > 0.03 else ("más barato" if f.comp_dif < -0.03 else "igual") }}</span>{% else %}<span class="chip igual">nadie lo tiene</span>{% endif %}</td>
+        <td class="peq">{{ f.que_hacer }}</td>
+      </tr>
+      {% endfor %}
+    </table></div>
+    <div class="peq mut">Precio y margen <span class="sin-iva">sin IVA</span> (el precio de carta, con IVA, en gris). Pulsa un plato para ver y cambiar su receta y su precio.</div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card pila" id="receta"><h3>✏️ Receta</h3><div class="mut">Pulsa un plato de la lista.</div></div>
+    <div class="pila">
+      <div class="card"><h3>Qué hacer con cada tipo</h3>
+        <div class="matriz">
+          <div class="estrella"><b>⭐ Estrella · gana y se vende</b><br>Que no falte y que se vea.</div>
+          <div class="puzle"><b>🧩 Puzle · gana pero no se vende</b><br>Recomendarlo, mejor foto o mejor nombre.</div>
+          <div class="vaca"><b>🐄 Vaca · se vende pero gana poco</b><br>Ajustar ración o subir un poco el precio.</div>
+          <div class="perro"><b>🐕 Perro · ni gana ni se vende</b><br>Cambiarlo o quitarlo.</div>
+        </div>
+        <div class="peq mut" style="margin-top:8px">"Gana" = deja más euros por ración que la media de su parte de la carta (no más %). "Se vende" = más del 70 % de lo que vendería cada plato si todos se vendieran igual.</div>
+      </div>
+      <div class="card pila"><h3>Platos que tienen ellos y tú no</h3>
+        {% for e in carta.ellos %}<div class="alerta b"><b>{{ e.clave|capitalize }}</b><div>{{ e.n }} de {{ carta.n_comp }} · media {{ eur(e.media) }} €</div></div>{% else %}<div class="mut">Ninguno.</div>{% endfor %}
+      </div>
+      <div class="card pila"><h3>Platos que tienes tú y ellos no</h3>
+        {% for f in carta.yo %}<div class="alerta {{ 'r' if f.tipo == 'perro' else 'v' }}"><b>{{ f.nombre }}</b><div><span class="chip {{ f.tipo }}">{{ tipos[f.tipo].split(" ·")[0] }}</span> {{ {"puzle": "Mantenerlo como diferencia: es tuyo y deja mucho, pero hay que recomendarlo más.", "estrella": "Mantenerlo y presumir de él: nadie más lo tiene.", "vaca": "Mantenerlo y probar a subirlo un poco: nadie te compara.", "perro": "Quitarlo o cambiarlo: ni lo tienen los demás ni se vende."}[f.tipo] }}</div></div>{% else %}<div class="mut">Ninguno.</div>{% endfor %}
+      </div>
+    </div>
+  </div>
+  <script>
+    var PLATOS={{ carta.filas|tojson }};
+    function eur(x){return (x===null||x===undefined)?"—":x.toFixed(2).replace(".",",")}
+    function pintaReceta(id){var f=PLATOS.find(function(p){return p.id===id});if(!f)return;
+      var h='<h3>✏️ Receta: '+f.nombre+' (1 ración)</h3><table class="peq resp"><tr><th>Ingrediente</th><th class="num">Cantidad</th><th class="num">Rendimiento</th><th class="num">€</th></tr>'+
+        f.receta.map(function(r,i){return '<tr><td>'+r.producto+'</td><td class="num"><input class="campo" data-i="'+i+'" value="'+String(r.cantidad).replace(".",",")+'" style="width:90px;padding:4px 8px"> '+r.unidad+'</td><td class="num">'+Math.round(r.rendimiento*100)+' %</td><td class="num">'+eur(r.coste)+'</td></tr>'}).join("")+'</table>'+
+        '<div class="cuenta" id="cuenta"></div><div class="fila"><label class="peq">Precio de carta</label><input class="campo" id="precioCarta" value="'+eur(f.precio_carta)+'" style="width:110px"><button class="btn pri" type="button" id="guardar">Guardar</button><span class="mut peq">Alérgenos: '+(f.alergenos.join(", ")||"ninguno apuntado")+'.</span></div>'+
+        '<div class="peq mut">"Rendimiento" es lo que queda después de limpiar: si una lubina en filete rinde la mitad, su kilo limpio cuesta el doble.</div>';
+      var caja=document.getElementById("receta");caja.innerHTML=h;
+      function recalc(){var coste=0;f.receta.forEach(function(r,i){var c=parseFloat(caja.querySelector('[data-i="'+i+'"]').value.replace(",","."))||0;coste+=c/(r.rendimiento||1)*r.precio});
+        var pc=parseFloat(document.getElementById("precioCarta").value.replace(",","."))||0,pv=pc/1.1;
+        document.getElementById("cuenta").innerHTML="Precio de carta "+eur(pc)+" € → sin IVA "+eur(pv)+" € − coste "+eur(coste)+" € = <b>deja "+eur(pv-coste)+" € ("+Math.round((pv-coste)/pv*100)+" %)</b>";return {coste:coste,pc:pc}}
+      recalc();caja.addEventListener("input",recalc);
+      document.getElementById("guardar").addEventListener("click",function(){var fd=new FormData();fd.append("precio_carta",document.getElementById("precioCarta").value);
+        f.receta.forEach(function(r,i){fd.append("cantidad_"+i,caja.querySelector('[data-i="'+i+'"]').value)});
+        fetch("/api/plato/"+id,{method:"POST",body:fd}).then(function(r){return r.json()}).then(function(r){if(r.error)alert(r.error);else location.reload()})});
+      caja.scrollIntoView({behavior:"smooth",block:"nearest"})}
+    document.querySelectorAll(".fila-plato").forEach(function(tr){tr.addEventListener("click",function(){pintaReceta(+tr.dataset.id)})});
+    var primero=PLATOS.find(function(p){return p.parte==="{{ parte }}"});if(primero)pintaReceta(primero.id);
+  </script>
+  {% endif %}
+</section>
+{% endblock %}

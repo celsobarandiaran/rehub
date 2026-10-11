@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titulo %}Hoy{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">☀️</span><h2>Hoy</h2><span class="sub">{{ prevision.dia_nombre|capitalize if (prevision is defined and prevision.hay) else "" }} {{ hoy.strftime("%d/%m/%Y") }}: avisos, qué recomendar y cuánto se espera vender</span></div>
+  {% if not hay_datos %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="grid g-35">
+    <div class="pila">
+      <div class="card pila"><h3>🔔 Avisos</h3>
+        {% for a in avisos %}
+        <div class="alerta {{ a.nivel }}"><b>{{ a.titulo }}</b><div>{{ a.texto }}{% if a.documento_id %} <a href="/archivo/{{ a.documento_id }}" target="_blank">ver factura</a>{% endif %} <span class="mut peq">{{ a.fecha.strftime("%d/%m") }}</span></div></div>
+        {% else %}<div class="mut">Sin avisos.</div>{% endfor %}
+        {% if caja and caja.falta %}
+        <div class="alerta a"><b>Caja justa</b><div>El {{ caja.minimo_dia.strftime("%d/%m") }} el banco bajaría a {{ eur(caja.minimo_val, 0) }} €, por debajo del mínimo de {{ eur(caja.minimo, 0) }} €. <a href="/p/dueno">Ver caja →</a></div></div>
+        {% endif %}
+      </div>
+      <div class="card pila"><h3>🍽️ Platos a empujar hoy</h3>
+        {% for e in empujar %}
+        <div class="alerta v"><b>{{ loop.index }}. {{ e.plato }}</b><div>{{ e.motivo|capitalize }}.<br><i>{{ e.frase }}</i></div></div>
+        {% else %}<div class="mut">Hacen falta ventas y recetas para proponer platos.</div>{% endfor %}
+        <div class="peq mut">Elegidos por lo que deja cada ración, por lo que caduca y por lo que se suele vender este día.</div>
+      </div>
+    </div>
+    <div class="pila">
+      <div class="card kpi"><div class="l">Previsión de ventas de hoy (con IVA)</div>
+        {% if prevision.hay %}
+        <div class="v">{{ eur(prevision.bajo, 0) }} – {{ eur(prevision.alto, 0) }} €</div>
+        <div class="d">≈ {{ prevision.cubiertos[0] }} a {{ prevision.cubiertos[1] }} cubiertos · un {{ prevision.dia_nombre }} normal da {{ eur(prevision.media, 0) }} €</div>
+        <div class="peq mut" style="margin-top:6px">Por qué: {{ prevision.n }} {{ prevision.dia_nombre }}s anteriores.{% if prevision.hoy_eventos %} Hoy hay {{ prevision.hoy_eventos|map(attribute="nombre")|join(" y ") }}, que puede moverlo, pero no hay días iguales en el histórico para saber cuánto: por eso doy un margen y no una cifra exacta.{% endif %}</div>
+        {% else %}<div class="v">—</div><div class="d mut">Aún no hay cierres de este día de la semana.</div>{% endif %}
+      </div>
+      <div class="card"><h3>⏰ Caduca hoy y mañana</h3>
+        <table class="peq resp">
+          <tr><th>Producto</th><th class="num">Queda</th><th>Caduca</th><th>Fecha</th></tr>
+          {% for c in caducan %}
+          <tr><td>{{ c.producto }}</td><td class="num">{{ ("%.1f"|format(c.queda)).replace(".", ",") }} {{ c.unidad }}</td><td><b style="color:var(--{{ 'mal' if c.cuando == 'hoy' else 'aviso' }})">{{ c.cuando }}</b></td><td><span class="chip {{ 'c-est' if c.estimada else 'c-ok' }}">{{ "estimada" if c.estimada else "etiqueta" }}</span></td></tr>
+          {% else %}<tr><td colspan="4" class="mut">Nada caduca hoy ni mañana.</td></tr>{% endfor %}
+        </table>
+      </div>
+      <div class="card"><h3>📅 Esta semana cerca</h3>
+        <table class="peq resp">
+          <tr><th>Día</th><th>Qué</th><th>Efecto</th></tr>
+          {% for e in prevision.eventos %}
+          <tr><td><b>{{ e.fecha.strftime("%a %d")|lower }}</b></td><td>{{ e.nombre }}</td><td><span class="chip {{ 'c-ok' if 'más' in e.efecto or 'antes' in e.efecto else 'c-rev' }}">{{ e.efecto }}</span></td></tr>
+          {% else %}<tr><td colspan="3" class="mut">Sin eventos apuntados.</td></tr>{% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

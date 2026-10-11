@@ -133,6 +133,19 @@ def entender_cliente(asunto: str, cuerpo: str, remitente: str, hoy: date, restau
         return {"categoria": cat, "respuesta": plantillas.get(cat, ""), "sin_ia": True}
 
 
+ESQUEMA_CARTA = {"type": "OBJECT", "properties": {"platos": {"type": "ARRAY", "items": {"type": "OBJECT", "properties": {
+    "nombre": {"type": "STRING"}, "precio": {"type": "NUMBER", "nullable": True},
+    "clave": {"type": "STRING", "description": "Nombre corto y genérico del plato, en minúsculas: arroz negro, calamares, bravas, entrecot, croquetas, mejillones, pulpo, caña, copa vino, agua, refresco, café…"}},
+    "required": ["nombre", "clave"]}}}, "required": ["platos"]}
+
+
+def leer_carta_competidor(contenido: bytes, mime: str) -> dict:
+    """Foto o PDF de la carta de un competidor -> {clave: precio con IVA}. Solo datos públicos."""
+    d = ia.leer_imagen(contenido, mime, "Lee esta carta de restaurante y devuelve cada plato o bebida con su precio en euros (número). "
+                       "Pon en 'clave' un nombre corto y genérico para poder compararlo con otras cartas. No inventes precios: null si no se lee.", ESQUEMA_CARTA)
+    return {p["clave"].strip().lower(): p["precio"] for p in d.get("platos", []) if p.get("precio")}
+
+
 # ---------------------------------------------------------------- guardar documentos
 def _ruta_entrada(correo_id, nombre):
     limpio = re.sub(r"[^\w. -]", "", nombre)[-80:]

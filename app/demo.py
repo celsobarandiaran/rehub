@@ -163,6 +163,9 @@ def _bucle_demo():
                     _ticker("🔒 Lunes: cerrado")
                 for a in s.scalars(select(Aviso).where(Aviso.id > avisos_antes)):
                     _ticker(f"⚠ {a.texto}", alerta=True)
+                if (d + timedelta(days=1)).month != d.month:
+                    _recuento_fin_de_mes(s, d)
+                    _ticker("📋 Recuento de la cámara de fin de mes (12 productos caros)")
                 s.commit()
             ESTADO.ia_pendientes = _contar_pendientes()
             _asegurar_hilo_ia()
@@ -181,6 +184,17 @@ def _bucle_demo():
 
 def abierto(d: date) -> bool:
     return d.weekday() != 0
+
+
+def _recuento_fin_de_mes(s, d: date):
+    """En la demo, la oficina cuenta los 12 productos más caros el último día del mes.
+    Se cuenta algo menos de lo teórico (mermas y raciones generosas), para que Dueño enseñe la diferencia."""
+    from . import calculos
+    st = calculos.stock(s, d)
+    caros = sorted([f for f in st["filas"] if f["queda"] > 0], key=lambda f: -f["valor"])[:12]
+    for i, f in enumerate(caros):
+        factor = 0.92 if f["tipo"] in ("pescado", "carne") else 0.96
+        s.add(Recuento(fecha=d, producto_id=f["id"], cantidad_contada=round(f["queda"] * factor, 1)))
 
 
 def _contar_pendientes():

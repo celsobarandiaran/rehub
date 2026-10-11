@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block titulo %}Recepción{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">📦</span><h2>Recepción</h2><span class="sub">Lo que llega, qué caduca y el recuento de la cámara</span></div>
+  {% if not hay_datos %}
+  <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="grid g2">
+    <div class="pila">
+      <div class="card pila">
+        <h3>📸 Al llegar un pedido</h3>
+        <form id="formFoto" class="pila">
+          <label class="btn teja grande" style="width:100%;justify-content:center;cursor:pointer">📄 Foto al albarán o a la etiqueta<input type="file" name="archivo" accept="image/*,.pdf" capture="environment" style="display:none"></label>
+          <div class="peq mut">La etiqueta solo hace falta en pescado y carne: de ahí sale la fecha de caducidad exacta. Lo demás se estima por tipo de producto desde la fecha de la factura.</div>
+          <div id="txtFoto" class="peq"></div>
+        </form>
+        {% if pendientes_foto %}<div class="alerta a"><b>Leyendo</b><div>{{ pendientes_foto }} foto{{ "s" if pendientes_foto != 1 }} esperando a la IA.</div></div>{% endif %}
+      </div>
+      <div class="card"><h3>📥 Entradas de los últimos 7 días</h3>
+        <table class="peq resp">
+          <tr><th>Fecha</th><th>Producto</th><th class="num">Cantidad</th><th>Caduca</th><th>Factura</th></tr>
+          {% for e in recientes %}
+          <tr><td>{{ e.fecha.strftime("%d/%m") }}</td><td>{{ e.producto }}{% if e.lote %}<div class="mut peq">lote {{ e.lote }}</div>{% endif %}</td><td class="num">{{ ("%.1f"|format(e.cantidad)).replace(".", ",") }} {{ e.unidad }}</td>
+            <td>{% if e.caduca %}{{ e.caduca.strftime("%d/%m") }} <span class="chip {{ 'c-est' if e.estimada else 'c-ok' }}">{{ "estimada" if e.estimada else "etiqueta" }}</span>{% else %}—{% endif %}</td>
+            <td>{% if e.doc_id %}<a href="/archivo/{{ e.doc_id }}" target="_blank">{{ e.factura }}</a>{% if e.proveedor %}<div class="mut peq">{{ e.proveedor }}</div>{% endif %}{% else %}—{% endif %}</td></tr>
+          {% else %}<tr><td colspan="5" class="mut">Nada en los últimos 7 días.</td></tr>{% endfor %}
+        </table>
+      </div>
+    </div>
+    <div class="pila">
+      <div class="card"><h3>⏰ Caduca hoy y mañana</h3>
+        <table class="peq resp">
+          <tr><th>Producto</th><th class="num">Queda</th><th>Caduca</th><th>Fecha</th></tr>
+          {% for c in stock.caducan %}
+          <tr><td>{{ c.producto }}</td><td class="num">{{ ("%.1f"|format(c.queda)).replace(".", ",") }} {{ c.unidad }}</td><td><b style="color:var(--{{ 'mal' if c.cuando == 'hoy' else 'aviso' }})">{{ c.cuando }}</b></td><td><span class="chip {{ 'c-est' if c.estimada else 'c-ok' }}">{{ "estimada" if c.estimada else "etiqueta" }}</span></td></tr>
+          {% else %}<tr><td colspan="4" class="mut">Nada caduca hoy ni mañana.</td></tr>{% endfor %}
+        </table>
+      </div>
+      <div class="grid g2">
+        <div class="card kpi"><div class="l">Mermas del mes</div><div class="v" style="color:var(--mal)">{{ eur(stock.mermas_mes, 0) if stock.mermas_mes is not none else "—" }} €</div><div class="d mut">Caducado sin venderse, a precio de compra</div></div>
+        <div class="card kpi"><div class="l">Productos en cámara</div><div class="v">{{ stock.productos_en_camara }}</div><div class="d mut">Stock teórico: comprado menos lo vendido según recetas</div></div>
+      </div>
+      <div class="card pila"><h3>📋 Recuento de la cámara</h3>
+        <div class="peq mut">Último recuento: <b>{{ ultimo_recuento.strftime("%d/%m/%Y") if ultimo_recuento else "ninguno" }}</b>. Cuenta solo los productos caros (unos 15 minutos): con esto el Dueño ve el coste de comida real.</div>
+        <form id="formRecuento" class="pila">
+          <table class="peq resp">
+            <tr><th>Producto</th><th class="num">Según la app</th><th class="num">Contado</th></tr>
+            {% for f in caros %}
+            <tr><td>{{ f.producto }}</td><td class="num">{{ ("%.1f"|format(f.queda)).replace(".", ",") }} {{ f.unidad }}</td><td class="num"><input class="campo" name="prod_{{ f.id }}" inputmode="decimal" placeholder="{{ ('%.1f'|format(f.queda)).replace('.', ',') }}" style="width:90px;padding:6px 8px"></td></tr>
+            {% endfor %}
+          </table>
+          <div class="fila"><button class="btn pri" type="submit">Guardar recuento</button><span id="txtRecuento" class="peq"></span></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector("#formFoto input").addEventListener("change",function(){var f=new FormData();f.append("archivo",this.files[0]);document.getElementById("txtFoto").textContent="Subiendo…";
+      fetch("/api/subir",{method:"POST",body:f}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtFoto").textContent=r.error||"Subida. La IA la lee en unos segundos y aparecerá en la lista de entradas."})});
+    document.getElementById("formRecuento").addEventListener("submit",function(e){e.preventDefault();
+      fetch("/api/recuento",{method:"POST",body:new FormData(e.target)}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtRecuento").textContent="Guardados "+r.guardados+" productos.";setTimeout(function(){location.reload()},800)})});
+  </script>
+  {% endif %}
+</section>
+{% endblock %}

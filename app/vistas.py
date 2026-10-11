@@ -1,12 +1,14 @@
 """Datos que necesita cada pantalla, ya calculados. Respeta los perfiles con perfiles.puede_ver."""
+import json
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
+from pathlib import Path
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from . import perfiles
-from .db import Aviso, Correo, Documento, Empleado, LineaDocumento, Producto, Proveedor
+from . import calculos, perfiles
+from .db import Aviso, Cierre, Competidor, Correo, Documento, Empleado, Entrada, LineaDocumento, Producto, Proveedor, Recuento
 
 ETIQUETAS_CORREO = {"factura": ("Factura", "c-fact"), "reserva": ("Reserva", "c-res"), "consulta": ("Consulta", "c-con"), "queja": ("Queja", "c-queja"),
                     "nomina": ("Nóminas", "c-nom"), "gasto": ("Gasto", "c-gasto"), "publicidad": ("Publicidad", "c-pub"), "cierre": ("Cierre de caja", "c-con"),
@@ -95,3 +97,80 @@ def lineas_factura(s: Session, doc_id: int, perfil: str) -> dict:
 
 def avisos(s: Session, hoy: date, limite=10) -> list:
     return list(s.scalars(select(Aviso).where(Aviso.fecha <= hoy).order_by(Aviso.fecha.desc(), Aviso.id.desc()).limit(limite)))
+
+
+MERCABARNA = json.loads((Path(__file__).resolve().parent / "static" / "mercabarna.json").read_text(encoding="utf-8"))
+
+
+def cuadro_del_dia(s: Session, hoy: date, fecha: str | None) -> dict:
+    q = select(Cierre).order_by(Cierre.fecha.desc())
+    if fecha:
+        try:
+            f = date.fromisoformat(fecha)
+            q = select(Cierre).where(Cierre.fecha <= f).order_by(Cierre.fecha.desc())
+        except ValueError:
+            pass
+    else:
+        q = select(Cierre).where(Cierre.fecha < hoy).order_by(Cierre.fecha.desc())
+    cierre = s.scalars(q).first()
+    if not cierre:
+        return {"cierre": None}
+    gastos = list(s.scalars(select(Documento).where(Documento.tipo == "gasto", Documento.fecha == cierre.fecha)))
+    gastos_total = sum(g.total or 0 for g in gastos)
+    fondo = calculos.ajuste(s, "fondo_caja", 150.0)
+    esperada = round(fondo + cierre.efectivo - gastos_total, 2)
+    descuadre = round(cierre.efectivo_contado - esperada, 2) if cierre.efectivo_contado is not None else None
+    meses = []
+    ventas = calculos.ventas_por_mes(s)
+    desc_mes = defaultdict(float)
+    for c in s.scalars(select(Cierre)):
+        if c.efectivo_contado is not None:
+            desc_mes[calculos.mes_de(c.fecha)] += c.efectivo_contado - c.efectivo
+    for m in sorted(ventas):
+        meses.append({"nombre": f"{calculos.nombre_mes(m[1])} {m[0]}", "ventas": ventas[m]["con_iva"], "cubiertos": ventas[m]["cubiertos"], "descuadres": round(desc_mes.get(m, 0.0), 2)})
+    return {"cierre": cierre, "gastos": [{"categoria": g.categoria_gasto, "total": g.total} for g in gastos], "gastos_total": round(gastos_total, 2),
+            "fondo": fondo, "esperada": esperada, "descuadre": descuadre, "banco": calculos.banco(s, hoy), "meses": meses}
+
+
+def recepcion(s: Session, hoy: date, perfil: str) -> dict:
+    st = calculos.stock(s, hoy)
+    ver_precios = perfiles.puede_ver(perfil, "precios_compra")
+    recientes = []
+    for e in s.scalars(select(Entrada).where(Entrada.fecha >= hoy - timedelta(days=7)).order_by(Entrada.fecha.desc(), Entrada.id.desc()).limit(25)):
+        p = s.get(Producto, e.producto_id)
+        d = s.get(Documento, e.documento_id) if e.documento_id else None
+        recientes.append({"fecha": e.fecha, "producto": p.nombre if p else "", "cantidad": e.cantidad, "unidad": p.unidad if p else "", "caduca": e.caduca,
+                          "estimada": e.caducidad_estimada, "lote": e.lote, "factura": d.numero if d else "", "proveedor": d.proveedor.nombre if d and d.proveedor else "",
+                          "doc_id": d.id if d else None, "foto": bool(e.foto)})
+    ultimo = s.scalars(select(Recuento).order_by(Recuento.fecha.desc())).first()
+    if not ver_precios:
+        for f in st["filas"]:
+            f["valor"] = None
+        for c in st["caducan"]:
+            c["valor"] = None
+        st["mermas_mes"] = None
+        st["valor_total"] = None
+    caros = sorted([f for f in st["filas"] if f["queda"] > 0], key=lambda f: -(f["valor"] or 0))[:12]
+    return {"stock": st, "recientes": recientes, "ultimo_recuento": ultimo.fecha if ultimo else None, "caros": caros, "ver_precios": ver_precios,
+            "pendientes_foto": s.scalar(select(func.count(Documento.id)).where(Documento.estado == "leyendo", Documento.tipo == "pendiente"))}
+
+
+def competencia(s: Session, hoy: date, comp_id: int | None) -> dict:
+    comps = list(s.scalars(select(Competidor).order_by(Competidor.distancia_m)))
+    c = calculos.carta(s, hoy)
+    sel = next((x for x in comps if x.id == comp_id), comps[0] if comps else None)
+    filas, subir = [], 0
+    if sel:
+        for f in c["filas"]:
+            su = sel.carta.get(f["clave"])
+            if not su:
+                continue
+            d = f["precio_carta"] / su - 1
+            if d < -0.05:
+                aviso, subir = f"Podrías subir a {su:.2f} €: estás un {round(-d * 100)} % por debajo.".replace(".", ",", 1), subir + 1
+            elif d > 0.08:
+                aviso = "Estás bastante por encima: si no se vende, revisa precio o ración."
+            else:
+                aviso = "En línea."
+            filas.append({"nombre": f["nombre"], "suyo": su, "mio": f["precio_carta"], "dif": d, "aviso": aviso})
+    return {"competidores": comps, "sel": sel, "filas": filas, "subir": subir, "valoracion_propia": calculos.ajuste(s, "valoracion_google", 4.1)}

@@ -213,7 +213,7 @@ def stock(s: Session, hoy: date) -> dict:
                                 "cuando": "hoy" if e.caduca == hoy else "mañana", "lote": e.lote, "valor": round(resto * precio, 2)})
             elif e.caduca and e.caduca < hoy and e.caduca >= inicio_mes:
                 mermas += resto * precio
-        filas.append({"producto": p.nombre, "tipo": p.tipo, "unidad": p.unidad, "queda": total, "valor": round(total * precio, 2),
+        filas.append({"id": pid, "producto": p.nombre, "tipo": p.tipo, "unidad": p.unidad, "queda": total, "valor": round(total * precio, 2),
                       "recuento": ultimo_recuento.get(pid)})
     caducan.sort(key=lambda x: (x["caduca"], -x["valor"]))
     filas.sort(key=lambda f: -f["valor"])
@@ -359,7 +359,7 @@ def caja_30_dias(s: Session, hoy: date) -> dict:
         serie.append({"dia": d, "saldo": round(sal, 2)})
         if sal < minimo_val:
             minimo_val, minimo_dia = sal, d
-    grandes = [p for p in pagos if p["importe"] >= 500]
+    grandes = [{**p, "dia": p["dia"].isoformat()} for p in pagos if p["importe"] >= 500]
     return {"saldo_hoy": round(saldo, 2), "fecha_saldo": b.get("fecha"), "serie": serie, "pagos": pagos, "grandes": grandes, "minimo": minimo,
             "minimo_dia": minimo_dia, "minimo_val": round(minimo_val, 2), "final": serie[-1]["saldo"], "falta": minimo_val < minimo,
             "entra_dia": round(sum(media.values()) / 7, 2), "iva_confirmado": bool(iva_confirmado), "cerrado": cerrado}
@@ -501,7 +501,7 @@ def ficha_proveedor(s: Session, prov_id: int) -> dict:
             continue
         for l in d.lineas:
             if l.producto_id and l.precio_unitario:
-                historial[l.producto_id].append({"fecha": d.fecha, "precio": l.precio_unitario, "doc": d.id, "numero": d.numero})
+                historial[l.producto_id].append({"fecha": d.fecha.isoformat() if d.fecha else "", "precio": l.precio_unitario, "doc": d.id, "numero": d.numero})
     productos = {pid: s.get(Producto, pid) for pid in historial}
     series = []
     for pid, puntos in historial.items():
@@ -524,10 +524,23 @@ def ficha_proveedor(s: Session, prov_id: int) -> dict:
         for opid, (precio, fecha) in otros.items():
             comparaciones.append({"producto": productos[pid].nombre, "mio": mio, "otro": s.get(Proveedor, opid).nombre, "otro_precio": precio, "fecha": fecha,
                                   "diferencia_pct": round((mio / precio - 1) * 100) if precio else None})
+    # tickets de gasto donde aparece el mismo producto (por ejemplo, agua comprada en Makro)
+    for d in s.scalars(select(Documento).where(Documento.tipo == "gasto")):
+        for l in (d.datos or {}).get("lineas") or []:
+            for pid, pts in historial.items():
+                if l.get("precio_unitario") and _mismo_producto(productos[pid].nombre, l.get("descripcion", "")):
+                    mio = pts[-1]["precio"]
+                    comparaciones.append({"producto": productos[pid].nombre, "mio": mio, "otro": (d.datos or {}).get("comercio", "ticket"), "otro_precio": l["precio_unitario"],
+                                          "fecha": d.fecha, "diferencia_pct": round((mio / l["precio_unitario"] - 1) * 100)})
     compras = compras_por_mes(s)
     meses = sorted(compras)[-3:]
     return {"p": p, "facturas": docs, "series": series, "comparaciones": comparaciones,
             "compras": [(f"{nombre_mes(m[1])}", round(compras[m]["por_proveedor"].get(p.nombre, 0.0), 2)) for m in meses]}
+
+
+def _mismo_producto(a: str, b: str) -> bool:
+    a, b = a.lower().split(" (")[0], b.lower()
+    return len(a) > 3 and (a in b or b.split(" (")[0] in a)
 
 
 def hoy_demo(s: Session) -> date:
