@@ -325,7 +325,13 @@ def procesar_pendientes(s: Session, hoy: date, restaurante: str, maximo=3) -> in
     """Lee con IA unas pocas fotos o correos de clientes pendientes. Devuelve cuántos ha hecho."""
     hechos = 0
     for doc in s.scalars(select(Documento).where(Documento.estado == "leyendo").order_by(Documento.id).limit(maximo)):
-        contenido = almacen.leer(doc.archivo)
+        try:
+            contenido = almacen.leer(doc.archivo)
+        except Exception:
+            # El archivo ya no está (se borró el almacén, fallo de red…): no se intenta eternamente.
+            doc.tipo, doc.estado, doc.motivo_revisar = "otro", "revisar", "no se encuentra el archivo de la foto"
+            hechos += 1
+            continue
         d = lectura.leer_foto(contenido)  # puede lanzar CuotaAgotada: se queda en cola
         correo = s.get(Correo, doc.correo_id) if doc.correo_id else None
         ruta = doc.archivo

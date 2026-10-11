@@ -35,7 +35,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
 GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
 GMAIL_REFRESH_TOKEN = os.environ.get("GMAIL_REFRESH_TOKEN", "")
-GMAIL_CUENTA = os.environ.get("GMAIL_CUENTA", "laplaza.rehub@gmail.com")
+GMAIL_CUENTA = os.environ.get("GMAIL_CUENTA", "laplazarehub@gmail.com")  # la cuenta de la demo, creada por Celso el 11/10/2026
 
 VERSION = "0.2"
 

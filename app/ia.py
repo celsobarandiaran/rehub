@@ -36,7 +36,15 @@ def _llamar(partes: list, esquema: dict | None, temperatura=0.1, reintentos=3) -
         cuerpo["generationConfig"].update({"responseMimeType": "application/json", "responseSchema": esquema})
     espera = 4
     for intento in range(reintentos):
-        r = httpx.post(URL.format(modelo=MODELO), params={"key": config.GEMINI_API_KEY}, json=cuerpo, timeout=90)
+        try:
+            r = httpx.post(URL.format(modelo=MODELO), params={"key": config.GEMINI_API_KEY}, json=cuerpo, timeout=httpx.Timeout(150, connect=20))
+        except (httpx.TimeoutException, httpx.TransportError):
+            # La IA tarda demasiado o se cae la conexión: se reintenta; si persiste, el documento sigue en cola.
+            if intento == reintentos - 1:
+                raise
+            time.sleep(espera)
+            espera *= 2
+            continue
         if r.status_code == 429:
             texto = r.text.lower()
             if "per day" in texto or "perday" in texto or intento == reintentos - 1:

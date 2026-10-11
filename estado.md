@@ -24,9 +24,20 @@
 - 11/10/2026: informe crítico del diseño en `INFORME_DISENO_REHUB_2026-10-11.md`.
 - 11/10/2026: maqueta v2 (`maqueta/index.html`; la anterior queda en `maqueta/version1.html`). 11 pantallas: Bandeja, Documentos, Proveedores, Recepción, Hoy, Cuadro del día, Carta, Competencia, Personal, Dueño, Ajustes. Aplicados los cambios del informe: todo sin IVA, cifras coherentes (24.500 €/mes sin IVA con 4 empleados), clasificación de platos por euros, rendimiento en recetas, recuento de cámara, foto al albarán, saldo real del banco, días de apertura, avisos juntos en Hoy, tablas como tarjetas y botones de 44 px en el móvil. Añadidos: Carta con bebidas y competencia, pantalla Competencia, pantalla Proveedores con ficha y precios en el tiempo, Importar histórico y extracto del banco con conciliación. Pendiente del "vale" de Celso.
 
+- 11/10/2026, sesión 2 (en marcha): Celso dio el "vale" a la maqueta v2 y pidió empezar a programar.
+  - Hecha la base de la app en `app/` (FastAPI + SQLite en local / Postgres de Supabase en la nube): entrada con contraseña (`REHUB_CONTRASENA`), sesión en cookie firmada, perfiles dueño/oficina/trabajador con reglas por pantalla y por dato sensible (`app/perfiles.py`), base de datos (`app/db.py`), almacén de archivos local o Supabase (`app/almacen.py`), página "despertando", manifest e icono para añadir a la pantalla de inicio.
+  - Datos de demo generados desde una sola fuente (`herramientas/modelo_demo.py` → `herramientas/generar_demo.py` → `datos_demo/`): 60 facturas PDF + 10 escaneadas (1 duplicada, 1 con nº ilegible), 20 tickets, 12 nóminas, 61 cierres de TPV, 15 etiquetas, extracto del banco (Norma 43 y CSV), 3 cartas de competidores, 172 correos, 15 correos para enviar en directo, `verdad.json` con los datos correctos. Índice en `datos_demo/INDICE.md`.
+  - Lectura (`app/lectura.py`): PDF con texto sin IA (probado: los 60 PDF, 12 nóminas y 61 cierres salen exactos); fotos con Gemini (`app/ia.py`), lo dudoso queda "revisar", nunca se inventa.
+  - Procesado (`app/procesar.py`): clasifica correos, guarda facturas/gastos/nóminas/cierres, archiva con nombre "fecha proveedor total", detecta duplicadas y subidas de precio (>5 %), caducidad estimada por tipo, contacto del proveedor desde la firma del correo, cola de IA en segundo plano.
+  - Demo (`app/demo.py`): Cargar demo como línea de tiempo (1 día = 1 s, 2, 5 o al final), extracto del banco casado con facturas (pagada/pendiente), Reiniciar demo. Probado entero en el navegador: 72 días en ~30 s; las 45 fotos las va leyendo la IA después (unos 10-15 min con el plan gratuito).
+  - Pantallas hechas: Ajustes (demo, subir a mano, conexiones, perfiles), Bandeja, Documentos (calendario, pestañas, grupos, líneas y comparación con Mercabarna con enlace a su web). Las demás enseñan "sin datos" de momento.
+  - 11 pruebas automáticas en `tests/` (`.venv\Scripts\python.exe -m pytest -q`).
+  - En local se arranca con `.venv\Scripts\python.exe -u herramientas\iniciar_local.py` (puerto 8510, contraseña de prueba `rehub-local`). Para reiniciarlo hay que matar al proceso dueño del puerto 8510 (ver `/salud`: debe decir `"ia": true`).
+  - Git instalado; historial local en `ReHub/.git`.
+
 ## Pendiente
 - Que Celso dé el "vale" a la maqueta (o pida cambios).
-- Cuentas: Gmail nuevo (propuesto laplaza.rehub@gmail.com), Google Cloud con esa cuenta, Hugging Face (con clave "Write") y Supabase (con clave de acceso). Las claves van en `C:\Users\celso\.rehub\claves.env` (HF_TOKEN, SUPABASE_TOKEN).
+- Cuentas: Gmail **laplazarehub@gmail.com** (sin punto; creada por Celso el 11/10/2026). Faltan: Google Cloud con esa cuenta, Hugging Face (clave "Write") y Supabase (clave de acceso). Las claves van en `C:\Users\celso\.rehub\claves.env` (HF_TOKEN, SUPABASE_TOKEN).
 - Permiso para instalar Git.
 - Sesiones 2 a 6, según el plan.
 

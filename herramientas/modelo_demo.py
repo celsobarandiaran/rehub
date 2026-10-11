@@ -13,7 +13,7 @@ from datetime import date, timedelta
 INICIO = date(2026, 8, 1)
 FIN = date(2026, 10, 10)
 HOY_DEMO = date(2026, 10, 11)  # el "hoy" de la demo
-CORREO = "laplaza.rehub@gmail.com"
+CORREO = "laplazarehub@gmail.com"
 RESTAURANTE = {"nombre": "Restaurante La Plaza", "razon": "La Plaza Restauració, S.L. (ejemplo)", "cif": "B-99999999",
                "direccion": "Plaça de l'Exemple, 1 · 08002 Barcelona (inventada)"}
 
