@@ -4,6 +4,7 @@ En tu PC guarda en `datos_locales/archivos`. En la nube usa Supabase Storage.
 Las rutas siguen el orden pedido: año/mes/tipo/"fecha proveedor total.pdf".
 """
 import re
+import unicodedata
 from datetime import date
 
 import httpx
@@ -22,11 +23,20 @@ def ruta_documento(fecha: date | None, tipo: str, proveedor: str, total: float |
     return f"{f.year}/{f.month:02d}/{carpetas.get(tipo, 'otros')}/{nombre}.{extension.lstrip('.')}"
 
 
+def segura(ruta: str) -> str:
+    """Nombre de archivo que acepta cualquier almacén: sin acentos ni símbolos raros (Supabase los rechaza)."""
+    s = unicodedata.normalize("NFKD", ruta)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = re.sub(r"[^\w./ ,()\-]", "", s)
+    return re.sub(r"/{2,}", "/", s).strip("/")
+
+
 def _cabeceras() -> dict:
     return {"Authorization": f"Bearer {config.SUPABASE_CLAVE_SERVICIO}", "apikey": config.SUPABASE_CLAVE_SERVICIO}
 
 
 def guardar(ruta: str, contenido: bytes, tipo_mime: str = "application/pdf") -> str:
+    ruta = segura(ruta)
     if config.ALMACEN == "supabase":
         url = f"{config.SUPABASE_URL}/storage/v1/object/{config.SUPABASE_CUBO}/{ruta}"
         r = httpx.post(url, content=contenido, headers={**_cabeceras(), "Content-Type": tipo_mime, "x-upsert": "true"}, timeout=60)
@@ -39,6 +49,7 @@ def guardar(ruta: str, contenido: bytes, tipo_mime: str = "application/pdf") -> 
 
 
 def mover(vieja: str, nueva: str) -> str:
+    vieja, nueva = segura(vieja), segura(nueva)
     if vieja == nueva:
         return nueva
     if config.ALMACEN == "supabase":
@@ -52,6 +63,7 @@ def mover(vieja: str, nueva: str) -> str:
 
 
 def leer(ruta: str) -> bytes:
+    ruta = segura(ruta)
     if config.ALMACEN == "supabase":
         url = f"{config.SUPABASE_URL}/storage/v1/object/{config.SUPABASE_CUBO}/{ruta}"
         r = httpx.get(url, headers=_cabeceras(), timeout=60)

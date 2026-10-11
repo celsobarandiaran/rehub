@@ -48,7 +48,8 @@ def test_cargar_demo_completa():
         pescados = s.scalar(select(db.Proveedor).where(db.Proveedor.nombre == "Pescados Mar Nou"))
         assert pescados.telefono == "93 000 56 78" and pescados.cif == "B-00000002"
         archivo = s.scalar(select(db.Documento.archivo).where(db.Documento.numero == "C-8403"))
-        assert archivo.startswith("2026/08/facturas/2026-08-03 Carnes Vallès 406,74"), archivo
+        # Sin acentos a propósito: el almacén de la nube no los admite en los nombres
+        assert archivo.startswith("2026/08/facturas/2026-08-03 Carnes Valles 406,74"), archivo
     demo.reiniciar()
     with db.SesionDB() as s:
         assert s.scalar(select(func.count(db.Documento.id))) == 0
