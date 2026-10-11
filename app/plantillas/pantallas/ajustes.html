@@ -2,31 +2,94 @@
 {% block titulo %}Ajustes{% endblock %}
 {% block contenido %}
 <section class="pant">
-  <div class="pant-cab"><span class="num">{{ pantalla.icono }}</span><h2>Ajustes</h2><span class="sub">Conexiones, usuarios y demo</span></div>
+  <div class="pant-cab"><span class="num">⚙️</span><h2>Ajustes</h2><span class="sub">Demo, conexiones y usuarios</span></div>
   <div class="grid g2">
-    <div class="card"><h3>🔌 Conexiones</h3>
-      <table class="peq resp">
-        <tr><th>Qué</th><th>Dónde</th><th>Estado</th></tr>
-        <tr><td>Datos</td><td>{{ "Supabase (Frankfurt)" if config.URL_BASE_DATOS.startswith("postgres") else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
-        <tr><td>Archivos</td><td>{{ "Supabase (Frankfurt)" if config.ALMACEN == "supabase" else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
-        <tr><td>Correo</td><td>{{ config.GMAIL_CUENTA }}</td><td>{% if config.GMAIL_REFRESH_TOKEN %}<span class="chip c-ok">Conectado</span>{% else %}<span class="chip c-rev">Sin conectar</span>{% endif %}</td></tr>
-        <tr><td>Inteligencia artificial</td><td>Gemini</td><td>{% if config.GEMINI_API_KEY %}<span class="chip c-ok">Clave puesta</span>{% else %}<span class="chip c-rev">Sin clave</span>{% endif %}</td></tr>
-      </table>
+    <div class="pila">
+      <div class="card pila"><h3>🎬 Demo</h3>
+        <div class="reproductor pila">
+          <div class="fila">
+            <button class="btn pri grande" id="tlPlay" type="button">▶ Cargar demo</button>
+            <div class="seg seg-c" id="tlVel" style="min-width:0"><span data-v="1" class="on">1 día = 1 s</span><span data-v="2">2 días/s</span><span data-v="5">5 días/s</span></div>
+            <button class="btn" id="tlFin" type="button">⏭ Ir al final</button>
+          </div>
+          <div class="peq mut">Los días de La Plaza (1 de agosto a 10 de octubre de 2026) entran uno a uno: correos, facturas, tickets, nóminas, cierres de caja y, al final, el extracto del banco. Los PDF con texto se leen al momento; las fotos las lee la IA en segundo plano.</div>
+          <div class="tl-fecha"><b id="tlDia">{{ "Ya hay datos cargados" if hay_datos else "Sin empezar" }}</b><span class="mut peq" id="tlCuenta"></span></div>
+          <div class="tl-barra"><i id="tlBarra"></i></div>
+          <div class="grid g4 tl-cont">
+            <div><span class="mut peq">Facturas</span><b id="tcF">0</b></div><div><span class="mut peq">Gastos</span><b id="tcG">0</b></div>
+            <div><span class="mut peq">Nóminas</span><b id="tcN">0</b></div><div><span class="mut peq">Ventas (con IVA)</span><b id="tcV">0 €</b></div>
+          </div>
+          <div class="peq" id="tlIA"></div>
+          <div class="tl-ticker" id="tlTicker"><div class="mut peq">Aquí irán apareciendo los documentos según llegan.</div></div>
+          <div class="alerta r" id="tlError" style="display:none"></div>
+        </div>
+        <div class="fila"><button class="btn grande" type="button" id="btnReiniciar">🧹 Reiniciar demo</button><span class="peq mut">Borra todos los datos y archivos y deja la app vacía.</span></div>
+        <div class="card zona-roja pila" style="box-shadow:none">
+          <b style="color:var(--mal)">💣 Autodestruir</b>
+          <div class="peq">Borra datos y archivos, quita el permiso de Gmail y elimina lo que se pueda del alojamiento y de Google Cloud. Se activará cuando la app esté publicada.</div>
+          <div class="fila"><input class="campo" style="flex:1;min-width:160px" id="txtDestruir" placeholder="Escribe DESTRUIR para confirmar"><button class="btn peligro" type="button" disabled>Autodestruir</button></div>
+        </div>
+      </div>
+      <div class="card pila"><h3>⬆️ Subir a mano</h3>
+        <div class="peq mut">Un PDF o una foto: factura, ticket de gasto o etiqueta de producto.</div>
+        <form id="formSubir" class="fila"><input class="campo" type="file" name="archivo" accept=".pdf,image/*" capture="environment" required style="flex:1;min-width:200px"><button class="btn pri" type="submit">Subir</button></form>
+        <div class="peq" id="txtSubir"></div>
+      </div>
     </div>
-    <div class="card"><h3>👥 Usuarios y perfiles</h3>
-      <table class="peq resp">
-        <tr><th>Perfil</th><th>Ve</th><th>Estado</th></tr>
-        {% for clave, nombre in perfiles.NOMBRES_PERFIL.items() %}
-        <tr><td>{{ nombre }}</td><td>{{ perfiles.menu_para(clave)|map(attribute="titulo")|join(", ") }}</td>
-          <td>{% if perfiles.perfil_activo(clave) %}<span class="chip c-ok">Activo</span>{% else %}<span class="chip c-est">Preparado, sin activar</span>{% endif %}</td></tr>
-        {% endfor %}
-      </table>
-      <div class="peq mut" style="margin-top:8px">Oficina no ve salarios por persona ni el banco. Trabajador no ve ningún precio y solo su turno.</div>
+    <div class="pila">
+      <div class="card"><h3>🔌 Conexiones</h3>
+        <table class="peq resp">
+          <tr><th>Qué</th><th>Dónde</th><th>Estado</th></tr>
+          <tr><td>Datos</td><td>{{ "Supabase (Frankfurt)" if config.URL_BASE_DATOS.startswith("postgres") else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
+          <tr><td>Archivos</td><td>{{ "Supabase (Frankfurt)" if config.ALMACEN == "supabase" else "Este ordenador (prueba)" }}</td><td><span class="chip c-ok">Funciona</span></td></tr>
+          <tr><td>Correo</td><td>{{ config.GMAIL_CUENTA }}</td><td>{% if config.GMAIL_REFRESH_TOKEN %}<span class="chip c-ok">Conectado</span>{% else %}<span class="chip c-rev">Sin conectar</span>{% endif %}</td></tr>
+          <tr><td>Inteligencia artificial</td><td>Gemini</td><td>{% if config.GEMINI_API_KEY %}<span class="chip c-ok">Clave puesta</span>{% else %}<span class="chip c-rev">Sin clave</span>{% endif %}</td></tr>
+        </table>
+      </div>
+      <div class="card"><h3>👥 Usuarios y perfiles</h3>
+        <table class="peq resp">
+          <tr><th>Perfil</th><th>Ve</th><th>Estado</th></tr>
+          {% for clave, nombre in perfiles.NOMBRES_PERFIL.items() %}
+          <tr><td>{{ nombre }}</td><td>{{ perfiles.menu_para(clave)|map(attribute="titulo")|join(", ") }}</td>
+            <td>{% if perfiles.perfil_activo(clave) %}<span class="chip c-ok">Activo</span>{% else %}<span class="chip c-est">Preparado, sin activar</span>{% endif %}</td></tr>
+          {% endfor %}
+        </table>
+        <div class="peq mut" style="margin-top:8px">Oficina no ve salarios por persona ni el banco. Trabajador no ve ningún precio y solo su turno.</div>
+      </div>
+      <div class="peq mut">ReHub versión {{ config.VERSION }}</div>
     </div>
   </div>
-  <div class="card" style="margin-top:14px"><h3>🎬 Demo</h3>
-    <div class="mut">Cargar demo, Enviar al correo, Reiniciar demo y Autodestruir llegan en la sesión 3.</div>
-  </div>
-  <div class="peq mut" style="margin-top:14px">ReHub versión {{ config.VERSION }}</div>
 </section>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},vel=1,t=null;
+  function eur0(x){return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+  function pinta(e){
+    if(e.dia){var d=new Date(e.dia+"T12:00:00");$("tlDia").textContent=d.toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+    if(e.terminado)$("tlDia").textContent="Demo cargada";
+    $("tlCuenta").textContent=e.n_dia?("día "+e.n_dia+" de "+e.total_dias):"";
+    $("tlBarra").style.width=(e.n_dia/e.total_dias*100)+"%";
+    $("tcF").textContent=e.contadores.facturas;$("tcG").textContent=e.contadores.gastos;$("tcN").textContent=e.contadores.nominas;$("tcV").textContent=eur0(e.contadores.ventas)+" €";
+    $("tlIA").innerHTML=e.ia_pendientes?("📸 La IA está leyendo fotos y correos de clientes: quedan <b>"+e.ia_pendientes+"</b>. "+(e.ia_estado||"")):(e.ia_estado||"");
+    if(e.ticker.length)$("tlTicker").innerHTML=e.ticker.map(function(x){return '<div'+(x.alerta?' class="al"':'')+'><span class="mut">'+x.dia+'</span> · '+x.texto.replace(/</g,"&lt;")+'</div>'}).join("");
+    $("tlPlay").textContent=e.en_marcha?(e.pausa?"▶ Seguir":"⏸ Pausa"):(e.terminado?"✔ Demo cargada":"▶ Cargar demo");
+    $("tlError").style.display=e.error?"flex":"none";$("tlError").textContent=e.error||"";
+    if((e.en_marcha||e.ia_pendientes)&&!t)t=setInterval(estado,600);
+    if(!e.en_marcha&&!e.ia_pendientes&&t){clearInterval(t);t=null}
+  }
+  function estado(){fetch("/api/demo/estado").then(function(r){return r.json()}).then(pinta)}
+  function post(url,datos){var f=new FormData();Object.keys(datos||{}).forEach(function(k){f.append(k,datos[k])});return fetch(url,{method:"POST",body:f}).then(function(r){return r.json()})}
+  $("tlPlay").addEventListener("click",function(){
+    fetch("/api/demo/estado").then(function(r){return r.json()}).then(function(e){
+      if(e.en_marcha)post("/api/demo/pausa").then(pinta);
+      else post("/api/demo/empezar",{velocidad:vel}).then(function(r){if(r.error)alert(r.error);else pinta(r)});
+    })});
+  $("tlVel").addEventListener("click",function(ev){var v=+ev.target.dataset.v;if(!v)return;vel=v;document.querySelectorAll("#tlVel span").forEach(function(s){s.classList.toggle("on",+s.dataset.v===v)});post("/api/demo/velocidad",{velocidad:v})});
+  $("tlFin").addEventListener("click",function(){post("/api/demo/velocidad",{velocidad:1000})});
+  $("btnReiniciar").addEventListener("click",function(){if(!confirm("¿Borrar todos los datos de la demo y dejar la app vacía?"))return;post("/api/demo/reiniciar").then(function(r){if(r.error)alert(r.error);else location.reload()})});
+  $("formSubir").addEventListener("submit",function(ev){ev.preventDefault();$("txtSubir").textContent="Subiendo…";
+    fetch("/api/subir",{method:"POST",body:new FormData(ev.target)}).then(function(r){return r.json()}).then(function(r){$("txtSubir").innerHTML=r.error?r.error:'Subido. Lo verás en la <a href="/p/bandeja?id='+r.correo_id+'">Bandeja</a> en cuanto se lea.';estado()})});
+  estado();
+})();
+</script>
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo %}Documentos{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">📄</span><h2>Documentos</h2><span class="sub">Facturas, gastos, nóminas y cierres, con sus datos y si están pagados</span></div>
+  <div class="grid docs" style="grid-template-columns:minmax(0,270px) minmax(0,1fr)">
+    <div class="card cal pila">
+      <h3 style="margin:0">📅 Fechas</h3>
+      <div class="seg" id="calModo"><span data-m="todo">Todo</span><span data-m="anio">Año</span><span data-m="mes" class="on">Mes</span><span data-m="dia">Día</span></div>
+      <div class="fila" style="justify-content:space-between"><span class="btn flecha">‹</span><b id="calTitulo"></b><span class="btn flecha">›</span></div>
+      <div class="meses" id="calMeses"></div>
+      <div class="dias" id="calDias"></div>
+      <div class="peq mut" id="calInfo"></div>
+      <div class="peq mut">Un punto verde = ese día hay documentos. Un día y luego otro eligen un periodo; un mes y luego otro, varios meses.</div>
+    </div>
+    <div class="card pila">
+      <div class="fila"><input class="campo" id="buscar" style="flex:1;min-width:180px" placeholder="🔍 Buscar por proveedor, número, importe…"><span id="chipsEstado" class="fila"></span></div>
+      <div class="pestanas" id="docTipo"><span data-t="factura" class="on">📄 Facturas</span><span data-t="gasto">🧾 Gastos</span><span data-t="nomina">👥 Nóminas</span><span data-t="cierre">📊 Cierres</span><span data-t="otro">📎 Otros</span></div>
+      <div class="fila peq" id="docOrdenFila"><span class="mut">Ordenar por:</span><div class="seg seg-c" id="docOrden"><span data-o="grupo" class="on" id="docOrdenGrupo">Proveedor</span><span data-o="fecha">Fecha</span><span data-o="importe">Importe</span></div><span class="mut" id="docResumen"></span></div>
+      <div class="tabla" id="docLista"><div class="mut">Cargando…</div></div>
+      <div class="peq pila" id="docLineas" style="background:var(--suave);border-radius:10px;padding:10px;display:none">
+        <div class="fila" style="justify-content:space-between"><b id="cmpTitulo">Líneas</b><button class="btn pri" type="button" id="cmpBtn">🔎 Comparar con Mercabarna</button></div>
+        <div class="tabla"><table id="cmpTabla" class="resp" style="background:#fff;border-radius:8px"></table></div>
+        <div class="mut" id="cmpNota"></div>
+      </div>
+      <div class="peq mut">"Pagada" y su fecha salen del extracto del banco. Importes con IVA, como en la factura; la columna Base es sin IVA.</div>
+    </div>
+  </div>
+</section>
+<script src="/static/documentos.js"></script>
+{% endblock %}

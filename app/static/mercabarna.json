@@ -1,0 +1,11 @@
+{"fecha": "media de septiembre de 2026", "fuente": "https://www.mercabarna.es/serveis/es_estadistiques-productes/",
+ "precios": {
+  "2411921": {"nombre": "Lubina de cultivo fresca", "precio": 8.06, "sector": "2"},
+  "243101": {"nombre": "Calamar fresco", "precio": 16.66, "sector": "2"},
+  "2452021": {"nombre": "Mejillón fresco", "precio": 1.70, "sector": "2"},
+  "326GBZ": {"nombre": "Tomate maduro", "precio": 0.70, "sector": "3"},
+  "322BAA": {"nombre": "Cebolla seca", "precio": 0.40, "sector": "3"},
+  "320BBA": {"nombre": "Patata blanca Mona Lisa", "precio": 0.70, "sector": "3"},
+  "326EBB": {"nombre": "Pimiento rojo", "precio": 2.60, "sector": "3"},
+  "310AAA": {"nombre": "Limón", "precio": 1.10, "sector": "3"}
+ }}

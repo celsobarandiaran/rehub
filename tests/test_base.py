@@ -1,13 +1,8 @@
 """Pruebas de la base: contraseña, perfiles y pantallas."""
-import os
+from fastapi.testclient import TestClient
 
-os.environ.setdefault("REHUB_ENTORNO", "local")
-os.environ.setdefault("DATABASE_URL", "sqlite://")  # base en memoria para las pruebas
-
-from fastapi.testclient import TestClient  # noqa: E402
-
-from app import auth, perfiles  # noqa: E402
-from app.main import app  # noqa: E402
+from app import auth, perfiles
+from app.main import app
 
 
 def cliente():

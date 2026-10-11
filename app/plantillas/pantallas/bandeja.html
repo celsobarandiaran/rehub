@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block titulo %}Bandeja{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">✉️</span><h2>Bandeja</h2><span class="sub">Correos leídos, clasificados y con respuesta propuesta</span></div>
+  {% if not filas %}
+  <div class="card pila" style="max-width:560px"><b>La bandeja está vacía.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
+  {% else %}
+  <div class="fila" style="margin-bottom:12px">
+    <a class="chip" href="/p/bandeja" style="text-decoration:none">Todos {{ total }}</a>
+    {% for cat, n in cuenta.items()|sort(attribute="1", reverse=True) %}
+    <a class="chip {{ etiquetas.get(cat, (cat, 'c-est'))[1] }}" href="/p/bandeja?cat={{ cat }}" style="text-decoration:none{% if cat == categoria %};outline:2px solid var(--verde){% endif %}">{{ etiquetas.get(cat, (cat, ''))[0] }} {{ n }}</a>
+    {% endfor %}
+  </div>
+  <div class="grid g-35">
+    <div class="card" style="padding:8px;max-height:75vh;overflow:auto">
+      {% for f in filas %}
+      <a class="correo{% if sel and f.c.id == sel.id %} sel{% endif %}" href="/p/bandeja?id={{ f.c.id }}{% if categoria %}&cat={{ categoria }}{% endif %}" style="text-decoration:none;color:inherit">
+        <div class="av" style="background:{{ f.color }}">{{ f.iniciales }}</div>
+        <div class="q"><div class="r"><b>{{ f.c.remitente }}</b><span class="mut peq">{{ f.c.recibido.strftime("%d/%m %H:%M") }}</span></div>
+          <div class="as">{{ f.c.asunto }}</div>
+          <div class="fila peq"><span class="chip {{ f.clase }}">{{ f.etiqueta }}</span><span class="mut">+{{ f.c.alias }}</span>
+            {% if f.c.respuesta_propuesta and not f.c.respuesta_enviada %}<span class="chip c-rev">Respuesta lista</span>{% endif %}
+            {% if f.c.respuesta_enviada %}<span class="chip c-ok">Contestado</span>{% endif %}</div></div>
+      </a>
+      {% endfor %}
+    </div>
+    {% if sel %}
+    <div class="card pila">
+      <div class="fila"><span class="chip {{ etiquetas.get(sel.categoria, ('', 'c-est'))[1] }}">{{ etiquetas.get(sel.categoria, (sel.categoria, ''))[0] }}</span>
+        <span class="mut peq">De: {{ sel.remitente }} &lt;{{ config.GMAIL_CUENTA.replace("@", "+" ~ sel.alias ~ "@") }}&gt; · {{ sel.recibido.strftime("%d/%m/%Y %H:%M") }}</span></div>
+      <div><b>{{ sel.asunto }}</b></div>
+      <div class="peq" style="background:var(--suave);border-radius:10px;padding:10px;white-space:pre-wrap">{{ sel.cuerpo }}</div>
+      {% for d in docs_sel %}
+      <div class="fila peq" style="border:1px solid var(--linea);border-radius:10px;padding:8px">
+        <span>{{ "📄" if d.archivo.endswith(".pdf") else "🖼️" }} <a href="/archivo/{{ d.id }}" target="_blank">{{ d.archivo }}</a></span>
+        {% if d.total is defined and d.total is not none %}<b>{{ eur(d.total) }} €</b>{% endif %}
+        {% if d.estado == "revisar" %}<span class="chip c-rev">Revisar: {{ d.motivo }}</span>{% elif d.estado == "duplicada" %}<span class="chip c-dup">{{ d.motivo }}</span>{% elif d.estado == "leyendo" %}<span class="chip c-est">La IA lo está leyendo…</span>{% else %}<span class="chip c-ok">Archivado</span>{% endif %}
+      </div>
+      {% endfor %}
+      {% if sel.categoria == "reserva" and sel.datos %}
+      <div class="grid g3 peq">
+        <div><span class="mut">Fecha</span><br><b>{{ sel.datos.get("fecha") or "falta" }}</b></div><div><span class="mut">Hora</span><br><b>{{ sel.datos.get("hora") or "falta" }}</b></div><div><span class="mut">Personas</span><br><b>{{ sel.datos.get("personas") or "falta" }}</b></div>
+      </div>
+      {% endif %}
+      {% if sel.respuesta_propuesta %}
+      <div><b class="peq">Respuesta propuesta</b> <span class="mut peq">(redactada por la IA{% if sel.datos.get("sin_ia") %}; sin IA disponible, plantilla{% endif %}; no se envía hasta que pulses Enviar)</span></div>
+      <textarea class="campo" id="respuesta">{{ sel.respuesta_propuesta }}</textarea>
+      <div class="fila"><button class="btn pri" type="button" {% if sel.respuesta_enviada or not config.GMAIL_REFRESH_TOKEN %}disabled{% endif %}>✉️ Enviar</button>
+        {% if not config.GMAIL_REFRESH_TOKEN %}<span class="peq mut">Enviar funcionará cuando se conecte el Gmail.</span>{% endif %}</div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

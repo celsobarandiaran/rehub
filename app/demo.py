@@ -182,9 +182,12 @@ def abierto(d: date) -> bool:
 
 
 def _contar_pendientes():
+    """Fotos por leer más correos de clientes por entender (sin contar dos veces el correo de una foto)."""
     with SesionDB() as s:
-        return len(list(s.scalars(select(Documento.id).where(Documento.estado == "leyendo")))) + \
-            len(list(s.scalars(select(Correo.id).where(Correo.categoria == "leyendo"))))
+        fotos = list(s.scalars(select(Documento.correo_id).where(Documento.estado == "leyendo")))
+        con_foto = {c for c in fotos if c is not None}
+        correos = [c for c in s.scalars(select(Correo.id).where(Correo.categoria == "leyendo")) if c not in con_foto]
+        return len(fotos) + len(correos)
 
 
 def _bucle_ia():

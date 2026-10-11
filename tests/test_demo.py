@@ -1,15 +1,9 @@
 """Carga la demo entera muy rápido (sin IA) y comprueba lo que exige el criterio de éxito."""
-import os
 import time
 
-os.environ["DATABASE_URL"] = "sqlite:///" + os.path.join(os.path.dirname(__file__), "_prueba_demo.db")
-os.environ.pop("GEMINI_API_KEY", None)
+from sqlalchemy import func, select
 
-from sqlalchemy import func, select  # noqa: E402
-
-from app import config, db, demo  # noqa: E402
-
-config.GEMINI_API_KEY = ""
+from app import db, demo
 
 
 def test_cargar_demo_completa():

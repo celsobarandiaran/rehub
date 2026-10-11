@@ -240,7 +240,18 @@ class Aviso(Base):
     datos: Mapped[dict] = mapped_column(JSON, default=dict)
 
 
-motor = create_engine(config.URL_BASE_DATOS, pool_pre_ping=True)
+def _crear_motor():
+    url = config.URL_BASE_DATOS
+    if url in ("sqlite://", "sqlite:///:memory:"):
+        # Base en memoria (pruebas): una sola conexión compartida, si no cada hilo vería una base vacía.
+        from sqlalchemy.pool import StaticPool
+        return create_engine(url, poolclass=StaticPool, connect_args={"check_same_thread": False})
+    if url.startswith("sqlite"):
+        return create_engine(url, connect_args={"check_same_thread": False, "timeout": 30})
+    return create_engine(url, pool_pre_ping=True)
+
+
+motor = _crear_motor()
 SesionDB = sessionmaker(bind=motor, expire_on_commit=False)
 
 
