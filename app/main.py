@@ -23,6 +23,9 @@ async def arranque(app: FastAPI):
     if faltan:
         raise RuntimeError("Faltan variables de entorno: " + ", ".join(faltan))
     db.crear_tablas()
+    # Si quedaron fotos o correos por leer (por ejemplo, se acabó el tope de la IA ayer), se retoman al arrancar.
+    if demo._contar_pendientes():
+        demo._asegurar_hilo_ia()
     yield
 
 
