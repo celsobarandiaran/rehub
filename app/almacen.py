@@ -38,6 +38,19 @@ def guardar(ruta: str, contenido: bytes, tipo_mime: str = "application/pdf") -> 
     return ruta
 
 
+def mover(vieja: str, nueva: str) -> str:
+    if vieja == nueva:
+        return nueva
+    if config.ALMACEN == "supabase":
+        httpx.post(f"{config.SUPABASE_URL}/storage/v1/object/move", headers=_cabeceras(),
+                   json={"bucketId": config.SUPABASE_CUBO, "sourceKey": vieja, "destinationKey": nueva}, timeout=60).raise_for_status()
+    else:
+        destino = CARPETA / nueva
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        (CARPETA / vieja).replace(destino)
+    return nueva
+
+
 def leer(ruta: str) -> bytes:
     if config.ALMACEN == "supabase":
         url = f"{config.SUPABASE_URL}/storage/v1/object/{config.SUPABASE_CUBO}/{ruta}"

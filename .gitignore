@@ -5,3 +5,4 @@ datos_locales/
 .env
 *.env
 .pytest_cache/
+tests/*.db

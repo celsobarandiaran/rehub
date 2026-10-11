@@ -17,7 +17,7 @@ class Base(DeclarativeBase):
 
 
 def _ahora():
-    return datetime.utcnow()
+    return datetime.now()
 
 
 class Usuario(Base):
@@ -224,6 +224,20 @@ class Competidor(Base):
     valoracion: Mapped[float | None] = mapped_column(Float, nullable=True)
     opiniones: Mapped[int] = mapped_column(Integer, default=0)
     carta: Mapped[dict] = mapped_column(JSON, default=dict)  # clave -> precio con IVA
+
+
+class Aviso(Base):
+    """Avisos para la pantalla Hoy: subida de precio, factura duplicada, descuadre…"""
+    __tablename__ = "avisos"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fecha: Mapped[date] = mapped_column(Date, index=True)
+    tipo: Mapped[str] = mapped_column(String(30))  # subida_precio / duplicada / descuadre / revisar
+    nivel: Mapped[str] = mapped_column(String(10), default="a")  # r (rojo) / a (ámbar) / v (verde)
+    titulo: Mapped[str] = mapped_column(String(80))
+    texto: Mapped[str] = mapped_column(Text)
+    documento_id: Mapped[int | None] = mapped_column(ForeignKey("documentos.id"), nullable=True)
+    producto_id: Mapped[int | None] = mapped_column(ForeignKey("productos.id"), nullable=True)
+    datos: Mapped[dict] = mapped_column(JSON, default=dict)
 
 
 motor = create_engine(config.URL_BASE_DATOS, pool_pre_ping=True)
