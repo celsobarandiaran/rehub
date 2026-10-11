@@ -40,7 +40,11 @@
 </div>
 <script>
   /* Secciones del menú y bloques plegables: arrancan cerrados, se abren al pinchar */
-  document.querySelectorAll("nav.menu .gt").forEach(function(g){g.addEventListener("click",function(){g.parentElement.classList.toggle("cerrado")})});
+  /* Las secciones que abres se quedan abiertas al cambiar de pantalla (se recuerdan en este navegador) */
+  (function(){var abiertas=[];try{abiertas=JSON.parse(localStorage.getItem("rehub_menu")||"[]")}catch(e){}
+    document.querySelectorAll("nav.menu .grupo").forEach(function(gr){if(abiertas.indexOf(gr.dataset.g)>=0)gr.classList.remove("cerrado")});
+    document.querySelectorAll("nav.menu .gt").forEach(function(g){g.addEventListener("click",function(){var gr=g.parentElement;gr.classList.toggle("cerrado");
+      var ab=[].map.call(document.querySelectorAll("nav.menu .grupo:not(.cerrado)"),function(x){return x.dataset.g});try{localStorage.setItem("rehub_menu",JSON.stringify(ab))}catch(e){}})});})();
   document.addEventListener("click",function(e){var c=e.target.closest(".pleg-cab");if(!c||e.target.closest("a,button,input,select"))return;c.parentElement.classList.toggle("cerrado")});
 </script>
 {% if actual != "asistente" and (menu|selectattr("id", "equalto", "asistente")|list) %}

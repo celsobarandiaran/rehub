@@ -16,6 +16,7 @@
     if(cal.modo==="todo")return ["0000-00-00","9999-99-99"];
     if(cal.modo==="anio")return [ANIO+"-01-01",ANIO+"-12-31"];
     if(cal.modo==="mes")return [iso(cal.mesIni,1),iso(cal.mesFin,31)];
+    if(cal.ini===null)return [iso(cal.vista,1),iso(cal.vista,31)];  // días abiertos pero sin elegir ninguno: el mes entero
     var a=cal.ini,b=cal.fin===null?cal.ini:cal.fin;return a<b?[a,b]:[b,a];
   }
   function enRango(f){var r=rango();return f&&f>=r[0]&&f<=r[1]}
@@ -36,19 +37,30 @@
     var t;
     if(cal.modo==="todo")t="Todo";else if(cal.modo==="anio")t=String(ANIO);
     else if(cal.modo==="mes")t=cal.mesIni===cal.mesFin?NOMBRES[cal.mesIni][0].toUpperCase()+NOMBRES[cal.mesIni].slice(1)+" "+ANIO:CORTOS[cal.mesIni]+" – "+CORTOS[cal.mesFin]+" "+ANIO;
+    else if(cal.ini===null)t=NOMBRES[cal.vista][0].toUpperCase()+NOMBRES[cal.vista].slice(1)+" "+ANIO+" · días";
     else t=r[0]===r[1]?fFecha(r[0])+"/"+ANIO:fFecha(r[0])+" – "+fFecha(r[1]);
     $("calTitulo").textContent=t;
     var n=DOCS.filter(function(x){return enRango(x.fecha)}).length;
-    var pista=cal.modo==="dia"&&cal.fin===null?" Pulsa otro día (de este u otro mes) para elegir un periodo.":(cal.modo==="mes"&&cal.mesIni===cal.mesFin?" Pulsa otro mes para elegir varios.":"");
+    var pista;
+    if(cal.modo==="dia"&&cal.ini===null)pista=" Pulsa un día; luego otro (de este u otro mes, con doble clic en el mes) para elegir de un día a otro.";
+    else if(cal.modo==="dia"&&cal.fin===null)pista=" <b>Día "+fFecha(cal.ini)+"</b>. Pulsa otro día para elegir un periodo.";
+    else if(cal.modo==="dia")pista=" <b>Del "+fFecha(r[0])+" al "+fFecha(r[1])+"</b>.";
+    else pista=cal.modo==="mes"&&cal.mesIni===cal.mesFin?" Pulsa otro mes para elegir varios; dos veces el mismo mes para ver sus días.":"";
     $("calInfo").innerHTML="Mostrando <b>"+n+"</b> documentos."+pista;
     pintaLista();
   }
-  $("calModo").addEventListener("click",function(e){var m=e.target.dataset.m;if(!m)return;cal.modo=m;if(m==="dia"){cal.ini=iso(cal.vista,1);cal.fin=null}if(m==="mes"){cal.mesIni=cal.mesFin=cal.vista}pintaCal()});
+  $("calModo").addEventListener("click",function(e){var m=e.target.dataset.m;if(!m)return;cal.modo=m;if(m==="dia"){cal.ini=null;cal.fin=null}if(m==="mes"){cal.mesIni=cal.mesFin=cal.vista}pintaCal()});
+  // Un clic en un mes lo elige (y otro mes, varios). Dos clics en el mismo mes (o doble clic) abren sus días.
+  function abrirDias(i){cal.modo="dia";cal.vista=i;if(cal.fin!==null){cal.ini=null;cal.fin=null}pintaCal()}
   $("calMeses").addEventListener("click",function(e){var i=CORTOS.indexOf(e.target.textContent);if(i<0)return;
-    if(cal.modo==="dia"&&cal.fin===null){cal.vista=i;pintaCal();return}
+    if(cal.modo==="dia"&&cal.ini!==null&&cal.fin===null){cal.vista=i;pintaCal();return}  // eligiendo el segundo día en otro mes
+    if(cal.modo==="dia"&&cal.ini===null){cal.vista=i;pintaCal();return}
+    if(cal.modo==="mes"&&cal.mesIni===cal.mesFin&&i===cal.mesIni){abrirDias(i);return}  // segundo clic en el mismo mes
     if(cal.modo==="mes"&&cal.mesIni===cal.mesFin&&i!==cal.mesIni){cal.mesFin=Math.max(i,cal.mesIni);cal.mesIni=Math.min(i,cal.mesIni)}else{cal.mesIni=cal.mesFin=i}
     cal.modo="mes";cal.vista=i;pintaCal()});
-  $("calDias").addEventListener("click",function(e){var d=+e.target.dataset.d;if(!d)return;var o=iso(cal.vista,d);if(cal.modo==="dia"&&cal.fin===null&&o!==cal.ini)cal.fin=o;else{cal.ini=o;cal.fin=null}cal.modo="dia";pintaCal()});
+  $("calMeses").addEventListener("dblclick",function(e){var i=CORTOS.indexOf(e.target.textContent);if(i<0)return;abrirDias(i)});
+  $("calDias").addEventListener("click",function(e){var d=+e.target.dataset.d;if(!d)return;var o=iso(cal.vista,d);
+    if(cal.modo==="dia"&&cal.ini!==null&&cal.fin===null&&o!==cal.ini)cal.fin=o;else{cal.ini=o;cal.fin=null}cal.modo="dia";pintaCal()});
   document.querySelectorAll(".cal .flecha").forEach(function(b,i){b.addEventListener("click",function(){cal.vista=Math.min(11,Math.max(0,cal.vista+(i?1:-1)));if(cal.modo==="mes"&&cal.mesIni===cal.mesFin)cal.mesIni=cal.mesFin=cal.vista;pintaCal()})});
 
   /* ---------- listas ---------- */
