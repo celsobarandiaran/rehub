@@ -74,7 +74,8 @@
   - Asistente: pantalla nueva entre Dueño y Ajustes (`app/asistente.py`, `app/static/asistente.js`) y botón flotante con el mismo chat en todas las pantallas. Responde con los datos de todas las pantallas (resumen que se monta en cada pregunta) y un manual corto de uso; cada respuesta dice la pantalla de origen con enlace; guarda el historial (tabla nueva `charlas`); solo responde, no cambia nada. Sin IA (o tope agotado) devuelve los datos tal cual de la pantalla que mejor encaja. Probado con Gemini: "¿Cuánto vendí el sábado pasado?" → 1.478,20 € con 52 cubiertos, fuente Cuadro del día.
   - Base de datos: `db.crear_tablas` añade las columnas nuevas a tablas que ya existen (`COLUMNAS_NUEVAS`); hecho ya en Frankfurt. `herramientas/sembrar`… no hace falta: lo que ya estaba cargado se completó a mano el 11/10 (familias, categorías, lecturas anteriores).
   - Pruebas: `tests/test_tanda3.py` (8) + las 11 anteriores: 19 pasan.
-  - Maqueta: actualizada en `maqueta/index.html` con los mismos cambios (la anterior queda en `maqueta/version2.html`).
+  - Maqueta: actualizada en `maqueta/index.html` con los mismos cambios (la anterior queda en `maqueta/version2.html`); se ve en la app en `/maqueta/`.
+  - Celso dio el "VALE" a la tanda 3 el 11/10/2026 a las 19:22. Publicada en Render. Queda por elegir entre la Opción A (tabla) y la Opción B (barras) de precios en Proveedores; mientras, las dos siguen con el botón para cambiar.
 
 ## Cómo se usa, dirección web, despliegue y perfiles
 - Dirección: https://rehub-os12.onrender.com (contraseña del dueño: `REHUB_CONTRASENA` en `C:\Users\celso\.rehub\claves.env`). Si lleva 15 min sin uso tarda ~1 min en despertar (sale la página "despertando").
