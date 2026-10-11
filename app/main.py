@@ -36,6 +36,9 @@ async def arranque(app: FastAPI):
 
 app = FastAPI(title="ReHub", lifespan=arranque, docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/static", StaticFiles(directory=AQUI / "static"), name="static")
+if (AQUI.parent / "maqueta").exists():
+    # La maqueta (diseño aprobado) se puede ver con la sesión iniciada en /maqueta/
+    app.mount("/maqueta", StaticFiles(directory=AQUI.parent / "maqueta", html=True), name="maqueta")
 plantillas = Jinja2Templates(directory=AQUI / "plantillas")
 plantillas.env.globals.update(config=config, perfiles=perfiles, timedelta=timedelta)
 

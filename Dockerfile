@@ -8,6 +8,7 @@ COPY --chown=rehub requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY --chown=rehub app ./app
 COPY --chown=rehub datos_demo ./datos_demo
+COPY --chown=rehub maqueta ./maqueta
 USER rehub
 EXPOSE 7860
 CMD ["sh", "-c", "python -m uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860} --proxy-headers --forwarded-allow-ips '*'"]
