@@ -1,4 +1,82 @@
 {
+"foto:05cd053a23f02844f8a379e03aa32363c1a91939f6cd5868cfec9e1558263785": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FERRETERÍA SANT PERE",
+"dudas": [],
+"fecha": "2026-09-12",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Juntas y teflón",
+"importe": 6.1,
+"precio_unitario": 6.1,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Grifo monomando",
+"importe": 28.9,
+"precio_unitario": 28.9,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T93640",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 35.0
+},
+"foto:094997c81205db351f4ebc4b7d5d452e10c428ad93f1f9dbba40ddc24cb3a09f": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "PARKING CATEDRAL",
+"dudas": [],
+"fecha": "2026-09-29",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Aparcamiento 2 h",
+"importe": 12.5,
+"precio_unitario": 12.5,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T92192",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 12.5
+},
+"foto:188e2ffdb8f80031f41ff87655bf5abea9c5045de57db49dab758459bfb45db2": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FARMACIA SANT JAUME",
+"dudas": [
+"La descripcion del producto esta cortada al final"
+],
+"fecha": "2026-10-01",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Botiquín: tiritas y ga",
+"importe": 11.2,
+"precio_unitario": 11.2,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T45034",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 11.2
+},
 "foto:1de7fb6fff2778d1c8c20a1caa06a30dd52d00309d000a04d527d0a827393899": {
 "base": 96.11,
 "caducidad": null,
@@ -171,6 +249,59 @@
 "tipo": "factura",
 "total": 99.24
 },
+"foto:396547debbea10e3dc13cdaa8009d5c82e1f6bdda79668ef02a17101ff3ab962": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MERCAT DE LA BOQUERIA",
+"dudas": [],
+"fecha": "2026-09-22",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Hierbas frescas",
+"importe": 6.0,
+"precio_unitario": 6.0,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Albahaca",
+"importe": 4.5,
+"precio_unitario": 4.5,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T88062",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 10.5
+},
+"foto:3a9f19a097c7aeb360e630551391ef2108110f9f0e3f2a2388b907d299dfa675": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "PARKING CATEDRAL",
+"dudas": [],
+"fecha": "2026-08-21",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Aparcamiento 2 h",
+"importe": 12.5,
+"precio_unitario": 12.5,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T18282",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 12.5
+},
 "foto:3fa9caa812497243b56fdadae9c665c48d55c8abb4ae81dbd02e75b755e827e6": {
 "base": null,
 "caducidad": null,
@@ -286,6 +417,36 @@
 "producto": null,
 "tipo": "factura",
 "total": 96.19
+},
+"foto:4ea826258d3130f279bfa29ce0bd04fe964aec8d3becce3aab513a66236a5624": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MAKRO",
+"dudas": [],
+"fecha": "2026-09-27",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Film transparente",
+"importe": 9.8,
+"precio_unitario": 9.8,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Servilletas (pack)",
+"importe": 14.9,
+"precio_unitario": 14.9,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T49162",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 24.7
 },
 "foto:5db52cee0f0aa8bd322380a1be875329935a61fd347f55efdf0a6f0f47762faf": {
 "base": 93.51,
@@ -461,6 +622,54 @@
 "tipo": "factura",
 "total": 92.79
 },
+"foto:6228be3a9d7b6accd568f8089aad4c8e224aa768951d4203a6a2f9c1d5b1b700": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "HIELO CUBITOS BCN",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [
+{
+"cantidad": 2.0,
+"descripcion": "Saco hielo 10 kg",
+"importe": 18.0,
+"precio_unitario": 9.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T97594",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 18.0
+},
+"foto:640681f80f0dcdd99a8c0ba7442193670cd93bfedc116e2c7d33ccf642237de5": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FARMACIA SANT JAUME",
+"dudas": [
+"La descripción del producto está cortada al final."
+],
+"fecha": "2026-09-18",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Botiquín: tiritas y ga",
+"importe": 11.2,
+"precio_unitario": 11.2,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T84917",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 11.2
+},
 "foto:65e2ee4119230e57054175aa2e0111de9444e4b636c3364f849ebbb17617a1cf": {
 "base": 98.28,
 "caducidad": null,
@@ -546,6 +755,36 @@
 "producto": null,
 "tipo": "factura",
 "total": 102.21
+},
+"foto:813c28ac5e683111e01e0c0c1c1cfd8dbe8367ba093b084e2f9771ca17629ed9": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FERRETERÍA SANT PERE",
+"dudas": [],
+"fecha": "2026-08-06",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Juntas y teflón",
+"importe": 6.1,
+"precio_unitario": 6.1,
+"unidad": null
+},
+{
+"cantidad": 1.0,
+"descripcion": "Bombillas LED",
+"importe": 7.35,
+"precio_unitario": 7.35,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T87698",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 13.45
 },
 "foto:81cdf12e45068294acca8a8ac9d78ac1782d84382dd458d7bd83bd361da944b9": {
 "base": 97.18,
@@ -633,6 +872,89 @@
 "tipo": "factura",
 "total": 101.07
 },
+"foto:94c6977e3ee7e1dd921f64a38d3b59a2222de1eff6446d90c16bf36d36ceda98": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MAKRO",
+"dudas": [],
+"fecha": "2026-09-16",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Servilletas (pack)",
+"importe": 14.9,
+"precio_unitario": 14.9,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Bolsas basura",
+"importe": 12.4,
+"precio_unitario": 12.4,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T35765",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 27.3
+},
+"foto:9691f3d795204a635e9ed2e536addc36730bc8cc31cc3693867078d60fa84c8f": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "PARKING CATEDRAL",
+"dudas": [],
+"fecha": "2026-09-17",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Aparcamiento 2 h",
+"importe": 12.5,
+"precio_unitario": 12.5,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T90050",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 12.5
+},
+"foto:99c50c1e63822b489a402831ba26651e7312d6656ebdfb1649d19e75931efba8": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MAKRO",
+"dudas": [],
+"fecha": "2026-08-20",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Agua 0,5 l (24 ud)",
+"importe": 4.56,
+"precio_unitario": 4.56,
+"unidad": null
+},
+{
+"cantidad": 1.0,
+"descripcion": "Servilletas (pack)",
+"importe": 14.9,
+"precio_unitario": 14.9,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T17189",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 19.46
+},
 "foto:a6adbe6aa8df178f8b58e50a865c1c718245ac68f2922fee7006f0a2a52d9d5f": {
 "base": 93.02,
 "caducidad": null,
@@ -719,6 +1041,167 @@
 "tipo": "factura",
 "total": 96.74
 },
+"foto:a9e2fe3a0425b5554d649f10d8abf721ad518928d1a81cb2783977258c1ab183": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "HIELO CUBITOS BCN",
+"dudas": [],
+"fecha": "2026-09-23",
+"iva": null,
+"lineas": [
+{
+"cantidad": 2,
+"descripcion": "Saco hielo 10 kg",
+"importe": 18.0,
+"precio_unitario": 9.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T29630",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 18.0
+},
+"foto:b6e01f9cab72a86893d03e4889b5ef65918bda8dfbf841d512fd8d96219f44e0": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MERCAT DE LA BOQUERIA",
+"dudas": [],
+"fecha": "2026-09-09",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Hierbas frescas",
+"importe": 6.0,
+"precio_unitario": 6.0,
+"unidad": null
+},
+{
+"cantidad": 1.0,
+"descripcion": "Albahaca",
+"importe": 4.5,
+"precio_unitario": 4.5,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T25433",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 10.5
+},
+"foto:bddbd46b44ed7dd56ded9a352eb8a15423427fc0d9f2fc20aa1f069b8c860ca2": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "HIELO CUBITOS BCN",
+"dudas": [],
+"fecha": "2026-09-10",
+"iva": null,
+"lineas": [
+{
+"cantidad": 2,
+"descripcion": "Saco hielo 10 kg",
+"importe": 18.0,
+"precio_unitario": 9.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T27810",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 18.0
+},
+"foto:c728771126e9bedf3efe41228c3710fbf1d7c9f50ed4a48511386068a4f7cdda": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FERRETERÍA SANT PERE",
+"dudas": [],
+"fecha": "2026-09-26",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Grifo monomando",
+"importe": 28.9,
+"precio_unitario": 28.9,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Bombillas LED",
+"importe": 7.35,
+"precio_unitario": 7.35,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T19397",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 36.25
+},
+"foto:d2801c3e09b3052ea8c054f9cc296306680e03e953c6103ab11bfc39d20af39a": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "FARMACIA SANT JAUME",
+"dudas": [
+"La descripcion del producto esta cortada al final ('y ga')"
+],
+"fecha": "2026-08-27",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.0,
+"descripcion": "Botiquín: tiritas y ga",
+"importe": 11.2,
+"precio_unitario": 11.2,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T88738",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 11.2
+},
+"foto:f143388aba4dd18108f63121c918402c8b7ef4b6933f7752ad1a064bcfcd1e94": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MERCAT DE LA BOQUERIA",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Limones",
+"importe": 9.0,
+"precio_unitario": 9.0,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Hierbas frescas",
+"importe": 6.0,
+"precio_unitario": 6.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T10308",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 15.0
+},
 "foto:f56f6566eeac9296296f1c53652cf6a58c847edde480cc17347c020fad63210f": {
 "base": 97.65,
 "caducidad": null,
@@ -804,6 +1287,29 @@
 "producto": null,
 "tipo": "factura",
 "total": 101.56
+},
+"foto:fb434439c259d3ff259e43c63b476c25efa781f5edf88cb4e0ad6e8b393e9f49": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "HIELO CUBITOS BCN",
+"dudas": [],
+"fecha": "2026-08-05",
+"iva": null,
+"lineas": [
+{
+"cantidad": 2,
+"descripcion": "Saco hielo 10 kg",
+"importe": 18.0,
+"precio_unitario": 9.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T18516",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 18.0
 },
 "foto:fbf37b4e53bfb6ebe01f869ed6c48b8a41701c7598f582e2e39e70c49ae3b2e2": {
 "base": 88.68,
