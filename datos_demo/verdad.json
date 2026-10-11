@@ -1,0 +1,7294 @@
+{
+ "facturas": [
+  {
+   "archivo": "facturas/2026-08-01 Fincas Ronda A-9.pdf",
+   "proveedor": "Fincas Ronda",
+   "numero": "A-9",
+   "fecha": "2026-08-01",
+   "base": 2000.0,
+   "iva": 420.0,
+   "total": 2420.0,
+   "vencimiento": "2026-08-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Alquiler del local, 08/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 2000.0,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-01 Pescados Mar Nou F-2026-0271.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0271",
+   "fecha": "2026-08-01",
+   "base": 225.24,
+   "iva": 22.52,
+   "total": 247.76,
+   "vencimiento": "2026-08-31",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.8,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-01 Seguros Previsora SP-26-1042.pdf",
+   "proveedor": "Seguros Previsora",
+   "numero": "SP-26-1042",
+   "fecha": "2026-08-01",
+   "base": 186.4,
+   "iva": 0.0,
+   "total": 186.4,
+   "vencimiento": "2026-08-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Seguro multirriesgo de hostelería, 08/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 186.4,
+     "iva": 0.0
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-02 Vins i Cafès Roca VR-1121.pdf",
+   "proveedor": "Vins i Cafès Roca",
+   "numero": "VR-1121",
+   "fecha": "2026-08-02",
+   "base": 222.0,
+   "iva": 40.68,
+   "total": 262.68,
+   "vencimiento": "2026-09-01",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 30,
+     "unidad": "botella",
+     "precio": 4.2,
+     "iva": 0.21
+    },
+    {
+     "producto": "Café en grano",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 18.0,
+     "iva": 0.1
+    },
+    {
+     "producto": "Ginebra",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 14.5,
+     "iva": 0.21
+    },
+    {
+     "producto": "Cava",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 6.5,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-03 Carnes Vallès C-8403.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8403",
+   "fecha": "2026-08-03",
+   "base": 369.76,
+   "iva": 36.98,
+   "total": 406.74,
+   "vencimiento": "2026-09-02",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.8,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.2,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 6.2,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.6,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-05 Endesa LZ-77119.pdf",
+   "proveedor": "Endesa",
+   "numero": "LZ-77119",
+   "fecha": "2026-08-05",
+   "base": 640.0,
+   "iva": 134.4,
+   "total": 774.4,
+   "vencimiento": "2026-08-20",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Energía consumida (4630 kWh)",
+     "cantidad": 4630,
+     "unidad": "kWh",
+     "precio": 0.13823,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-08-05 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-302",
+   "fecha": "2026-08-05",
+   "base": 89.22,
+   "iva": 3.57,
+   "total": 92.79,
+   "vencimiento": "2026-08-05",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 14.4,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 5.0,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 34.3,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.3,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.2,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-06 Naturgy NG-55101.pdf",
+   "proveedor": "Naturgy",
+   "numero": "NG-55101",
+   "fecha": "2026-08-06",
+   "base": 330.0,
+   "iva": 69.3,
+   "total": 399.3,
+   "vencimiento": "2026-08-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Gas natural (2010 kWh)",
+     "cantidad": 2010,
+     "unidad": "kWh",
+     "precio": 0.16418,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-06 Pescados Mar Nou F-2026-0272.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0272",
+   "fecha": "2026-08-06",
+   "base": 239.96,
+   "iva": 24.0,
+   "total": 263.96,
+   "vencimiento": "2026-09-05",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.5,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.3,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.7,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-07 Bebidas Sol BS-2102.pdf",
+   "proveedor": "Bebidas Sol",
+   "numero": "BS-2102",
+   "fecha": "2026-08-07",
+   "base": 569.1,
+   "iva": 96.25,
+   "total": 665.35,
+   "vencimiento": "2026-09-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 120,
+     "unidad": "l",
+     "precio": 2.98,
+     "iva": 0.21
+    },
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 240,
+     "unidad": "ud",
+     "precio": 0.24,
+     "iva": 0.1
+    },
+    {
+     "producto": "Refresco lata",
+     "cantidad": 150,
+     "unidad": "ud",
+     "precio": 0.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 24,
+     "unidad": "ud",
+     "precio": 0.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-08 Pescados Mar Nou F-2026-0273.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0273",
+   "fecha": "2026-08-08",
+   "base": 230.82,
+   "iva": 23.08,
+   "total": 253.9,
+   "vencimiento": "2026-09-07",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.5,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.3,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-10 Carnes Vallès C-8404.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8404",
+   "fecha": "2026-08-10",
+   "base": 365.62,
+   "iva": 36.56,
+   "total": 402.18,
+   "vencimiento": "2026-09-09",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.8,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.2,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.4,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-08-12 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-303",
+   "fecha": "2026-08-12",
+   "base": 97.18,
+   "iva": 3.89,
+   "total": 101.07,
+   "vencimiento": "2026-08-12",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 12.5,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 4.7,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 44.5,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.9,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-13 Pescados Mar Nou F-2026-0274.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0274",
+   "fecha": "2026-08-13",
+   "base": 243.48,
+   "iva": 24.35,
+   "total": 267.83,
+   "vencimiento": "2026-09-12",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.0,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-15 Distribuciones Olivé DO-891.pdf",
+   "proveedor": "Distribuciones Olivé",
+   "numero": "DO-891",
+   "fecha": "2026-08-15",
+   "base": 838.45,
+   "iva": 34.98,
+   "total": 873.43,
+   "vencimiento": "2026-09-14",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 60,
+     "unidad": "l",
+     "precio": 7.05,
+     "iva": 0.04
+    },
+    {
+     "producto": "Arroz bomba",
+     "cantidad": 20,
+     "unidad": "kg",
+     "precio": 3.8,
+     "iva": 0.04
+    },
+    {
+     "producto": "Harina",
+     "cantidad": 18,
+     "unidad": "kg",
+     "precio": 0.9,
+     "iva": 0.04
+    },
+    {
+     "producto": "Huevos",
+     "cantidad": 65,
+     "unidad": "docena",
+     "precio": 2.9,
+     "iva": 0.04
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 85,
+     "unidad": "l",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 12,
+     "unidad": "kg",
+     "precio": 1.1,
+     "iva": 0.1
+    },
+    {
+     "producto": "Queso de cabra",
+     "cantidad": 1.5,
+     "unidad": "kg",
+     "precio": 14.0,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pasta de canelones",
+     "cantidad": 2,
+     "unidad": "kg",
+     "precio": 4.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Nata",
+     "cantidad": 3,
+     "unidad": "l",
+     "precio": 3.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-15 Neteges Brillant NB-411.pdf",
+   "proveedor": "Neteges Brillant",
+   "numero": "NB-411",
+   "fecha": "2026-08-15",
+   "base": 80.0,
+   "iva": 16.8,
+   "total": 96.8,
+   "vencimiento": "2026-09-14",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Servicio de limpieza de campana y extractores",
+     "cantidad": 1,
+     "unidad": "servicio",
+     "precio": 80.0,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-15 Pescados Mar Nou F-2026-0275.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0275",
+   "fecha": "2026-08-15",
+   "base": 219.33,
+   "iva": 21.93,
+   "total": 241.26,
+   "vencimiento": "2026-09-14",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.4,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.7,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-16 Vins i Cafès Roca VR-1122.pdf",
+   "proveedor": "Vins i Cafès Roca",
+   "numero": "VR-1122",
+   "fecha": "2026-08-16",
+   "base": 222.0,
+   "iva": 40.68,
+   "total": 262.68,
+   "vencimiento": "2026-09-15",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 30,
+     "unidad": "botella",
+     "precio": 4.2,
+     "iva": 0.21
+    },
+    {
+     "producto": "Café en grano",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 18.0,
+     "iva": 0.1
+    },
+    {
+     "producto": "Ginebra",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 14.5,
+     "iva": 0.21
+    },
+    {
+     "producto": "Cava",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 6.5,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-17 Carnes Vallès C-8405.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8405",
+   "fecha": "2026-08-17",
+   "base": 360.92,
+   "iva": 36.09,
+   "total": 397.01,
+   "vencimiento": "2026-09-16",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.3,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.1,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.3,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.6,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-08-19 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-304",
+   "fecha": "2026-08-19",
+   "base": 98.28,
+   "iva": 3.93,
+   "total": 102.21,
+   "vencimiento": "2026-08-19",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 12.9,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 4.6,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 45.2,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.7,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-20 Pescados Mar Nou F-2026-0276.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0276",
+   "fecha": "2026-08-20",
+   "base": 252.17,
+   "iva": 25.22,
+   "total": 277.39,
+   "vencimiento": "2026-09-19",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.2,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.4,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.6,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-21 Bebidas Sol BS-2103.pdf",
+   "proveedor": "Bebidas Sol",
+   "numero": "BS-2103",
+   "fecha": "2026-08-21",
+   "base": 569.1,
+   "iva": 96.25,
+   "total": 665.35,
+   "vencimiento": "2026-09-20",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 120,
+     "unidad": "l",
+     "precio": 2.98,
+     "iva": 0.21
+    },
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 240,
+     "unidad": "ud",
+     "precio": 0.24,
+     "iva": 0.1
+    },
+    {
+     "producto": "Refresco lata",
+     "cantidad": 150,
+     "unidad": "ud",
+     "precio": 0.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 24,
+     "unidad": "ud",
+     "precio": 0.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-22 Pescados Mar Nou F-2026-0277.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0277",
+   "fecha": "2026-08-22",
+   "base": 241.39,
+   "iva": 24.14,
+   "total": 265.53,
+   "vencimiento": "2026-09-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.0,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-24 Carnes Vallès C-8406.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8406",
+   "fecha": "2026-08-24",
+   "base": 365.1,
+   "iva": 36.51,
+   "total": 401.61,
+   "vencimiento": "2026-09-23",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.7,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 2.6,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.2,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.8,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-08-26 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-305",
+   "fecha": "2026-08-26",
+   "base": 95.42,
+   "iva": 3.82,
+   "total": 99.24,
+   "vencimiento": "2026-08-26",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 14.3,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 4.9,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 38.4,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 4.1,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-27 Pescados Mar Nou F-2026-0278.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0278",
+   "fecha": "2026-08-27",
+   "base": 249.36,
+   "iva": 24.94,
+   "total": 274.3,
+   "vencimiento": "2026-09-26",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.8,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.0,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-29 Pescados Mar Nou F-2026-0279.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0279",
+   "fecha": "2026-08-29",
+   "base": 234.49,
+   "iva": 23.45,
+   "total": 257.94,
+   "vencimiento": "2026-09-28",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.3,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.8,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.4,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-31 Carnes Vallès C-8407.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8407",
+   "fecha": "2026-08-31",
+   "base": 366.1,
+   "iva": 36.61,
+   "total": 402.71,
+   "vencimiento": "2026-09-30",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.8,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.1,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 5.6,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.7,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-08-31 Forn de Pa Sant Jaume FP-8.pdf",
+   "proveedor": "Forn de Pa Sant Jaume",
+   "numero": "FP-8",
+   "fecha": "2026-08-31",
+   "base": 259.0,
+   "iva": 10.36,
+   "total": 269.36,
+   "vencimiento": "2026-09-02",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Pan de barra",
+     "cantidad": 100,
+     "unidad": "ud",
+     "precio": 0.55,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pan de cristal",
+     "cantidad": 170,
+     "unidad": "ud",
+     "precio": 1.2,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-01 Fincas Ronda A-10.pdf",
+   "proveedor": "Fincas Ronda",
+   "numero": "A-10",
+   "fecha": "2026-09-01",
+   "base": 2000.0,
+   "iva": 420.0,
+   "total": 2420.0,
+   "vencimiento": "2026-09-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Alquiler del local, 09/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 2000.0,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-01 Seguros Previsora SP-26-1043.pdf",
+   "proveedor": "Seguros Previsora",
+   "numero": "SP-26-1043",
+   "fecha": "2026-09-01",
+   "base": 186.4,
+   "iva": 0.0,
+   "total": 186.4,
+   "vencimiento": "2026-09-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Seguro multirriesgo de hostelería, 09/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 186.4,
+     "iva": 0.0
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-09-02 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-306",
+   "fecha": "2026-09-02",
+   "base": 96.11,
+   "iva": 3.84,
+   "total": 99.95,
+   "vencimiento": "2026-09-02",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 11.9,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 5.5,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 44.9,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.4,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-02 Vins i Cafès Roca VR-1123.pdf",
+   "proveedor": "Vins i Cafès Roca",
+   "numero": "VR-1123",
+   "fecha": "2026-09-02",
+   "base": 222.0,
+   "iva": 40.68,
+   "total": 262.68,
+   "vencimiento": "2026-10-02",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 30,
+     "unidad": "botella",
+     "precio": 4.2,
+     "iva": 0.21
+    },
+    {
+     "producto": "Café en grano",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 18.0,
+     "iva": 0.1
+    },
+    {
+     "producto": "Ginebra",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 14.5,
+     "iva": 0.21
+    },
+    {
+     "producto": "Cava",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 6.5,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-03 Pescados Mar Nou F-2026-0280.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0280",
+   "fecha": "2026-09-03",
+   "base": 234.94,
+   "iva": 23.49,
+   "total": 258.43,
+   "vencimiento": "2026-10-03",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 4.9,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.5,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.7,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-05 Endesa LZ-77120.pdf",
+   "proveedor": "Endesa",
+   "numero": "LZ-77120",
+   "fecha": "2026-09-05",
+   "base": 607.36,
+   "iva": 127.55,
+   "total": 734.91,
+   "vencimiento": "2026-09-20",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Energía consumida (4390 kWh)",
+     "cantidad": 4390,
+     "unidad": "kWh",
+     "precio": 0.13835,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-05 Pescados Mar Nou F-2026-0281.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0281",
+   "fecha": "2026-09-05",
+   "base": 220.88,
+   "iva": 22.09,
+   "total": 242.97,
+   "vencimiento": "2026-10-05",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.0,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.8,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-06 Naturgy NG-55102.pdf",
+   "proveedor": "Naturgy",
+   "numero": "NG-55102",
+   "fecha": "2026-09-06",
+   "base": 345.7,
+   "iva": 72.6,
+   "total": 418.3,
+   "vencimiento": "2026-09-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Gas natural (2080 kWh)",
+     "cantidad": 2080,
+     "unidad": "kWh",
+     "precio": 0.1662,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-07 Bebidas Sol BS-2104.pdf",
+   "proveedor": "Bebidas Sol",
+   "numero": "BS-2104",
+   "fecha": "2026-09-07",
+   "base": 569.1,
+   "iva": 96.25,
+   "total": 665.35,
+   "vencimiento": "2026-10-07",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 120,
+     "unidad": "l",
+     "precio": 2.98,
+     "iva": 0.21
+    },
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 240,
+     "unidad": "ud",
+     "precio": 0.24,
+     "iva": 0.1
+    },
+    {
+     "producto": "Refresco lata",
+     "cantidad": 150,
+     "unidad": "ud",
+     "precio": 0.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 24,
+     "unidad": "ud",
+     "precio": 0.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-07 Carnes Vallès C-8408.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8408",
+   "fecha": "2026-09-07",
+   "base": 373.88,
+   "iva": 37.39,
+   "total": 411.27,
+   "vencimiento": "2026-10-07",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 9.1,
+     "unidad": "kg",
+     "precio": 21.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 2.7,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.0,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.7,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-09-09 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-307",
+   "fecha": "2026-09-09",
+   "base": 97.65,
+   "iva": 3.91,
+   "total": 101.56,
+   "vencimiento": "2026-09-09",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 13.5,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 4.8,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 41.9,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 4.1,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.2,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-10 Pescados Mar Nou F-2026-0282.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0282",
+   "fecha": "2026-09-10",
+   "base": 254.7,
+   "iva": 25.47,
+   "total": 280.17,
+   "vencimiento": "2026-10-10",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.5,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.2,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-12 Pescados Mar Nou F-2026-0283.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0283",
+   "fecha": "2026-09-12",
+   "base": 242.63,
+   "iva": 24.26,
+   "total": 266.89,
+   "vencimiento": "2026-10-12",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.3,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.6,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.8,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.7,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-14 Carnes Vallès C-8409.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8409",
+   "fecha": "2026-09-14",
+   "base": 373.18,
+   "iva": 37.32,
+   "total": 410.5,
+   "vencimiento": "2026-10-14",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 7.9,
+     "unidad": "kg",
+     "precio": 24.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 2.9,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 6.9,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.8,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-15 Distribuciones Olivé DO-892.pdf",
+   "proveedor": "Distribuciones Olivé",
+   "numero": "DO-892",
+   "fecha": "2026-09-15",
+   "base": 838.45,
+   "iva": 34.98,
+   "total": 873.43,
+   "vencimiento": "2026-10-15",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 60,
+     "unidad": "l",
+     "precio": 7.05,
+     "iva": 0.04
+    },
+    {
+     "producto": "Arroz bomba",
+     "cantidad": 20,
+     "unidad": "kg",
+     "precio": 3.8,
+     "iva": 0.04
+    },
+    {
+     "producto": "Harina",
+     "cantidad": 18,
+     "unidad": "kg",
+     "precio": 0.9,
+     "iva": 0.04
+    },
+    {
+     "producto": "Huevos",
+     "cantidad": 65,
+     "unidad": "docena",
+     "precio": 2.9,
+     "iva": 0.04
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 85,
+     "unidad": "l",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 12,
+     "unidad": "kg",
+     "precio": 1.1,
+     "iva": 0.1
+    },
+    {
+     "producto": "Queso de cabra",
+     "cantidad": 1.5,
+     "unidad": "kg",
+     "precio": 14.0,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pasta de canelones",
+     "cantidad": 2,
+     "unidad": "kg",
+     "precio": 4.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Nata",
+     "cantidad": 3,
+     "unidad": "l",
+     "precio": 3.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-15 Neteges Brillant NB-412.pdf",
+   "proveedor": "Neteges Brillant",
+   "numero": "NB-412",
+   "fecha": "2026-09-15",
+   "base": 80.0,
+   "iva": 16.8,
+   "total": 96.8,
+   "vencimiento": "2026-10-15",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Servicio de limpieza de campana y extractores",
+     "cantidad": 1,
+     "unidad": "servicio",
+     "precio": 80.0,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-09-16 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-308",
+   "fecha": "2026-09-16",
+   "base": 92.49,
+   "iva": 3.7,
+   "total": 96.19,
+   "vencimiento": "2026-09-16",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 13.1,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 5.6,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 36.9,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.9,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.2,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-16 Vins i Cafès Roca VR-1124.pdf",
+   "proveedor": "Vins i Cafès Roca",
+   "numero": "VR-1124",
+   "fecha": "2026-09-16",
+   "base": 222.0,
+   "iva": 40.68,
+   "total": 262.68,
+   "vencimiento": "2026-10-16",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 30,
+     "unidad": "botella",
+     "precio": 4.2,
+     "iva": 0.21
+    },
+    {
+     "producto": "Café en grano",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 18.0,
+     "iva": 0.1
+    },
+    {
+     "producto": "Ginebra",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 14.5,
+     "iva": 0.21
+    },
+    {
+     "producto": "Cava",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 6.5,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-17 Pescados Mar Nou F-2026-0284.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0284",
+   "fecha": "2026-09-17",
+   "base": 236.7,
+   "iva": 23.67,
+   "total": 260.37,
+   "vencimiento": "2026-10-17",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.2,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.2,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-19 Pescados Mar Nou F-2026-0285.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0285",
+   "fecha": "2026-09-19",
+   "base": 218.81,
+   "iva": 21.88,
+   "total": 240.69,
+   "vencimiento": "2026-10-19",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.4,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.4,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-21 Bebidas Sol BS-2105.pdf",
+   "proveedor": "Bebidas Sol",
+   "numero": "BS-2105",
+   "fecha": "2026-09-21",
+   "base": 569.1,
+   "iva": 96.25,
+   "total": 665.35,
+   "vencimiento": "2026-10-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 120,
+     "unidad": "l",
+     "precio": 2.98,
+     "iva": 0.21
+    },
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 240,
+     "unidad": "ud",
+     "precio": 0.24,
+     "iva": 0.1
+    },
+    {
+     "producto": "Refresco lata",
+     "cantidad": 150,
+     "unidad": "ud",
+     "precio": 0.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 24,
+     "unidad": "ud",
+     "precio": 0.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-21 Carnes Vallès C-8410.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8410",
+   "fecha": "2026-09-21",
+   "base": 386.62,
+   "iva": 38.66,
+   "total": 425.28,
+   "vencimiento": "2026-10-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.5,
+     "unidad": "kg",
+     "precio": 24.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.1,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.2,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.4,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-09-23 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-309",
+   "fecha": "2026-09-23",
+   "base": 88.68,
+   "iva": 3.55,
+   "total": 92.23,
+   "vencimiento": "2026-09-23",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 11.9,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 37.3,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 3.3,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-24 Pescados Mar Nou F-2026-0286.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0286",
+   "fecha": "2026-09-24",
+   "base": 251.1,
+   "iva": 25.11,
+   "total": 276.21,
+   "vencimiento": "2026-10-24",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.6,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.2,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-26 Pescados Mar Nou F-2026-0287.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0287",
+   "fecha": "2026-09-26",
+   "base": 231.47,
+   "iva": 23.15,
+   "total": 254.62,
+   "vencimiento": "2026-10-26",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.2,
+     "unidad": "kg",
+     "precio": 12.8,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.9,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.6,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-28 Carnes Vallès C-8411.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8411",
+   "fecha": "2026-09-28",
+   "base": 380.14,
+   "iva": 38.01,
+   "total": 418.15,
+   "vencimiento": "2026-10-28",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 8.3,
+     "unidad": "kg",
+     "precio": 24.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 2.8,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.0,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.6,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-09-30 Forn de Pa Sant Jaume FP-9.pdf",
+   "proveedor": "Forn de Pa Sant Jaume",
+   "numero": "FP-9",
+   "fecha": "2026-09-30",
+   "base": 259.0,
+   "iva": 10.36,
+   "total": 269.36,
+   "vencimiento": "2026-10-02",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Pan de barra",
+     "cantidad": 100,
+     "unidad": "ud",
+     "precio": 0.55,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pan de cristal",
+     "cantidad": 170,
+     "unidad": "ud",
+     "precio": 1.2,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-09-30 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": "HP-310",
+   "fecha": "2026-09-30",
+   "base": 93.02,
+   "iva": 3.72,
+   "total": 96.74,
+   "vencimiento": "2026-09-30",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 12.1,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 39.2,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 4.0,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-01 Fincas Ronda A-11.pdf",
+   "proveedor": "Fincas Ronda",
+   "numero": "A-11",
+   "fecha": "2026-10-01",
+   "base": 2000.0,
+   "iva": 420.0,
+   "total": 2420.0,
+   "vencimiento": "2026-10-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Alquiler del local, 10/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 2000.0,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-01 Pescados Mar Nou F-2026-0288.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0288",
+   "fecha": "2026-10-01",
+   "base": 260.62,
+   "iva": 26.06,
+   "total": 286.68,
+   "vencimiento": "2026-10-31",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 14.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.1,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.4,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.4,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-01 Seguros Previsora SP-26-1044.pdf",
+   "proveedor": "Seguros Previsora",
+   "numero": "SP-26-1044",
+   "fecha": "2026-10-01",
+   "base": 186.4,
+   "iva": 0.0,
+   "total": 186.4,
+   "vencimiento": "2026-10-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Seguro multirriesgo de hostelería, 10/2026",
+     "cantidad": 1,
+     "unidad": "mes",
+     "precio": 186.4,
+     "iva": 0.0
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-02 Vins i Cafès Roca VR-1125.pdf",
+   "proveedor": "Vins i Cafès Roca",
+   "numero": "VR-1125",
+   "fecha": "2026-10-02",
+   "base": 222.0,
+   "iva": 40.68,
+   "total": 262.68,
+   "vencimiento": "2026-11-01",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 30,
+     "unidad": "botella",
+     "precio": 4.2,
+     "iva": 0.21
+    },
+    {
+     "producto": "Café en grano",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 18.0,
+     "iva": 0.1
+    },
+    {
+     "producto": "Ginebra",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 14.5,
+     "iva": 0.21
+    },
+    {
+     "producto": "Cava",
+     "cantidad": 2,
+     "unidad": "botella",
+     "precio": 6.5,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-03 Pescados Mar Nou F-2026-0289.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0289",
+   "fecha": "2026-10-03",
+   "base": 235.36,
+   "iva": 23.54,
+   "total": 258.9,
+   "vencimiento": "2026-11-02",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 14.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 6.0,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.5,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.4,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.1,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-05 Carnes Vallès C-8412.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8412",
+   "fecha": "2026-10-05",
+   "base": 405.8,
+   "iva": 40.58,
+   "total": 446.38,
+   "vencimiento": "2026-11-04",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 9.0,
+     "unidad": "kg",
+     "precio": 24.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.4,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.3,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.8,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-05 Endesa LZ-77121.pdf",
+   "proveedor": "Endesa",
+   "numero": "LZ-77121",
+   "fecha": "2026-10-05",
+   "base": 607.35,
+   "iva": 127.54,
+   "total": 734.89,
+   "vencimiento": "2026-10-20",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Energía consumida (4420 kWh)",
+     "cantidad": 4420,
+     "unidad": "kWh",
+     "precio": 0.13741,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-06 Naturgy NG-55103.pdf",
+   "proveedor": "Naturgy",
+   "numero": "NG-55103",
+   "fecha": "2026-10-06",
+   "base": 345.7,
+   "iva": 72.6,
+   "total": 418.3,
+   "vencimiento": "2026-10-21",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Gas natural (2080 kWh)",
+     "cantidad": 2080,
+     "unidad": "kWh",
+     "precio": 0.1662,
+     "iva": 0.21
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-07 Bebidas Sol BS-2106.pdf",
+   "proveedor": "Bebidas Sol",
+   "numero": "BS-2106",
+   "fecha": "2026-10-07",
+   "base": 569.1,
+   "iva": 96.25,
+   "total": 665.35,
+   "vencimiento": "2026-11-06",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 120,
+     "unidad": "l",
+     "precio": 2.98,
+     "iva": 0.21
+    },
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 240,
+     "unidad": "ud",
+     "precio": 0.24,
+     "iva": 0.1
+    },
+    {
+     "producto": "Refresco lata",
+     "cantidad": 150,
+     "unidad": "ud",
+     "precio": 0.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 24,
+     "unidad": "ud",
+     "precio": 0.6,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas_escaneadas/2026-10-07 Hortalizas del Prat.jpg",
+   "proveedor": "Hortalizas del Prat",
+   "numero": null,
+   "fecha": "2026-10-07",
+   "base": 93.51,
+   "iva": 3.74,
+   "total": 97.25,
+   "vencimiento": "2026-10-07",
+   "duplicada": false,
+   "escaneada": true,
+   "revisar": "número de factura ilegible en el escaneo",
+   "lineas": [
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 12.7,
+     "unidad": "kg",
+     "precio": 1.45,
+     "iva": 0.04
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 4.9,
+     "unidad": "kg",
+     "precio": 0.85,
+     "iva": 0.04
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 39.1,
+     "unidad": "kg",
+     "precio": 0.95,
+     "iva": 0.04
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 4.1,
+     "unidad": "kg",
+     "precio": 3.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 2.1,
+     "unidad": "kg",
+     "precio": 1.6,
+     "iva": 0.04
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 10,
+     "unidad": "ud",
+     "precio": 0.7,
+     "iva": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 1,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.04
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 4,
+     "unidad": "manojo",
+     "precio": 0.52,
+     "iva": 0.04
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.3,
+     "unidad": "kg",
+     "precio": 9.5,
+     "iva": 0.04
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 1.3,
+     "iva": 0.04
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-08 Pescados Mar Nou F-2026-0290.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0290",
+   "fecha": "2026-10-08",
+   "base": 247.57,
+   "iva": 24.76,
+   "total": 272.33,
+   "vencimiento": "2026-11-07",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 2.0,
+     "unidad": "kg",
+     "precio": 14.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.7,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 6.2,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.3,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.0,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.9,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.25,
+     "unidad": "kg",
+     "precio": 65.0,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-05 Carnes Vallès C-8412 reenvio.pdf",
+   "proveedor": "Carnes Vallès",
+   "numero": "C-8412",
+   "fecha": "2026-10-05",
+   "base": 405.8,
+   "iva": 40.58,
+   "total": 446.38,
+   "vencimiento": "2026-11-04",
+   "duplicada": true,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 9.0,
+     "unidad": "kg",
+     "precio": 24.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 3.4,
+     "unidad": "kg",
+     "precio": 11.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 7.3,
+     "unidad": "kg",
+     "precio": 4.35,
+     "iva": 0.1
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 3,
+     "unidad": "kg",
+     "precio": 26.93,
+     "iva": 0.1
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 0.9,
+     "unidad": "kg",
+     "precio": 8.4,
+     "iva": 0.1
+    },
+    {
+     "producto": "Butifarra",
+     "cantidad": 2.8,
+     "unidad": "kg",
+     "precio": 9.8,
+     "iva": 0.1
+    }
+   ]
+  },
+  {
+   "archivo": "facturas/2026-10-10 Pescados Mar Nou F-2026-0291.pdf",
+   "proveedor": "Pescados Mar Nou",
+   "numero": "F-2026-0291",
+   "fecha": "2026-10-10",
+   "base": 231.04,
+   "iva": 23.1,
+   "total": 254.14,
+   "vencimiento": "2026-11-09",
+   "duplicada": false,
+   "escaneada": false,
+   "revisar": "",
+   "lineas": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 1.7,
+     "unidad": "kg",
+     "precio": 14.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 5.3,
+     "unidad": "kg",
+     "precio": 11.5,
+     "iva": 0.1
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 5.4,
+     "unidad": "kg",
+     "precio": 4.2,
+     "iva": 0.1
+    },
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 1.4,
+     "unidad": "kg",
+     "precio": 21.9,
+     "iva": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 1.2,
+     "unidad": "kg",
+     "precio": 56.38,
+     "iva": 0.1
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 1.8,
+     "unidad": "kg",
+     "precio": 13.2,
+     "iva": 0.1
+    }
+   ]
+  }
+ ],
+ "gastos": [
+  {
+   "archivo": "tickets/2026-08-01 Mercat de la Boqueria 24,00.jpg",
+   "comercio": "Mercat de la Boqueria",
+   "categoria": "Mercado (compras sueltas)",
+   "fecha": "2026-08-01",
+   "total": 24.0
+  },
+  {
+   "archivo": "tickets/2026-08-05 Hielo Cubitos BCN 18,00.jpg",
+   "comercio": "Hielo Cubitos BCN",
+   "categoria": "Hielo y bebida",
+   "fecha": "2026-08-05",
+   "total": 18.0
+  },
+  {
+   "archivo": "tickets/2026-08-06 Ferretería Sant Pere 13,45.jpg",
+   "comercio": "Ferretería Sant Pere",
+   "categoria": "Reparaciones y mantenimiento",
+   "fecha": "2026-08-06",
+   "total": 13.45
+  },
+  {
+   "archivo": "tickets/2026-08-20 Makro 19,46.jpg",
+   "comercio": "Makro",
+   "categoria": "Material y menaje",
+   "fecha": "2026-08-20",
+   "total": 19.46
+  },
+  {
+   "archivo": "tickets/2026-08-21 Parking Catedral 12,50.jpg",
+   "comercio": "Parking Catedral",
+   "categoria": "Transporte y aparcamiento",
+   "fecha": "2026-08-21",
+   "total": 12.5
+  },
+  {
+   "archivo": "tickets/2026-08-27 Farmacia Sant Jaume 11,20.jpg",
+   "comercio": "Farmacia Sant Jaume",
+   "categoria": "Otros",
+   "fecha": "2026-08-27",
+   "total": 11.2
+  },
+  {
+   "archivo": "tickets/2026-09-09 Mercat de la Boqueria 10,50.jpg",
+   "comercio": "Mercat de la Boqueria",
+   "categoria": "Mercado (compras sueltas)",
+   "fecha": "2026-09-09",
+   "total": 10.5
+  },
+  {
+   "archivo": "tickets/2026-09-10 Hielo Cubitos BCN 18,00.jpg",
+   "comercio": "Hielo Cubitos BCN",
+   "categoria": "Hielo y bebida",
+   "fecha": "2026-09-10",
+   "total": 18.0
+  },
+  {
+   "archivo": "tickets/2026-09-12 Ferretería Sant Pere 35,00.jpg",
+   "comercio": "Ferretería Sant Pere",
+   "categoria": "Reparaciones y mantenimiento",
+   "fecha": "2026-09-12",
+   "total": 35.0
+  },
+  {
+   "archivo": "tickets/2026-09-16 Makro 27,30.jpg",
+   "comercio": "Makro",
+   "categoria": "Material y menaje",
+   "fecha": "2026-09-16",
+   "total": 27.3
+  },
+  {
+   "archivo": "tickets/2026-09-17 Parking Catedral 12,50.jpg",
+   "comercio": "Parking Catedral",
+   "categoria": "Transporte y aparcamiento",
+   "fecha": "2026-09-17",
+   "total": 12.5
+  },
+  {
+   "archivo": "tickets/2026-09-18 Farmacia Sant Jaume 11,20.jpg",
+   "comercio": "Farmacia Sant Jaume",
+   "categoria": "Otros",
+   "fecha": "2026-09-18",
+   "total": 11.2
+  },
+  {
+   "archivo": "tickets/2026-09-22 Mercat de la Boqueria 10,50.jpg",
+   "comercio": "Mercat de la Boqueria",
+   "categoria": "Mercado (compras sueltas)",
+   "fecha": "2026-09-22",
+   "total": 10.5
+  },
+  {
+   "archivo": "tickets/2026-09-23 Hielo Cubitos BCN 18,00.jpg",
+   "comercio": "Hielo Cubitos BCN",
+   "categoria": "Hielo y bebida",
+   "fecha": "2026-09-23",
+   "total": 18.0
+  },
+  {
+   "archivo": "tickets/2026-09-26 Ferretería Sant Pere 36,25.jpg",
+   "comercio": "Ferretería Sant Pere",
+   "categoria": "Reparaciones y mantenimiento",
+   "fecha": "2026-09-26",
+   "total": 36.25
+  },
+  {
+   "archivo": "tickets/2026-09-27 Makro 24,70.jpg",
+   "comercio": "Makro",
+   "categoria": "Material y menaje",
+   "fecha": "2026-09-27",
+   "total": 24.7
+  },
+  {
+   "archivo": "tickets/2026-09-29 Parking Catedral 12,50.jpg",
+   "comercio": "Parking Catedral",
+   "categoria": "Transporte y aparcamiento",
+   "fecha": "2026-09-29",
+   "total": 12.5
+  },
+  {
+   "archivo": "tickets/2026-10-01 Farmacia Sant Jaume 11,20.jpg",
+   "comercio": "Farmacia Sant Jaume",
+   "categoria": "Otros",
+   "fecha": "2026-10-01",
+   "total": 11.2
+  },
+  {
+   "archivo": "tickets/2026-10-10 Hielo Cubitos BCN 18,00.jpg",
+   "comercio": "Hielo Cubitos BCN",
+   "categoria": "Hielo y bebida",
+   "fecha": "2026-10-10",
+   "total": 18.0
+  },
+  {
+   "archivo": "tickets/2026-10-10 Mercat de la Boqueria 15,00.jpg",
+   "comercio": "Mercat de la Boqueria",
+   "categoria": "Mercado (compras sueltas)",
+   "fecha": "2026-10-10",
+   "total": 15.0
+  }
+ ],
+ "nominas": [
+  {
+   "archivo": "nominas/2026-07-31 Nomina Laura Puig 2.301,25.pdf",
+   "empleado": "Laura Puig (ejemplo)",
+   "mes": 7,
+   "bruto": 1750.0,
+   "neto": 1412.35,
+   "coste_empresa": 2301.25
+  },
+  {
+   "archivo": "nominas/2026-07-31 Nomina Óscar Martín 2.104,00.pdf",
+   "empleado": "Óscar Martín (ejemplo)",
+   "mes": 7,
+   "bruto": 1600.0,
+   "neto": 1298.6,
+   "coste_empresa": 2104.0
+  },
+  {
+   "archivo": "nominas/2026-07-31 Nomina Rosa Ferrer 2.630,00.pdf",
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "mes": 7,
+   "bruto": 2000.0,
+   "neto": 1586.2,
+   "coste_empresa": 2630.0
+  },
+  {
+   "archivo": "nominas/2026-07-31 Nomina Iván López 2.209,20.pdf",
+   "empleado": "Iván López (ejemplo)",
+   "mes": 7,
+   "bruto": 1680.0,
+   "neto": 1354.9,
+   "coste_empresa": 2209.2
+  },
+  {
+   "archivo": "nominas/2026-08-31 Nomina Laura Puig 2.432,75.pdf",
+   "empleado": "Laura Puig (ejemplo)",
+   "mes": 8,
+   "bruto": 1850.0,
+   "neto": 1488.4,
+   "coste_empresa": 2432.75
+  },
+  {
+   "archivo": "nominas/2026-08-31 Nomina Óscar Martín 2.104,00.pdf",
+   "empleado": "Óscar Martín (ejemplo)",
+   "mes": 8,
+   "bruto": 1600.0,
+   "neto": 1298.6,
+   "coste_empresa": 2104.0
+  },
+  {
+   "archivo": "nominas/2026-08-31 Nomina Rosa Ferrer 2.630,00.pdf",
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "mes": 8,
+   "bruto": 2000.0,
+   "neto": 1586.2,
+   "coste_empresa": 2630.0
+  },
+  {
+   "archivo": "nominas/2026-08-31 Nomina Iván López 2.209,20.pdf",
+   "empleado": "Iván López (ejemplo)",
+   "mes": 8,
+   "bruto": 1680.0,
+   "neto": 1354.9,
+   "coste_empresa": 2209.2
+  },
+  {
+   "archivo": "nominas/2026-09-30 Nomina Laura Puig 2.301,25.pdf",
+   "empleado": "Laura Puig (ejemplo)",
+   "mes": 9,
+   "bruto": 1750.0,
+   "neto": 1412.35,
+   "coste_empresa": 2301.25
+  },
+  {
+   "archivo": "nominas/2026-09-30 Nomina Óscar Martín 2.104,00.pdf",
+   "empleado": "Óscar Martín (ejemplo)",
+   "mes": 9,
+   "bruto": 1600.0,
+   "neto": 1298.6,
+   "coste_empresa": 2104.0
+  },
+  {
+   "archivo": "nominas/2026-09-30 Nomina Rosa Ferrer 2.630,00.pdf",
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "mes": 9,
+   "bruto": 2000.0,
+   "neto": 1586.2,
+   "coste_empresa": 2630.0
+  },
+  {
+   "archivo": "nominas/2026-09-30 Nomina Iván López 2.209,20.pdf",
+   "empleado": "Iván López (ejemplo)",
+   "mes": 9,
+   "bruto": 1680.0,
+   "neto": 1354.9,
+   "coste_empresa": 2209.2
+  }
+ ],
+ "cierres": [
+  {
+   "archivo": "cierres_tpv/2026-08-01 Cierre TPV 1.458,60.pdf",
+   "fecha": "2026-08-01",
+   "total": 1458.6,
+   "tarjeta": 1032.61,
+   "efectivo": 425.99,
+   "efectivo_contado": 425.99,
+   "cubiertos": 52,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 13,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 15,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 3,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 4,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 39,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 24,
+    "Refresco": 15,
+    "Café solo": 32,
+    "Café con leche": 12,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 285.39,
+    "14-16": 430.95,
+    "16-19": 64.51,
+    "19-21": 198.92,
+    "21-23": 396.32,
+    "23-24": 82.51
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-02 Cierre TPV 1.220,20.pdf",
+   "fecha": "2026-08-02",
+   "total": 1220.2,
+   "tarjeta": 857.73,
+   "efectivo": 362.47,
+   "efectivo_contado": 362.47,
+   "cubiertos": 44,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 2,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 33,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 19,
+    "Refresco": 13,
+    "Café solo": 28,
+    "Café con leche": 9,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 291.48,
+    "14-16": 387.4,
+    "16-19": 50.18,
+    "19-21": 151.24,
+    "21-23": 272.33,
+    "23-24": 67.57
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-04 Cierre TPV 790,20.pdf",
+   "fecha": "2026-08-04",
+   "total": 790.2,
+   "tarjeta": 609.27,
+   "efectivo": 180.93,
+   "efectivo_contado": 180.93,
+   "cubiertos": 29,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 22,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 9,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 153.95,
+    "14-16": 294.79,
+    "16-19": 31.63,
+    "19-21": 88.49,
+    "21-23": 177.36,
+    "23-24": 43.98
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-05 Cierre TPV 784,30.pdf",
+   "fecha": "2026-08-05",
+   "total": 784.3,
+   "tarjeta": 589.23,
+   "efectivo": 195.07,
+   "efectivo_contado": 195.07,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 188.23,
+    "14-16": 259.25,
+    "16-19": 29.83,
+    "19-21": 89.1,
+    "21-23": 176.7,
+    "23-24": 41.19
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-06 Cierre TPV 1.026,50.pdf",
+   "fecha": "2026-08-06",
+   "total": 1026.5,
+   "tarjeta": 733.74,
+   "efectivo": 292.76,
+   "efectivo_contado": 292.76,
+   "cubiertos": 37,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 11,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 27,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 17,
+    "Refresco": 11,
+    "Café solo": 23,
+    "Café con leche": 8,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 198.44,
+    "14-16": 381.3,
+    "16-19": 35.54,
+    "19-21": 108.27,
+    "21-23": 254.28,
+    "23-24": 48.67
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-07 Cierre TPV 1.370,00.pdf",
+   "fecha": "2026-08-07",
+   "total": 1370.0,
+   "tarjeta": 1076.9,
+   "efectivo": 293.1,
+   "efectivo_contado": 293.1,
+   "cubiertos": 50,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 13,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 14,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 38,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 22,
+    "Refresco": 14,
+    "Café solo": 31,
+    "Café con leche": 11,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 324.02,
+    "14-16": 469.55,
+    "16-19": 54.24,
+    "19-21": 152.53,
+    "21-23": 308.58,
+    "23-24": 61.08
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-08 Cierre TPV 1.696,70.pdf",
+   "fecha": "2026-08-08",
+   "total": 1696.7,
+   "tarjeta": 1300.05,
+   "efectivo": 396.65,
+   "efectivo_contado": 396.65,
+   "cubiertos": 62,
+   "unidades": {
+    "Arroz negro": 7,
+    "Calamares a la andaluza": 9,
+    "Patatas bravas": 15,
+    "Entrecot a la brasa": 6,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 11,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 3,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 17,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 4,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 4,
+    "Caña de cerveza": 46,
+    "Copa de vino de la casa": 20,
+    "Agua mineral 0,5 l": 28,
+    "Refresco": 18,
+    "Café solo": 38,
+    "Café con leche": 14,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 364.98,
+    "14-16": 577.87,
+    "16-19": 77.28,
+    "19-21": 230.32,
+    "21-23": 369.21,
+    "23-24": 77.04
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-09 Cierre TPV 1.225,50.pdf",
+   "fecha": "2026-08-09",
+   "total": 1225.5,
+   "tarjeta": 876.09,
+   "efectivo": 349.41,
+   "efectivo_contado": 349.41,
+   "cubiertos": 45,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 33,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 20,
+    "Refresco": 13,
+    "Café solo": 28,
+    "Café con leche": 10,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 288.86,
+    "14-16": 400.77,
+    "16-19": 47.12,
+    "19-21": 134.76,
+    "21-23": 287.36,
+    "23-24": 66.63
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-11 Cierre TPV 751,50.pdf",
+   "fecha": "2026-08-11",
+   "total": 751.5,
+   "tarjeta": 547.48,
+   "efectivo": 204.02,
+   "efectivo_contado": 204.02,
+   "cubiertos": 27,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 20,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 189.81,
+    "14-16": 213.8,
+    "16-19": 34.13,
+    "19-21": 90.07,
+    "21-23": 181.34,
+    "23-24": 42.35
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-12 Cierre TPV 918,70.pdf",
+   "fecha": "2026-08-12",
+   "total": 918.7,
+   "tarjeta": 704.45,
+   "efectivo": 214.25,
+   "efectivo_contado": 214.25,
+   "cubiertos": 31,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 8,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 9,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 23,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 14,
+    "Refresco": 9,
+    "Café solo": 19,
+    "Café con leche": 7,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 212.56,
+    "14-16": 307.41,
+    "16-19": 38.24,
+    "19-21": 114.95,
+    "21-23": 195.33,
+    "23-24": 50.21
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-13 Cierre TPV 1.032,60.pdf",
+   "fecha": "2026-08-13",
+   "total": 1032.6,
+   "tarjeta": 794.24,
+   "efectivo": 238.36,
+   "efectivo_contado": 238.36,
+   "cubiertos": 35,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 9,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 26,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 16,
+    "Refresco": 11,
+    "Café solo": 21,
+    "Café con leche": 8,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 204.37,
+    "14-16": 405.52,
+    "16-19": 43.94,
+    "19-21": 109.27,
+    "21-23": 210.94,
+    "23-24": 58.56
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-14 Cierre TPV 1.369,30.pdf",
+   "fecha": "2026-08-14",
+   "total": 1369.3,
+   "tarjeta": 1035.67,
+   "efectivo": 333.63,
+   "efectivo_contado": 333.63,
+   "cubiertos": 47,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 12,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 35,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 21,
+    "Refresco": 13,
+    "Café solo": 29,
+    "Café con leche": 11,
+    "Gin tonic": 2,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 290.41,
+    "14-16": 400.72,
+    "16-19": 54.16,
+    "19-21": 179.66,
+    "21-23": 365.62,
+    "23-24": 78.73
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-15 Cierre TPV 1.944,90.pdf",
+   "fecha": "2026-08-15",
+   "total": 1944.9,
+   "tarjeta": 1427.4,
+   "efectivo": 517.5,
+   "efectivo_contado": 517.5,
+   "cubiertos": 69,
+   "unidades": {
+    "Arroz negro": 8,
+    "Calamares a la andaluza": 10,
+    "Patatas bravas": 17,
+    "Entrecot a la brasa": 7,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 6,
+    "Croquetas caseras (6)": 12,
+    "Crema catalana": 6,
+    "Bacalao a la llauna": 3,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 19,
+    "Tortilla de patatas": 5,
+    "Pollo al ajillo": 4,
+    "Solomillo a la pimienta": 4,
+    "Butifarra con patatas": 3,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 4,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 5,
+    "Arroz con leche": 2,
+    "Flan casero": 4,
+    "Paella de marisco": 4,
+    "Caña de cerveza": 52,
+    "Copa de vino de la casa": 22,
+    "Agua mineral 0,5 l": 31,
+    "Refresco": 20,
+    "Café solo": 43,
+    "Café con leche": 16,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 428.49,
+    "14-16": 599.5,
+    "16-19": 83.29,
+    "19-21": 224.08,
+    "21-23": 499.97,
+    "23-24": 109.57
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-16 Cierre TPV 1.161,20.pdf",
+   "fecha": "2026-08-16",
+   "total": 1161.2,
+   "tarjeta": 846.73,
+   "efectivo": 314.47,
+   "efectivo_contado": 314.47,
+   "cubiertos": 43,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 32,
+    "Copa de vino de la casa": 14,
+    "Agua mineral 0,5 l": 19,
+    "Refresco": 13,
+    "Café solo": 26,
+    "Café con leche": 9,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 230.46,
+    "14-16": 362.15,
+    "16-19": 45.0,
+    "19-21": 145.58,
+    "21-23": 318.86,
+    "23-24": 59.15
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-18 Cierre TPV 772,50.pdf",
+   "fecha": "2026-08-18",
+   "total": 772.5,
+   "tarjeta": 561.77,
+   "efectivo": 210.73,
+   "efectivo_contado": 210.73,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 148.83,
+    "14-16": 262.71,
+    "16-19": 35.34,
+    "19-21": 82.42,
+    "21-23": 206.83,
+    "23-24": 36.37
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-19 Cierre TPV 811,80.pdf",
+   "fecha": "2026-08-19",
+   "total": 811.8,
+   "tarjeta": 641.75,
+   "efectivo": 170.05,
+   "efectivo_contado": 170.05,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 181.95,
+    "14-16": 298.07,
+    "16-19": 28.84,
+    "19-21": 90.95,
+    "21-23": 165.81,
+    "23-24": 46.18
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-20 Cierre TPV 999,00.pdf",
+   "fecha": "2026-08-20",
+   "total": 999.0,
+   "tarjeta": 740.43,
+   "efectivo": 258.57,
+   "efectivo_contado": 258.57,
+   "cubiertos": 35,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 10,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 27,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 15,
+    "Refresco": 10,
+    "Café solo": 22,
+    "Café con leche": 8,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 227.54,
+    "14-16": 347.86,
+    "16-19": 45.01,
+    "19-21": 105.62,
+    "21-23": 230.19,
+    "23-24": 42.78
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-21 Cierre TPV 1.476,80.pdf",
+   "fecha": "2026-08-21",
+   "total": 1476.8,
+   "tarjeta": 1110.87,
+   "efectivo": 365.93,
+   "efectivo_contado": 365.93,
+   "cubiertos": 53,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 13,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 15,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 40,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 24,
+    "Refresco": 16,
+    "Café solo": 33,
+    "Café con leche": 12,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 306.41,
+    "14-16": 458.99,
+    "16-19": 64.97,
+    "19-21": 183.23,
+    "21-23": 399.21,
+    "23-24": 63.99
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-22 Cierre TPV 1.812,60.pdf",
+   "fecha": "2026-08-22",
+   "total": 1812.6,
+   "tarjeta": 1421.43,
+   "efectivo": 391.17,
+   "efectivo_contado": 356.17,
+   "cubiertos": 64,
+   "unidades": {
+    "Arroz negro": 7,
+    "Calamares a la andaluza": 10,
+    "Patatas bravas": 16,
+    "Entrecot a la brasa": 6,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 11,
+    "Crema catalana": 6,
+    "Bacalao a la llauna": 3,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 18,
+    "Tortilla de patatas": 5,
+    "Pollo al ajillo": 4,
+    "Solomillo a la pimienta": 4,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 4,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 4,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 48,
+    "Copa de vino de la casa": 22,
+    "Agua mineral 0,5 l": 29,
+    "Refresco": 19,
+    "Café solo": 40,
+    "Café con leche": 14,
+    "Gin tonic": 4,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 450.78,
+    "14-16": 464.79,
+    "16-19": 66.25,
+    "19-21": 247.15,
+    "21-23": 479.48,
+    "23-24": 104.15
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-23 Cierre TPV 1.236,00.pdf",
+   "fecha": "2026-08-23",
+   "total": 1236.0,
+   "tarjeta": 952.17,
+   "efectivo": 283.83,
+   "efectivo_contado": 283.83,
+   "cubiertos": 46,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 34,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 20,
+    "Refresco": 13,
+    "Café solo": 28,
+    "Café con leche": 10,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 231.94,
+    "14-16": 453.3,
+    "16-19": 45.59,
+    "19-21": 168.49,
+    "21-23": 281.07,
+    "23-24": 55.61
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-25 Cierre TPV 760,40.pdf",
+   "fecha": "2026-08-25",
+   "total": 760.4,
+   "tarjeta": 556.13,
+   "efectivo": 204.27,
+   "efectivo_contado": 204.27,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 1,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 7,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 162.65,
+    "14-16": 276.4,
+    "16-19": 29.74,
+    "19-21": 80.01,
+    "21-23": 171.94,
+    "23-24": 39.66
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-26 Cierre TPV 891,70.pdf",
+   "fecha": "2026-08-26",
+   "total": 891.7,
+   "tarjeta": 684.15,
+   "efectivo": 207.55,
+   "efectivo_contado": 207.55,
+   "cubiertos": 31,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 9,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 23,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 9,
+    "Café solo": 19,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 209.68,
+    "14-16": 266.51,
+    "16-19": 36.26,
+    "19-21": 104.45,
+    "21-23": 226.45,
+    "23-24": 48.35
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-27 Cierre TPV 1.017,10.pdf",
+   "fecha": "2026-08-27",
+   "total": 1017.1,
+   "tarjeta": 798.5,
+   "efectivo": 218.6,
+   "efectivo_contado": 218.6,
+   "cubiertos": 37,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 10,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 27,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 16,
+    "Refresco": 11,
+    "Café solo": 23,
+    "Café con leche": 8,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 251.02,
+    "14-16": 333.39,
+    "16-19": 38.52,
+    "19-21": 139.61,
+    "21-23": 209.66,
+    "23-24": 44.9
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-28 Cierre TPV 1.203,20.pdf",
+   "fecha": "2026-08-28",
+   "total": 1203.2,
+   "tarjeta": 958.45,
+   "efectivo": 244.75,
+   "efectivo_contado": 244.75,
+   "cubiertos": 45,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 34,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 21,
+    "Refresco": 13,
+    "Café solo": 28,
+    "Café con leche": 10,
+    "Gin tonic": 2,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 299.46,
+    "14-16": 368.98,
+    "16-19": 43.31,
+    "19-21": 150.25,
+    "21-23": 283.67,
+    "23-24": 57.53
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-29 Cierre TPV 1.631,80.pdf",
+   "fecha": "2026-08-29",
+   "total": 1631.8,
+   "tarjeta": 1251.84,
+   "efectivo": 379.96,
+   "efectivo_contado": 379.96,
+   "cubiertos": 58,
+   "unidades": {
+    "Arroz negro": 7,
+    "Calamares a la andaluza": 9,
+    "Patatas bravas": 15,
+    "Entrecot a la brasa": 6,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 10,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 16,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 4,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 4,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 44,
+    "Copa de vino de la casa": 19,
+    "Agua mineral 0,5 l": 26,
+    "Refresco": 17,
+    "Café solo": 36,
+    "Café con leche": 13,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 354.41,
+    "14-16": 560.85,
+    "16-19": 56.94,
+    "19-21": 179.95,
+    "21-23": 408.45,
+    "23-24": 71.2
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-08-30 Cierre TPV 1.150,00.pdf",
+   "fecha": "2026-08-30",
+   "total": 1150.0,
+   "tarjeta": 814.2,
+   "efectivo": 335.8,
+   "efectivo_contado": 335.8,
+   "cubiertos": 43,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 32,
+    "Copa de vino de la casa": 14,
+    "Agua mineral 0,5 l": 20,
+    "Refresco": 12,
+    "Café solo": 27,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 240.05,
+    "14-16": 377.67,
+    "16-19": 52.74,
+    "19-21": 154.26,
+    "21-23": 267.95,
+    "23-24": 57.33
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-01 Cierre TPV 699,40.pdf",
+   "fecha": "2026-09-01",
+   "total": 699.4,
+   "tarjeta": 515.66,
+   "efectivo": 183.74,
+   "efectivo_contado": 183.74,
+   "cubiertos": 24,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 6,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Pan con tomate": 6,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 1,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 18,
+    "Copa de vino de la casa": 7,
+    "Agua mineral 0,5 l": 10,
+    "Refresco": 7,
+    "Café solo": 15,
+    "Café con leche": 5,
+    "Gin tonic": 2
+   },
+   "franjas": {
+    "12-14": 157.76,
+    "14-16": 208.4,
+    "16-19": 26.93,
+    "19-21": 76.78,
+    "21-23": 189.63,
+    "23-24": 39.9
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-02 Cierre TPV 779,30.pdf",
+   "fecha": "2026-09-02",
+   "total": 779.3,
+   "tarjeta": 548.34,
+   "efectivo": 230.96,
+   "efectivo_contado": 230.96,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Flan casero": 1,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 165.83,
+    "14-16": 268.7,
+    "16-19": 32.15,
+    "19-21": 94.96,
+    "21-23": 180.5,
+    "23-24": 37.16
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-03 Cierre TPV 816,00.pdf",
+   "fecha": "2026-09-03",
+   "total": 816.0,
+   "tarjeta": 652.64,
+   "efectivo": 163.36,
+   "efectivo_contado": 163.36,
+   "cubiertos": 29,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 9,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 22,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 194.34,
+    "14-16": 243.78,
+    "16-19": 33.59,
+    "19-21": 109.58,
+    "21-23": 199.88,
+    "23-24": 34.83
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-04 Cierre TPV 1.164,80.pdf",
+   "fecha": "2026-09-04",
+   "total": 1164.8,
+   "tarjeta": 926.74,
+   "efectivo": 238.06,
+   "efectivo_contado": 238.06,
+   "cubiertos": 41,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 31,
+    "Copa de vino de la casa": 14,
+    "Agua mineral 0,5 l": 18,
+    "Refresco": 12,
+    "Café solo": 26,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 223.47,
+    "14-16": 413.99,
+    "16-19": 48.42,
+    "19-21": 146.28,
+    "21-23": 267.09,
+    "23-24": 65.55
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-05 Cierre TPV 1.447,10.pdf",
+   "fecha": "2026-09-05",
+   "total": 1447.1,
+   "tarjeta": 1156.9,
+   "efectivo": 290.2,
+   "efectivo_contado": 290.2,
+   "cubiertos": 53,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 14,
+    "Entrecot a la brasa": 6,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 15,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 3,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 40,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 23,
+    "Refresco": 16,
+    "Café solo": 33,
+    "Café con leche": 12,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 356.77,
+    "14-16": 410.92,
+    "16-19": 61.08,
+    "19-21": 175.42,
+    "21-23": 360.14,
+    "23-24": 82.77
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-06 Cierre TPV 1.063,60.pdf",
+   "fecha": "2026-09-06",
+   "total": 1063.6,
+   "tarjeta": 758.76,
+   "efectivo": 304.84,
+   "efectivo_contado": 304.84,
+   "cubiertos": 38,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 10,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 28,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 17,
+    "Refresco": 11,
+    "Café solo": 23,
+    "Café con leche": 8,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 216.22,
+    "14-16": 365.23,
+    "16-19": 45.6,
+    "19-21": 121.99,
+    "21-23": 268.01,
+    "23-24": 46.55
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-08 Cierre TPV 698,40.pdf",
+   "fecha": "2026-09-08",
+   "total": 698.4,
+   "tarjeta": 550.94,
+   "efectivo": 147.46,
+   "efectivo_contado": 147.46,
+   "cubiertos": 25,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 6,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 19,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 15,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 146.84,
+    "14-16": 216.72,
+    "16-19": 31.05,
+    "19-21": 74.8,
+    "21-23": 192.32,
+    "23-24": 36.67
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-09 Cierre TPV 773,80.pdf",
+   "fecha": "2026-09-09",
+   "total": 773.8,
+   "tarjeta": 547.82,
+   "efectivo": 225.98,
+   "efectivo_contado": 225.98,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 172.22,
+    "14-16": 258.09,
+    "16-19": 35.53,
+    "19-21": 95.99,
+    "21-23": 169.59,
+    "23-24": 42.38
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-10 Cierre TPV 889,20.pdf",
+   "fecha": "2026-09-10",
+   "total": 889.2,
+   "tarjeta": 671.97,
+   "efectivo": 217.23,
+   "efectivo_contado": 217.23,
+   "cubiertos": 32,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 8,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 9,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 24,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 15,
+    "Refresco": 9,
+    "Café solo": 20,
+    "Café con leche": 7,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 193.48,
+    "14-16": 272.94,
+    "16-19": 33.17,
+    "19-21": 103.19,
+    "21-23": 240.85,
+    "23-24": 45.57
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-11 Cierre TPV 1.327,20.pdf",
+   "fecha": "2026-09-11",
+   "total": 1327.2,
+   "tarjeta": 1006.32,
+   "efectivo": 320.88,
+   "efectivo_contado": 320.88,
+   "cubiertos": 48,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 12,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 14,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 36,
+    "Copa de vino de la casa": 16,
+    "Agua mineral 0,5 l": 21,
+    "Refresco": 14,
+    "Café solo": 30,
+    "Café con leche": 11,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 324.8,
+    "14-16": 445.47,
+    "16-19": 45.4,
+    "19-21": 164.79,
+    "21-23": 286.71,
+    "23-24": 60.03
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-12 Cierre TPV 1.468,70.pdf",
+   "fecha": "2026-09-12",
+   "total": 1468.7,
+   "tarjeta": 1093.47,
+   "efectivo": 375.23,
+   "efectivo_contado": 375.23,
+   "cubiertos": 51,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 13,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 14,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 2,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 39,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 23,
+    "Refresco": 15,
+    "Café solo": 32,
+    "Café con leche": 12,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 368.52,
+    "14-16": 428.2,
+    "16-19": 53.88,
+    "19-21": 191.92,
+    "21-23": 349.49,
+    "23-24": 76.69
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-13 Cierre TPV 1.127,70.pdf",
+   "fecha": "2026-09-13",
+   "total": 1127.7,
+   "tarjeta": 828.51,
+   "efectivo": 299.19,
+   "efectivo_contado": 299.19,
+   "cubiertos": 41,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 11,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 31,
+    "Copa de vino de la casa": 13,
+    "Agua mineral 0,5 l": 18,
+    "Refresco": 11,
+    "Café solo": 26,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 252.44,
+    "14-16": 373.38,
+    "16-19": 50.03,
+    "19-21": 138.9,
+    "21-23": 253.6,
+    "23-24": 59.35
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-15 Cierre TPV 700,90.pdf",
+   "fecha": "2026-09-15",
+   "total": 700.9,
+   "tarjeta": 557.23,
+   "efectivo": 143.67,
+   "efectivo_contado": 143.67,
+   "cubiertos": 25,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 1,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 19,
+    "Copa de vino de la casa": 8,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 16,
+    "Café con leche": 6,
+    "Gin tonic": 1
+   },
+   "franjas": {
+    "12-14": 134.58,
+    "14-16": 259.53,
+    "16-19": 28.01,
+    "19-21": 79.11,
+    "21-23": 164.7,
+    "23-24": 34.97
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-16 Cierre TPV 746,50.pdf",
+   "fecha": "2026-09-16",
+   "total": 746.5,
+   "tarjeta": 552.48,
+   "efectivo": 194.02,
+   "efectivo_contado": 194.02,
+   "cubiertos": 26,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 20,
+    "Copa de vino de la casa": 8,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 16,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 148.2,
+    "14-16": 268.57,
+    "16-19": 26.81,
+    "19-21": 94.54,
+    "21-23": 169.56,
+    "23-24": 38.82
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-17 Cierre TPV 782,50.pdf",
+   "fecha": "2026-09-17",
+   "total": 782.5,
+   "tarjeta": 556.94,
+   "efectivo": 225.56,
+   "efectivo_contado": 225.56,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 13,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 181.93,
+    "14-16": 240.8,
+    "16-19": 32.57,
+    "19-21": 82.75,
+    "21-23": 207.93,
+    "23-24": 36.52
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-18 Cierre TPV 1.165,80.pdf",
+   "fecha": "2026-09-18",
+   "total": 1165.8,
+   "tarjeta": 921.39,
+   "efectivo": 244.41,
+   "efectivo_contado": 244.41,
+   "cubiertos": 41,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 11,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 31,
+    "Copa de vino de la casa": 14,
+    "Agua mineral 0,5 l": 19,
+    "Refresco": 12,
+    "Café solo": 25,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 237.35,
+    "14-16": 400.25,
+    "16-19": 50.02,
+    "19-21": 135.16,
+    "21-23": 279.68,
+    "23-24": 63.34
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-19 Cierre TPV 1.321,10.pdf",
+   "fecha": "2026-09-19",
+   "total": 1321.1,
+   "tarjeta": 1040.92,
+   "efectivo": 280.18,
+   "efectivo_contado": 280.18,
+   "cubiertos": 47,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 36,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 21,
+    "Refresco": 13,
+    "Café solo": 29,
+    "Café con leche": 11,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 275.32,
+    "14-16": 472.85,
+    "16-19": 59.99,
+    "19-21": 160.67,
+    "21-23": 290.67,
+    "23-24": 61.6
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-20 Cierre TPV 1.120,60.pdf",
+   "fecha": "2026-09-20",
+   "total": 1120.6,
+   "tarjeta": 854.43,
+   "efectivo": 266.17,
+   "efectivo_contado": 266.17,
+   "cubiertos": 40,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 30,
+    "Copa de vino de la casa": 13,
+    "Agua mineral 0,5 l": 18,
+    "Refresco": 11,
+    "Café solo": 25,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 210.23,
+    "14-16": 440.66,
+    "16-19": 51.04,
+    "19-21": 138.29,
+    "21-23": 232.38,
+    "23-24": 48.0
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-22 Cierre TPV 640,40.pdf",
+   "fecha": "2026-09-22",
+   "total": 640.4,
+   "tarjeta": 508.3,
+   "efectivo": 132.1,
+   "efectivo_contado": 132.1,
+   "cubiertos": 24,
+   "unidades": {
+    "Arroz negro": 2,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 6,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 6,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 18,
+    "Copa de vino de la casa": 8,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 15,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 153.11,
+    "14-16": 190.33,
+    "16-19": 29.07,
+    "19-21": 68.05,
+    "21-23": 166.8,
+    "23-24": 33.04
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-23 Cierre TPV 745,30.pdf",
+   "fecha": "2026-09-23",
+   "total": 745.3,
+   "tarjeta": 569.82,
+   "efectivo": 175.48,
+   "efectivo_contado": 175.48,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 1
+   },
+   "franjas": {
+    "12-14": 156.29,
+    "14-16": 251.59,
+    "16-19": 25.74,
+    "19-21": 89.43,
+    "21-23": 179.78,
+    "23-24": 42.47
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-24 Cierre TPV 969,10.pdf",
+   "fecha": "2026-09-24",
+   "total": 969.1,
+   "tarjeta": 757.2,
+   "efectivo": 211.9,
+   "efectivo_contado": 211.9,
+   "cubiertos": 36,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 9,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 10,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 27,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 16,
+    "Refresco": 11,
+    "Café solo": 22,
+    "Café con leche": 8,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 183.15,
+    "14-16": 368.43,
+    "16-19": 41.88,
+    "19-21": 119.66,
+    "21-23": 204.2,
+    "23-24": 51.78
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-25 Cierre TPV 1.235,30.pdf",
+   "fecha": "2026-09-25",
+   "total": 1235.3,
+   "tarjeta": 883.74,
+   "efectivo": 351.56,
+   "efectivo_contado": 351.56,
+   "cubiertos": 46,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 12,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 2,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 35,
+    "Copa de vino de la casa": 16,
+    "Agua mineral 0,5 l": 20,
+    "Refresco": 13,
+    "Café solo": 29,
+    "Café con leche": 10,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 250.92,
+    "14-16": 410.89,
+    "16-19": 49.91,
+    "19-21": 141.09,
+    "21-23": 315.57,
+    "23-24": 66.92
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-26 Cierre TPV 1.654,00.pdf",
+   "fecha": "2026-09-26",
+   "total": 1654.0,
+   "tarjeta": 1267.62,
+   "efectivo": 386.38,
+   "efectivo_contado": 386.38,
+   "cubiertos": 59,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 15,
+    "Entrecot a la brasa": 6,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 10,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 3,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 16,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 2,
+    "Flan casero": 4,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 44,
+    "Copa de vino de la casa": 19,
+    "Agua mineral 0,5 l": 27,
+    "Refresco": 17,
+    "Café solo": 37,
+    "Café con leche": 13,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 348.96,
+    "14-16": 616.72,
+    "16-19": 63.37,
+    "19-21": 171.68,
+    "21-23": 375.91,
+    "23-24": 77.36
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-27 Cierre TPV 1.270,00.pdf",
+   "fecha": "2026-09-27",
+   "total": 1270.0,
+   "tarjeta": 893.54,
+   "efectivo": 376.46,
+   "efectivo_contado": 376.46,
+   "cubiertos": 45,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 12,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 34,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 21,
+    "Refresco": 13,
+    "Café solo": 28,
+    "Café con leche": 10,
+    "Gin tonic": 2,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 251.0,
+    "14-16": 448.95,
+    "16-19": 51.87,
+    "19-21": 137.12,
+    "21-23": 319.67,
+    "23-24": 61.39
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-29 Cierre TPV 614,60.pdf",
+   "fecha": "2026-09-29",
+   "total": 614.6,
+   "tarjeta": 439.59,
+   "efectivo": 175.01,
+   "efectivo_contado": 175.01,
+   "cubiertos": 23,
+   "unidades": {
+    "Arroz negro": 2,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 5,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Pan con tomate": 6,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 1,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 18,
+    "Copa de vino de la casa": 7,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 15,
+    "Café con leche": 5,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 138.5,
+    "14-16": 203.65,
+    "16-19": 22.9,
+    "19-21": 66.38,
+    "21-23": 151.79,
+    "23-24": 31.38
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-09-30 Cierre TPV 754,40.pdf",
+   "fecha": "2026-09-30",
+   "total": 754.4,
+   "tarjeta": 583.28,
+   "efectivo": 171.12,
+   "efectivo_contado": 171.12,
+   "cubiertos": 27,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 6,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 20,
+    "Copa de vino de la casa": 8,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 7,
+    "Café solo": 17,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 187.93,
+    "14-16": 251.23,
+    "16-19": 32.91,
+    "19-21": 82.22,
+    "21-23": 165.86,
+    "23-24": 34.25
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-01 Cierre TPV 833,80.pdf",
+   "fecha": "2026-10-01",
+   "total": 833.8,
+   "tarjeta": 653.65,
+   "efectivo": 180.15,
+   "efectivo_contado": 180.15,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 156.01,
+    "14-16": 276.36,
+    "16-19": 32.16,
+    "19-21": 103.83,
+    "21-23": 225.92,
+    "23-24": 39.52
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-02 Cierre TPV 1.123,50.pdf",
+   "fecha": "2026-10-02",
+   "total": 1123.5,
+   "tarjeta": 866.38,
+   "efectivo": 257.12,
+   "efectivo_contado": 257.12,
+   "cubiertos": 39,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 5,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 7,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 11,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 29,
+    "Copa de vino de la casa": 12,
+    "Agua mineral 0,5 l": 17,
+    "Refresco": 12,
+    "Café solo": 24,
+    "Café con leche": 8,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 256.89,
+    "14-16": 396.62,
+    "16-19": 38.66,
+    "19-21": 151.08,
+    "21-23": 229.85,
+    "23-24": 50.4
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-03 Cierre TPV 1.433,90.pdf",
+   "fecha": "2026-10-03",
+   "total": 1433.9,
+   "tarjeta": 1053.44,
+   "efectivo": 380.46,
+   "efectivo_contado": 380.46,
+   "cubiertos": 51,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 12,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 4,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 14,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 3,
+    "Escalivada": 2,
+    "Jamón ibérico (ración)": 3,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 38,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 23,
+    "Refresco": 15,
+    "Café solo": 32,
+    "Café con leche": 12,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 356.5,
+    "14-16": 453.89,
+    "16-19": 51.51,
+    "19-21": 161.53,
+    "21-23": 345.52,
+    "23-24": 64.95
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-04 Cierre TPV 1.120,60.pdf",
+   "fecha": "2026-10-04",
+   "total": 1120.6,
+   "tarjeta": 832.11,
+   "efectivo": 288.49,
+   "efectivo_contado": 288.49,
+   "cubiertos": 41,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 6,
+    "Patatas bravas": 10,
+    "Entrecot a la brasa": 4,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 6,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 11,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 31,
+    "Copa de vino de la casa": 13,
+    "Agua mineral 0,5 l": 18,
+    "Refresco": 12,
+    "Café solo": 26,
+    "Café con leche": 9,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 256.3,
+    "14-16": 378.42,
+    "16-19": 44.29,
+    "19-21": 122.31,
+    "21-23": 262.26,
+    "23-24": 57.02
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-06 Cierre TPV 729,90.pdf",
+   "fecha": "2026-10-06",
+   "total": 729.9,
+   "tarjeta": 550.37,
+   "efectivo": 179.53,
+   "efectivo_contado": 179.53,
+   "cubiertos": 26,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 3,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 2,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 1,
+    "Paella de marisco": 2,
+    "Caña de cerveza": 19,
+    "Copa de vino de la casa": 9,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 16,
+    "Café con leche": 6,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 176.43,
+    "14-16": 237.93,
+    "16-19": 29.51,
+    "19-21": 96.24,
+    "21-23": 158.48,
+    "23-24": 31.31
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-07 Cierre TPV 688,80.pdf",
+   "fecha": "2026-10-07",
+   "total": 688.8,
+   "tarjeta": 487.62,
+   "efectivo": 201.18,
+   "efectivo_contado": 201.18,
+   "cubiertos": 24,
+   "unidades": {
+    "Arroz negro": 3,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 6,
+    "Entrecot a la brasa": 2,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 4,
+    "Crema catalana": 2,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 7,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 1,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 1,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 18,
+    "Copa de vino de la casa": 8,
+    "Agua mineral 0,5 l": 11,
+    "Refresco": 7,
+    "Café solo": 15,
+    "Café con leche": 5,
+    "Gin tonic": 1,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 158.63,
+    "14-16": 236.8,
+    "16-19": 31.49,
+    "19-21": 71.19,
+    "21-23": 152.21,
+    "23-24": 38.48
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-08 Cierre TPV 794,30.pdf",
+   "fecha": "2026-10-08",
+   "total": 794.3,
+   "tarjeta": 593.12,
+   "efectivo": 201.18,
+   "efectivo_contado": 201.18,
+   "cubiertos": 28,
+   "unidades": {
+    "Arroz negro": 4,
+    "Calamares a la andaluza": 4,
+    "Patatas bravas": 7,
+    "Entrecot a la brasa": 3,
+    "Lubina a la sal": 1,
+    "Canelones de la abuela": 1,
+    "Mejillones a la marinera": 2,
+    "Croquetas caseras (6)": 5,
+    "Crema catalana": 3,
+    "Bacalao a la llauna": 1,
+    "Gambas a la plancha": 1,
+    "Pan con tomate": 8,
+    "Tortilla de patatas": 2,
+    "Pollo al ajillo": 2,
+    "Solomillo a la pimienta": 1,
+    "Butifarra con patatas": 1,
+    "Merluza a la vasca": 1,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 1,
+    "Huevos rotos con jamón": 2,
+    "Arroz con leche": 1,
+    "Flan casero": 2,
+    "Paella de marisco": 1,
+    "Caña de cerveza": 21,
+    "Copa de vino de la casa": 10,
+    "Agua mineral 0,5 l": 12,
+    "Refresco": 8,
+    "Café solo": 18,
+    "Café con leche": 6,
+    "Gin tonic": 2,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 193.89,
+    "14-16": 277.78,
+    "16-19": 30.01,
+    "19-21": 81.68,
+    "21-23": 169.5,
+    "23-24": 41.44
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-09 Cierre TPV 1.336,80.pdf",
+   "fecha": "2026-10-09",
+   "total": 1336.8,
+   "tarjeta": 956.81,
+   "efectivo": 379.99,
+   "efectivo_contado": 379.99,
+   "cubiertos": 46,
+   "unidades": {
+    "Arroz negro": 5,
+    "Calamares a la andaluza": 7,
+    "Patatas bravas": 11,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Ensalada de queso de cabra": 1,
+    "Mejillones a la marinera": 3,
+    "Croquetas caseras (6)": 8,
+    "Crema catalana": 4,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 13,
+    "Tortilla de patatas": 3,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 2,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 3,
+    "Ensalada verde": 2,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 3,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 35,
+    "Copa de vino de la casa": 15,
+    "Agua mineral 0,5 l": 20,
+    "Refresco": 13,
+    "Café solo": 29,
+    "Café con leche": 10,
+    "Gin tonic": 3,
+    "Copa de cava": 1
+   },
+   "franjas": {
+    "12-14": 285.81,
+    "14-16": 400.97,
+    "16-19": 54.0,
+    "19-21": 171.25,
+    "21-23": 355.44,
+    "23-24": 69.33
+   }
+  },
+  {
+   "archivo": "cierres_tpv/2026-10-10 Cierre TPV 1.478,20.pdf",
+   "fecha": "2026-10-10",
+   "total": 1478.2,
+   "tarjeta": 1045.05,
+   "efectivo": 433.15,
+   "efectivo_contado": 413.15,
+   "cubiertos": 52,
+   "unidades": {
+    "Arroz negro": 6,
+    "Calamares a la andaluza": 8,
+    "Patatas bravas": 13,
+    "Entrecot a la brasa": 5,
+    "Lubina a la sal": 2,
+    "Canelones de la abuela": 2,
+    "Mejillones a la marinera": 5,
+    "Croquetas caseras (6)": 9,
+    "Crema catalana": 5,
+    "Bacalao a la llauna": 2,
+    "Gambas a la plancha": 2,
+    "Pan con tomate": 14,
+    "Tortilla de patatas": 4,
+    "Pollo al ajillo": 3,
+    "Solomillo a la pimienta": 3,
+    "Butifarra con patatas": 2,
+    "Merluza a la vasca": 2,
+    "Ensalada verde": 3,
+    "Escalivada": 1,
+    "Jamón ibérico (ración)": 2,
+    "Huevos rotos con jamón": 4,
+    "Arroz con leche": 1,
+    "Flan casero": 3,
+    "Paella de marisco": 3,
+    "Caña de cerveza": 39,
+    "Copa de vino de la casa": 17,
+    "Agua mineral 0,5 l": 23,
+    "Refresco": 15,
+    "Café solo": 32,
+    "Café con leche": 12,
+    "Gin tonic": 3,
+    "Copa de cava": 2
+   },
+   "franjas": {
+    "12-14": 345.43,
+    "14-16": 447.54,
+    "16-19": 62.37,
+    "19-21": 170.02,
+    "21-23": 370.33,
+    "23-24": 82.51
+   }
+  }
+ ],
+ "etiquetas": [
+  {
+   "archivo": "etiquetas/2026-10-10 Lubina fresca L261010-01.jpg",
+   "producto": "Lubina fresca",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 1.7,
+   "lote": "L261010-01",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-10 Calamar limpio L261010-02.jpg",
+   "producto": "Calamar limpio",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 5.3,
+   "lote": "L261010-02",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-10 Mejillón L261010-03.jpg",
+   "producto": "Mejillón",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 5.4,
+   "lote": "L261010-03",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-10 Bacalao desalado L261010-04.jpg",
+   "producto": "Bacalao desalado",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 1.4,
+   "lote": "L261010-04",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-10 Gamba roja L261010-05.jpg",
+   "producto": "Gamba roja",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 1.2,
+   "lote": "L261010-05",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-10 Merluza L261010-06.jpg",
+   "producto": "Merluza",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0291",
+   "peso": 1.8,
+   "lote": "L261010-06",
+   "caduca": "2026-10-12",
+   "recibido": "2026-10-10"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Lubina fresca L261008-07.jpg",
+   "producto": "Lubina fresca",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 2.0,
+   "lote": "L261008-07",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Calamar limpio L261008-08.jpg",
+   "producto": "Calamar limpio",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 5.7,
+   "lote": "L261008-08",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Mejillón L261008-09.jpg",
+   "producto": "Mejillón",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 6.2,
+   "lote": "L261008-09",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Bacalao desalado L261008-10.jpg",
+   "producto": "Bacalao desalado",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 1.3,
+   "lote": "L261008-10",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Gamba roja L261008-11.jpg",
+   "producto": "Gamba roja",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 1.0,
+   "lote": "L261008-11",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-08 Merluza L261008-12.jpg",
+   "producto": "Merluza",
+   "proveedor": "Pescados Mar Nou",
+   "factura": "F-2026-0290",
+   "peso": 1.9,
+   "lote": "L261008-12",
+   "caduca": "2026-10-10",
+   "recibido": "2026-10-08"
+  },
+  {
+   "archivo": "etiquetas/2026-10-05 Entrecot de vaca L261005-13.jpg",
+   "producto": "Entrecot de vaca",
+   "proveedor": "Carnes Vallès",
+   "factura": "C-8412",
+   "peso": 9.0,
+   "lote": "L261005-13",
+   "caduca": "2026-10-11",
+   "recibido": "2026-10-05"
+  },
+  {
+   "archivo": "etiquetas/2026-10-05 Solomillo de cerdo L261005-14.jpg",
+   "producto": "Solomillo de cerdo",
+   "proveedor": "Carnes Vallès",
+   "factura": "C-8412",
+   "peso": 3.4,
+   "lote": "L261005-14",
+   "caduca": "2026-10-11",
+   "recibido": "2026-10-05"
+  },
+  {
+   "archivo": "etiquetas/2026-10-05 Pollo de corral L261005-15.jpg",
+   "producto": "Pollo de corral",
+   "proveedor": "Carnes Vallès",
+   "factura": "C-8412",
+   "peso": 7.3,
+   "lote": "L261005-15",
+   "caduca": "2026-10-11",
+   "recibido": "2026-10-05"
+  }
+ ],
+ "banco": {
+  "saldo_inicial": 3000.0,
+  "saldo_final": 10528.6,
+  "movimientos": 152
+ },
+ "proveedores_contacto": {
+  "Carnes Vallès": {
+   "telefono": "93 000 12 34",
+   "correo": "pedidos@carnesvalles.example",
+   "cif": "B-00000001",
+   "direccion": "C/ de l'Exemple, 12 · 08014 Barcelona"
+  },
+  "Pescados Mar Nou": {
+   "telefono": "93 000 56 78",
+   "correo": "pedidos@marnou.example",
+   "cif": "B-00000002",
+   "direccion": "Mercabarna, pabellón de pescado, parada 0 (ejemplo)"
+  },
+  "Hortalizas del Prat": {
+   "telefono": "93 000 34 56",
+   "correo": "hortalizasprat@ejemplo.example",
+   "cif": "B-00000004",
+   "direccion": "Camí de l'Horta, s/n · El Prat de Llobregat"
+  },
+  "Bebidas Sol": {
+   "telefono": "93 000 90 12",
+   "correo": "comercial@bebidassol.example",
+   "cif": "B-00000003",
+   "direccion": "Pol. Ind. Exemple, nave 3 · L'Hospitalet"
+  },
+  "Vins i Cafès Roca": {
+   "telefono": "93 000 44 55",
+   "correo": "pedidos@vinsroca.example",
+   "cif": "B-00000008",
+   "direccion": "C/ del Vi, 8 · 08003 Barcelona"
+  },
+  "Distribuciones Olivé": {
+   "telefono": "93 000 66 77",
+   "correo": "olive@distribuciones.example",
+   "cif": "B-00000009",
+   "direccion": "Av. de l'Exemple, 40 · Badalona"
+  },
+  "Forn de Pa Sant Jaume": {
+   "telefono": "93 000 78 90",
+   "correo": "forn@santjaume.example",
+   "cif": "B-00000005",
+   "direccion": "C/ Sant Jaume, 3 · 08002 Barcelona"
+  },
+  "Fincas Ronda": {
+   "telefono": "93 000 11 22",
+   "correo": "admin@fincasronda.example",
+   "cif": "B-00000006",
+   "direccion": "Ronda de l'Exemple, 20 · Barcelona"
+  },
+  "Seguros Previsora": {
+   "telefono": "93 000 33 44",
+   "correo": "clientes@previsora.example",
+   "cif": "A-00000007",
+   "direccion": "Pg. de l'Exemple, 100 · Barcelona"
+  },
+  "Endesa": {
+   "telefono": "",
+   "correo": "facturas@luz.example",
+   "cif": "(ejemplo)",
+   "direccion": ""
+  },
+  "Naturgy": {
+   "telefono": "",
+   "correo": "facturas@gas.example",
+   "cif": "(ejemplo)",
+   "direccion": ""
+  },
+  "Neteges Brillant": {
+   "telefono": "93 000 88 99",
+   "correo": "neteges@brillant.example",
+   "cif": "B-00000010",
+   "direccion": "C/ de la Neteja, 5 · Barcelona"
+  }
+ }
+}

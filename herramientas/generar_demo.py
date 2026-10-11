@@ -447,7 +447,7 @@ def generar(carpeta=SALIDA):
 
     # 15 etiquetas de producto fresco que casan con líneas de las últimas facturas de pescado y carne
     recientes = [f for f in facturas if f.proveedor in ("Pescados Mar Nou", "Carnes Vallès") and not f.duplicada_de and f.fecha >= date(2026, 10, 1)]
-    vida = {"pescado": 2, "carne": 5}
+    vida = {"pescado": 2, "carne": 6}
     n_et = 0
     for f in sorted(recientes, key=lambda x: x.fecha, reverse=True):
         for l in f.lineas:

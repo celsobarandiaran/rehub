@@ -1,0 +1,115 @@
+[
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0292",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0292.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "adjuntos": [
+   "en_directo/Factura Pescados Mar Nou F-2026-0292.pdf"
+  ]
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2107",
+  "cuerpo": "Hola,\n\nOs enviamos la factura BS-2107.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "adjuntos": [
+   "en_directo/Factura Bebidas Sol BS-2107.pdf"
+  ]
+ },
+ {
+  "de_nombre": "Distribuciones Olivé",
+  "alias": "proveedor",
+  "asunto": "Factura DO-893",
+  "cuerpo": "Factura adjunta.\n\n--\nDistribuciones Olivé\nAv. de l'Exemple, 40 · Badalona\nTel. 93 000 66 77 · olive@distribuciones.example\nCIF B-00000009",
+  "adjuntos": [
+   "en_directo/Factura Distribuciones Olivé DO-893.pdf"
+  ]
+ },
+ {
+  "de_nombre": "Gestoría Albà",
+  "alias": "gestoria",
+  "asunto": "IVA y retenciones del 3.er trimestre",
+  "cuerpo": "Hola,\n\nYa tenemos los impuestos del tercer trimestre: IVA (modelo 303) 3.673,03 € y retenciones (modelo 111) 4.134,15 €. Se cargarán el 20 de octubre.\n\nUn saludo,\nGestoría Albà (inventada)",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket hielo",
+  "cuerpo": "Foto del ticket.",
+  "adjuntos": [
+   "en_directo/Ticket hielo.jpg"
+  ]
+ },
+ {
+  "de_nombre": "Elena Puig",
+  "alias": "cliente",
+  "asunto": "Reserva para 6 el viernes",
+  "cuerpo": "Hola, ¿tenéis mesa para 6 personas el viernes 16 de octubre a las 21:00? Gracias, Elena",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Marc Serra",
+  "alias": "cliente",
+  "asunto": "Cena de aniversario",
+  "cuerpo": "Bona tarda, voldríem una taula per a dos dissabte 17 a les 21:30, és el nostre aniversari. Marc",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Lucía Ramos",
+  "alias": "cliente",
+  "asunto": "¿Tenéis menú del día?",
+  "cuerpo": "Hola, ¿hacéis menú del día entre semana? ¿Qué precio tiene? Lucía",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "David Ortega",
+  "alias": "cliente",
+  "asunto": "Factura de mi comida",
+  "cuerpo": "Hola, comí ayer con mi empresa y necesito factura a nombre de Ortega Consulting SL. Os paso el ticket si hace falta. David",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Raquel Mas",
+  "alias": "cliente",
+  "asunto": "La cuenta estaba mal",
+  "cuerpo": "Ayer nos cobraron dos cafés que no pedimos. No es mucho, pero que lo sepáis. Raquel",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "ProMenu Ofertas",
+  "alias": "cliente",
+  "asunto": "Última oportunidad: 50 % de descuento",
+  "cuerpo": "Solo hoy. Responde BAJA para no recibir más.",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Delivery Rápido",
+  "alias": "cliente",
+  "asunto": "Te regalamos 3 meses sin comisión",
+  "cuerpo": "Únete hoy a nuestra plataforma.",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Hostel Supply",
+  "alias": "cliente",
+  "asunto": "Rebajas de octubre en menaje",
+  "cuerpo": "Descubre nuestras ofertas.",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Ayuntamiento (notificación)",
+  "alias": "oficina",
+  "asunto": "Renovación de la licencia de terraza",
+  "cuerpo": "Le recordamos que la licencia de terraza vence el 31 de diciembre. Puede renovarla en la sede electrónica.",
+  "adjuntos": []
+ },
+ {
+  "de_nombre": "Pere Soler",
+  "alias": "cliente",
+  "asunto": "RE: Mesa para dos el viernes",
+  "cuerpo": "Perfecte, gràcies! Fins divendres. Pere",
+  "adjuntos": []
+ }
+]

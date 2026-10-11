@@ -1,0 +1,4519 @@
+{
+ "restaurante": {
+  "nombre": "Restaurante La Plaza",
+  "razon": "La Plaza Restauració, S.L. (ejemplo)",
+  "cif": "B-99999999",
+  "direccion": "Plaça de l'Exemple, 1 · 08002 Barcelona (inventada)"
+ },
+ "hoy_demo": "2026-10-11",
+ "carta": [
+  {
+   "nombre": "Arroz negro",
+   "parte": "comida",
+   "precio_carta": 16.5,
+   "clave_competencia": "arroz negro",
+   "receta": [
+    {
+     "producto": "Arroz bomba",
+     "cantidad": 0.1
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 0.12
+    },
+    {
+     "producto": "Tinta de calamar",
+     "cantidad": 0.008
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.005
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Merluza",
+     "cantidad": 0.03
+    }
+   ]
+  },
+  {
+   "nombre": "Calamares a la andaluza",
+   "parte": "comida",
+   "precio_carta": 13.0,
+   "clave_competencia": "calamares",
+   "receta": [
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 0.18
+    },
+    {
+     "producto": "Harina",
+     "cantidad": 0.04
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 0.03
+    }
+   ]
+  },
+  {
+   "nombre": "Patatas bravas",
+   "parte": "comida",
+   "precio_carta": 6.5,
+   "clave_competencia": "bravas",
+   "receta": [
+    {
+     "producto": "Patata",
+     "cantidad": 0.3
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.003
+    }
+   ]
+  },
+  {
+   "nombre": "Entrecot a la brasa",
+   "parte": "comida",
+   "precio_carta": 22.0,
+   "clave_competencia": "entrecot",
+   "receta": [
+    {
+     "producto": "Entrecot de vaca",
+     "cantidad": 0.3
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.02
+    }
+   ]
+  },
+  {
+   "nombre": "Lubina a la sal",
+   "parte": "comida",
+   "precio_carta": 21.0,
+   "clave_competencia": "lubina",
+   "receta": [
+    {
+     "producto": "Lubina fresca",
+     "cantidad": 0.45
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.02
+    }
+   ]
+  },
+  {
+   "nombre": "Canelones de la abuela",
+   "parte": "comida",
+   "precio_carta": 12.0,
+   "clave_competencia": "canelones",
+   "receta": [
+    {
+     "producto": "Pasta de canelones",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Carne picada mixta",
+     "cantidad": 0.12
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Harina",
+     "cantidad": 0.02
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.05
+    }
+   ]
+  },
+  {
+   "nombre": "Ensalada de queso de cabra",
+   "parte": "comida",
+   "precio_carta": 11.5,
+   "clave_competencia": "ensalada cabra",
+   "receta": [
+    {
+     "producto": "Queso de cabra",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Rúcula",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Lechuga",
+     "cantidad": 0.5
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.02
+    }
+   ]
+  },
+  {
+   "nombre": "Mejillones a la marinera",
+   "parte": "comida",
+   "precio_carta": 11.0,
+   "clave_competencia": "mejillones",
+   "receta": [
+    {
+     "producto": "Mejillón",
+     "cantidad": 0.5
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.04
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.005
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.02
+    }
+   ]
+  },
+  {
+   "nombre": "Croquetas caseras (6)",
+   "parte": "comida",
+   "precio_carta": 9.0,
+   "clave_competencia": "croquetas",
+   "receta": [
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Harina",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Huevos",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.06
+    }
+   ]
+  },
+  {
+   "nombre": "Crema catalana",
+   "parte": "comida",
+   "precio_carta": 5.5,
+   "clave_competencia": "crema catalana",
+   "receta": [
+    {
+     "producto": "Leche",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Huevos",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 0.04
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 0.01
+    }
+   ]
+  },
+  {
+   "nombre": "Bacalao a la llauna",
+   "parte": "comida",
+   "precio_carta": 18.5,
+   "clave_competencia": "bacalao",
+   "receta": [
+    {
+     "producto": "Bacalao desalado",
+     "cantidad": 0.22
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.01
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 0.1
+    }
+   ]
+  },
+  {
+   "nombre": "Gambas a la plancha",
+   "parte": "comida",
+   "precio_carta": 19.0,
+   "clave_competencia": "gambas",
+   "receta": [
+    {
+     "producto": "Gamba roja",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.01
+    }
+   ]
+  },
+  {
+   "nombre": "Pan con tomate",
+   "parte": "comida",
+   "precio_carta": 3.2,
+   "clave_competencia": "pan con tomate",
+   "receta": [
+    {
+     "producto": "Pan de cristal",
+     "cantidad": 0.5
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.01
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.002
+    }
+   ]
+  },
+  {
+   "nombre": "Tortilla de patatas",
+   "parte": "comida",
+   "precio_carta": 8.5,
+   "clave_competencia": "tortilla",
+   "receta": [
+    {
+     "producto": "Patata",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Huevos",
+     "cantidad": 0.25
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.04
+    }
+   ]
+  },
+  {
+   "nombre": "Pollo al ajillo",
+   "parte": "comida",
+   "precio_carta": 12.5,
+   "clave_competencia": "pollo",
+   "receta": [
+    {
+     "producto": "Pollo de corral",
+     "cantidad": 0.35
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.02
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 0.1
+    }
+   ]
+  },
+  {
+   "nombre": "Solomillo a la pimienta",
+   "parte": "comida",
+   "precio_carta": 17.5,
+   "clave_competencia": "solomillo",
+   "receta": [
+    {
+     "producto": "Solomillo de cerdo",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Nata",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 0.15
+    }
+   ]
+  },
+  {
+   "nombre": "Butifarra con patatas",
+   "parte": "comida",
+   "precio_carta": 11.0,
+   "clave_competencia": "butifarra",
+   "receta": [
+    {
+     "producto": "Butifarra",
+     "cantidad": 0.25
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.01
+    }
+   ]
+  },
+  {
+   "nombre": "Merluza a la vasca",
+   "parte": "comida",
+   "precio_carta": 17.0,
+   "clave_competencia": "merluza",
+   "receta": [
+    {
+     "producto": "Merluza",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Pan de barra",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Perejil",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Ajo",
+     "cantidad": 0.01
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    }
+   ]
+  },
+  {
+   "nombre": "Ensalada verde",
+   "parte": "comida",
+   "precio_carta": 7.5,
+   "clave_competencia": "ensalada verde",
+   "receta": [
+    {
+     "producto": "Lechuga",
+     "cantidad": 0.5
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.1
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.02
+    }
+   ]
+  },
+  {
+   "nombre": "Escalivada",
+   "parte": "comida",
+   "precio_carta": 8.0,
+   "clave_competencia": "escalivada",
+   "receta": [
+    {
+     "producto": "Pimiento rojo",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Calabacín",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Cebolla seca",
+     "cantidad": 0.1
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    }
+   ]
+  },
+  {
+   "nombre": "Jamón ibérico (ración)",
+   "parte": "comida",
+   "precio_carta": 16.0,
+   "clave_competencia": "jamón",
+   "receta": [
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Pan de cristal",
+     "cantidad": 0.5
+    }
+   ]
+  },
+  {
+   "nombre": "Huevos rotos con jamón",
+   "parte": "comida",
+   "precio_carta": 11.5,
+   "clave_competencia": "huevos rotos",
+   "receta": [
+    {
+     "producto": "Huevos",
+     "cantidad": 0.17
+    },
+    {
+     "producto": "Patata",
+     "cantidad": 0.25
+    },
+    {
+     "producto": "Jamón ibérico loncheado",
+     "cantidad": 0.04
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.04
+    }
+   ]
+  },
+  {
+   "nombre": "Arroz con leche",
+   "parte": "comida",
+   "precio_carta": 5.0,
+   "clave_competencia": "arroz con leche",
+   "receta": [
+    {
+     "producto": "Arroz bomba",
+     "cantidad": 0.04
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 0.2
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 0.03
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 0.01
+    }
+   ]
+  },
+  {
+   "nombre": "Flan casero",
+   "parte": "comida",
+   "precio_carta": 4.5,
+   "clave_competencia": "flan",
+   "receta": [
+    {
+     "producto": "Huevos",
+     "cantidad": 0.17
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 0.04
+    }
+   ]
+  },
+  {
+   "nombre": "Paella de marisco",
+   "parte": "comida",
+   "precio_carta": 19.5,
+   "clave_competencia": "paella",
+   "receta": [
+    {
+     "producto": "Arroz bomba",
+     "cantidad": 0.1
+    },
+    {
+     "producto": "Gamba roja",
+     "cantidad": 0.06
+    },
+    {
+     "producto": "Mejillón",
+     "cantidad": 0.15
+    },
+    {
+     "producto": "Calamar limpio",
+     "cantidad": 0.08
+    },
+    {
+     "producto": "Tomate maduro",
+     "cantidad": 0.05
+    },
+    {
+     "producto": "Aceite de oliva",
+     "cantidad": 0.03
+    }
+   ]
+  },
+  {
+   "nombre": "Caña de cerveza",
+   "parte": "bebida",
+   "precio_carta": 2.8,
+   "clave_competencia": "caña",
+   "receta": [
+    {
+     "producto": "Cerveza de barril",
+     "cantidad": 0.25
+    }
+   ]
+  },
+  {
+   "nombre": "Copa de vino de la casa",
+   "parte": "bebida",
+   "precio_carta": 3.5,
+   "clave_competencia": "copa vino",
+   "receta": [
+    {
+     "producto": "Vino de la casa",
+     "cantidad": 0.1667
+    }
+   ]
+  },
+  {
+   "nombre": "Agua mineral 0,5 l",
+   "parte": "bebida",
+   "precio_carta": 2.2,
+   "clave_competencia": "agua",
+   "receta": [
+    {
+     "producto": "Agua mineral 0,5 l",
+     "cantidad": 1
+    }
+   ]
+  },
+  {
+   "nombre": "Refresco",
+   "parte": "bebida",
+   "precio_carta": 2.9,
+   "clave_competencia": "refresco",
+   "receta": [
+    {
+     "producto": "Refresco lata",
+     "cantidad": 1
+    }
+   ]
+  },
+  {
+   "nombre": "Café solo",
+   "parte": "bebida",
+   "precio_carta": 1.5,
+   "clave_competencia": "café",
+   "receta": [
+    {
+     "producto": "Café en grano",
+     "cantidad": 0.007
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 0.006
+    }
+   ]
+  },
+  {
+   "nombre": "Café con leche",
+   "parte": "bebida",
+   "precio_carta": 1.8,
+   "clave_competencia": "café con leche",
+   "receta": [
+    {
+     "producto": "Café en grano",
+     "cantidad": 0.007
+    },
+    {
+     "producto": "Leche",
+     "cantidad": 0.12
+    },
+    {
+     "producto": "Azúcar",
+     "cantidad": 0.006
+    }
+   ]
+  },
+  {
+   "nombre": "Gin tonic",
+   "parte": "bebida",
+   "precio_carta": 8.5,
+   "clave_competencia": "gin tonic",
+   "receta": [
+    {
+     "producto": "Ginebra",
+     "cantidad": 0.0714
+    },
+    {
+     "producto": "Tónica",
+     "cantidad": 1
+    },
+    {
+     "producto": "Limón",
+     "cantidad": 0.01
+    }
+   ]
+  },
+  {
+   "nombre": "Copa de cava",
+   "parte": "bebida",
+   "precio_carta": 4.0,
+   "clave_competencia": "copa cava",
+   "receta": [
+    {
+     "producto": "Cava",
+     "cantidad": 0.1667
+    }
+   ]
+  }
+ ],
+ "productos": [
+  {
+   "nombre": "Entrecot de vaca",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 0.9,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Solomillo de cerdo",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 0.95,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Pollo de corral",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 0.7,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Jamón ibérico loncheado",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Carne picada mixta",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Butifarra",
+   "proveedor": "Carnes Vallès",
+   "unidad": "kg",
+   "tipo": "carne",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Lubina fresca",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "2411921",
+   "alergenos": "pescado"
+  },
+  {
+   "nombre": "Calamar limpio",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "243101",
+   "alergenos": "moluscos"
+  },
+  {
+   "nombre": "Mejillón",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "2452021",
+   "alergenos": "moluscos"
+  },
+  {
+   "nombre": "Bacalao desalado",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 0.95,
+   "codigo_mercabarna": "",
+   "alergenos": "pescado"
+  },
+  {
+   "nombre": "Gamba roja",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "crustáceos"
+  },
+  {
+   "nombre": "Merluza",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "pescado",
+   "rendimiento": 0.85,
+   "codigo_mercabarna": "",
+   "alergenos": "pescado"
+  },
+  {
+   "nombre": "Tinta de calamar",
+   "proveedor": "Pescados Mar Nou",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "moluscos"
+  },
+  {
+   "nombre": "Tomate maduro",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.95,
+   "codigo_mercabarna": "326GBZ",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Cebolla seca",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.9,
+   "codigo_mercabarna": "322BAA",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Patata",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.85,
+   "codigo_mercabarna": "320BBA",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Pimiento rojo",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.85,
+   "codigo_mercabarna": "326EBB",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Limón",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "310AAA",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Lechuga",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "ud",
+   "tipo": "verdura",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Ajo",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.85,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Perejil",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "manojo",
+   "tipo": "verdura",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Rúcula",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Calabacín",
+   "proveedor": "Hortalizas del Prat",
+   "unidad": "kg",
+   "tipo": "verdura",
+   "rendimiento": 0.95,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Cerveza de barril",
+   "proveedor": "Bebidas Sol",
+   "unidad": "l",
+   "tipo": "bebida",
+   "rendimiento": 0.9,
+   "codigo_mercabarna": "",
+   "alergenos": "gluten"
+  },
+  {
+   "nombre": "Agua mineral 0,5 l",
+   "proveedor": "Bebidas Sol",
+   "unidad": "ud",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Refresco lata",
+   "proveedor": "Bebidas Sol",
+   "unidad": "ud",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Tónica",
+   "proveedor": "Bebidas Sol",
+   "unidad": "ud",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Vino de la casa",
+   "proveedor": "Vins i Cafès Roca",
+   "unidad": "botella",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "sulfitos"
+  },
+  {
+   "nombre": "Café en grano",
+   "proveedor": "Vins i Cafès Roca",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Ginebra",
+   "proveedor": "Vins i Cafès Roca",
+   "unidad": "botella",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Cava",
+   "proveedor": "Vins i Cafès Roca",
+   "unidad": "botella",
+   "tipo": "bebida",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "sulfitos"
+  },
+  {
+   "nombre": "Aceite de oliva",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "l",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Arroz bomba",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Harina",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "gluten"
+  },
+  {
+   "nombre": "Huevos",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "docena",
+   "tipo": "lacteo",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "huevo"
+  },
+  {
+   "nombre": "Leche",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "l",
+   "tipo": "lacteo",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "leche"
+  },
+  {
+   "nombre": "Azúcar",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": ""
+  },
+  {
+   "nombre": "Queso de cabra",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "kg",
+   "tipo": "lacteo",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "leche"
+  },
+  {
+   "nombre": "Pasta de canelones",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "kg",
+   "tipo": "seco",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "gluten, huevo"
+  },
+  {
+   "nombre": "Nata",
+   "proveedor": "Distribuciones Olivé",
+   "unidad": "l",
+   "tipo": "lacteo",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "leche"
+  },
+  {
+   "nombre": "Pan de barra",
+   "proveedor": "Forn de Pa Sant Jaume",
+   "unidad": "ud",
+   "tipo": "pan",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "gluten"
+  },
+  {
+   "nombre": "Pan de cristal",
+   "proveedor": "Forn de Pa Sant Jaume",
+   "unidad": "ud",
+   "tipo": "pan",
+   "rendimiento": 1.0,
+   "codigo_mercabarna": "",
+   "alergenos": "gluten"
+  }
+ ],
+ "proveedores_info": [
+  {
+   "nombre": "Carnes Vallès",
+   "grupo": "comida",
+   "tipo": "Carne"
+  },
+  {
+   "nombre": "Pescados Mar Nou",
+   "grupo": "comida",
+   "tipo": "Pescado"
+  },
+  {
+   "nombre": "Hortalizas del Prat",
+   "grupo": "comida",
+   "tipo": "Verdura"
+  },
+  {
+   "nombre": "Bebidas Sol",
+   "grupo": "comida",
+   "tipo": "Bebida"
+  },
+  {
+   "nombre": "Vins i Cafès Roca",
+   "grupo": "comida",
+   "tipo": "Vino y café"
+  },
+  {
+   "nombre": "Distribuciones Olivé",
+   "grupo": "comida",
+   "tipo": "Aceite, arroz y básicos"
+  },
+  {
+   "nombre": "Forn de Pa Sant Jaume",
+   "grupo": "comida",
+   "tipo": "Pan"
+  },
+  {
+   "nombre": "Fincas Ronda",
+   "grupo": "local",
+   "tipo": "Alquiler"
+  },
+  {
+   "nombre": "Seguros Previsora",
+   "grupo": "local",
+   "tipo": "Seguro"
+  },
+  {
+   "nombre": "Endesa",
+   "grupo": "local",
+   "tipo": "Luz"
+  },
+  {
+   "nombre": "Naturgy",
+   "grupo": "local",
+   "tipo": "Gas"
+  },
+  {
+   "nombre": "Neteges Brillant",
+   "grupo": "local",
+   "tipo": "Limpieza"
+  }
+ ],
+ "cuadrante": [
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-01",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-01",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-01",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-01",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-02",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-02",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-02",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-04",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-04",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-04",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-04",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-05",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-05",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-06",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-06",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-06",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-07",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-07",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-07",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-07",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-08",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-08",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-08",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-08",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-09",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-09",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-09",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-11",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-11",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-11",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-11",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-12",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-12",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-13",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-13",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-13",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-14",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-14",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-14",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-14",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-15",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-15",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-15",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-15",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-16",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-16",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-16",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-18",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-18",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-18",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-18",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-19",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-19",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-20",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-20",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-20",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-21",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-21",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-21",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-21",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-22",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-22",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-22",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-22",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-23",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-23",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-23",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-25",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-25",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-25",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-25",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-26",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-26",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-27",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-27",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-27",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-28",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-28",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-28",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-28",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-29",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-29",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-08-29",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-29",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-08-30",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-08-30",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-08-30",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-01",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-01",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-01",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-01",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-02",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-02",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-03",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-03",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-03",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-04",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-04",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-04",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-04",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-05",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-05",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-05",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-05",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-06",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-06",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-06",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-08",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-08",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-08",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-08",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-09",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-09",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-10",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-10",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-10",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-11",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-11",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-11",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-11",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-12",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-12",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-12",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-12",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-13",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-13",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-13",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-15",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-15",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-15",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-15",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-16",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-16",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-17",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-17",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-17",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-18",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-18",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-18",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-18",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-19",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-19",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-19",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-19",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-20",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-20",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-20",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-22",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-22",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-22",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-22",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-23",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-23",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-24",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-24",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-24",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-25",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-25",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-25",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-25",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-26",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-26",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-26",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-26",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-27",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-27",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-27",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-29",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-09-29",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-29",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-09-29",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-09-30",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-09-30",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-01",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-01",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-01",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-02",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-02",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-02",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-02",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-03",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-03",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-03",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-03",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-04",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-04",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-04",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-06",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-06",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-06",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-06",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-07",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-07",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-08",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-08",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-08",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-09",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-09",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-09",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-09",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-10",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-10",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-10",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-10",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-11",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-11",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-11",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-13",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-13",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-13",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-13",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-14",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-14",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-15",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-15",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-15",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-16",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-16",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-16",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-16",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-17",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-17",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-17",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-17",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-18",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-18",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-18",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-20",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-20",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-20",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-20",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-21",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-21",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-22",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-22",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-22",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-23",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-23",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-23",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-23",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-24",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-24",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-24",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-24",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-25",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-25",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-25",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-27",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-27",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-27",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-27",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-28",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-28",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-29",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-29",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-29",
+   "tramos": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-30",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-30",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-30",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-30",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Laura Puig (ejemplo)",
+   "fecha": "2026-10-31",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Óscar Martín (ejemplo)",
+   "fecha": "2026-10-31",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Rosa Ferrer (ejemplo)",
+   "fecha": "2026-10-31",
+   "tramos": [
+    [
+     "12:30",
+     "16:30"
+    ],
+    [
+     "20:00",
+     "24:00"
+    ]
+   ]
+  },
+  {
+   "empleado": "Iván López (ejemplo)",
+   "fecha": "2026-10-31",
+   "tramos": [
+    [
+     "16:00",
+     "24:00"
+    ]
+   ]
+  }
+ ],
+ "empleados": [
+  {
+   "nombre": "Laura Puig (ejemplo)",
+   "puesto": "Camarera",
+   "horas_semana": 40
+  },
+  {
+   "nombre": "Óscar Martín (ejemplo)",
+   "puesto": "Camarero",
+   "horas_semana": 40
+  },
+  {
+   "nombre": "Rosa Ferrer (ejemplo)",
+   "puesto": "Cocinera",
+   "horas_semana": 40
+  },
+  {
+   "nombre": "Iván López (ejemplo)",
+   "puesto": "Ayudante de cocina",
+   "horas_semana": 40
+  }
+ ],
+ "eventos": [
+  {
+   "fecha": "2026-08-15",
+   "nombre": "Festivo: la Asunción",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-08-22",
+   "nombre": "Fiestas de Gràcia (última noche)",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-09-11",
+   "nombre": "Diada de Catalunya (festivo)",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-09-24",
+   "nombre": "La Mercè (festivo)",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-09-26",
+   "nombre": "Concierto en el Palau Sant Jordi",
+   "efecto": "cenas antes"
+  },
+  {
+   "fecha": "2026-10-03",
+   "nombre": "Partido de fútbol en casa, 21:00",
+   "efecto": "cena floja"
+  },
+  {
+   "fecha": "2026-10-11",
+   "nombre": "Fira de la Tardor en la plaza",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-10-12",
+   "nombre": "Festivo: Fiesta Nacional",
+   "efecto": "más gente"
+  },
+  {
+   "fecha": "2026-10-13",
+   "nombre": "Concierto en el Palau de la Música, 21:00",
+   "efecto": "cenas antes"
+  },
+  {
+   "fecha": "2026-10-17",
+   "nombre": "Partido de fútbol, 18:30",
+   "efecto": "tarde floja"
+  }
+ ],
+ "pagos_fijos": [
+  {
+   "concepto": "Alquiler (Fincas Ronda)",
+   "dia": 5,
+   "importe": 2420.0,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Seguro multirriesgo (Seguros Previsora)",
+   "dia": 5,
+   "importe": 186.4,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Alarma (sin factura por correo)",
+   "dia": 5,
+   "importe": 28.6,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Luz (Endesa)",
+   "dia": 20,
+   "importe": 734.9,
+   "cada": "mes",
+   "aproximado": true
+  },
+  {
+   "concepto": "Gas (Naturgy)",
+   "dia": 21,
+   "importe": 418.3,
+   "cada": "mes",
+   "aproximado": true
+  },
+  {
+   "concepto": "Nóminas (neto)",
+   "dia": -1,
+   "importe": 5652.05,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Seguridad Social de la empresa",
+   "dia": -1,
+   "importe": 2214.45,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Cuota de autónomo del dueño",
+   "dia": -1,
+   "importe": 315.0,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Préstamo ICO (cuota)",
+   "dia": 10,
+   "importe": 1200.0,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "Traspaso al dueño (su sueldo)",
+   "dia": 1,
+   "importe": 2500.0,
+   "cada": "mes",
+   "aproximado": false
+  },
+  {
+   "concepto": "IVA del trimestre (modelo 303)",
+   "dia": 20,
+   "importe": 3673.03,
+   "cada": "trimestre",
+   "aproximado": true
+  },
+  {
+   "concepto": "Retenciones IRPF del trimestre (modelo 111)",
+   "dia": 20,
+   "importe": 4134.15,
+   "cada": "trimestre",
+   "aproximado": true
+  }
+ ],
+ "competidores": [
+  {
+   "nombre": "Bar Nova Plaça (inventado)",
+   "distancia_m": 150,
+   "valoracion": 4.2,
+   "opiniones": 860,
+   "carta": {
+    "arroz negro": 17.5,
+    "calamares": 12.0,
+    "bravas": 6.0,
+    "croquetas": 8.5,
+    "mejillones": 10.5,
+    "crema catalana": 5.5,
+    "pan con tomate": 3.0,
+    "tortilla": 8.0,
+    "caña": 2.5,
+    "copa vino": 3.2,
+    "agua": 2.2,
+    "refresco": 2.8,
+    "café": 1.4,
+    "café con leche": 1.7,
+    "pulpo": 18.0,
+    "huevos estrellados": 10.5
+   }
+  },
+  {
+   "nombre": "Taberna del Arco (inventada)",
+   "distancia_m": 300,
+   "valoracion": 4.5,
+   "opiniones": 1420,
+   "carta": {
+    "arroz negro": 17.9,
+    "calamares": 12.5,
+    "bravas": 6.5,
+    "entrecot": 24.0,
+    "croquetas": 9.0,
+    "crema catalana": 6.0,
+    "gambas": 21.0,
+    "jamón": 18.0,
+    "pan con tomate": 3.5,
+    "caña": 2.7,
+    "copa vino": 3.5,
+    "agua": 2.3,
+    "refresco": 2.9,
+    "café": 1.5,
+    "café con leche": 1.8,
+    "gin tonic": 9.0,
+    "pulpo": 17.5,
+    "menú del día": 15.5,
+    "huevos estrellados": 11.5
+   }
+  },
+  {
+   "nombre": "Casa Vidal (inventada)",
+   "distancia_m": 450,
+   "valoracion": 3.9,
+   "opiniones": 310,
+   "carta": {
+    "arroz negro": 16.2,
+    "calamares": 12.4,
+    "bravas": 6.1,
+    "entrecot": 23.0,
+    "mejillones": 10.5,
+    "croquetas": 8.3,
+    "crema catalana": 5.9,
+    "paella": 18.5,
+    "pan con tomate": 3.2,
+    "tortilla": 8.5,
+    "caña": 2.6,
+    "copa vino": 3.2,
+    "agua": 2.4,
+    "refresco": 2.7,
+    "café": 1.45,
+    "café con leche": 1.75,
+    "gin tonic": 9.0,
+    "pulpo": 17.0,
+    "menú del día": 15.5
+   }
+  }
+ ]
+}

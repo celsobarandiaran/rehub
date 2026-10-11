@@ -1,0 +1,1867 @@
+[
+ {
+  "de_nombre": "Fincas Ronda",
+  "alias": "proveedor",
+  "asunto": "Factura A-9",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura A-9 de fecha 01/08/2026.\nImporte: 2.420,00 €.\n\n--\nFincas Ronda\nRonda de l'Exemple, 20 · Barcelona\nTel. 93 000 11 22 · admin@fincasronda.example\nCIF B-00000006",
+  "fecha": "2026-08-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-08-01 Fincas Ronda A-9.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0271",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0271 de fecha 01/08/2026.\nImporte: 247,76 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-08-01 Pescados Mar Nou F-2026-0271.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Seguros Previsora",
+  "alias": "proveedor",
+  "asunto": "Factura SP-26-1042",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura SP-26-1042 de fecha 01/08/2026.\nImporte: 186,40 €.\n\n--\nSeguros Previsora\nPg. de l'Exemple, 100 · Barcelona\nTel. 93 000 33 44 · clientes@previsora.example\nCIF A-00000007",
+  "fecha": "2026-08-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-08-01 Seguros Previsora SP-26-1042.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Mercat de la Boqueria",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-01T13:07:00",
+  "adjuntos": [
+   "tickets/2026-08-01 Mercat de la Boqueria 24,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 01/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-02T01:14:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-01 Cierre TPV 1.458,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Vins i Cafès Roca",
+  "alias": "proveedor",
+  "asunto": "Factura VR-1121",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura VR-1121 de fecha 02/08/2026.\nImporte: 262,68 €.\n\n--\nVins i Cafès Roca\nC/ del Vi, 8 · 08003 Barcelona\nTel. 93 000 44 55 · pedidos@vinsroca.example\nCIF B-00000008",
+  "fecha": "2026-08-02T08:14:00",
+  "adjuntos": [
+   "facturas/2026-08-02 Vins i Cafès Roca VR-1121.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 02/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-03T01:21:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-02 Cierre TPV 1.220,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8403",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8403 de fecha 03/08/2026.\nImporte: 406,74 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-08-03T08:21:00",
+  "adjuntos": [
+   "facturas/2026-08-03 Carnes Vallès C-8403.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Gestoría Albà",
+  "alias": "gestoria",
+  "asunto": "Nóminas de julio",
+  "cuerpo": "Hola,\n\nOs adjunto las nóminas de julio. El total líquido a transferir es de 5.652,05 € y la Seguridad Social se cargará a final del mes que viene.\n\nUn saludo,\nGestoría Albà (inventada)",
+  "fecha": "2026-08-03T10:21:00",
+  "adjuntos": [
+   "nominas/2026-07-31 Nomina Laura Puig 2.301,25.pdf",
+   "nominas/2026-07-31 Nomina Óscar Martín 2.104,00.pdf",
+   "nominas/2026-07-31 Nomina Rosa Ferrer 2.630,00.pdf",
+   "nominas/2026-07-31 Nomina Iván López 2.209,20.pdf"
+  ],
+  "tipo_esperado": "nomina"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 04/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-05T01:35:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-04 Cierre TPV 790,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Endesa",
+  "alias": "proveedor",
+  "asunto": "Factura LZ-77119",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura LZ-77119 de fecha 05/08/2026.\nImporte: 774,40 €.\n\n--\nEndesa · Atención a empresas\nfacturas@luz.example",
+  "fecha": "2026-08-05T08:35:00",
+  "adjuntos": [
+   "facturas/2026-08-05 Endesa LZ-77119.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-08-05T08:35:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-08-05 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "ProMenu Ofertas",
+  "alias": "cliente",
+  "asunto": "¡Digitaliza tu carta con un 40 % de descuento!",
+  "cuerpo": "¡Digitaliza tu carta con un 40 % de descuento!. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-08-05T11:35:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Hielo Cubitos BCN",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-05T13:35:00",
+  "adjuntos": [
+   "tickets/2026-08-05 Hielo Cubitos BCN 18,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 05/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-06T01:42:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-05 Cierre TPV 784,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Naturgy",
+  "alias": "proveedor",
+  "asunto": "Factura NG-55101",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura NG-55101 de fecha 06/08/2026.\nImporte: 399,30 €.\n\n--\nNaturgy · Atención a empresas\nfacturas@gas.example",
+  "fecha": "2026-08-06T08:42:00",
+  "adjuntos": [
+   "facturas/2026-08-06 Naturgy NG-55101.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0272",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0272 de fecha 06/08/2026.\nImporte: 263,96 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-06T08:42:00",
+  "adjuntos": [
+   "facturas/2026-08-06 Pescados Mar Nou F-2026-0272.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Ferretería Sant Pere",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-06T13:42:00",
+  "adjuntos": [
+   "tickets/2026-08-06 Ferretería Sant Pere 13,45.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 06/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-07T01:49:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-06 Cierre TPV 1.026,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2102",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura BS-2102 de fecha 07/08/2026.\nImporte: 665,35 €.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "fecha": "2026-08-07T08:49:00",
+  "adjuntos": [
+   "facturas/2026-08-07 Bebidas Sol BS-2102.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 07/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-08T01:56:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-07 Cierre TPV 1.370,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0273",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0273 de fecha 08/08/2026.\nImporte: 253,90 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-08T08:56:00",
+  "adjuntos": [
+   "facturas/2026-08-08 Pescados Mar Nou F-2026-0273.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 08/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-09T01:03:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-08 Cierre TPV 1.696,70.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 09/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-10T01:10:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-09 Cierre TPV 1.225,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8404",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8404 de fecha 10/08/2026.\nImporte: 402,18 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-08-10T08:10:00",
+  "adjuntos": [
+   "facturas/2026-08-10 Carnes Vallès C-8404.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 11/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-12T01:24:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-11 Cierre TPV 751,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-08-12T08:24:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-08-12 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Sofía Navarro",
+  "alias": "cliente",
+  "asunto": "¿Se puede ir con perro?",
+  "cuerpo": "Hola, ¿admitís perros pequeños en la terraza? Sofía",
+  "fecha": "2026-08-12T11:24:00",
+  "adjuntos": [],
+  "tipo_esperado": "consulta"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 12/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-13T01:31:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-12 Cierre TPV 918,70.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0274",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0274 de fecha 13/08/2026.\nImporte: 267,83 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-13T08:31:00",
+  "adjuntos": [
+   "facturas/2026-08-13 Pescados Mar Nou F-2026-0274.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Hostel Supply",
+  "alias": "cliente",
+  "asunto": "Nuevas vajillas con envío gratis",
+  "cuerpo": "Nuevas vajillas con envío gratis. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-08-13T11:31:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 13/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-14T01:38:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-13 Cierre TPV 1.032,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 14/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-15T01:45:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-14 Cierre TPV 1.369,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Distribuciones Olivé",
+  "alias": "proveedor",
+  "asunto": "Factura DO-891",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura DO-891 de fecha 15/08/2026.\nImporte: 873,43 €.\n\n--\nDistribuciones Olivé\nAv. de l'Exemple, 40 · Badalona\nTel. 93 000 66 77 · olive@distribuciones.example\nCIF B-00000009",
+  "fecha": "2026-08-15T08:45:00",
+  "adjuntos": [
+   "facturas/2026-08-15 Distribuciones Olivé DO-891.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Neteges Brillant",
+  "alias": "proveedor",
+  "asunto": "Factura NB-411",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura NB-411 de fecha 15/08/2026.\nImporte: 96,80 €.\n\n--\nNeteges Brillant\nC/ de la Neteja, 5 · Barcelona\nTel. 93 000 88 99 · neteges@brillant.example\nCIF B-00000010",
+  "fecha": "2026-08-15T08:45:00",
+  "adjuntos": [
+   "facturas/2026-08-15 Neteges Brillant NB-411.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0275",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0275 de fecha 15/08/2026.\nImporte: 241,26 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-15T08:45:00",
+  "adjuntos": [
+   "facturas/2026-08-15 Pescados Mar Nou F-2026-0275.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 15/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-16T01:52:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-15 Cierre TPV 1.944,90.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Vins i Cafès Roca",
+  "alias": "proveedor",
+  "asunto": "Factura VR-1122",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura VR-1122 de fecha 16/08/2026.\nImporte: 262,68 €.\n\n--\nVins i Cafès Roca\nC/ del Vi, 8 · 08003 Barcelona\nTel. 93 000 44 55 · pedidos@vinsroca.example\nCIF B-00000008",
+  "fecha": "2026-08-16T08:52:00",
+  "adjuntos": [
+   "facturas/2026-08-16 Vins i Cafès Roca VR-1122.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 16/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-17T01:59:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-16 Cierre TPV 1.161,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8405",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8405 de fecha 17/08/2026.\nImporte: 397,01 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-08-17T08:59:00",
+  "adjuntos": [
+   "facturas/2026-08-17 Carnes Vallès C-8405.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 18/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-19T01:13:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-18 Cierre TPV 772,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-08-19T08:13:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-08-19 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 19/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-20T01:20:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-19 Cierre TPV 811,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0276",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0276 de fecha 20/08/2026.\nImporte: 277,39 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-20T08:20:00",
+  "adjuntos": [
+   "facturas/2026-08-20 Pescados Mar Nou F-2026-0276.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Makro",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-20T13:20:00",
+  "adjuntos": [
+   "tickets/2026-08-20 Makro 19,46.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 20/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-21T01:27:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-20 Cierre TPV 999,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2103",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura BS-2103 de fecha 21/08/2026.\nImporte: 665,35 €.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "fecha": "2026-08-21T08:27:00",
+  "adjuntos": [
+   "facturas/2026-08-21 Bebidas Sol BS-2103.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Seguros HoReCa",
+  "alias": "cliente",
+  "asunto": "Revisa tu seguro: te ahorramos un 20 %",
+  "cuerpo": "Revisa tu seguro: te ahorramos un 20 %. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-08-21T11:27:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Parking Catedral",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-21T13:27:00",
+  "adjuntos": [
+   "tickets/2026-08-21 Parking Catedral 12,50.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 21/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-22T01:34:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-21 Cierre TPV 1.476,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0277",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0277 de fecha 22/08/2026.\nImporte: 265,53 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-22T08:34:00",
+  "adjuntos": [
+   "facturas/2026-08-22 Pescados Mar Nou F-2026-0277.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 22/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-23T01:41:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-22 Cierre TPV 1.812,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 23/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-24T01:48:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-23 Cierre TPV 1.236,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8406",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8406 de fecha 24/08/2026.\nImporte: 401,61 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-08-24T08:48:00",
+  "adjuntos": [
+   "facturas/2026-08-24 Carnes Vallès C-8406.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 25/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-26T01:02:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-25 Cierre TPV 760,40.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-08-26T08:02:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-08-26 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 26/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-27T01:09:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-26 Cierre TPV 891,70.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0278",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0278 de fecha 27/08/2026.\nImporte: 274,30 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-27T08:09:00",
+  "adjuntos": [
+   "facturas/2026-08-27 Pescados Mar Nou F-2026-0278.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Farmacia Sant Jaume",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-08-27T13:09:00",
+  "adjuntos": [
+   "tickets/2026-08-27 Farmacia Sant Jaume 11,20.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "Tomás Bru",
+  "alias": "cliente",
+  "asunto": "Horario de cocina",
+  "cuerpo": "¿Hasta qué hora está abierta la cocina los domingos? Tomás",
+  "fecha": "2026-08-27T16:09:00",
+  "adjuntos": [],
+  "tipo_esperado": "consulta"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 27/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-28T01:16:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-27 Cierre TPV 1.017,10.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 28/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-29T01:23:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-28 Cierre TPV 1.203,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0279",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0279 de fecha 29/08/2026.\nImporte: 257,94 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-08-29T08:23:00",
+  "adjuntos": [
+   "facturas/2026-08-29 Pescados Mar Nou F-2026-0279.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Delivery Rápido",
+  "alias": "cliente",
+  "asunto": "Únete a nuestra plataforma de reparto",
+  "cuerpo": "Únete a nuestra plataforma de reparto. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-08-29T11:23:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 29/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-30T01:30:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-29 Cierre TPV 1.631,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 30/08/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-08-31T01:37:00",
+  "adjuntos": [
+   "cierres_tpv/2026-08-30 Cierre TPV 1.150,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8407",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8407 de fecha 31/08/2026.\nImporte: 402,71 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-08-31T08:37:00",
+  "adjuntos": [
+   "facturas/2026-08-31 Carnes Vallès C-8407.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Forn de Pa Sant Jaume",
+  "alias": "proveedor",
+  "asunto": "Factura FP-8",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura FP-8 de fecha 31/08/2026.\nImporte: 269,36 €.\n\n--\nForn de Pa Sant Jaume\nC/ Sant Jaume, 3 · 08002 Barcelona\nTel. 93 000 78 90 · forn@santjaume.example\nCIF B-00000005",
+  "fecha": "2026-08-31T08:37:00",
+  "adjuntos": [
+   "facturas/2026-08-31 Forn de Pa Sant Jaume FP-8.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Fincas Ronda",
+  "alias": "proveedor",
+  "asunto": "Factura A-10",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura A-10 de fecha 01/09/2026.\nImporte: 2.420,00 €.\n\n--\nFincas Ronda\nRonda de l'Exemple, 20 · Barcelona\nTel. 93 000 11 22 · admin@fincasronda.example\nCIF B-00000006",
+  "fecha": "2026-09-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-09-01 Fincas Ronda A-10.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Seguros Previsora",
+  "alias": "proveedor",
+  "asunto": "Factura SP-26-1043",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura SP-26-1043 de fecha 01/09/2026.\nImporte: 186,40 €.\n\n--\nSeguros Previsora\nPg. de l'Exemple, 100 · Barcelona\nTel. 93 000 33 44 · clientes@previsora.example\nCIF A-00000007",
+  "fecha": "2026-09-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-09-01 Seguros Previsora SP-26-1043.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 01/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-02T01:14:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-01 Cierre TPV 699,40.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-09-02T08:14:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-09-02 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Vins i Cafès Roca",
+  "alias": "proveedor",
+  "asunto": "Factura VR-1123",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura VR-1123 de fecha 02/09/2026.\nImporte: 262,68 €.\n\n--\nVins i Cafès Roca\nC/ del Vi, 8 · 08003 Barcelona\nTel. 93 000 44 55 · pedidos@vinsroca.example\nCIF B-00000008",
+  "fecha": "2026-09-02T08:14:00",
+  "adjuntos": [
+   "facturas/2026-09-02 Vins i Cafès Roca VR-1123.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Gestoría Albà",
+  "alias": "gestoria",
+  "asunto": "Nóminas de agosto",
+  "cuerpo": "Hola,\n\nOs adjunto las nóminas de agosto. El total líquido a transferir es de 5.728,10 € y la Seguridad Social se cargará a final del mes que viene.\n\nUn saludo,\nGestoría Albà (inventada)",
+  "fecha": "2026-09-02T10:14:00",
+  "adjuntos": [
+   "nominas/2026-08-31 Nomina Laura Puig 2.432,75.pdf",
+   "nominas/2026-08-31 Nomina Óscar Martín 2.104,00.pdf",
+   "nominas/2026-08-31 Nomina Rosa Ferrer 2.630,00.pdf",
+   "nominas/2026-08-31 Nomina Iván López 2.209,20.pdf"
+  ],
+  "tipo_esperado": "nomina"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 02/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-03T01:21:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-02 Cierre TPV 779,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0280",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0280 de fecha 03/09/2026.\nImporte: 258,43 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-03T08:21:00",
+  "adjuntos": [
+   "facturas/2026-09-03 Pescados Mar Nou F-2026-0280.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Nerea Gil",
+  "alias": "cliente",
+  "asunto": "Pago con tarjeta de comida",
+  "cuerpo": "Hola, ¿aceptáis tarjetas restaurante (tipo cheque comida)? Nerea",
+  "fecha": "2026-09-03T12:21:00",
+  "adjuntos": [],
+  "tipo_esperado": "consulta"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 03/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-04T01:28:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-03 Cierre TPV 816,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 04/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-05T01:35:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-04 Cierre TPV 1.164,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Endesa",
+  "alias": "proveedor",
+  "asunto": "Factura LZ-77120",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura LZ-77120 de fecha 05/09/2026.\nImporte: 734,91 €.\n\n--\nEndesa · Atención a empresas\nfacturas@luz.example",
+  "fecha": "2026-09-05T08:35:00",
+  "adjuntos": [
+   "facturas/2026-09-05 Endesa LZ-77120.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0281",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0281 de fecha 05/09/2026.\nImporte: 242,97 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-05T08:35:00",
+  "adjuntos": [
+   "facturas/2026-09-05 Pescados Mar Nou F-2026-0281.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 05/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-06T01:42:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-05 Cierre TPV 1.447,10.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Naturgy",
+  "alias": "proveedor",
+  "asunto": "Factura NG-55102",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura NG-55102 de fecha 06/09/2026.\nImporte: 418,30 €.\n\n--\nNaturgy · Atención a empresas\nfacturas@gas.example",
+  "fecha": "2026-09-06T08:42:00",
+  "adjuntos": [
+   "facturas/2026-09-06 Naturgy NG-55102.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Uniformes Pro",
+  "alias": "cliente",
+  "asunto": "Uniformes de cocina desde 9,90 €",
+  "cuerpo": "Uniformes de cocina desde 9,90 €. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-09-06T11:42:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 06/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-07T01:49:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-06 Cierre TPV 1.063,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2104",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura BS-2104 de fecha 07/09/2026.\nImporte: 665,35 €.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "fecha": "2026-09-07T08:49:00",
+  "adjuntos": [
+   "facturas/2026-09-07 Bebidas Sol BS-2104.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8408",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8408 de fecha 07/09/2026.\nImporte: 411,27 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-09-07T08:49:00",
+  "adjuntos": [
+   "facturas/2026-09-07 Carnes Vallès C-8408.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 08/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-09T01:03:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-08 Cierre TPV 698,40.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-09-09T08:03:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-09-09 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Mercat de la Boqueria",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-09T13:03:00",
+  "adjuntos": [
+   "tickets/2026-09-09 Mercat de la Boqueria 10,50.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 09/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-10T01:10:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-09 Cierre TPV 773,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0282",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0282 de fecha 10/09/2026.\nImporte: 280,17 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-10T08:10:00",
+  "adjuntos": [
+   "facturas/2026-09-10 Pescados Mar Nou F-2026-0282.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Hielo Cubitos BCN",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-10T13:10:00",
+  "adjuntos": [
+   "tickets/2026-09-10 Hielo Cubitos BCN 18,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 10/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-11T01:17:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-10 Cierre TPV 889,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 11/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-12T01:24:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-11 Cierre TPV 1.327,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0283",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0283 de fecha 12/09/2026.\nImporte: 266,89 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-12T08:24:00",
+  "adjuntos": [
+   "facturas/2026-09-12 Pescados Mar Nou F-2026-0283.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Ferretería Sant Pere",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-12T13:24:00",
+  "adjuntos": [
+   "tickets/2026-09-12 Ferretería Sant Pere 35,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 12/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-13T01:31:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-12 Cierre TPV 1.468,70.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 13/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-14T01:38:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-13 Cierre TPV 1.127,70.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8409",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8409 de fecha 14/09/2026.\nImporte: 410,50 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-09-14T08:38:00",
+  "adjuntos": [
+   "facturas/2026-09-14 Carnes Vallès C-8409.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Software TPV Plus",
+  "alias": "cliente",
+  "asunto": "Cambia de TPV y llévate la impresora gratis",
+  "cuerpo": "Cambia de TPV y llévate la impresora gratis. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-09-14T11:38:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "Distribuciones Olivé",
+  "alias": "proveedor",
+  "asunto": "Factura DO-892",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura DO-892 de fecha 15/09/2026.\nImporte: 873,43 €.\n\n--\nDistribuciones Olivé\nAv. de l'Exemple, 40 · Badalona\nTel. 93 000 66 77 · olive@distribuciones.example\nCIF B-00000009",
+  "fecha": "2026-09-15T08:45:00",
+  "adjuntos": [
+   "facturas/2026-09-15 Distribuciones Olivé DO-892.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Neteges Brillant",
+  "alias": "proveedor",
+  "asunto": "Factura NB-412",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura NB-412 de fecha 15/09/2026.\nImporte: 96,80 €.\n\n--\nNeteges Brillant\nC/ de la Neteja, 5 · Barcelona\nTel. 93 000 88 99 · neteges@brillant.example\nCIF B-00000010",
+  "fecha": "2026-09-15T08:45:00",
+  "adjuntos": [
+   "facturas/2026-09-15 Neteges Brillant NB-412.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 15/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-16T01:52:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-15 Cierre TPV 700,90.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-09-16T08:52:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-09-16 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Vins i Cafès Roca",
+  "alias": "proveedor",
+  "asunto": "Factura VR-1124",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura VR-1124 de fecha 16/09/2026.\nImporte: 262,68 €.\n\n--\nVins i Cafès Roca\nC/ del Vi, 8 · 08003 Barcelona\nTel. 93 000 44 55 · pedidos@vinsroca.example\nCIF B-00000008",
+  "fecha": "2026-09-16T08:52:00",
+  "adjuntos": [
+   "facturas/2026-09-16 Vins i Cafès Roca VR-1124.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Makro",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-16T13:52:00",
+  "adjuntos": [
+   "tickets/2026-09-16 Makro 27,30.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 16/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-17T01:59:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-16 Cierre TPV 746,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0284",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0284 de fecha 17/09/2026.\nImporte: 260,37 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-17T08:59:00",
+  "adjuntos": [
+   "facturas/2026-09-17 Pescados Mar Nou F-2026-0284.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Parking Catedral",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-17T13:59:00",
+  "adjuntos": [
+   "tickets/2026-09-17 Parking Catedral 12,50.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 17/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-18T01:06:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-17 Cierre TPV 782,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Farmacia Sant Jaume",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-18T13:06:00",
+  "adjuntos": [
+   "tickets/2026-09-18 Farmacia Sant Jaume 11,20.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "Julia Fernández",
+  "alias": "cliente",
+  "asunto": "¿Tenéis opciones sin gluten?",
+  "cuerpo": "Hola, mi hija es celíaca. ¿Qué platos de la carta puede comer? Gracias, Julia",
+  "fecha": "2026-09-18T17:06:00",
+  "adjuntos": [],
+  "tipo_esperado": "consulta"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 18/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-19T01:13:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-18 Cierre TPV 1.165,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0285",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0285 de fecha 19/09/2026.\nImporte: 240,69 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-19T08:13:00",
+  "adjuntos": [
+   "facturas/2026-09-19 Pescados Mar Nou F-2026-0285.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 19/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-20T01:20:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-19 Cierre TPV 1.321,10.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 20/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-21T01:27:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-20 Cierre TPV 1.120,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2105",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura BS-2105 de fecha 21/09/2026.\nImporte: 665,35 €.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "fecha": "2026-09-21T08:27:00",
+  "adjuntos": [
+   "facturas/2026-09-21 Bebidas Sol BS-2105.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8410",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8410 de fecha 21/09/2026.\nImporte: 425,28 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-09-21T08:27:00",
+  "adjuntos": [
+   "facturas/2026-09-21 Carnes Vallès C-8410.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Feria Alimentaria",
+  "alias": "cliente",
+  "asunto": "Invitación a la feria del sector",
+  "cuerpo": "Invitación a la feria del sector. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-09-22T11:34:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Mercat de la Boqueria",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-22T13:34:00",
+  "adjuntos": [
+   "tickets/2026-09-22 Mercat de la Boqueria 10,50.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 22/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-23T01:41:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-22 Cierre TPV 640,40.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-09-23T08:41:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-09-23 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Hielo Cubitos BCN",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-23T13:41:00",
+  "adjuntos": [
+   "tickets/2026-09-23 Hielo Cubitos BCN 18,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 23/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-24T01:48:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-23 Cierre TPV 745,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0286",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0286 de fecha 24/09/2026.\nImporte: 276,21 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-24T08:48:00",
+  "adjuntos": [
+   "facturas/2026-09-24 Pescados Mar Nou F-2026-0286.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 24/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-25T01:55:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-24 Cierre TPV 969,10.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 25/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-26T01:02:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-25 Cierre TPV 1.235,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0287",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0287 de fecha 26/09/2026.\nImporte: 254,62 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-09-26T08:02:00",
+  "adjuntos": [
+   "facturas/2026-09-26 Pescados Mar Nou F-2026-0287.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Ferretería Sant Pere",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-26T13:02:00",
+  "adjuntos": [
+   "tickets/2026-09-26 Ferretería Sant Pere 36,25.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 26/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-27T01:09:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-26 Cierre TPV 1.654,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Makro",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-27T13:09:00",
+  "adjuntos": [
+   "tickets/2026-09-27 Makro 24,70.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 27/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-28T01:16:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-27 Cierre TPV 1.270,00.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8411",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8411 de fecha 28/09/2026.\nImporte: 418,15 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-09-28T08:16:00",
+  "adjuntos": [
+   "facturas/2026-09-28 Carnes Vallès C-8411.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Parking Catedral",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-09-29T13:23:00",
+  "adjuntos": [
+   "tickets/2026-09-29 Parking Catedral 12,50.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 29/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-09-30T01:30:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-29 Cierre TPV 614,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Forn de Pa Sant Jaume",
+  "alias": "proveedor",
+  "asunto": "Factura FP-9",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura FP-9 de fecha 30/09/2026.\nImporte: 269,36 €.\n\n--\nForn de Pa Sant Jaume\nC/ Sant Jaume, 3 · 08002 Barcelona\nTel. 93 000 78 90 · forn@santjaume.example\nCIF B-00000005",
+  "fecha": "2026-09-30T08:30:00",
+  "adjuntos": [
+   "facturas/2026-09-30 Forn de Pa Sant Jaume FP-9.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-09-30T08:30:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-09-30 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Ana Morales",
+  "alias": "cliente",
+  "asunto": "Reserva cena",
+  "cuerpo": "Hola, ¿tenéis mesa para 3 personas el sábado 3 de octubre a las 22:00? Ana",
+  "fecha": "2026-09-30T09:30:00",
+  "adjuntos": [],
+  "tipo_esperado": "reserva"
+ },
+ {
+  "de_nombre": "Café Premium",
+  "alias": "cliente",
+  "asunto": "Prueba nuestro café de especialidad gratis",
+  "cuerpo": "Prueba nuestro café de especialidad gratis. Escríbenos para más información. Para darte de baja, responde BAJA.",
+  "fecha": "2026-09-30T11:30:00",
+  "adjuntos": [],
+  "tipo_esperado": "publicidad"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 30/09/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-01T01:07:00",
+  "adjuntos": [
+   "cierres_tpv/2026-09-30 Cierre TPV 754,40.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Fincas Ronda",
+  "alias": "proveedor",
+  "asunto": "Factura A-11",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura A-11 de fecha 01/10/2026.\nImporte: 2.420,00 €.\n\n--\nFincas Ronda\nRonda de l'Exemple, 20 · Barcelona\nTel. 93 000 11 22 · admin@fincasronda.example\nCIF B-00000006",
+  "fecha": "2026-10-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-10-01 Fincas Ronda A-11.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0288",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0288 de fecha 01/10/2026.\nImporte: 286,68 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-10-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-10-01 Pescados Mar Nou F-2026-0288.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Seguros Previsora",
+  "alias": "proveedor",
+  "asunto": "Factura SP-26-1044",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura SP-26-1044 de fecha 01/10/2026.\nImporte: 186,40 €.\n\n--\nSeguros Previsora\nPg. de l'Exemple, 100 · Barcelona\nTel. 93 000 33 44 · clientes@previsora.example\nCIF A-00000007",
+  "fecha": "2026-10-01T08:07:00",
+  "adjuntos": [
+   "facturas/2026-10-01 Seguros Previsora SP-26-1044.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Farmacia Sant Jaume",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-10-01T13:07:00",
+  "adjuntos": [
+   "tickets/2026-10-01 Farmacia Sant Jaume 11,20.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 01/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-02T01:14:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-01 Cierre TPV 833,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Vins i Cafès Roca",
+  "alias": "proveedor",
+  "asunto": "Factura VR-1125",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura VR-1125 de fecha 02/10/2026.\nImporte: 262,68 €.\n\n--\nVins i Cafès Roca\nC/ del Vi, 8 · 08003 Barcelona\nTel. 93 000 44 55 · pedidos@vinsroca.example\nCIF B-00000008",
+  "fecha": "2026-10-02T08:14:00",
+  "adjuntos": [
+   "facturas/2026-10-02 Vins i Cafès Roca VR-1125.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Gestoría Albà",
+  "alias": "gestoria",
+  "asunto": "Nóminas de septiembre",
+  "cuerpo": "Hola,\n\nOs adjunto las nóminas de septiembre. El total líquido a transferir es de 5.652,05 € y la Seguridad Social se cargará a final del mes que viene.\n\nUn saludo,\nGestoría Albà (inventada)",
+  "fecha": "2026-10-02T10:14:00",
+  "adjuntos": [
+   "nominas/2026-09-30 Nomina Laura Puig 2.301,25.pdf",
+   "nominas/2026-09-30 Nomina Óscar Martín 2.104,00.pdf",
+   "nominas/2026-09-30 Nomina Rosa Ferrer 2.630,00.pdf",
+   "nominas/2026-09-30 Nomina Iván López 2.209,20.pdf"
+  ],
+  "tipo_esperado": "nomina"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 02/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-03T01:21:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-02 Cierre TPV 1.123,50.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0289",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0289 de fecha 03/10/2026.\nImporte: 258,90 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-10-03T08:21:00",
+  "adjuntos": [
+   "facturas/2026-10-03 Pescados Mar Nou F-2026-0289.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 03/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-04T01:28:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-03 Cierre TPV 1.433,90.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Jordi Ribas",
+  "alias": "cliente",
+  "asunto": "Esperamos 50 minutos el segundo plato",
+  "cuerpo": "Estuvimos el sábado por la noche y esperamos 50 minutos el segundo plato sin que nadie nos dijera nada. La comida buena, pero así no se puede. Jordi Ribas",
+  "fecha": "2026-10-04T13:28:00",
+  "adjuntos": [],
+  "tipo_esperado": "queja"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 04/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-05T01:35:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-04 Cierre TPV 1.120,60.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "Factura C-8412",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura C-8412 de fecha 05/10/2026.\nImporte: 446,38 €.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-10-05T08:35:00",
+  "adjuntos": [
+   "facturas/2026-10-05 Carnes Vallès C-8412.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Endesa",
+  "alias": "proveedor",
+  "asunto": "Factura LZ-77121",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura LZ-77121 de fecha 05/10/2026.\nImporte: 734,89 €.\n\n--\nEndesa · Atención a empresas\nfacturas@luz.example",
+  "fecha": "2026-10-05T08:35:00",
+  "adjuntos": [
+   "facturas/2026-10-05 Endesa LZ-77121.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Naturgy",
+  "alias": "proveedor",
+  "asunto": "Factura NG-55103",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura NG-55103 de fecha 06/10/2026.\nImporte: 418,30 €.\n\n--\nNaturgy · Atención a empresas\nfacturas@gas.example",
+  "fecha": "2026-10-06T08:42:00",
+  "adjuntos": [
+   "facturas/2026-10-06 Naturgy NG-55103.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Carlos Ruiz",
+  "alias": "cliente",
+  "asunto": "Reserva domingo",
+  "cuerpo": "Buenas, mesa para 4 el domingo 18 a las 14:30, con una trona para un bebé si puede ser. Carlos",
+  "fecha": "2026-10-06T15:42:00",
+  "adjuntos": [],
+  "tipo_esperado": "reserva"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 06/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-07T01:49:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-06 Cierre TPV 729,90.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Bebidas Sol",
+  "alias": "proveedor",
+  "asunto": "Factura BS-2106",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura BS-2106 de fecha 07/10/2026.\nImporte: 665,35 €.\n\n--\nBebidas Sol\nPol. Ind. Exemple, nave 3 · L'Hospitalet\nTel. 93 000 90 12 · comercial@bebidassol.example\nCIF B-00000003",
+  "fecha": "2026-10-07T08:49:00",
+  "adjuntos": [
+   "facturas/2026-10-07 Bebidas Sol BS-2106.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Hortalizas del Prat",
+  "alias": "proveedor",
+  "asunto": "Factura semana",
+  "cuerpo": "Hola,\n\nOs paso foto de la factura de esta semana.\n\n--\nHortalizas del Prat\nCamí de l'Horta, s/n · El Prat de Llobregat\nTel. 93 000 34 56 · hortalizasprat@ejemplo.example\nCIF B-00000004",
+  "fecha": "2026-10-07T08:49:00",
+  "adjuntos": [
+   "facturas_escaneadas/2026-10-07 Hortalizas del Prat.jpg"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 07/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-08T01:56:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-07 Cierre TPV 688,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0290",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0290 de fecha 08/10/2026.\nImporte: 272,33 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-10-08T08:56:00",
+  "adjuntos": [
+   "facturas/2026-10-08 Pescados Mar Nou F-2026-0290.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Laia Vidal",
+  "alias": "cliente",
+  "asunto": "Comida de empresa",
+  "cuerpo": "Hola, somos 14 compañeros de trabajo y buscamos sitio para comer el jueves 22 de octubre a las 14:00. ¿Tenéis menú para grupos? Laia",
+  "fecha": "2026-10-08T17:56:00",
+  "adjuntos": [],
+  "tipo_esperado": "reserva"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 08/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-09T01:03:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-08 Cierre TPV 794,30.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Carnes Vallès",
+  "alias": "proveedor",
+  "asunto": "RV: Factura C-8412",
+  "cuerpo": "Buenos días,\n\nOs reenvío la factura C-8412 por si no os llegó.\n\n--\nCarnes Vallès\nC/ de l'Exemple, 12 · 08014 Barcelona\nTel. 93 000 12 34 · pedidos@carnesvalles.example\nCIF B-00000001",
+  "fecha": "2026-10-09T08:03:00",
+  "adjuntos": [
+   "facturas/2026-10-05 Carnes Vallès C-8412 reenvio.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Pere Soler",
+  "alias": "cliente",
+  "asunto": "Mesa para dos el viernes",
+  "cuerpo": "Bon dia, voldria reservar per a dues persones divendres 16 a les 21:00. Gràcies! Pere",
+  "fecha": "2026-10-09T18:03:00",
+  "adjuntos": [],
+  "tipo_esperado": "reserva"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 09/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-10T01:10:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-09 Cierre TPV 1.336,80.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ },
+ {
+  "de_nombre": "Pescados Mar Nou",
+  "alias": "proveedor",
+  "asunto": "Factura F-2026-0291",
+  "cuerpo": "Buenos días,\n\nAdjuntamos la factura F-2026-0291 de fecha 10/10/2026.\nImporte: 254,14 €.\n\n--\nPescados Mar Nou\nMercabarna, pabellón de pescado, parada 0 (ejemplo)\nTel. 93 000 56 78 · pedidos@marnou.example\nCIF B-00000002",
+  "fecha": "2026-10-10T08:10:00",
+  "adjuntos": [
+   "facturas/2026-10-10 Pescados Mar Nou F-2026-0291.pdf"
+  ],
+  "tipo_esperado": "factura"
+ },
+ {
+  "de_nombre": "Marta García",
+  "alias": "cliente",
+  "asunto": "Reserva para el sábado, 8 personas",
+  "cuerpo": "Hola, queríamos reservar mesa para 8 personas este sábado 17 de octubre a las 21:30. Somos un cumpleaños, ¿podría ser en la planta de arriba? Gracias, Marta.",
+  "fecha": "2026-10-10T09:10:00",
+  "adjuntos": [],
+  "tipo_esperado": "reserva"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Hielo Cubitos BCN",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-10-10T13:10:00",
+  "adjuntos": [
+   "tickets/2026-10-10 Hielo Cubitos BCN 18,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "Oficina La Plaza",
+  "alias": "oficina",
+  "asunto": "Ticket Mercat de la Boqueria",
+  "cuerpo": "Foto del ticket de hoy.\n\nMarta (oficina)",
+  "fecha": "2026-10-10T13:10:00",
+  "adjuntos": [
+   "tickets/2026-10-10 Mercat de la Boqueria 15,00.jpg"
+  ],
+  "tipo_esperado": "gasto"
+ },
+ {
+  "de_nombre": "TPV La Plaza",
+  "alias": "restaurante",
+  "asunto": "Cierre de caja 10/10/2026",
+  "cuerpo": "Informe Z adjunto (envío automático del TPV).",
+  "fecha": "2026-10-11T01:17:00",
+  "adjuntos": [
+   "cierres_tpv/2026-10-10 Cierre TPV 1.478,20.pdf"
+  ],
+  "tipo_esperado": "cierre"
+ }
+]
