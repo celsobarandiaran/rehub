@@ -1,0 +1,894 @@
+{
+"foto:1de7fb6fff2778d1c8c20a1caa06a30dd52d00309d000a04d527d0a827393899": {
+"base": 96.11,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-09-02",
+"iva": 3.84,
+"lineas": [
+{
+"cantidad": 11.9,
+"descripcion": "Tomate maduro",
+"importe": 17.25,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 5.5,
+"descripcion": "Cebolla seca",
+"importe": 4.67,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 44.9,
+"descripcion": "Patata",
+"importe": 42.65,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.4,
+"descripcion": "Pimiento rojo",
+"importe": 10.88,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.1,
+"descripcion": "Limón",
+"importe": 3.36,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 0.9,
+"descripcion": "Calabacín",
+"importe": 1.17,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-306",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 99.95
+},
+"foto:2463d544a27aad5348c18f94f0bd4c984e07c98466cc10cadce123170fcf6039": {
+"base": 95.42,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-08-26",
+"iva": 3.82,
+"lineas": [
+{
+"cantidad": 14.3,
+"descripcion": "Tomate maduro",
+"importe": 20.73,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 4.9,
+"descripcion": "Cebolla seca",
+"importe": 4.17,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 38.4,
+"descripcion": "Patata",
+"importe": 36.48,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 4.1,
+"descripcion": "Pimiento rojo",
+"importe": 13.12,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.1,
+"descripcion": "Limón",
+"importe": 3.36,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.1,
+"descripcion": "Calabacín",
+"importe": 1.43,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-305",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 99.24
+},
+"foto:3fa9caa812497243b56fdadae9c665c48d55c8abb4ae81dbd02e75b755e827e6": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "MERCAT DE LA BOQUERIA",
+"dudas": [],
+"fecha": "2026-08-01",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1,
+"descripcion": "Hierbas frescas",
+"importe": 6.0,
+"precio_unitario": 6.0,
+"unidad": null
+},
+{
+"cantidad": 1,
+"descripcion": "Fresas",
+"importe": 18.0,
+"precio_unitario": 18.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T75758",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 24.0
+},
+"foto:3fd53934fd3ad50d21d3406d4391f13b6c10ae5632572a852ebbe23b2bc75e13": {
+"base": 92.49,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-09-16",
+"iva": 3.7,
+"lineas": [
+{
+"cantidad": 13.1,
+"descripcion": "Tomate maduro",
+"importe": 18.99,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 5.6,
+"descripcion": "Cebolla seca",
+"importe": 4.76,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 36.9,
+"descripcion": "Patata",
+"importe": 35.05,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.9,
+"descripcion": "Pimiento rojo",
+"importe": 12.48,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.2,
+"descripcion": "Limón",
+"importe": 3.52,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.2,
+"descripcion": "Calabacín",
+"importe": 1.56,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-308",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 96.19
+},
+"foto:5db52cee0f0aa8bd322380a1be875329935a61fd347f55efdf0a6f0f47762faf": {
+"base": 93.51,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [
+"El número de factura está parcialmente pixelado/borroso"
+],
+"fecha": "2026-10-07",
+"iva": 3.74,
+"lineas": [
+{
+"cantidad": 12.7,
+"descripcion": "Tomate maduro",
+"importe": 18.41,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 4.9,
+"descripcion": "Cebolla seca",
+"importe": 4.17,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 39.1,
+"descripcion": "Patata",
+"importe": 37.15,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 4.1,
+"descripcion": "Pimiento rojo",
+"importe": 13.12,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.1,
+"descripcion": "Limón",
+"importe": 3.36,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 0.9,
+"descripcion": "Calabacín",
+"importe": 1.17,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": null,
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 97.25
+},
+"foto:60c7d6a31e80ee19da17ad53f29ee7abe6a1e9c81b0c6638da367ef28c182a31": {
+"base": 89.22,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-08-05",
+"iva": 3.57,
+"lineas": [
+{
+"cantidad": 14.4,
+"descripcion": "Tomate maduro",
+"importe": 20.88,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 5,
+"descripcion": "Cebolla seca",
+"importe": 4.25,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 34.3,
+"descripcion": "Patata",
+"importe": 32.58,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.3,
+"descripcion": "Pimiento rojo",
+"importe": 10.56,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.2,
+"descripcion": "Limón",
+"importe": 3.52,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoĵo"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1,
+"descripcion": "Calabacín",
+"importe": 1.3,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-302",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 92.79
+},
+"foto:65e2ee4119230e57054175aa2e0111de9444e4b636c3364f849ebbb17617a1cf": {
+"base": 98.28,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-08-19",
+"iva": 3.93,
+"lineas": [
+{
+"cantidad": 12.9,
+"descripcion": "Tomate maduro",
+"importe": 18.7,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 4.6,
+"descripcion": "Cebolla seca",
+"importe": 3.91,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 45.2,
+"descripcion": "Patata",
+"importe": 42.94,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.7,
+"descripcion": "Pimiento rojo",
+"importe": 11.84,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.0,
+"descripcion": "Limón",
+"importe": 3.2,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.2,
+"descripcion": "Calabacín",
+"importe": 1.56,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-304",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 102.21
+},
+"foto:81cdf12e45068294acca8a8ac9d78ac1782d84382dd458d7bd83bd361da944b9": {
+"base": 97.18,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-08-12",
+"iva": 3.89,
+"lineas": [
+{
+"cantidad": 12.5,
+"descripcion": "Tomate maduro",
+"importe": 18.12,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 4.7,
+"descripcion": "Cebolla seca",
+"importe": 4.0,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 44.5,
+"descripcion": "Patata",
+"importe": 42.27,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.9,
+"descripcion": "Pimiento rojo",
+"importe": 12.48,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 1.8,
+"descripcion": "Limón",
+"importe": 2.88,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Calabacín",
+"importe": 1.3,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-303",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 101.07
+},
+"foto:a6adbe6aa8df178f8b58e50a865c1c718245ac68f2922fee7006f0a2a52d9d5f": {
+"base": 93.02,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-09-30",
+"iva": 3.72,
+"lineas": [
+{
+"cantidad": 12.1,
+"descripcion": "Tomate maduro",
+"importe": 17.54,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 5.7,
+"descripcion": "Cebolla seca",
+"importe": 4.84,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 39.2,
+"descripcion": "Patata",
+"importe": 37.24,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Pimiento rojo",
+"importe": 12.8,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 1.9,
+"descripcion": "Limón",
+"importe": 3.04,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoja"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.1,
+"descripcion": "Calabacín",
+"importe": 1.43,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-310",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 96.74
+},
+"foto:f56f6566eeac9296296f1c53652cf6a58c847edde480cc17347c020fad63210f": {
+"base": 97.65,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-09-09",
+"iva": 3.91,
+"lineas": [
+{
+"cantidad": 13.5,
+"descripcion": "Tomate maduro",
+"importe": 19.57,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 4.8,
+"descripcion": "Cebolla seca",
+"importe": 4.08,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 41.9,
+"descripcion": "Patata",
+"importe": 39.8,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 4.1,
+"descripcion": "Pimiento rojo",
+"importe": 13.12,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 2.2,
+"descripcion": "Limón",
+"importe": 3.52,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manojo"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.1,
+"descripcion": "Calabacín",
+"importe": 1.43,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-307",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 101.56
+},
+"foto:fbf37b4e53bfb6ebe01f869ed6c48b8a41701c7598f582e2e39e70c49ae3b2e2": {
+"base": 88.68,
+"caducidad": null,
+"comercio_o_proveedor": "HORTALIZAS DEL PRAT",
+"dudas": [],
+"fecha": "2026-09-23",
+"iva": 3.55,
+"lineas": [
+{
+"cantidad": 11.9,
+"descripcion": "Tomate maduro",
+"importe": 17.25,
+"precio_unitario": 1.45,
+"unidad": "kg"
+},
+{
+"cantidad": 5.7,
+"descripcion": "Cebolla seca",
+"importe": 4.84,
+"precio_unitario": 0.85,
+"unidad": "kg"
+},
+{
+"cantidad": 37.3,
+"descripcion": "Patata",
+"importe": 35.43,
+"precio_unitario": 0.95,
+"unidad": "kg"
+},
+{
+"cantidad": 3.3,
+"descripcion": "Pimiento rojo",
+"importe": 10.56,
+"precio_unitario": 3.2,
+"unidad": "kg"
+},
+{
+"cantidad": 1.9,
+"descripcion": "Limón",
+"importe": 3.04,
+"precio_unitario": 1.6,
+"unidad": "kg"
+},
+{
+"cantidad": 10.0,
+"descripcion": "Lechuga",
+"importe": 7.0,
+"precio_unitario": 0.7,
+"unidad": "ud"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Ajo",
+"importe": 4.2,
+"precio_unitario": 4.2,
+"unidad": "kg"
+},
+{
+"cantidad": 4.0,
+"descripcion": "Perejil",
+"importe": 2.08,
+"precio_unitario": 0.52,
+"unidad": "manoje"
+},
+{
+"cantidad": 0.3,
+"descripcion": "Rúcula",
+"importe": 2.85,
+"precio_unitario": 9.5,
+"unidad": "kg"
+},
+{
+"cantidad": 1.1,
+"descripcion": "Calabacín",
+"importe": 1.43,
+"precio_unitario": 1.3,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "HP-309",
+"peso_kg": null,
+"producto": null,
+"tipo": "factura",
+"total": 92.23
+}
+}

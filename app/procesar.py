@@ -10,7 +10,7 @@ from datetime import date, datetime, timedelta
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from . import almacen, ia, lectura
+from . import almacen, cache_ia, ia, lectura
 from .db import (Aviso, Cierre, Correo, Documento, Empleado, Entrada, LineaDocumento, Plato, Producto, Proveedor)
 
 VIDA_DIAS = {"pescado": 2, "carne": 6, "verdura": 6, "lacteo": 7, "pan": 2, "seco": 180, "bebida": 365, "congelado": 90}
@@ -111,13 +111,19 @@ ESQUEMA_CLIENTE = {"type": "OBJECT", "properties": {
 
 def entender_cliente(asunto: str, cuerpo: str, remitente: str, hoy: date, restaurante: str) -> dict:
     """Con IA: tipo de mensaje, datos de la reserva y respuesta propuesta. Sin IA: reglas y plantilla."""
+    clave = "correo:" + cache_ia.huella(f"{remitente}\n{asunto}\n{cuerpo}")
+    en_cache = cache_ia.buscar(clave)
+    if en_cache is not None:
+        return en_cache
     try:
-        return ia.preguntar_json(
+        r = ia.preguntar_json(
             f"Eres la oficina de {restaurante}. Hoy es {hoy.isoformat()}. Lee este correo de un cliente y devuelve JSON.\n"
             "Si es una reserva, saca fecha, hora y número de personas; la respuesta debe confirmar fecha, hora y personas "
             "(si falta algún dato, pídelo en la respuesta en vez de inventarlo). Si es una queja, pide disculpas sin excusas y ofrece algo sencillo. "
             "Si es una consulta, contesta solo con lo que se sabe y si no lo sabes di que lo consultas. Escribe en castellano, cercano y breve.\n\n"
             f"De: {remitente}\nAsunto: {asunto}\n\n{cuerpo}", ESQUEMA_CLIENTE)
+        cache_ia.guardar(clave, r)
+        return r
     except (ia.SinIA, ia.CuotaAgotada):
         cat = clasificar_texto(asunto, cuerpo)
         nombre = remitente.split()[0] if remitente else ""

@@ -13,7 +13,10 @@ import httpx
 from . import config
 
 MODELO = os.environ.get("GEMINI_MODEL", "gemini-flash-latest")
+# Si un modelo agota su tope gratuito del día, se prueba el siguiente (cada modelo tiene su propio tope).
+MODELOS = [m.strip() for m in os.environ.get("GEMINI_MODELOS", "").split(",") if m.strip()] or [MODELO, "gemini-flash-lite-latest"]
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+_agotados: dict[str, float] = {}  # modelo -> hora en que se agotó (se reintenta pasada una hora)
 
 
 class CuotaAgotada(Exception):
@@ -31,13 +34,26 @@ def disponible() -> bool:
 def _llamar(partes: list, esquema: dict | None, temperatura=0.1, reintentos=3) -> str:
     if not disponible():
         raise SinIA("Falta la clave de Gemini")
+    modelos = [MODELO] if MODELO not in MODELOS else []
+    modelos += MODELOS
+    for modelo in modelos:
+        if time.time() - _agotados.get(modelo, 0) < 3600:
+            continue
+        try:
+            return _llamar_modelo(modelo, partes, esquema, temperatura, reintentos)
+        except CuotaAgotada:
+            _agotados[modelo] = time.time()
+    raise CuotaAgotada("Tope de la IA gratuita alcanzado en todos los modelos")
+
+
+def _llamar_modelo(modelo: str, partes: list, esquema: dict | None, temperatura: float, reintentos: int) -> str:
     cuerpo = {"contents": [{"parts": partes}], "generationConfig": {"temperature": temperatura}}
     if esquema:
         cuerpo["generationConfig"].update({"responseMimeType": "application/json", "responseSchema": esquema})
     espera = 4
     for intento in range(reintentos):
         try:
-            r = httpx.post(URL.format(modelo=MODELO), params={"key": config.GEMINI_API_KEY}, json=cuerpo, timeout=httpx.Timeout(150, connect=20))
+            r = httpx.post(URL.format(modelo=modelo), params={"key": config.GEMINI_API_KEY}, json=cuerpo, timeout=httpx.Timeout(150, connect=20))
         except (httpx.TimeoutException, httpx.TransportError):
             # La IA tarda demasiado o se cae la conexión: se reintenta; si persiste, el documento sigue en cola.
             if intento == reintentos - 1:

@@ -9,7 +9,7 @@ from datetime import date
 
 from pypdf import PdfReader
 
-from . import ia
+from . import cache_ia, ia
 
 FECHA = r"(\d{2})/(\d{2})/(\d{4})"
 IMPORTE = r"(-?[\d.]+,\d{2})"
@@ -164,7 +164,11 @@ INSTRUCCIONES_FOTO = """Eres el lector de documentos de la oficina de un restaur
 
 
 def leer_foto(contenido: bytes, mime: str = "image/jpeg") -> dict:
-    d = ia.leer_imagen(contenido, mime, INSTRUCCIONES_FOTO, ESQUEMA_FOTO)
+    clave = "foto:" + cache_ia.huella(contenido)
+    d = cache_ia.buscar(clave)
+    if d is None:
+        d = ia.leer_imagen(contenido, mime, INSTRUCCIONES_FOTO, ESQUEMA_FOTO)
+        cache_ia.guardar(clave, d)
     revisar = list(d.get("dudas") or [])
     def f(x):
         try:
