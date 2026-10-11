@@ -7,3 +7,4 @@ itsdangerous
 python-multipart
 httpx
 pillow
+pypdf==6.20.0

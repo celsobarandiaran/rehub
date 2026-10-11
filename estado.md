@@ -35,6 +35,8 @@
   - En local se arranca con `.venv\Scripts\python.exe -u herramientas\iniciar_local.py` (puerto 8510, contraseña de prueba `rehub-local`). Para reiniciarlo hay que matar al proceso dueño del puerto 8510 (ver `/salud`: debe decir `"ia": true`).
   - Git instalado; historial local en `ReHub/.git`.
 
+- 11/10/2026: Cargar demo probada contra la base y el almacén de Frankfurt desde el PC: 72 días en 171 s (a toda velocidad), 70 facturas, 20 gastos, 12 nóminas, 61 cierres, 152 movimientos de banco, 4 documentos "revisar", 0 pendientes (las fotos salen de la caché de lecturas).
+
 ## Pendiente
 - Que Celso dé el "vale" a la maqueta (o pida cambios).
 - Cuentas: Gmail **laplazarehub@gmail.com** (sin punto; creada por Celso el 11/10/2026). Faltan: Google Cloud con esa cuenta, Hugging Face (clave "Write") y Supabase (clave de acceso). Las claves van en `C:\Users\celso\.rehub\claves.env` (HF_TOKEN, SUPABASE_TOKEN).
@@ -54,7 +56,9 @@
 ## Cosas creadas en la nube
 - 11/10/2026 · Hugging Face: cuenta `rehub-celso` y clave "rehub" (Write). No se usa (HF exige PRO para Docker). Borrar: https://huggingface.co/settings/tokens y https://huggingface.co/settings/account
 - 11/10/2026 · Supabase: organización "rehub", proyecto **rehub** (ref `zsqkrgwzcwruagwshnbn`, región eu-central-1 Frankfurt, plan Free) con la base de datos y el cubo privado "documentos". Creado por `herramientas/crear_supabase.py`. Lo borra Autodestruir por API; la cuenta se borra en https://supabase.com/dashboard/account/me
-- Claves (solo en `C:\Users\celso\.rehub\claves.env`, nunca en el código): HF_TOKEN, SUPABASE_TOKEN (caduca a los 90 días: 9/1/2027), SUPABASE_PROJECT_REF, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_DB_PASSWORD, DATABASE_URL, REHUB_CONTRASENA (la contraseña del dueño), REHUB_CLAVE_SESION.
+- 11/10/2026 · GitHub: repositorio público **celsobarandiaran/rehub** (https://github.com/celsobarandiaran/rehub), subido por `herramientas/publicar_github.py` con la clave "rehub" (classic, repo + delete_repo, caduca el 9/1/2027). Render despliega desde ahí. Borrar: Settings del repositorio → Delete this repository; la clave en https://github.com/settings/tokens
+- 11/10/2026 · Render: cuenta creada con el login de GitHub (celsobarandiaran), clave de API "rehub" (RENDER_API_KEY). Servicio web **rehub** (Docker, Frankfurt, plan Free) creado por `herramientas/desplegar_render.py` desde el repositorio de GitHub; cada `git push` a main redespliega solo. Autodestruir borra el servicio por API; la cuenta se borra en https://dashboard.render.com/u/settings (Delete Render Account).
+- Claves (solo en `C:\Users\celso\.rehub\claves.env`, nunca en el código): RENDER_API_KEY, RENDER_SERVICE_ID, REHUB_URL, GITHUB_TOKEN, HF_TOKEN, SUPABASE_TOKEN (caduca a los 90 días: 9/1/2027), SUPABASE_PROJECT_REF, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_DB_PASSWORD, DATABASE_URL, REHUB_CONTRASENA (la contraseña del dueño), REHUB_CLAVE_SESION.
 
 ## Cómo se usa, dirección web, despliegue y perfiles
 - Pendiente (sesiones 2 a 6).
