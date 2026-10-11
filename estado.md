@@ -42,7 +42,8 @@
 - Sesiones 2 a 6, según el plan.
 
 ## Decisiones
-- App: Hugging Face Spaces (gratis, sin tarjeta). Corre en EE. UU., su código es público y se duerme tras unas 48 h sin uso. Se mantendrá despierta con un aviso automático diario.
+- App: **Render** (gratis, sin tarjeta, región Frankfurt: la app corre en Europa). Se duerme a los 15 min sin uso y tarda ~1 min en despertar (página "despertando"). El código vive en un repositorio público de GitHub, de donde Render lo despliega. Cuentas del dueño: GitHub y Render (ambas con laplazarehub@gmail.com).
+  - Descartado el 11/10/2026: Hugging Face Spaces. Al crear el Space devolvió "402 Payment Required: hosting Gradio and Docker Spaces on free cpu-basic requires a PRO subscription". La cuenta rehub-celso y su clave (HF_TOKEN) existen pero no se usan; borrar al final.
 - Datos y archivos: Supabase, en Frankfurt.
 - IA: Gemini, con la clave de `~\.spotscout\claves.env`, guardada como variable de entorno del alojamiento. Los PDF con texto se leen sin IA, para no gastar el tope diario del plan gratuito.
 

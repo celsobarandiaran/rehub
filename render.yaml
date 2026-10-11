@@ -1,0 +1,37 @@
+# Plano de despliegue para Render (https://render.com). Plan gratuito, región Frankfurt (Europa).
+# Las claves NO van aquí: se ponen como variables de entorno del servicio en Render (sync: false).
+services:
+  - type: web
+    name: rehub
+    runtime: docker
+    region: frankfurt
+    plan: free
+    healthCheckPath: /salud
+    autoDeploy: true
+    envVars:
+      - key: REHUB_ENTORNO
+        value: nube
+      - key: REHUB_RESTAURANTE
+        value: Restaurante La Plaza
+      - key: REHUB_CONTRASENA
+        sync: false
+      - key: REHUB_CLAVE_SESION
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GMAIL_REFRESH_TOKEN
+        sync: false
+      - key: GMAIL_CUENTA
+        sync: false
