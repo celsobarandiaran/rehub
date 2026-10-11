@@ -248,7 +248,8 @@ def _crear_motor():
         return create_engine(url, poolclass=StaticPool, connect_args={"check_same_thread": False})
     if url.startswith("sqlite"):
         return create_engine(url, connect_args={"check_same_thread": False, "timeout": 30})
-    return create_engine(url, pool_pre_ping=True)
+    # Postgres de Supabase a través de su "pooler": sin sentencias preparadas (el pooler no las soporta bien).
+    return create_engine(url, pool_pre_ping=True, pool_size=3, max_overflow=2, pool_recycle=1800, connect_args={"prepare_threshold": None})
 
 
 motor = _crear_motor()

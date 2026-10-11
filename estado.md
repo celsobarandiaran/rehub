@@ -52,7 +52,9 @@
 - `ReHub/maqueta/index.html`
 
 ## Cosas creadas en la nube
-- Ninguna todavía.
+- 11/10/2026 · Hugging Face: cuenta `rehub-celso` y clave "rehub" (Write). No se usa (HF exige PRO para Docker). Borrar: https://huggingface.co/settings/tokens y https://huggingface.co/settings/account
+- 11/10/2026 · Supabase: organización "rehub", proyecto **rehub** (ref `zsqkrgwzcwruagwshnbn`, región eu-central-1 Frankfurt, plan Free) con la base de datos y el cubo privado "documentos". Creado por `herramientas/crear_supabase.py`. Lo borra Autodestruir por API; la cuenta se borra en https://supabase.com/dashboard/account/me
+- Claves (solo en `C:\Users\celso\.rehub\claves.env`, nunca en el código): HF_TOKEN, SUPABASE_TOKEN (caduca a los 90 días: 9/1/2027), SUPABASE_PROJECT_REF, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_DB_PASSWORD, DATABASE_URL, REHUB_CONTRASENA (la contraseña del dueño), REHUB_CLAVE_SESION.
 
 ## Cómo se usa, dirección web, despliegue y perfiles
 - Pendiente (sesiones 2 a 6).
