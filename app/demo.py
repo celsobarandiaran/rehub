@@ -32,6 +32,7 @@ class Estado:
         self.ia_pendientes = 0
         self.ia_estado = ""
         self.ia_ultimo = ""
+        self.gmail_estado = ""
         self.terminado = False
         self.error = ""
 
@@ -320,6 +321,62 @@ def cargar_banco(s, contenido: bytes, nombre="extracto.n43") -> dict:
         s.add(mv)
     s.merge(Ajuste(clave="extracto_hasta", valor=movs[-1]["fecha"].isoformat() if movs else ""))
     return {"movimientos": len(movs), "casados": casados}
+
+
+# ---------------------------------------------------------------- Gmail de verdad
+_hilo_gmail = None
+
+
+def revisar_gmail() -> int:
+    """Baja lo nuevo de la bandeja de Gmail y lo procesa como cualquier correo. Devuelve cuántos."""
+    from . import gmail
+    correos = gmail.nuevos(maximo=30)
+    n = 0
+    with SesionDB() as s:
+        hoy = hoy_demo()
+        vistos = {c for c in s.scalars(select(Correo.gmail_id)) if c}
+        for c in correos:
+            if c["gmail_id"] in vistos:
+                gmail.marcar_procesado(c["gmail_id"])
+                continue
+            procesar.procesar_correo(s, c, c["adjuntos"], hoy, config.NOMBRE_RESTAURANTE, origen="correo")
+            s.commit()
+            gmail.marcar_procesado(c["gmail_id"])
+            n += 1
+    if n:
+        _asegurar_hilo_ia()
+    return n
+
+
+def _bucle_gmail():
+    while True:
+        try:
+            revisar_gmail()
+            ESTADO.gmail_estado = ""
+        except Exception as e:
+            ESTADO.gmail_estado = f"Correo: {type(e).__name__}: {e}"
+        time.sleep(60)
+
+
+def arrancar_sondeo_gmail():
+    global _hilo_gmail
+    with _cerrojo:
+        if _hilo_gmail is None or not _hilo_gmail.is_alive():
+            _hilo_gmail = threading.Thread(target=_bucle_gmail, daemon=True)
+            _hilo_gmail.start()
+
+
+def enviar_en_directo() -> int:
+    """Los 15 correos de demo salen desde los alias (+proveedor, +cliente…) hacia la bandeja principal."""
+    from . import gmail
+    envio = json.loads((DEMO / "envio_en_directo.json").read_text(encoding="utf-8"))
+    n = 0
+    for c in envio:
+        adjuntos = [(Path(a).name, (DEMO / a).read_bytes()) for a in c.get("adjuntos", [])]
+        gmail.enviar(config.GMAIL_CUENTA, c["asunto"], c["cuerpo"], desde_nombre=c["de_nombre"], alias=c["alias"], adjuntos=adjuntos)
+        n += 1
+        time.sleep(1.5)  # Gmail no quiere ráfagas
+    return n
 
 
 # ---------------------------------------------------------------- reiniciar y autodestruir

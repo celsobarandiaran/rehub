@@ -13,7 +13,7 @@ from fastapi import HTTPException, UploadFile
 from fastapi.responses import Response
 from sqlalchemy import select
 
-from . import almacen, auth, calculos, config, db, demo, ia, perfiles, procesar, vistas
+from . import almacen, auth, calculos, config, db, demo, gmail, ia, perfiles, procesar, vistas
 
 AQUI = Path(__file__).resolve().parent
 
@@ -27,6 +27,8 @@ async def arranque(app: FastAPI):
     # Si quedaron fotos o correos por leer (por ejemplo, se acabó el tope de la IA ayer), se retoman al arrancar.
     if demo._contar_pendientes():
         demo._asegurar_hilo_ia()
+    if gmail.conectado():
+        demo.arrancar_sondeo_gmail()  # mira la bandeja cada minuto
     yield
 
 
@@ -310,6 +312,62 @@ def api_turno(request: Request, empleado_id: int = Form(...), fecha: str = Form(
             s.add(db.Turno(empleado_id=empleado_id, fecha=f, tramos=lista))
         s.commit()
     return {"ok": True}
+
+
+# ---------------------------------------------------------------- correo
+@app.post("/api/correo/revisar")
+def api_correo_revisar(request: Request):
+    """Lee ahora mismo lo nuevo de la bandeja de Gmail."""
+    try:
+        n = demo.revisar_gmail()
+    except gmail.GmailNoConectado:
+        return JSONResponse({"error": "Gmail no está conectado."}, status_code=409)
+    except Exception as e:
+        return JSONResponse({"error": f"No se pudo leer el correo: {e}"}, status_code=502)
+    return {"ok": True, "nuevos": n}
+
+
+@app.post("/api/correo/{correo_id}/enviar")
+def api_correo_enviar(request: Request, correo_id: int, texto: str = Form("")):
+    """Nada se envía sin pulsar Enviar: aquí es donde se pulsa."""
+    if request.state.perfil == perfiles.TRABAJADOR:
+        raise HTTPException(403)
+    with db.SesionDB() as s:
+        c = s.get(db.Correo, correo_id)
+        if not c:
+            raise HTTPException(404)
+        texto = texto.strip() or c.respuesta_propuesta
+        if not texto:
+            return JSONResponse({"error": "No hay texto que enviar."}, status_code=400)
+        try:
+            # La reserva o consulta llegó desde un alias de la propia cuenta: la respuesta vuelve a esa dirección.
+            para = config.GMAIL_CUENTA.replace("@", f"+{c.alias}@") if c.alias else config.GMAIL_CUENTA
+            gmail.enviar(para, "Re: " + c.asunto, texto, responde_a=c.gmail_id)
+        except gmail.GmailNoConectado:
+            return JSONResponse({"error": "Gmail no está conectado: no se puede enviar."}, status_code=409)
+        c.respuesta_propuesta, c.respuesta_enviada = texto, True
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/demo/enviar_correo")
+def api_demo_enviar_correo(request: Request):
+    """Manda los 15 correos de demo desde los alias para verlos llegar y clasificarse en directo."""
+    _solo_dueno(request)
+    try:
+        n = demo.enviar_en_directo()
+    except gmail.GmailNoConectado:
+        return JSONResponse({"error": "Gmail no está conectado."}, status_code=409)
+    return {"ok": True, "enviados": n}
+
+
+@app.post("/api/autodestruir")
+def api_autodestruir(request: Request, confirmacion: str = Form("")):
+    _solo_dueno(request)
+    if confirmacion.strip() != "DESTRUIR":
+        return JSONResponse({"error": "Escribe DESTRUIR para confirmar."}, status_code=400)
+    from . import autodestruir
+    return autodestruir.ejecutar()
 
 
 @app.post("/api/competidor")

@@ -11,7 +11,12 @@
     {% for cat, n in cuenta.items()|sort(attribute="1", reverse=True) %}
     <a class="chip {{ etiquetas.get(cat, (cat, 'c-est'))[1] }}" href="/p/bandeja?cat={{ cat }}" style="text-decoration:none{% if cat == categoria %};outline:2px solid var(--verde){% endif %}">{{ etiquetas.get(cat, (cat, ''))[0] }} {{ n }}</a>
     {% endfor %}
+    <span style="margin-left:auto" class="fila"><a class="btn" href="/p/ajustes">⬆️ Subir PDF o foto</a><button class="btn" type="button" id="btnRevisar" {% if not config.GMAIL_REFRESH_TOKEN %}disabled title="Gmail sin conectar"{% endif %}>🔄 Revisar correo</button></span>
   </div>
+  <script>
+    document.getElementById("btnRevisar").addEventListener("click",function(){this.textContent="Mirando el correo…";this.disabled=true;
+      fetch("/api/correo/revisar",{method:"POST"}).then(function(r){return r.json()}).then(function(r){if(r.error)alert(r.error);location.reload()})});
+  </script>
   <div class="grid g-35">
     <div class="card" style="padding:8px;max-height:75vh;overflow:auto">
       {% for f in filas %}
@@ -46,8 +51,12 @@
       {% if sel.respuesta_propuesta %}
       <div><b class="peq">Respuesta propuesta</b> <span class="mut peq">(redactada por la IA{% if sel.datos.get("sin_ia") %}; sin IA disponible, plantilla{% endif %}; no se envía hasta que pulses Enviar)</span></div>
       <textarea class="campo" id="respuesta">{{ sel.respuesta_propuesta }}</textarea>
-      <div class="fila"><button class="btn pri" type="button" {% if sel.respuesta_enviada or not config.GMAIL_REFRESH_TOKEN %}disabled{% endif %}>✉️ Enviar</button>
-        {% if not config.GMAIL_REFRESH_TOKEN %}<span class="peq mut">Enviar funcionará cuando se conecte el Gmail.</span>{% endif %}</div>
+      <div class="fila"><button class="btn pri" type="button" id="btnEnviar" {% if sel.respuesta_enviada or not config.GMAIL_REFRESH_TOKEN %}disabled{% endif %}>✉️ Enviar</button>
+        <span class="peq mut" id="txtEnviar">{% if sel.respuesta_enviada %}Ya se envió.{% elif not config.GMAIL_REFRESH_TOKEN %}Enviar funcionará cuando se conecte el Gmail.{% else %}No se envía nada hasta que pulses Enviar.{% endif %}</span></div>
+      <script>
+        document.getElementById("btnEnviar").addEventListener("click",function(){var f=new FormData();f.append("texto",document.getElementById("respuesta").value);this.disabled=true;document.getElementById("txtEnviar").textContent="Enviando…";
+          fetch("/api/correo/{{ sel.id }}/enviar",{method:"POST",body:f}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtEnviar").textContent=r.error||"Enviado.";if(r.error)document.getElementById("btnEnviar").disabled=false})});
+      </script>
       {% endif %}
     </div>
     {% endif %}

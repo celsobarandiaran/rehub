@@ -23,11 +23,13 @@
           <div class="tl-ticker" id="tlTicker"><div class="mut peq">Aquí irán apareciendo los documentos según llegan.</div></div>
           <div class="alerta r" id="tlError" style="display:none"></div>
         </div>
+        <div class="fila"><button class="btn grande" type="button" id="btnEnviarCorreo" {% if not config.GMAIL_REFRESH_TOKEN %}disabled{% endif %}>✉️ Enviar al correo</button><span class="peq mut" id="txtEnviarCorreo">Manda 15 correos desde los alias (+proveedor, +cliente…) para verlos llegar y clasificarse en directo.{% if not config.GMAIL_REFRESH_TOKEN %} Hace falta conectar Gmail.{% endif %}</span></div>
         <div class="fila"><button class="btn grande" type="button" id="btnReiniciar">🧹 Reiniciar demo</button><span class="peq mut">Borra todos los datos y archivos y deja la app vacía.</span></div>
         <div class="card zona-roja pila" style="box-shadow:none">
           <b style="color:var(--mal)">💣 Autodestruir</b>
-          <div class="peq">Borra datos y archivos, quita el permiso de Gmail y elimina lo que se pueda del alojamiento y de Google Cloud. Se activará cuando la app esté publicada.</div>
-          <div class="fila"><input class="campo" style="flex:1;min-width:160px" id="txtDestruir" placeholder="Escribe DESTRUIR para confirmar"><button class="btn peligro" type="button" disabled>Autodestruir</button></div>
+          <div class="peq">Borra todos los datos y archivos, quita el permiso de Gmail y elimina por sus APIs la base de datos de Supabase y la app de Render. Después enseña los enlaces para borrar tú, en dos clics, lo que solo puedes borrar tú (la cuenta de Gmail y las cuentas de los alojamientos).</div>
+          <div class="fila"><input class="campo" style="flex:1;min-width:160px" id="txtDestruir" placeholder="Escribe DESTRUIR para confirmar"><button class="btn peligro" type="button" id="btnDestruir">Autodestruir</button></div>
+          <div id="resDestruir"></div>
         </div>
       </div>
       <div class="card pila"><h3>⬆️ Subir a mano</h3>
@@ -86,6 +88,16 @@
     })});
   $("tlVel").addEventListener("click",function(ev){var v=+ev.target.dataset.v;if(!v)return;vel=v;document.querySelectorAll("#tlVel span").forEach(function(s){s.classList.toggle("on",+s.dataset.v===v)});post("/api/demo/velocidad",{velocidad:v})});
   $("tlFin").addEventListener("click",function(){post("/api/demo/velocidad",{velocidad:1000})});
+  $("btnEnviarCorreo").addEventListener("click",function(){$("txtEnviarCorreo").textContent="Enviando los 15 correos… tardan medio minuto en salir y uno o dos en llegar.";this.disabled=true;
+    post("/api/demo/enviar_correo").then(function(r){$("txtEnviarCorreo").textContent=r.error?r.error:("Enviados "+r.enviados+" correos. Ve a la Bandeja: irán apareciendo clasificados.");$("btnEnviarCorreo").disabled=false})});
+  $("btnDestruir").addEventListener("click",function(){
+    if($("txtDestruir").value.trim()!=="DESTRUIR"){alert("Escribe DESTRUIR en la casilla para confirmar.");return}
+    if(!confirm("Esto borra todos los datos, archivos y servicios de la demo. No se puede deshacer. ¿Seguir?"))return;
+    $("resDestruir").innerHTML='<div class="mut peq">Destruyendo…</div>';
+    post("/api/autodestruir",{confirmacion:"DESTRUIR"}).then(function(r){if(r.error){$("resDestruir").innerHTML='<div class="alerta r">'+r.error+'</div>';return}
+      var h='<table class="peq resp"><tr><th>Paso</th><th>Resultado</th></tr>'+r.pasos.map(function(p){return '<tr><td>'+p.paso+'</td><td>'+(p.ok?'<span class="chip c-ok">hecho</span> ':'<span class="chip c-dup">falló</span> ')+p.detalle+'</td></tr>'}).join("")+'</table>';
+      h+='<div class="peq" style="margin-top:8px"><b>Lo que solo puedes borrar tú (dos clics cada uno):</b></div><table class="peq resp"><tr><th>Qué</th><th>Dónde</th><th>Cómo</th></tr>'+r.manual.map(function(m){return '<tr><td>'+m[0]+'</td><td><a href="'+m[1]+'" target="_blank">'+m[1].replace("https://","")+'</a></td><td>'+m[2]+'</td></tr>'}).join("")+'</table>';
+      $("resDestruir").innerHTML=h})});
   $("btnReiniciar").addEventListener("click",function(){if(!confirm("¿Borrar todos los datos de la demo y dejar la app vacía?"))return;post("/api/demo/reiniciar").then(function(r){if(r.error)alert(r.error);else location.reload()})});
   $("formSubir").addEventListener("submit",function(ev){ev.preventDefault();$("txtSubir").textContent="Subiendo…";
     fetch("/api/subir",{method:"POST",body:new FormData(ev.target)}).then(function(r){return r.json()}).then(function(r){$("txtSubir").innerHTML=r.error?r.error:'Subido. Lo verás en la <a href="/p/bandeja?id='+r.correo_id+'">Bandeja</a> en cuanto se lea.';estado()})});
