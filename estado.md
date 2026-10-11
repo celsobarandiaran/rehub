@@ -60,5 +60,11 @@
 - 11/10/2026 · Render: cuenta creada con el login de GitHub (celsobarandiaran), clave de API "rehub" (RENDER_API_KEY). Servicio web **rehub** (Docker, Frankfurt, plan Free) creado por `herramientas/desplegar_render.py` desde el repositorio de GitHub; cada `git push` a main redespliega solo. Autodestruir borra el servicio por API; la cuenta se borra en https://dashboard.render.com/u/settings (Delete Render Account).
 - Claves (solo en `C:\Users\celso\.rehub\claves.env`, nunca en el código): RENDER_API_KEY, RENDER_SERVICE_ID, REHUB_URL, GITHUB_TOKEN, HF_TOKEN, SUPABASE_TOKEN (caduca a los 90 días: 9/1/2027), SUPABASE_PROJECT_REF, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_DB_PASSWORD, DATABASE_URL, REHUB_CONTRASENA (la contraseña del dueño), REHUB_CLAVE_SESION.
 
+- 11/10/2026: **la app está publicada en https://rehub-os12.onrender.com** (Render, Frankfurt). El primer despliegue falló porque faltaba `pypdf` en `requirements.txt`; arreglado y redesplegado. Comprobado desde fuera: `/salud` responde `ok, base_de_datos, ia, almacen supabase`, la entrada con la contraseña del dueño lleva a Hoy y las 11 pantallas cargan (código 200) con los datos de la demo que ya estaban en Frankfurt.
+
 ## Cómo se usa, dirección web, despliegue y perfiles
-- Pendiente (sesiones 2 a 6).
+- Dirección: https://rehub-os12.onrender.com (contraseña del dueño: `REHUB_CONTRASENA` en `C:\Users\celso\.rehub\claves.env`). Si lleva 15 min sin uso tarda ~1 min en despertar (sale la página "despertando").
+- Añadir a la pantalla de inicio: en iPhone/iPad, Safari → botón Compartir → "Añadir a pantalla de inicio". En Android, Chrome → menú ⋮ → "Añadir a pantalla de inicio" (o "Instalar app").
+- Despliegue: `git push` a `main` del repositorio de GitHub redespliega solo en Render (si no arranca, `herramientas/desplegar_render.py` lanza uno a mano y enseña el registro). Variables de entorno de la app guardadas en el servicio de Render.
+- Perfiles: dueño (activo, con la contraseña), oficina y trabajador (preparados en Ajustes, sin activar).
+- Pendiente: conectar Gmail (hace falta crear el cliente OAuth en Google Cloud con laplazarehub@gmail.com y ejecutar `herramientas/autorizar_gmail.py`); hasta entonces Bandeja funciona con los correos de la demo pero "Enviar al correo" y la lectura del buzón real no.
