@@ -102,7 +102,7 @@ def inicio(request: Request):
 def pantalla(request: Request, pantalla_id: str):
     perfil = request.state.perfil
     if not perfiles.puede_ver_pantalla(perfil, pantalla_id):
-        return plantillas.TemplateResponse(request, "no_permitido.html", {"menu": perfiles.menu_para(perfil), "actual": ""}, status_code=403)
+        return plantillas.TemplateResponse(request, "no_permitido.html", {"menu": perfiles.menu_para(perfil), "actual": "", "perfil": perfil}, status_code=403)
     info = next(p for p in perfiles.PANTALLAS if p["id"] == pantalla_id)
     contexto = {"menu": perfiles.menu_para(perfil), "actual": pantalla_id, "pantalla": info, "perfil": perfil, "eur": vistas.eur,
                 "hay_datos": demo.hay_datos()}
@@ -110,6 +110,7 @@ def pantalla(request: Request, pantalla_id: str):
     with db.SesionDB() as s:
         hoy = calculos.hoy_demo(s)
         contexto["hoy"] = hoy
+        contexto["contadores"] = vistas.contadores(s, hoy, perfil) if contexto["hay_datos"] else {}
         if pantalla_id == "bandeja":
             periodo, desde, hasta = _periodo_bandeja(q, hoy)
             contexto.update(vistas.bandeja(s, q.get("cat"), int(q["id"]) if q.get("id", "").isdigit() else None, perfil, desde, hasta),
@@ -142,7 +143,7 @@ def pantalla(request: Request, pantalla_id: str):
                 contexto.update(vistas.recepcion(s, hoy, perfil))
             elif pantalla_id == "proveedores":
                 contexto.update(lista=calculos.proveedores(s, hoy), faltas=calculos.faltas(s, hoy), vista=q.get("vista", "a"))
-                sel = int(q["id"]) if q.get("id", "").isdigit() else (contexto["lista"]["todos"][0]["p"].id if contexto["lista"]["todos"] else None)
+                sel = int(q["id"]) if q.get("id", "").isdigit() else None  # la ficha arranca cerrada
                 contexto.update(ficha=calculos.ficha_proveedor(s, sel) if sel else {}, mercabarna=vistas.MERCABARNA)
             elif pantalla_id == "competencia":
                 contexto.update(vistas.competencia(s, hoy, int(q["id"]) if q.get("id", "").isdigit() else None))

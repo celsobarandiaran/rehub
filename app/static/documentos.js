@@ -32,6 +32,7 @@
     for(var d=1;d<=total;d++){var o=iso(cal.vista,d),dentro=cal.modo!=="todo"&&o>=r[0]&&o<=r[1],ext=cal.modo==="dia"&&(o===r[0]||o===r[1]);
       h+='<div class="d'+(DIAS[o]?" hay":"")+(ext?" on":(dentro?" rango":""))+'" data-d="'+d+'">'+d+'</div>'}
     $("calDias").innerHTML=h;
+    $("calDias").style.display=cal.modo==="dia"?"":"none";  // calendario compacto: los días solo en el modo Día
     var t;
     if(cal.modo==="todo")t="Todo";else if(cal.modo==="anio")t=String(ANIO);
     else if(cal.modo==="mes")t=cal.mesIni===cal.mesFin?NOMBRES[cal.mesIni][0].toUpperCase()+NOMBRES[cal.mesIni].slice(1)+" "+ANIO:CORTOS[cal.mesIni]+" – "+CORTOS[cal.mesFin]+" "+ANIO;
@@ -51,7 +52,8 @@
   document.querySelectorAll(".cal .flecha").forEach(function(b,i){b.addEventListener("click",function(){cal.vista=Math.min(11,Math.max(0,cal.vista+(i?1:-1)));if(cal.modo==="mes"&&cal.mesIni===cal.mesFin)cal.mesIni=cal.mesFin=cal.vista;pintaCal()})});
 
   /* ---------- listas ---------- */
-  var st={tipo:"factura",orden:"grupo",abiertos:{},cerradas:{},sel:null};
+  // Todo arranca recogido: los dos bloques de facturas cerrados; cada proveedor se abre al pincharlo y las líneas al pinchar la factura.
+  var st={tipo:"factura",orden:"grupo",abiertos:{},cerradas:{comida:true,local:true},sel:null};
   var CAT=[["comida","🍽️ Comida y bebida","cuenta para el coste de comida"],["local","🏠 Local y servicios","alquiler, luz, gas, seguros, limpieza…"]];
   function chipEstado(x){
     if(x.estado==="duplicada")return '<span class="chip c-dup">'+esc(x.motivo)+'</span>';

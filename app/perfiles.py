@@ -13,19 +13,21 @@ NOMBRES_PERFIL = {DUENO: "Dueño", OFICINA: "Oficina", TRABAJADOR: "Trabajador"}
 
 # Pantallas en el orden del menú. "perfiles": quién la ve.
 PANTALLAS = [
-    {"id": "bandeja", "titulo": "Bandeja", "icono": "✉️", "perfiles": {DUENO, OFICINA}},
-    {"id": "documentos", "titulo": "Documentos", "icono": "📄", "perfiles": {DUENO, OFICINA}},
-    {"id": "proveedores", "titulo": "Proveedores", "icono": "🚚", "perfiles": {DUENO, OFICINA}},
-    {"id": "recepcion", "titulo": "Recepción", "icono": "📦", "perfiles": {DUENO, OFICINA, TRABAJADOR}},
-    {"id": "hoy", "titulo": "Hoy", "icono": "☀️", "perfiles": {DUENO, OFICINA, TRABAJADOR}},
-    {"id": "cuadro", "titulo": "Cuadro del día", "icono": "💶", "perfiles": {DUENO, OFICINA}},
-    {"id": "carta", "titulo": "Carta", "icono": "🍽️", "perfiles": {DUENO, OFICINA}},
-    {"id": "competencia", "titulo": "Competencia", "icono": "🔎", "perfiles": {DUENO}},
-    {"id": "personal", "titulo": "Personal", "icono": "👥", "perfiles": {DUENO, OFICINA, TRABAJADOR}},
-    {"id": "dueno", "titulo": "Dueño", "icono": "📊", "perfiles": {DUENO}},
-    {"id": "asistente", "titulo": "Asistente", "icono": "💬", "perfiles": {DUENO, OFICINA}},
-    {"id": "ajustes", "titulo": "Ajustes", "icono": "⚙️", "perfiles": {DUENO}},
+    {"id": "bandeja", "titulo": "Bandeja", "icono": "✉️", "perfiles": {DUENO, OFICINA}, "grupo": "oficina"},
+    {"id": "documentos", "titulo": "Documentos", "icono": "📄", "perfiles": {DUENO, OFICINA}, "grupo": "oficina"},
+    {"id": "proveedores", "titulo": "Proveedores", "icono": "🚚", "perfiles": {DUENO, OFICINA}, "grupo": "oficina"},
+    {"id": "recepcion", "titulo": "Recepción", "icono": "📦", "perfiles": {DUENO, OFICINA, TRABAJADOR}, "grupo": "cocina"},
+    {"id": "hoy", "titulo": "Hoy", "icono": "☀️", "perfiles": {DUENO, OFICINA, TRABAJADOR}, "grupo": "cocina"},
+    {"id": "cuadro", "titulo": "Cuadro del día", "icono": "💶", "perfiles": {DUENO, OFICINA}, "grupo": "negocio"},
+    {"id": "carta", "titulo": "Carta", "icono": "🍽️", "perfiles": {DUENO, OFICINA}, "grupo": "cocina"},
+    {"id": "competencia", "titulo": "Competencia", "icono": "🔎", "perfiles": {DUENO}, "grupo": "negocio"},
+    {"id": "personal", "titulo": "Personal", "icono": "👥", "perfiles": {DUENO, OFICINA, TRABAJADOR}, "grupo": "negocio"},
+    {"id": "dueno", "titulo": "Dueño", "icono": "📊", "perfiles": {DUENO}, "grupo": "negocio"},
+    {"id": "asistente", "titulo": "Asistente", "icono": "💬", "perfiles": {DUENO, OFICINA}, "grupo": ""},
+    {"id": "ajustes", "titulo": "Ajustes", "icono": "⚙️", "perfiles": {DUENO}, "grupo": ""},
 ]
+# Secciones del menú lateral (estilo claro): arrancan cerradas y se abren al pulsar.
+GRUPOS_MENU = [("oficina", "Oficina"), ("cocina", "Cocina y sala"), ("negocio", "Negocio")]
 PANTALLA_INICIO = {DUENO: "hoy", OFICINA: "bandeja", TRABAJADOR: "hoy"}
 
 # Datos sensibles: quién los ve. Cada plantilla y cada consulta pregunta con `puede_ver`.

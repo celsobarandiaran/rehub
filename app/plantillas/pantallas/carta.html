@@ -19,8 +19,8 @@
     {% set rp = r[parte] %}
     <div class="peq mut">{{ "Comida" if parte == "comida" else "Bebida" }}: deja de media <b>{{ eur(rp.margen_medio) }} € por unidad</b>; "vende mucho" es a partir de <b>{{ rp.umbral }} unidades</b> en 3 meses. Pulsa una categoría para abrirla o cerrarla, y un plato para ver y cambiar su receta y su precio.</div>
     {% for cat in carta.por_categoria[parte] %}
-    <div class="cat-bloque" data-cat="{{ cat.id }}">
-      <div class="cat-cab"><span class="flechita">▾</span>{{ cat.nombre }} <span class="mut peq">· {{ cat.platos|length }} · {{ cat.unidades }} vendidos · dejan {{ eur(cat.margen_total, 0) }} €</span></div>
+    <div class="cat-bloque cerrado" data-cat="{{ cat.id }}">
+      <div class="cat-cab"><span class="flechita">▸</span>{{ cat.nombre }} <span class="mut peq">· {{ cat.platos|length }} · {{ cat.unidades }} vendidos · dejan {{ eur(cat.margen_total, 0) }} €</span></div>
       <div class="cat-cuerpo tabla"><table class="resp">
         <tr><th>{{ "Plato" if parte == "comida" else "Bebida" }}</th><th class="num">Precio</th><th class="num">Coste</th><th class="num">Deja</th><th class="num">Vendidos</th><th>Competencia</th><th>Qué hacer</th></tr>
         {% for f in cat.platos %}
@@ -42,7 +42,7 @@
   <div class="grid g2" style="margin-top:14px">
     <div class="pila">
       <div class="card pila" id="receta"><h3>✏️ Receta</h3><div class="mut">Pulsa un plato de la lista.</div></div>
-      <div class="card pila" id="recetas"><div class="fila" style="justify-content:space-between"><h3 style="margin:0">📖 Recetas</h3><button class="btn pri" type="button" id="btnNuevaReceta">➕ Añadir receta</button></div>
+      <div class="card pleg cerrado" id="recetas"><div class="pleg-cab"><span class="flechita">▾</span><h3>📖 Recetas</h3><span class="mut peq">· {{ carta.filas|length }}</span><button class="btn pri" type="button" id="btnNuevaReceta" style="margin-left:auto;padding:6px 12px">➕ Añadir receta</button></div><div class="pleg-cuerpo pila">
         <form id="formReceta" class="pila" style="display:none;border:1px solid var(--linea);border-radius:12px;padding:12px">
           <div class="grid g2"><select class="campo" name="categoria" required><option value="">Categoría…</option>{% for parte_ in ("comida", "bebida") %}<optgroup label="{{ parte_|capitalize }}">{% for c in categorias[parte_] %}<option value="{{ c }}">{{ nombres_cat[c] }}</option>{% endfor %}</optgroup>{% endfor %}</select>
             <input class="campo" name="nombre" placeholder="Nombre del plato" required></div>
@@ -55,15 +55,19 @@
         {% for parte_ in ("comida", "bebida") %}{% for cat in carta.por_categoria[parte_] %}
         <div><b class="peq">{{ cat.nombre }}</b><div class="peq">{% for f in cat.platos %}<a href="#" class="ver-receta" data-id="{{ f.id }}" style="display:inline-block;margin:2px 10px 2px 0"><i class="punto p-{{ f.color }}"></i>{{ f.nombre }} <span class="mut">coste {{ eur(f.coste) }} € · carta {{ eur(f.precio_carta) }} €</span></a>{% endfor %}</div></div>
         {% endfor %}{% endfor %}
-      </div>
+      </div></div>
     </div>
     <div class="pila">
-      <div class="card pila"><div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienen ellos y tú no</h3><button class="btn" type="button" id="btnAnadirEllos" style="padding:4px 10px">➕ añadir a mano</button></div>
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Platos que tienen ellos y tú no</h3><span class="mut peq">· {{ carta.ellos|length }}</span><button class="btn" type="button" id="btnAnadirEllos" style="margin-left:auto;padding:4px 10px">➕ añadir a mano</button></div>
+        <div class="pleg-cuerpo pila">
         <form id="formAnadirEllos" class="fila" style="display:none"><select class="campo" name="competidor_id" style="width:auto">{% for c in competidores %}<option value="{{ c.id }}">{{ c.nombre }}</option>{% endfor %}</select><input class="campo" name="clave" placeholder="plato (p. ej. pulpo)" style="width:160px" required><input class="campo" name="precio" inputmode="decimal" placeholder="precio €" style="width:90px" required><button class="btn pri" type="submit">Guardar</button></form>
         {% for e in carta.ellos %}<div class="alerta b"><b>{{ e.clave|capitalize }}</b><div>{{ e.texto|capitalize }}. <span class="mut">{{ nombres_cat.get(e.categoria, e.categoria) }}</span> <a href="#" class="quitar mut" data-clave="{{ e.clave }}">✕ quitar</a></div></div>{% else %}<div class="mut">Ninguno.</div>{% endfor %}
+        </div>
       </div>
-      <div class="card pila"><div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienes tú y ellos no</h3><span class="peq mut">Si uno sí lo tienen, usa "corregir" en la tabla.</span></div>
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Platos que tienes tú y ellos no</h3><span class="mut peq">· {{ carta.yo|length }}</span></div>
+        <div class="pleg-cuerpo pila"><div class="peq mut">Si uno sí lo tienen, usa "corregir" en la tabla.</div>
         {% for f in carta.yo %}<div class="alerta {{ 'r' if f.tipo == 'perro' else 'v' }}"><b>{{ f.nombre }}</b><div><span class="chip {{ f.color }}">{{ f.color }}</span> {{ {"puzle": "Mantenerlo como diferencia: es tuyo y deja mucho, pero hay que recomendarlo más.", "estrella": "Mantenerlo y presumir de él: nadie más lo tiene.", "vaca": "Mantenerlo y probar a subirlo un poco: nadie te compara.", "perro": "Quitarlo o cambiarlo: ni lo tienen los demás ni se vende."}[f.tipo] }} <a href="#" class="quitar mut" data-clave="{{ f.clave }}">✕ quitar de la lista</a></div></div>{% else %}<div class="mut">Ninguno.</div>{% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -72,7 +76,7 @@
     function eur(x){return (x===null||x===undefined)?"—":x.toFixed(2).replace(".",",")}
     function num(v){return parseFloat(String(v).replace(",","."))||0}
     /* categorías que se abren y se cierran (en móvil, solo la primera abierta) */
-    document.querySelectorAll(".cat-bloque").forEach(function(b,i){if(innerWidth<820&&i>0)b.classList.add("cerrado");
+    document.querySelectorAll(".cat-bloque").forEach(function(b){
       b.querySelector(".cat-cab").addEventListener("click",function(){b.classList.toggle("cerrado");b.querySelector(".flechita").textContent=b.classList.contains("cerrado")?"▸":"▾"})});
     /* receta de un plato */
     function pintaReceta(id,ir){var f=PLATOS.find(function(p){return p.id===id});if(!f)return;
@@ -91,7 +95,6 @@
       if(ir)caja.scrollIntoView({behavior:"smooth",block:"nearest"})}
     document.querySelectorAll(".fila-plato").forEach(function(tr){tr.addEventListener("click",function(e){if(e.target.closest("a"))return;pintaReceta(+tr.dataset.id,true)})});
     document.querySelectorAll(".ver-receta").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();pintaReceta(+a.dataset.id,true)})});
-    var primero=PLATOS.find(function(p){return p.parte==="{{ parte }}"});if(primero)pintaReceta(primero.id);
     /* añadir receta */
     var form=document.getElementById("formReceta"),ing=document.getElementById("ingredientes"),nIng=0;
     function filaIng(){var d=document.createElement("div");d.className="ingrediente";var i=nIng++;
@@ -99,7 +102,8 @@
       d.querySelector("span").addEventListener("click",function(){d.remove();calcNueva()});ing.appendChild(d)}
     function calcNueva(){var coste=0;ing.querySelectorAll(".ingrediente").forEach(function(d){var p=PRODUCTOS.find(function(x){return x.id===+d.querySelector("select").value});if(p)coste+=num(d.querySelector("input").value)/(p.rendimiento||1)*p.precio});
       var pc=num(form.precio_carta.value),pv=pc/1.1;document.getElementById("cuentaNueva").innerHTML="Coste: <b>"+eur(coste)+" €</b> (con el último precio de cada ingrediente en las facturas)"+(pc?" → sin IVA "+eur(pv)+" € → <b>deja "+eur(pv-coste)+" € ("+Math.round((pv-coste)/pv*100)+" %)</b>":"")}
-    document.getElementById("btnNuevaReceta").addEventListener("click",function(){form.style.display="";if(!ing.children.length){filaIng();filaIng()}form.scrollIntoView({behavior:"smooth",block:"nearest"})});
+    document.getElementById("btnNuevaReceta").addEventListener("click",function(e){e.stopPropagation();document.getElementById("recetas").classList.remove("cerrado");form.style.display="";if(!ing.children.length){filaIng();filaIng()}form.scrollIntoView({behavior:"smooth",block:"nearest"})});
+    document.getElementById("btnAnadirEllos").addEventListener("click",function(e){e.stopPropagation();e.currentTarget.closest(".pleg").classList.remove("cerrado")});
     document.getElementById("btnCancelarReceta").addEventListener("click",function(){form.style.display="none"});
     document.getElementById("btnIngrediente").addEventListener("click",filaIng);
     form.addEventListener("input",calcNueva);form.addEventListener("change",calcNueva);

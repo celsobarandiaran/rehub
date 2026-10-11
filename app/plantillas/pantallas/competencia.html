@@ -7,15 +7,20 @@
   <div class="card pila" style="max-width:560px"><b>Todavía no hay datos.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
   {% else %}
   <div class="grid provs" style="grid-template-columns:minmax(0,320px) minmax(0,1fr)">
-    <div class="card pila"><h3>Tus competidores</h3>
-      <div class="lista-prov">
-        {% for c in competidores %}
-        <a class="prov-fila{% if sel and c.id == sel.id %} sel{% endif %}" href="/p/competencia?id={{ c.id }}" style="text-decoration:none;color:inherit">
-          <div class="q"><b>{{ c.nombre }}</b><div class="peq mut">📍 {{ c.distancia_m }} m{% if c.valoracion %} · ★ {{ ("%.1f"|format(c.valoracion)).replace(".", ",") }} ({{ c.opiniones }} opiniones){% endif %} · {{ c.carta|length }} productos{% if c.leida %} · carta leída el {{ c.leida.strftime("%d/%m") }}{% endif %}</div></div><span class="mut">›</span></a>
-        {% endfor %}
+    <div class="pila">
+      <div class="card pleg{% if not sel %} cerrado{% endif %}"><div class="pleg-cab"><span class="flechita">▾</span><h3>Tus competidores</h3><span class="mut peq">· {{ competidores|length }}</span></div>
+        <div class="pleg-cuerpo pila">
+        <div class="lista-prov">
+          {% for c in competidores %}
+          <a class="prov-fila{% if sel and c.id == sel.id %} sel{% endif %}" href="/p/competencia?id={{ c.id }}" style="text-decoration:none;color:inherit">
+            <div class="q"><b>{{ c.nombre }}</b><div class="peq mut">📍 {{ c.distancia_m }} m{% if c.valoracion %} · ★ {{ ("%.1f"|format(c.valoracion)).replace(".", ",") }} ({{ c.opiniones }} opiniones){% endif %} · {{ c.carta|length }} productos{% if c.leida %} · carta leída el {{ c.leida.strftime("%d/%m") }}{% endif %}</div></div><span class="mut">›</span></a>
+          {% endfor %}
+        </div>
+        <div class="peq mut">Tú: ★ {{ ("%.1f"|format(valoracion_propia)).replace(".", ",") }}. Las valoraciones se escriben a mano (Google Maps pide una cuenta de pago para leerlas).</div>
+        </div>
       </div>
-      <div class="peq mut">Tú: ★ {{ ("%.1f"|format(valoracion_propia)).replace(".", ",") }}. Las valoraciones se escriben a mano (Google Maps pide una cuenta de pago para leerlas).</div>
-      <div class="subida pila"><b>➕ Añadir competidor (o volver a leer su carta)</b>
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>➕ Añadir competidor</h3><span class="mut peq">o volver a leer su carta</span></div>
+        <div class="pleg-cuerpo pila">
         <form id="formComp" class="pila">
           <input class="campo" name="nombre" placeholder="Nombre (como en Google Maps)" required>
           <div class="fila"><input class="campo" name="distancia_m" inputmode="numeric" placeholder="Distancia en metros" style="flex:1"><input class="campo" name="valoracion" inputmode="decimal" placeholder="★ (por ejemplo 4,3)" style="flex:1"></div>
@@ -23,6 +28,7 @@
           <button class="btn pri" type="submit">Guardar</button><div class="peq" id="txtComp"></div>
         </form>
         <div class="peq mut">Si el nombre ya existe, la carta nueva sustituye a la anterior y la app te dice qué ha cambiado. Solo datos públicos: su carta y su valoración. Emparejar sus platos con los tuyos lo hace la IA; lo que case mal se corrige en Carta.</div>
+        </div>
       </div>
     </div>
     <div class="pila">
@@ -45,25 +51,27 @@
           {% for parte_ in ("comida", "bebida") %}
           <div class="pila"><b class="peq">{{ "🍽️ Comida" if parte_ == "comida" else "🍷 Bebida" }}</b>
             {% for cat in por_categoria if cat.parte == parte_ %}
-            <div><div class="peq" style="font-weight:700;color:var(--verde)">{{ cat.nombre }}</div>
-              <table class="peq"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tú</th></tr>
+            <div class="pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span>{{ cat.nombre }}<span class="mut peq">· {{ cat.platos|length }}</span></div>
+              <div class="pleg-cuerpo"><table class="peq"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tú</th></tr>
                 {% for it in cat.platos %}<tr><td>{{ it.clave|capitalize }}</td><td class="num">{{ eur(it.precio) }} €</td><td class="num">{% if it.mio %}{{ eur(it.mio) }} € <span class="chip {{ 'mas-caro' if it.dif > 0.03 else ('mas-barato' if it.dif < -0.03 else 'igual') }}">{{ "+" if it.dif >= 0 }}{{ (it.dif * 100)|round|int }} %</span>{% else %}<span class="mut">no lo tienes</span>{% endif %}</td></tr>{% endfor %}
-              </table></div>
+              </table></div></div>
             {% else %}<div class="mut peq">Nada en esta parte.</div>{% endfor %}
           </div>
           {% endfor %}
         </div>
         {% if sin %}<div class="peq mut">Categorías tuyas que no tiene: <b>{{ sin|join(", ") }}</b>.</div>{% endif %}
       </div>
-      <div class="card pila"><h3>Producto a producto</h3>
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Producto a producto</h3><span class="mut peq">· {{ filas|length }} comparados</span></div>
+        <div class="pleg-cuerpo pila">
         <table class="resp"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tu precio</th><th class="num">Diferencia</th><th>Aviso</th></tr>
           {% for f in filas %}
           <tr><td>{{ f.nombre }}</td><td class="num">{{ eur(f.suyo) }} €</td><td class="num">{{ eur(f.mio) }} €</td><td class="num"><span class="chip {{ 'mas-caro' if f.dif > 0.03 else ('mas-barato' if f.dif < -0.03 else 'igual') }}">{{ "+" if f.dif >= 0 }}{{ (f.dif * 100)|round|int }} %</span></td><td class="peq">{{ f.aviso }}</td></tr>
           {% endfor %}
         </table>
         <div class="peq mut">Precios de carta con IVA en los dos lados: es lo que ve el cliente. Frente a {{ sel.nombre }} hay <b>{{ subir }}</b> producto{{ "s" if subir != 1 }} donde podrías subir el precio sin pasarte de ellos.</div>
+        </div>
       </div>
-      {% else %}<div class="card"><div class="mut">Añade un competidor para comparar.</div></div>{% endif %}
+      {% else %}<div class="card vacio-der"><div><div class="ico">🔎</div>Abre "Tus competidores" y pulsa uno para ver su carta por categorías y el resumen frente a la tuya.</div></div>{% endif %}
     </div>
   </div>
   <script>

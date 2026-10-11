@@ -8,26 +8,41 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/static/icono-192.png">
 <link rel="apple-touch-icon" href="/static/icono-192.png">
-<meta name="theme-color" content="#1f4d3a">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="ReHub">
 </head>
 <body>
+{% set cont = contadores if contadores is defined else {} %}
 <header class="top">
-  <div class="logo"><span class="dot">R</span>ReHub</div>
-  <div class="rest">{{ config.NOMBRE_RESTAURANTE }}</div>
-  <a class="user" href="/salir" style="text-decoration:none">👤 {{ perfiles.NOMBRES_PERFIL[perfil] if perfil else "" }} · Salir</a>
+  <div class="logo"><span class="dot">R</span>rehub</div>
+  <div class="rest">{{ config.NOMBRE_RESTAURANTE }} · {{ perfiles.NOMBRES_PERFIL[perfil]|lower if perfil else "" }}</div>
+  <div class="user" style="margin-left:auto"><span class="avatar">{{ (perfiles.NOMBRES_PERFIL[perfil] if perfil else "D")[0] }}</span>{{ perfiles.NOMBRES_PERFIL[perfil] if perfil else "" }}</div><a class="salir" href="/salir">Salir</a>
 </header>
 <div class="layout">
 <nav class="menu" aria-label="Pantallas">
-  {% for p in menu %}
-  <a href="/p/{{ p.id }}"{% if p.id == actual %} style="background:var(--suave);font-weight:700"{% endif %}><span class="n">{{ loop.index }}</span>{{ p.titulo }}</a>
+  <div class="marca"><span class="dot">R</span>rehub</div>
+  <div class="selector" title="Restaurante"><span class="ico">🍴</span><div><b>{{ config.NOMBRE_RESTAURANTE }}</b><span class="dir">{{ perfiles.NOMBRES_PERFIL[perfil] if perfil else "" }}</span></div><span class="flechas">▴<br>▾</span></div>
+  {% for gid, gnombre in perfiles.GRUPOS_MENU %}{% set items = menu|selectattr("grupo", "equalto", gid)|list %}{% if items %}
+  <div class="grupo cerrado{% if actual in (items|map(attribute='id')|list) %} activo{% endif %}" data-g="{{ gid }}"><div class="gt"><span class="ico">{% if gid == "oficina" %}<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg>{% elif gid == "cocina" %}<svg viewBox="0 0 24 24"><path d="M4 11h16M5 11a7 7 0 0 1 14 0M3 15h18M12 4v2"/></svg>{% else %}<svg viewBox="0 0 24 24"><polyline points="4 17 10 11 14 15 20 8"/><path d="M4 21h16"/></svg>{% endif %}</span>{{ gnombre }}{% set suma = [] %}{% for p in items %}{% if cont.get(p.id) %}{% set _ = suma.append(cont.get(p.id)) %}{% endif %}{% endfor %}{% if suma %}<span class="cont" title="pendientes en esta sección">{{ suma|sum }}</span>{% endif %}<span class="chev">▾</span></div>
+    {% for p in items %}<a href="/p/{{ p.id }}"{% if p.id == actual %} class="on"{% endif %}><span class="n">{{ loop.index }}</span>{{ p.titulo }}{% if cont.get(p.id) %}<span class="cont">{{ cont.get(p.id) }}</span>{% endif %}</a>
+    {% endfor %}
+  </div>
+  {% endif %}{% endfor %}
+  <div class="sep"></div>
+  {% for p in menu if not p.grupo %}
+  <a href="/p/{{ p.id }}"{% if p.id == actual %} class="on"{% endif %}><span class="ico">{% if p.id == "asistente" %}<svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.4A8 8 0 1 1 21 12z"/></svg>{% else %}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>{% endif %}</span>{{ p.titulo }}</a>
   {% endfor %}
 </nav>
 <main>
 {% block contenido %}{% endblock %}
 </main>
 </div>
+<script>
+  /* Secciones del menú y bloques plegables: arrancan cerrados, se abren al pinchar */
+  document.querySelectorAll("nav.menu .gt").forEach(function(g){g.addEventListener("click",function(){g.parentElement.classList.toggle("cerrado")})});
+  document.addEventListener("click",function(e){var c=e.target.closest(".pleg-cab");if(!c||e.target.closest("a,button,input,select"))return;c.parentElement.classList.toggle("cerrado")});
+</script>
 {% if actual != "asistente" and (menu|selectattr("id", "equalto", "asistente")|list) %}
 <button class="asis-btn" id="asisBtn" type="button" title="Preguntar al asistente">💬 <span class="txt">Asistente</span></button>
 <div class="asis" id="asis" role="dialog" aria-label="Asistente">

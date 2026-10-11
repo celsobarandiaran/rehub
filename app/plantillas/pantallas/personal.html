@@ -8,25 +8,36 @@
   {% else %}
   {% set DIAS = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"] %}
   <div class="grid g-35">
-    <div class="card tabla pila">
-      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">Horarios · semana del {{ lunes.strftime("%d/%m") }} al {{ (lunes + timedelta(days=6)).strftime("%d/%m") }}</h3>
-        <span class="fila"><a class="btn" href="/p/personal?semana={{ (lunes - timedelta(days=7)).isoformat() }}">‹ anterior</a><a class="btn" href="/p/personal?semana={{ (lunes + timedelta(days=7)).isoformat() }}">siguiente ›</a></span></div>
-      <table class="cuad">
-        <tr><th style="text-align:left">Persona</th>{% for i in range(7) %}<th>{{ DIAS[i] }} {{ (lunes + timedelta(days=i)).day }}</th>{% endfor %}<th>Horas</th>{% if ver_salarios %}<th>€/hora</th>{% endif %}</tr>
-        {% for e in empleados %}
-        <tr><td style="text-align:left">{{ e.nombre.split(" (")[0] }}<div class="mut peq">{{ e.puesto }}</div></td>
-          {% for i in range(7) %}{% set t = cuadrante[e.id].get(i) %}
-          <td class="celda-turno" data-emp="{{ e.id }}" data-fecha="{{ (lunes + timedelta(days=i)).isoformat() }}" data-tramos="{{ t|map('join', '-')|join(',') if t else '' }}" style="cursor:pointer">
-            {% if not t %}<span class="t t-l">{{ "cerrado" if dias[i].cerrado else "libre" }}</span>{% else %}<span class="t {{ 't-p' if t|length > 1 else ('t-m' if t[0][0] < '12' else 't-n') }}">{{ t|map('join', '–')|join('<br>')|safe }}</span>{% endif %}</td>
+    <div class="pila">
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Horarios</h3><span class="mut peq">· semana del {{ lunes.strftime("%d/%m") }} al {{ (lunes + timedelta(days=6)).strftime("%d/%m") }}</span>{% if avisos %}<span class="cont">{{ avisos|length }}</span>{% endif %}</div>
+        <div class="pleg-cuerpo pila tabla">
+        <div class="fila" style="justify-content:flex-end"><a class="btn" href="/p/personal?semana={{ (lunes - timedelta(days=7)).isoformat() }}">‹ anterior</a><a class="btn" href="/p/personal?semana={{ (lunes + timedelta(days=7)).isoformat() }}">siguiente ›</a></div>
+        <table class="cuad">
+          <tr><th style="text-align:left">Persona</th>{% for i in range(7) %}<th>{{ DIAS[i] }} {{ (lunes + timedelta(days=i)).day }}</th>{% endfor %}<th>Horas</th>{% if ver_salarios %}<th>€/hora</th>{% endif %}</tr>
+          {% for e in empleados %}
+          <tr><td style="text-align:left">{{ e.nombre.split(" (")[0] }}<div class="mut peq">{{ e.puesto }}</div></td>
+            {% for i in range(7) %}{% set t = cuadrante[e.id].get(i) %}
+            <td class="celda-turno" data-emp="{{ e.id }}" data-fecha="{{ (lunes + timedelta(days=i)).isoformat() }}" data-tramos="{{ t|map('join', '-')|join(',') if t else '' }}" style="cursor:pointer">
+              {% if not t %}<span class="t t-l">{{ "cerrado" if dias[i].cerrado else "libre" }}</span>{% else %}<span class="t {{ 't-p' if t|length > 1 else ('t-m' if t[0][0] < '12' else 't-n') }}">{{ t|map('join', '–')|join('<br>')|safe }}</span>{% endif %}</td>
+            {% endfor %}
+            <td><b>{{ horas.get(e.id, 0)|round|int }} h</b></td>{% if ver_salarios %}<td>{{ eur(coste_hora.get(e.id, 0)) }}</td>{% endif %}</tr>
           {% endfor %}
-          <td><b>{{ horas.get(e.id, 0)|round|int }} h</b></td>{% if ver_salarios %}<td>{{ eur(coste_hora.get(e.id, 0)) }}</td>{% endif %}</tr>
-        {% endfor %}
-      </table>
-      <div class="peq mut"><span class="t t-m">Mañana</span> <span class="t t-n">Tarde-noche</span> <span class="t t-p">Partido</span>. Pulsa una casilla para cambiar las horas.{% if ver_salarios %} <b>€/hora</b> = coste para la empresa (nómina + Seguridad Social) entre sus horas del mes.{% endif %}</div>
-      {% for a in avisos %}<div class="alerta r"><b>Aviso</b><div>{{ a }}</div></div>{% endfor %}
-      {% if not avisos %}<div class="alerta v"><b>✔ Dentro de la ley</b><div>Nadie pasa de 9 h en un día ni de 40 h en la semana.</div></div>{% endif %}
+        </table>
+        <div class="peq mut"><span class="t t-m">Mañana</span> <span class="t t-n">Tarde-noche</span> <span class="t t-p">Partido</span>. Pulsa una casilla para cambiar las horas.{% if ver_salarios %} <b>€/hora</b> = coste para la empresa (nómina + Seguridad Social) entre sus horas del mes.{% endif %}</div>
+        {% for a in avisos %}<div class="alerta r"><b>Aviso</b><div>{{ a }}</div></div>{% endfor %}
+        {% if not avisos %}<div class="alerta v"><b>✔ Dentro de la ley</b><div>Nadie pasa de 9 h en un día ni de 40 h en la semana.</div></div>{% endif %}
+        </div>
+      </div>
+      <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Empleados</h3><span class="mut peq">· {{ empleados|length }}</span></div>
+        <div class="pleg-cuerpo">
+        <table class="peq resp"><tr><th>Nombre</th><th>Puesto</th><th class="num">Horas/semana</th><th class="num">Esta semana</th>{% if ver_salarios %}<th class="num">€/hora</th>{% endif %}</tr>
+          {% for e in empleados %}<tr><td><b>{{ e.nombre.split(" (")[0] }}</b></td><td>{{ e.puesto }}</td><td class="num">{{ e.horas_semana|round|int }} h</td><td class="num">{{ horas.get(e.id, 0)|round|int }} h</td>{% if ver_salarios %}<td class="num mut">{{ eur(coste_hora.get(e.id, 0)) }} €</td>{% endif %}</tr>{% endfor %}
+        </table>
+        </div>
+      </div>
     </div>
-    <div class="card pila"><h3>Coste de personal frente a ventas, por franja</h3>
+    <div class="card pleg cerrado"><div class="pleg-cab"><span class="flechita">▾</span><h3>Coste de personal frente a ventas, por franja</h3>{% if sobran or faltan %}<span class="cont">{{ (sobran|length) + (faltan|length) }}</span>{% endif %}</div>
+      <div class="pleg-cuerpo pila">
       {% set abiertos = dias|rejectattr("cerrado")|list %}
       {% set dia_sel = abiertos[-3] if abiertos|length >= 3 else abiertos[0] %}
       <div class="peq mut">{{ DIAS[dia_sel.wd] }} {{ dia_sel.fecha.strftime("%d/%m") }}: ventas = media de los últimos {{ DIAS[dia_sel.wd]|lower }} (sin IVA); coste = horas de cada persona en la franja × su coste por hora.</div>
@@ -39,6 +50,7 @@
       </table>
       {% for fecha, f in sobran[:2] %}<div class="alerta a"><b>Sobran manos</b><div>{{ DIAS[fecha.weekday()] }} de {{ f.franja.replace("-", " a ") }} h: el personal cuesta {{ eur(f.coste, 0) }} € para {{ eur(f.ventas, 0) }} € de ventas. Con contratos fijos no se quitan horas sin más: la acción es mover esas horas a cuando más se vende.</div></div>{% endfor %}
       {% for fecha, f in faltan[:2] %}<div class="alerta r"><b>Faltan manos</b><div>{{ DIAS[fecha.weekday()] }} de {{ f.franja.replace("-", " a ") }} h: {{ eur(f.ventas, 0) }} € de ventas con {{ f.personas }} persona{{ "s" if f.personas != 1 }}. Ahí vienen las esperas.</div></div>{% endfor %}
+      </div>
     </div>
   </div>
   <script>

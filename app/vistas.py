@@ -40,7 +40,8 @@ def bandeja(s: Session, categoria: str | None, correo_id: int | None, perfil: st
         elegido = s.get(Correo, correo_id)
         if elegido:
             correos.insert(0, elegido)
-    sel = s.get(Correo, correo_id) if correo_id else next((c for c in correos if c.categoria == "reserva" and not c.respuesta_enviada), correos[0] if correos else None)
+    # La parte derecha arranca cerrada: solo se abre el correo que se pincha
+    sel = s.get(Correo, correo_id) if correo_id else None
     docs = [documento_json(d, perfil) for d in s.scalars(select(Documento).where(Documento.correo_id == sel.id))] if sel else []
     filas = []
     for c in correos:
@@ -103,6 +104,19 @@ def lineas_factura(s: Session, doc_id: int, perfil: str) -> dict:
     prov = d.proveedor
     return {"id": d.id, "titulo": f"{prov.nombre if prov else ''} · {d.numero or 'sin número'}", "lineas": lineas,
             "entregas_mes": prov.entregas_al_mes if prov else 0}
+
+
+def contadores(s: Session, hoy: date, perfil: str) -> dict:
+    """Lo pendiente de cada pantalla, para las pastillas amarillas del menú."""
+    out = {}
+    try:
+        out["bandeja"] = s.scalar(select(func.count(Correo.id)).where(((Correo.respuesta_propuesta != "") & (Correo.respuesta_enviada.is_(False))) | (Correo.categoria == "raro"))) or 0
+        out["documentos"] = s.scalar(select(func.count(Documento.id)).where(Documento.estado.in_(["revisar", "duplicada"]))) or 0
+        out["recepcion"] = s.scalar(select(func.count(Documento.id)).where(Documento.estado == "leyendo", Documento.tipo == "pendiente")) or 0
+        out["hoy"] = s.scalar(select(func.count(Aviso.id)).where(Aviso.fecha >= hoy - timedelta(days=7), Aviso.nivel == "r")) or 0
+    except Exception:
+        return {}
+    return {k: v for k, v in out.items() if v}
 
 
 def avisos(s: Session, hoy: date, limite=10) -> list:
@@ -172,7 +186,7 @@ def recepcion(s: Session, hoy: date, perfil: str) -> dict:
 def competencia(s: Session, hoy: date, comp_id: int | None) -> dict:
     comps = list(s.scalars(select(Competidor).order_by(Competidor.distancia_m)))
     c = calculos.carta(s, hoy)
-    sel = next((x for x in comps if x.id == comp_id), comps[0] if comps else None)
+    sel = next((x for x in comps if x.id == comp_id), None)  # arranca cerrado: se abre al pinchar un competidor
     mias = {f["clave"]: f for f in c["filas"]}
     filas, subir = [], 0
     por_categoria, sin, resumen = [], [], {}

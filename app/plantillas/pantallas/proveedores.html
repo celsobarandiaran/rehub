@@ -23,7 +23,7 @@
   <div class="grid provs" style="grid-template-columns:minmax(0,340px) minmax(0,1fr)">
     <div class="card">
       {% for g in lista.grupos %}
-      <div class="grupo-prov{% if not (ficha.p and ficha.familia == g.id) %} cerrado{% endif %}" data-g="{{ g.id }}">
+      <div class="grupo-prov{% if not ((ficha.p and ficha.familia == g.id) or (not ficha.p and g.id == 'comida')) %} cerrado{% endif %}" data-g="{{ g.id }}">
         <div class="cab"><span><span class="flechita">▸</span> {{ g.nombre }} <span class="mut peq" style="font-weight:400">· {{ g.proveedores|length }}</span></span><span class="peq">{{ eur(g.total, 0) }} € <span class="mut">3 meses</span></span></div>
         <div class="lista-prov">
           {% for x in g.proveedores %}
@@ -87,7 +87,7 @@
         </table></div>
       {% endif %}
       <div class="fila">{% if p.correo %}<a class="btn pri" href="mailto:{{ p.correo }}">✉️ Escribirle</a>{% endif %}{% if p.telefono %}<a class="btn" href="tel:{{ p.telefono.replace(' ', '') }}">📞 Llamar</a>{% endif %}</div>
-      {% else %}<div class="mut">Elige un proveedor.</div>{% endif %}
+      {% else %}<div class="vacio-der"><div><div class="ico">🚚</div>Pulsa un proveedor de la lista para ver su ficha: contacto, cuánto le compras, sus facturas y cómo cambian sus precios.</div></div>{% endif %}
     </div>
   </div>
   <script>
