@@ -135,7 +135,7 @@ def leer_cierre(t: str) -> dict:
 ESQUEMA_FOTO = {
     "type": "OBJECT",
     "properties": {
-        "tipo": {"type": "STRING", "enum": ["factura", "ticket", "etiqueta", "otro"]},
+        "tipo": {"type": "STRING", "enum": ["factura", "albaran", "ticket", "etiqueta", "otro"]},
         "comercio_o_proveedor": {"type": "STRING", "nullable": True},
         "numero": {"type": "STRING", "nullable": True, "description": "Número de factura o ticket tal cual. null si no se lee bien."},
         "fecha": {"type": "STRING", "nullable": True, "description": "Fecha del documento en formato AAAA-MM-DD"},
@@ -155,7 +155,8 @@ ESQUEMA_FOTO = {
 }
 
 INSTRUCCIONES_FOTO = """Eres el lector de documentos de la oficina de un restaurante en España. Mira la foto y devuelve los datos en JSON.
-- "tipo": factura (de un proveedor), ticket (de un gasto en una tienda), etiqueta (de un producto fresco con caducidad) u otro.
+- "tipo": factura (de un proveedor, con base, IVA y total), albaran (nota de entrega del repartidor: líneas con cantidades, normalmente sin IVA ni total; pone "albarán" o "nota de entrega"), ticket (de un gasto en una tienda), etiqueta (de un producto fresco con caducidad) u otro.
+- En albaranes: proveedor, fecha, número del albarán y cada línea con cantidad y unidad (el precio si aparece).
 - Copia los datos exactamente como aparecen. Importes en euros como número (1234.56). Fechas como AAAA-MM-DD.
 - Si un dato no se lee con seguridad (borroso, tapado, ilegible), pon null y explica en "dudas". NUNCA inventes ni deduzcas un dato que no se ve.
 - En facturas: base imponible, IVA y total; y cada línea de producto con cantidad, unidad, precio unitario e importe.

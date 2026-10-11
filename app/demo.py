@@ -8,9 +8,12 @@ from pathlib import Path
 
 from sqlalchemy import delete, select
 
-from . import almacen, config, db, ia, procesar
-from .db import (Ajuste, Aviso, Cierre, Competidor, Correo, Documento, Empleado, Entrada, Evento, LineaDocumento, LineaReceta,
+from . import almacen, catalogo, config, db, ia, procesar
+from .db import (Ajuste, Aviso, Charla, Cierre, Competidor, Correo, Documento, Empleado, Entrada, Evento, LineaDocumento, LineaReceta,
                  MovimientoBanco, PagoFijo, Plato, Producto, Proveedor, Recuento, SesionDB, Turno)
+
+# Lectura anterior de las cartas de la competencia (para "qué ha cambiado desde la última vez"): inventado, como todo lo demás.
+CARTAS_ANTERIORES = {"Taberna del Arco (inventada)": {"arroz negro": 16.90, "paella": 18.00}, "Casa Vidal (inventada)": {"bravas": 5.80, "gin tonic": 8.00}}
 
 DEMO = config.RAIZ / "datos_demo"
 INICIO, FIN = date(2026, 8, 1), date(2026, 10, 11)  # el 11 solo llega el cierre de caja del 10
@@ -69,7 +72,7 @@ def cargar_configuracion(s):
     s.merge(Ajuste(clave="margen_objetivo", valor="0.70"))
     for p in d["proveedores_info"]:
         if not s.scalar(select(Proveedor).where(Proveedor.nombre == p["nombre"])):
-            s.add(Proveedor(nombre=p["nombre"], grupo=p["grupo"], tipo=p["tipo"]))
+            s.add(Proveedor(nombre=p["nombre"], grupo=p["grupo"], tipo=p["tipo"], familia=catalogo.familia_de(p["grupo"], p["tipo"])))
     s.flush()
     for p in d["productos"]:
         if not s.scalar(select(Producto).where(Producto.nombre == p["nombre"])):
@@ -78,7 +81,8 @@ def cargar_configuracion(s):
     s.flush()
     prods = {p.nombre: p for p in s.scalars(select(Producto))}
     for pl in d["carta"]:
-        plato = Plato(nombre=pl["nombre"], parte=pl["parte"], precio_carta=pl["precio_carta"], clave_competencia=pl["clave_competencia"])
+        plato = Plato(nombre=pl["nombre"], parte=pl["parte"], precio_carta=pl["precio_carta"], clave_competencia=pl["clave_competencia"],
+                      categoria=catalogo.categoria_de(pl["nombre"], pl["clave_competencia"], pl["parte"]))
         plato.receta = [LineaReceta(producto_id=prods[r["producto"]].id, cantidad=r["cantidad"]) for r in pl["receta"]]
         s.add(plato)
     emps = {}
@@ -93,8 +97,12 @@ def cargar_configuracion(s):
         s.add(Evento(fecha=date.fromisoformat(e["fecha"]), nombre=e["nombre"], efecto=e["efecto"]))
     for p in d["pagos_fijos"]:
         s.add(PagoFijo(concepto=p["concepto"], dia=p["dia"], importe=p["importe"], cada=p["cada"], aproximado=p["aproximado"]))
+    hoy = date.fromisoformat(d["hoy_demo"])
     for c in d["competidores"]:
-        s.add(Competidor(nombre=c["nombre"], distancia_m=c["distancia_m"], valoracion=c["valoracion"], opiniones=c["opiniones"], carta=c["carta"]))
+        anterior = dict(c["carta"])
+        anterior.update(CARTAS_ANTERIORES.get(c["nombre"], {}))
+        s.add(Competidor(nombre=c["nombre"], distancia_m=c["distancia_m"], valoracion=c["valoracion"], opiniones=c["opiniones"], carta=c["carta"],
+                         carta_anterior=anterior, leida=hoy - timedelta(days=3), leida_anterior=hoy - timedelta(days=29)))
 
 
 # ---------------------------------------------------------------- línea de tiempo
@@ -381,7 +389,7 @@ def enviar_en_directo() -> int:
 
 # ---------------------------------------------------------------- reiniciar y autodestruir
 TABLAS = [Aviso, MovimientoBanco, Entrada, Recuento, LineaDocumento, Cierre, Documento, Correo, LineaReceta, Plato, Turno, Empleado,
-          Evento, PagoFijo, Competidor, Producto, Proveedor]
+          Evento, PagoFijo, Competidor, Producto, Proveedor, Charla]
 
 
 def reiniciar() -> dict:

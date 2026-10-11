@@ -11,6 +11,7 @@ Se generan con `python herramientas/generar_demo.py` a partir de `herramientas/m
 | Nóminas | 12 (4 empleados × julio, agosto y septiembre) | nominas/ |
 | Cierres diarios del TPV | 61 (los lunes cierra) | cierres_tpv/ |
 | Etiquetas de producto fresco (foto) | 15 | etiquetas/ |
+| Albaranes de Pescados Mar Nou (foto, para el botón "Foto del albarán"; en el del 10/10 faltan 0,5 kg de mejillón a propósito) | 2 | albaranes/ |
 | Extracto del banco | 152 movimientos (Norma 43 y CSV) | banco/ |
 | Cartas de 3 competidores | 3 PDF | competencia/ |
 | Correos (llegan a la bandeja) | 172: 61 cierre, 4 consulta, 70 factura, 20 gasto, 3 nomina, 8 publicidad, 1 queja, 5 reserva | correos.json |

@@ -276,6 +276,47 @@ def guardar_gasto(s, d, ruta_tmp, origen, correo) -> Documento:
     return doc
 
 
+def guardar_albaran(s, d: dict, ruta_tmp: str, origen: str, correo, hoy: date) -> Documento:
+    """Foto del albarán: apunta todo lo que ha llegado y lo compara con la factura de ese proveedor (±7 días)."""
+    prov = buscar_proveedor(s, d.get("proveedor"))
+    fecha = d.get("fecha") or hoy
+    doc = Documento(tipo="albaran", fecha=fecha, proveedor=prov, numero=d.get("numero") or "", total=d.get("total"), origen=origen,
+                    correo_id=correo.id if correo else None, estado="revisar" if d.get("revisar") else "correcto", motivo_revisar="; ".join(d.get("revisar") or []))
+    s.add(doc)
+    s.flush()
+    factura = None
+    if prov:
+        cands = [f for f in s.scalars(select(Documento).where(Documento.tipo == "factura", Documento.proveedor_id == prov.id, Documento.estado != "duplicada",
+                                                                 Documento.fecha.is_not(None))) if abs((f.fecha - fecha).days) <= 7]
+        factura = min(cands, key=lambda f: (abs((f.fecha - fecha).days), -f.id), default=None)
+    tipo_prod = TIPO_POR_PROVEEDOR.get((prov.tipo or "").lower(), "seco") if prov else "seco"
+    diferencias, n = [], 0
+    for l in d.get("lineas") or []:
+        prod = buscar_producto(s, l["descripcion"], tipo_prod) if prov and prov.grupo == "comida" else None
+        s.add(LineaDocumento(documento_id=doc.id, producto_id=prod.id if prod else None, descripcion=l["descripcion"], cantidad=l.get("cantidad"),
+                             unidad=l.get("unidad") or "", precio_unitario=l.get("precio_unitario")))
+        n += 1
+        if not prod or not l.get("cantidad"):
+            continue
+        lf = next((x for x in factura.lineas if x.producto_id == prod.id), None) if factura else None
+        if lf and lf.cantidad and abs(lf.cantidad - l["cantidad"]) > 0.05 * max(lf.cantidad, l["cantidad"]):
+            diferencias.append(f"{prod.nombre}: te facturan {lf.cantidad:g} {lf.unidad or prod.unidad} y llegaron {l['cantidad']:g}")
+        e = s.scalar(select(Entrada).where(Entrada.documento_id == factura.id, Entrada.producto_id == prod.id)) if factura else None
+        if e:
+            e.cantidad = l["cantidad"]  # lo que ha llegado de verdad manda sobre lo facturado
+        elif prod.tipo in ("pescado", "carne", "verdura", "lacteo", "pan"):
+            s.add(Entrada(producto_id=prod.id, documento_id=doc.id, fecha=fecha, cantidad=l["cantidad"], caduca=fecha + timedelta(days=VIDA_DIAS.get(prod.tipo, 7)),
+                          caducidad_estimada=True))
+    if diferencias and prov:
+        _avisar(s, fecha, "albaran", "a", "Albarán no cuadra",
+                f"Albarán de {prov.nombre}{(' ' + doc.numero) if doc.numero else ''}: " + "; ".join(diferencias) + ". Reclama antes de pagar" + (f" la factura {factura.numero}" if factura else "") + ".",
+                documento_id=factura.id if factura else doc.id)
+    doc.datos = {"factura_id": factura.id if factura else None, "factura": factura.numero if factura else "", "diferencias": diferencias, "lineas": n,
+                 "casado": "con la factura " + factura.numero if factura else "sin factura cercana de este proveedor"}
+    _archivar(doc, ruta_tmp, prov.nombre if prov else "Albaran")
+    return doc
+
+
 def guardar_etiqueta(s, d, ruta_tmp, hoy: date) -> Entrada | None:
     """Foto de Recepción: casa el producto con la última factura de ese proveedor y corrige la caducidad."""
     prod = buscar_producto(s, d.get("producto") or "", "pescado") if d.get("producto") else None
@@ -329,7 +370,7 @@ def procesar_correo(s: Session, c: dict, adjuntos: list[tuple[str, bytes]], hoy:
             tipos.append(d["tipo"])
         else:  # foto: la lee la IA más tarde (cola)
             s.add(Documento(tipo="pendiente", archivo=tmp, origen=origen, correo_id=correo.id, estado="leyendo", fecha=correo.recibido.date(),
-                            datos={"firma": firma, "remitente": correo.remitente}))
+                            datos={"firma": firma, "remitente": correo.remitente, "pista": c.get("pista", "")}))
             tipos.append("pendiente")
     if tipos:
         orden = ["factura", "nomina", "cierre", "pendiente", "otro", "sin_texto"]
@@ -375,8 +416,13 @@ def procesar_pendientes(s: Session, hoy: date, restaurante: str, maximo=3) -> in
         elif d["tipo"] == "etiqueta":
             guardar_etiqueta(s, d, ruta, hoy)
             cat = "etiqueta"
+        elif d["tipo"] == "albaran":
+            guardar_albaran(s, d, ruta, doc.origen, correo, hoy)
+            cat = "albaran"
         else:
-            s.add(Documento(tipo="otro", archivo=ruta, origen=doc.origen, correo_id=doc.correo_id, estado="revisar", motivo_revisar="foto que no es factura ni ticket"))
+            pista = (doc.datos or {}).get("pista", "")
+            motivo = {"albaran": "la foto no parece un albarán legible: repítela más cerca y con luz", "etiqueta": "la foto no parece una etiqueta legible: repítela más cerca y con luz"}.get(pista, "foto que no es factura ni ticket")
+            s.add(Documento(tipo="otro", archivo=ruta, origen=doc.origen, correo_id=doc.correo_id, estado="revisar", motivo_revisar=motivo))
             cat = "raro"
         if correo and correo.categoria == "leyendo":
             correo.categoria = cat

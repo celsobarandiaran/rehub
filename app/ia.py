@@ -87,3 +87,8 @@ def leer_imagen(contenido: bytes, mime: str, instrucciones: str, esquema: dict) 
 
 def preguntar_json(instrucciones: str, esquema: dict, temperatura=0.2) -> dict:
     return json.loads(_llamar([{"text": instrucciones}], esquema, temperatura))
+
+
+def preguntar_texto(instrucciones: str, temperatura=0.3) -> str:
+    """Respuesta en texto libre (el asistente)."""
+    return _llamar([{"text": instrucciones}], None, temperatura).strip()

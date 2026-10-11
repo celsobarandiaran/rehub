@@ -13,7 +13,9 @@ from fastapi import HTTPException, UploadFile
 from fastapi.responses import Response
 from sqlalchemy import select
 
-from . import almacen, auth, calculos, config, db, demo, gmail, ia, perfiles, procesar, vistas
+import json
+
+from . import almacen, asistente, auth, calculos, catalogo, config, db, demo, gmail, ia, perfiles, procesar, vistas
 
 AQUI = Path(__file__).resolve().parent
 
@@ -106,18 +108,27 @@ def pantalla(request: Request, pantalla_id: str):
         hoy = calculos.hoy_demo(s)
         contexto["hoy"] = hoy
         if pantalla_id == "bandeja":
-            contexto.update(vistas.bandeja(s, q.get("cat"), int(q["id"]) if q.get("id", "").isdigit() else None, perfil))
+            periodo, desde, hasta = _periodo_bandeja(q, hoy)
+            contexto.update(vistas.bandeja(s, q.get("cat"), int(q["id"]) if q.get("id", "").isdigit() else None, perfil, desde, hasta),
+                            periodo=periodo, desde=desde, hasta=hasta)
         elif pantalla_id == "ajustes":
             contexto["estado_demo"] = demo.ESTADO.json()
+        elif pantalla_id == "asistente":
+            contexto.update(ejemplos=asistente.EJEMPLOS, charlas=asistente.historial(s), pantallas=asistente.PANTALLAS)
         elif contexto["hay_datos"]:
             if pantalla_id == "hoy":
                 st = calculos.stock(s, hoy)
                 contexto.update(prevision=calculos.prevision(s, hoy), empujar=calculos.platos_a_empujar(s, hoy), avisos=vistas.avisos(s, hoy),
-                                caducan=st["caducan"], caja=calculos.caja_30_dias(s, hoy) if perfiles.puede_ver(perfil, "banco") else None)
+                                caducan=st["caducan"], caja=calculos.caja_30_dias(s, hoy) if perfiles.puede_ver(perfil, "banco") else None,
+                                faltas=calculos.faltas(s, hoy))
             elif pantalla_id == "cuadro":
                 contexto.update(vistas.cuadro_del_dia(s, hoy, q.get("fecha")))
             elif pantalla_id == "carta":
-                contexto.update(carta=calculos.carta(s, hoy), tipos=calculos.TIPOS, parte=q.get("parte", "comida"))
+                productos = sorted(s.scalars(select(db.Producto)), key=lambda p: p.nombre)
+                precios = calculos.precios_actuales(s)
+                contexto.update(carta=calculos.carta(s, hoy), tipos=calculos.TIPOS, parte=q.get("parte", "comida"), categorias=catalogo.CATEGORIAS,
+                                nombres_cat=catalogo.NOMBRE_CATEGORIA, competidores=list(s.scalars(select(db.Competidor))),
+                                productos=[{"id": p.id, "nombre": p.nombre, "unidad": p.unidad, "rendimiento": p.rendimiento, "precio": precios.get(p.id, (0.0,))[0]} for p in productos])
             elif pantalla_id == "dueno":
                 contexto.update(d=calculos.dueno(s, hoy), banco=calculos.banco(s, hoy), caja=calculos.caja_30_dias(s, hoy), normal=calculos.NORMAL)
             elif pantalla_id == "personal":
@@ -127,8 +138,8 @@ def pantalla(request: Request, pantalla_id: str):
             elif pantalla_id == "recepcion":
                 contexto.update(vistas.recepcion(s, hoy, perfil))
             elif pantalla_id == "proveedores":
-                contexto.update(lista=calculos.proveedores(s, hoy))
-                sel = int(q["id"]) if q.get("id", "").isdigit() else (contexto["lista"][0]["p"].id if contexto["lista"] else None)
+                contexto.update(lista=calculos.proveedores(s, hoy), faltas=calculos.faltas(s, hoy), vista=q.get("vista", "a"))
+                sel = int(q["id"]) if q.get("id", "").isdigit() else (contexto["lista"]["todos"][0]["p"].id if contexto["lista"]["todos"] else None)
                 contexto.update(ficha=calculos.ficha_proveedor(s, sel) if sel else {}, mercabarna=vistas.MERCABARNA)
             elif pantalla_id == "competencia":
                 contexto.update(vistas.competencia(s, hoy, int(q["id"]) if q.get("id", "").isdigit() else None))
@@ -141,6 +152,25 @@ def pantalla(request: Request, pantalla_id: str):
 def _solo_dueno(request: Request):
     if request.state.perfil != perfiles.DUENO:
         raise HTTPException(403, "Solo el dueño puede hacer esto")
+
+
+def _periodo_bandeja(q, hoy: date):
+    """este mes (por defecto), esta semana, todo, o un rango a mano."""
+    periodo = q.get("periodo", "mes")
+    try:
+        if periodo == "rango":
+            desde = date.fromisoformat(q["desde"]) if q.get("desde") else None
+            hasta = date.fromisoformat(q["hasta"]) if q.get("hasta") else None
+            return "rango", desde, hasta
+    except ValueError:
+        pass
+    if periodo == "semana":
+        lunes = hoy - timedelta(days=hoy.weekday())
+        return "semana", lunes, lunes + timedelta(days=6)
+    if periodo == "todo":
+        return "todo", None, None
+    primero = hoy.replace(day=1)
+    return "mes", primero, (primero + timedelta(days=32)).replace(day=1) - timedelta(days=1)
 
 
 # ---------------------------------------------------------------- demo
@@ -213,14 +243,16 @@ def archivo(request: Request, doc_id: int):
 
 
 @app.post("/api/subir")
-async def subir(request: Request, archivo: UploadFile):
-    """Subir a mano un PDF o una foto (factura, ticket o etiqueta)."""
+async def subir(request: Request, archivo: UploadFile, tipo: str = Form("")):
+    """Subir a mano un PDF o una foto (factura, ticket, albarán o etiqueta). `tipo` es la pista del botón pulsado en Recepción."""
     contenido = await archivo.read()
     if len(contenido) > 15 * 1024 * 1024:
         return JSONResponse({"error": "El archivo es demasiado grande (máximo 15 MB)."}, status_code=413)
+    nombres = {"albaran": "Foto del albarán", "etiqueta": "Foto de etiqueta"}
     with db.SesionDB() as s:
-        c = procesar.procesar_correo(s, {"de_nombre": "Subido a mano", "alias": "subida", "asunto": archivo.filename or "Archivo",
-                                         "cuerpo": ""}, [(archivo.filename or "archivo.jpg", contenido)], demo.hoy_demo(), config.NOMBRE_RESTAURANTE, origen="subida")
+        c = procesar.procesar_correo(s, {"de_nombre": "Subido a mano", "alias": "subida", "asunto": nombres.get(tipo, archivo.filename or "Archivo"),
+                                         "cuerpo": "", "pista": tipo if tipo in nombres else ""}, [(archivo.filename or "archivo.jpg", contenido)],
+                                     demo.hoy_demo(), config.NOMBRE_RESTAURANTE, origen="subida")
         s.commit()
         cid = c.id
     demo._asegurar_hilo_ia()
@@ -272,6 +304,89 @@ async def api_plato(request: Request, plato_id: int):
                 l.cantidad = c
         s.commit()
     return {"ok": True}
+
+
+@app.post("/api/plato/{plato_id}/clave")
+def api_plato_clave(request: Request, plato_id: int, clave: str = Form("")):
+    """Corregir con qué plato de la competencia se compara (cuando la app lo casó mal)."""
+    if not perfiles.puede_ver(request.state.perfil, "costes_y_margenes"):
+        raise HTTPException(403)
+    with db.SesionDB() as s:
+        p = s.get(db.Plato, plato_id)
+        if not p:
+            raise HTTPException(404)
+        p.clave_competencia = clave.strip().lower()[:60]
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/receta")
+async def api_receta(request: Request):
+    """Añadir una receta: categoría, nombre, precio de carta e ingredientes (producto_N, cantidad_N)."""
+    if not perfiles.puede_ver(request.state.perfil, "costes_y_margenes"):
+        raise HTTPException(403)
+    form = await request.form()
+    nombre = (form.get("nombre") or "").strip()[:120]
+    categoria = (form.get("categoria") or "").strip()
+    precio = _num(form.get("precio_carta", ""))
+    if not nombre or categoria not in catalogo.NOMBRE_CATEGORIA or precio is None or precio <= 0:
+        return JSONResponse({"error": "Faltan el nombre, la categoría o el precio."}, status_code=400)
+    with db.SesionDB() as s:
+        if s.scalar(select(db.Plato).where(db.Plato.nombre == nombre)):
+            return JSONResponse({"error": "Ya hay un plato con ese nombre."}, status_code=400)
+        p = db.Plato(nombre=nombre, parte=catalogo.parte_de_categoria(categoria), categoria=categoria, precio_carta=precio,
+                     clave_competencia=" ".join(procesar.normal(nombre).split()[:2]))
+        lineas = []
+        for i in range(40):
+            pid, cant = form.get(f"producto_{i}", ""), _num(form.get(f"cantidad_{i}", ""))
+            if pid.isdigit() and cant and cant > 0 and s.get(db.Producto, int(pid)):
+                lineas.append(db.LineaReceta(producto_id=int(pid), cantidad=cant))
+        if not lineas:
+            return JSONResponse({"error": "Pon al menos un ingrediente con su cantidad."}, status_code=400)
+        p.receta = lineas
+        s.add(p)
+        s.commit()
+        return {"ok": True, "id": p.id}
+
+
+@app.post("/api/competencia/ocultar")
+def api_competencia_ocultar(request: Request, clave: str = Form(...), mostrar: str = Form("")):
+    """Quitar (o volver a poner) a mano un plato de las listas de comparación."""
+    _solo_dueno(request)
+    with db.SesionDB() as s:
+        ocultas = calculos.claves_ocultas(s)
+        (ocultas.discard if mostrar else ocultas.add)(clave.strip().lower())
+        s.merge(db.Ajuste(clave="comp_ocultos", valor=json.dumps(sorted(ocultas))))
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/competencia/anadir")
+def api_competencia_anadir(request: Request, competidor_id: int = Form(...), clave: str = Form(...), precio: str = Form("")):
+    """Añadir a mano un plato a la carta leída de un competidor (o corregir su precio)."""
+    _solo_dueno(request)
+    p = _num(precio)
+    with db.SesionDB() as s:
+        c = s.get(db.Competidor, competidor_id)
+        if not c or not clave.strip():
+            raise HTTPException(404)
+        carta = dict(c.carta or {})
+        if p and p > 0:
+            carta[clave.strip().lower()] = p
+        else:
+            carta.pop(clave.strip().lower(), None)
+        c.carta = carta
+        s.commit()
+    return {"ok": True}
+
+
+@app.post("/api/asistente")
+def api_asistente(request: Request, pregunta: str = Form(...), pantalla: str = Form("")):
+    """El asistente responde con los datos del restaurante. Solo responde: no cambia nada."""
+    if not pregunta.strip():
+        return JSONResponse({"error": "Escribe una pregunta."}, status_code=400)
+    with db.SesionDB() as s:
+        return asistente.responder(s, pregunta, pantalla or "hoy", calculos.hoy_demo(s), request.state.perfil)
 
 
 @app.post("/api/recuento")
@@ -387,9 +502,17 @@ async def api_competidor(request: Request):
         except (ia.SinIA, ia.CuotaAgotada):
             return JSONResponse({"error": "La IA no está disponible ahora para leer la carta; prueba más tarde."}, status_code=503)
     with db.SesionDB() as s:
-        c = db.Competidor(nombre=nombre, distancia_m=int(_num(form.get("distancia_m", "")) or 0), valoracion=_num(form.get("valoracion", "")),
-                          opiniones=0, carta=carta)
-        s.add(c)
+        hoy = calculos.hoy_demo(s)
+        existente = s.scalar(select(db.Competidor).where(db.Competidor.nombre == nombre))
+        if existente and carta:
+            # Nueva lectura de su carta: se guarda la anterior para decir qué ha cambiado
+            existente.carta_anterior, existente.leida_anterior = existente.carta, existente.leida
+            existente.carta, existente.leida = carta, hoy
+            c = existente
+        else:
+            c = db.Competidor(nombre=nombre, distancia_m=int(_num(form.get("distancia_m", "")) or 0), valoracion=_num(form.get("valoracion", "")),
+                              opiniones=0, carta=carta, leida=hoy if carta else None)
+            s.add(c)
         s.commit()
         return {"ok": True, "id": c.id, "productos": len(carta)}
 

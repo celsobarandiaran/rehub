@@ -16,7 +16,7 @@ CARPETA = config.CARPETA_LOCAL / "archivos"
 
 def ruta_documento(fecha: date | None, tipo: str, proveedor: str, total: float | None, extension: str) -> str:
     """Ejemplo: 2026/10/facturas/2026-10-10 Pescados Mar Nou 412,30.pdf"""
-    carpetas = {"factura": "facturas", "gasto": "gastos", "nomina": "nominas", "cierre": "cierres"}
+    carpetas = {"factura": "facturas", "gasto": "gastos", "nomina": "nominas", "cierre": "cierres", "albaran": "albaranes"}
     f = fecha or date.today()
     importe = f"{total:.2f}".replace(".", ",") if total is not None else "sin-importe"
     nombre = re.sub(r"[\\/:*?\"<>|]", "", f"{f.isoformat()} {proveedor} {importe}").strip()

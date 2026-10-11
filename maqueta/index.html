@@ -194,6 +194,63 @@ tr.sub-cab td{background:#f7f4ee;font-weight:700;font-size:13px;color:var(--verd
 .t-m{background:#e8eefb;color:var(--azul)}.t-n{background:#f3e9fa;color:#7a3fa0}.t-p{background:#e7f2ec;color:var(--ok)}.t-l{background:#f0efed;color:#999}
 .pie{color:var(--gris);font-size:13px;text-align:center;margin-top:30px}
 svg text{font-family:inherit}
+/* Bandeja: periodo */
+.periodo{display:flex;gap:8px 12px;flex-wrap:wrap;align-items:center;padding:10px 14px;margin-bottom:12px}
+.periodo input.campo{width:150px}
+.periodo .seg{min-width:0}
+/* Proveedores: grupos, aviso de faltas y precios por factura */
+.prov-grupo{display:flex;align-items:center;gap:8px;padding:10px 8px;margin-top:6px;background:var(--suave);border-radius:8px;font-weight:700;cursor:pointer;user-select:none}
+.prov-grupo .flechita{display:inline-block;width:14px;color:var(--gris)}
+.prov-grupo .gl{white-space:nowrap}
+.prov-grupo .mut{font-weight:400;font-size:13px}
+.prov-grupo.cerrado+.prov-items{display:none}
+.falta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.falta .alerta{flex-direction:column;align-items:stretch}
+.falta .alerta b{white-space:normal}
+.falta .btn{align-self:flex-start;margin-top:2px;padding:5px 10px;font-size:13px}
+.opcion{border:1px dashed #c9c2b4;border-radius:12px;padding:10px 12px}
+.opcion .tit{display:inline-block;font-size:12px;font-weight:700;color:var(--teja);background:#fff6f2;border-radius:20px;padding:2px 9px;margin-bottom:6px}
+table.pxf th,table.pxf td{white-space:nowrap}
+table.pxf th .mut{text-transform:none;font-weight:400;letter-spacing:0}
+table.pxf td.sube{color:var(--mal);font-weight:700}
+table.pxf td.baja{color:var(--ok);font-weight:700}
+table.pxf td small{font-weight:600;font-size:11px;margin-left:3px}
+.bp{display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr) 78px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--linea)}
+.bp:last-child{border-bottom:0}
+.bp .b{display:flex;align-items:center;gap:6px;font-size:12px;line-height:15px;font-variant-numeric:tabular-nums}
+.bp .b .f{width:38px;color:var(--gris);flex:none}
+.bp .b i{display:block;height:10px;border-radius:3px;background:#a9cbb8;flex:none}
+.bp .b.ult i{background:var(--verde2)}
+.bp .b.ult .v{font-weight:700}
+.bp .t{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+/* Carta: colores, leyenda fija, recetas */
+.leyenda{position:sticky;top:50px;z-index:5;background:var(--papel);display:flex;flex-wrap:wrap;gap:4px 16px;padding:8px 0;border-bottom:1px solid var(--linea);font-size:13px}
+.leyenda span{white-space:nowrap}
+.s-az{background:var(--azul)}
+tr.sem-v td:first-child{box-shadow:inset 4px 0 0 var(--ok)}
+tr.sem-az td:first-child{box-shadow:inset 4px 0 0 var(--azul)}
+tr.sem-am td:first-child{box-shadow:inset 4px 0 0 var(--aviso)}
+tr.sem-r td:first-child{box-shadow:inset 4px 0 0 var(--mal)}
+a.malcasado{font-size:12px;color:var(--gris);text-decoration:none;border-bottom:1px dotted var(--gris);white-space:nowrap;cursor:pointer}
+.alerta .quitar{margin-left:auto;flex:none;padding:2px 8px;font-size:12px;min-height:0}
+.ing-fila{display:grid;grid-template-columns:minmax(0,1fr) 90px 36px 28px;gap:6px;align-items:center}
+.ing-fila .u{font-size:12px;color:var(--gris)}
+.ing-fila .x{cursor:pointer;color:var(--gris);text-align:center;font-weight:700}
+.recetas .rec{padding:8px 0;border-bottom:1px solid var(--linea)}
+.recetas .rec:last-child{border-bottom:0}
+.recetas .rec-cat{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--verde);font-weight:700;margin-top:8px}
+tr.cat.notiene td{background:#ecebe6;color:#9a978f;font-style:italic;font-weight:600}
+/* Asistente a pantalla completa */
+.chat{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:14px;align-items:start}
+.chat-cuerpo{min-height:380px;max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--crema);border-radius:12px;font-size:14px}
+.chat .sugeridas{padding:0}
+.chat .sugeridas span{font-size:14px;padding:8px 12px}
+.burbuja .fuente{display:block;margin-top:6px;font-size:12px;opacity:.75}
+.burbuja.ia .fuente a{color:var(--verde);font-weight:600}
+.convs div{padding:8px 10px;border-radius:10px;cursor:pointer;border:1px solid var(--linea);font-size:14px}
+.convs div+div{margin-top:6px}
+.convs div:hover{background:var(--suave)}
+.convs div .mut{display:block;font-size:12px}
 /* Responsive */
 @media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g-35{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:820px){
@@ -226,8 +283,22 @@ svg text{font-family:inherit}
   table.resp td[colspan]::before{content:none}
   table.resp td:first-child{font-weight:700;text-align:left}
   table.resp td .chip{white-space:normal}
+  table.resp tr.oculto{display:none}
+  table.resp td .celda{display:block;text-align:left;flex:1}
+  table.resp td:first-child .celda{text-align:left}
+  table.resp tr.sem-v{border-left:4px solid var(--ok)}table.resp tr.sem-az{border-left:4px solid var(--azul)}table.resp tr.sem-am{border-left:4px solid var(--aviso)}table.resp tr.sem-r{border-left:4px solid var(--mal)}
+  table.resp tr.sem-v td:first-child,table.resp tr.sem-az td:first-child,table.resp tr.sem-am td:first-child,table.resp tr.sem-r td:first-child{box-shadow:none}
+  table.resp tr.cat.notiene td:last-child{display:none}
+  .chat{grid-template-columns:minmax(0,1fr)}
+  .chat-cuerpo{min-height:300px;max-height:55vh}
+  .leyenda{top:98px}
+  .leyenda span{white-space:normal}
+  .falta{grid-template-columns:minmax(0,1fr)}
+  .bp{grid-template-columns:minmax(0,1fr) 70px}
+  .bp>div:first-child{grid-column:1/-1}
+  .periodo b{margin-left:0!important}
 }
-@media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.kpi .v{font-size:21px}.pant-cab h2{font-size:21px}.perfiles{margin-left:0}.ocultar-movil{display:none}.card{overflow-x:auto}.act-mini span{display:none}
+@media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.kpi .v{font-size:21px}.pant-cab h2{font-size:21px}.perfiles{margin-left:0}.ocultar-movil{display:none}.card{overflow-x:auto}.card.carta-tabla{overflow:visible}.act-mini span{display:none}
   .asis-btn{right:12px;bottom:12px;padding:12px 14px}.asis-btn .txt{display:none}.asis{right:8px;left:8px;bottom:74px;width:auto;max-width:none}.ficha-datos{grid-template-columns:1fr}}
 </style>
 </head>
@@ -253,32 +324,31 @@ svg text{font-family:inherit}
   <a href="#competencia"><span class="n">8</span>Competencia<span class="nuevo-m">nuevo</span></a>
   <a href="#personal"><span class="n">9</span>Personal</a>
   <a href="#dueno"><span class="n">10</span>Dueño</a>
-  <a href="#ajustes"><span class="n">11</span>Ajustes</a>
+  <a href="#asistente"><span class="n">11</span>💬 Asistente<span class="nuevo-m">nuevo</span></a>
+  <a href="#ajustes"><span class="n">12</span>Ajustes</a>
   <div class="sep"></div>
   <div class="nota">Maqueta v2 para aprobar. Datos inventados de Restaurante La Plaza (salvo los precios de Mercabarna, que son reales). Los recuadros rojizos son mis objeciones.</div>
 </nav>
 
 <main>
-<div class="aviso-maqueta">✏️ <b>Maqueta v2</b>: 11 pantallas. Todos los nombres y cifras son <b>inventados</b> y ahora <b>cuadran entre sí</b>: La Plaza vende unos 24.500 € al mes sin IVA, con 4 empleados. Los análisis se hacen siempre <span class="sin-iva">sin IVA</span>; la caja y el banco, con IVA (es el dinero que entra y sale de verdad). Los recuadros con borde rojizo son <b>mis objeciones</b>. La versión anterior está en <code>maqueta/version1.html</code>.</div>
+<div class="aviso-maqueta">✏️ <b>Maqueta v2</b>: 12 pantallas. Todos los nombres y cifras son <b>inventados</b> y ahora <b>cuadran entre sí</b>: La Plaza vende unos 24.500 € al mes sin IVA, con 4 empleados. Los análisis se hacen siempre <span class="sin-iva">sin IVA</span>; la caja y el banco, con IVA (es el dinero que entra y sale de verdad). Los recuadros con borde rojizo son <b>mis objeciones</b>. La versión anterior está en <code>maqueta/version1.html</code>.</div>
 
 <!-- 1 BANDEJA -->
 <section class="pant" id="bandeja">
   <div class="pant-cab"><span class="num">1</span><h2>Bandeja</h2><span class="sub">Correos leídos, clasificados y con respuesta propuesta</span>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
+  <div class="card periodo">
+    <span class="peq mut">Periodo:</span>
+    <div class="seg seg-c" id="bzPeriodo"><span data-p="mes" class="on">Este mes</span><span data-p="semana">Esta semana</span><span data-p="todo">Todo</span></div>
+    <span class="fila peq"><span class="mut">del</span><input class="campo" type="date" id="bzDel" value="2026-10-01"><span class="mut">al</span><input class="campo" type="date" id="bzAl" value="2026-10-11"><span class="btn" id="bzVer">Ver</span></span>
+    <b id="bzCuenta" style="margin-left:auto"></b>
+  </div>
   <div class="fila" style="margin-bottom:12px">
-    <span class="chip">Todos 41</span><span class="chip c-fact">Facturas 12</span><span class="chip c-res">Reservas 5</span><span class="chip c-con">Consultas 3</span><span class="chip c-queja">Quejas 1</span><span class="chip c-nom">Nóminas 4</span><span class="chip c-gasto">Gastos 6</span><span class="chip c-pub">Publicidad 8</span><span class="chip c-rev">Raros 1</span>
+    <span class="fila" id="bzChips"></span>
     <span style="margin-left:auto" class="fila"><span class="btn">⬆️ Subir PDF o foto</span><span class="btn">🔄 Revisar correo</span></span>
   </div>
   <div class="grid g-35">
-    <div class="card" style="padding:8px">
-      <div class="correo sel"><div class="av" style="background:#2d6a4f">MG</div><div class="q"><div class="r"><b><span class="nuevo"></span>Marta García</b><span class="mut peq">09:42</span></div><div class="as">Reserva para el sábado, 8 personas</div><div class="fila peq"><span class="chip c-res">Reserva</span><span class="mut">+cliente</span><span class="chip c-rev">Respuesta lista</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#2c4f9e">PM</div><div class="q"><div class="r"><b><span class="nuevo"></span><a class="prov" data-p="Pescados Mar Nou">Pescados Mar Nou</a></b><span class="mut peq">08:15</span></div><div class="as">Factura F-2026-0412 · 412,30 €</div><div class="fila peq"><span class="chip c-fact">Factura</span><span class="mut">+proveedor</span><span class="chip c-ok">Archivada</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#c0392b">JR</div><div class="q"><div class="r"><b>Jordi Ribas</b><span class="mut peq">ayer</span></div><div class="as">Esperamos 50 minutos el segundo plato…</div><div class="fila peq"><span class="chip c-queja">Queja</span><span class="mut">+cliente</span><span class="chip c-rev">Respuesta lista</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#9a6200">CV</div><div class="q"><div class="r"><b><a class="prov" data-p="Carnes Vallès">Carnes Vallès</a></b><span class="mut peq">ayer</span></div><div class="as">Factura C-8841 · 688,15 €</div><div class="fila peq"><span class="chip c-fact">Factura</span><span class="mut">+proveedor</span><span class="chip c-dup">Posible duplicada</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#d08a00">AY</div><div class="q"><div class="r"><b>Ayuntamiento (notificación)</b><span class="mut peq">ayer</span></div><div class="as">Aviso de renovación de la licencia de terraza</div><div class="fila peq"><span class="chip c-rev">Raro: no sé clasificarlo</span><span class="btn" style="padding:2px 8px;font-size:12px">Es otro</span><span class="btn" style="padding:2px 8px;font-size:12px">No es nada</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#7a3fa0">GA</div><div class="q"><div class="r"><b>Gestoría Albà</b><span class="mut peq">30 sep</span></div><div class="as">Nóminas de septiembre</div><div class="fila peq"><span class="chip c-nom">Nóminas</span><span class="mut">+gestoria</span><span class="chip c-ok">4 archivadas</span></div></div></div>
-      <div class="correo"><div class="av" style="background:#999">PR</div><div class="q"><div class="r"><b>ProMenu Ofertas</b><span class="mut peq">30 sep</span></div><div class="as">¡Digitaliza tu carta con un 40 % de descuento!</div><div class="fila peq"><span class="chip c-pub">Publicidad</span><span class="mut">sin respuesta</span></div></div></div>
-    </div>
+    <div class="card" style="padding:8px" id="bzLista"></div>
     <div class="card pila">
       <div class="fila"><span class="chip c-res">Reserva</span><span class="mut peq">De: Marta García &lt;laplaza.rehub+cliente@gmail.com&gt;</span></div>
       <div><b>Reserva para el sábado, 8 personas</b></div>
@@ -334,9 +404,20 @@ Restaurante La Plaza</textarea>
 <section class="pant" id="proveedores">
   <div class="pant-cab"><span class="num">3</span><h2>Proveedores</h2><span class="sub">Cuánto le compras a cada uno, cómo cambian sus precios y cómo contactarle</span>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
-  <div class="grid provs" style="grid-template-columns:minmax(0,320px) minmax(0,1fr)">
+  <div class="card pila" id="provFalta" style="margin-bottom:14px">
+    <h3 style="margin:0">⚠️ Se te puede acabar</h3>
+    <div class="peq mut">Calculado con lo que se vende (cierres de caja), lo que lleva cada receta y lo que has comprado (facturas y albaranes), menos lo que marcó el último recuento.</div>
+    <div class="falta">
+      <div class="alerta r"><b>Calamar limpio</b><div>Quedan <b>2,1 kg</b>: da para <b>2 días</b> (se usa ~1 kg/día entre arroz negro, calamares y paella).</div><span class="btn pedir" data-p="Pescados Mar Nou">✉️ Pedir a Pescados Mar Nou</span></div>
+      <div class="alerta r"><b>Entrecot de vaca</b><div>Quedan <b>1,4 kg</b>: da para <b>1 día</b> (unas 4 raciones de 350 g al día).</div><span class="btn pedir" data-p="Carnes Vallès">✉️ Pedir a Carnes Vallès</span></div>
+      <div class="alerta r"><b>Pan de barra</b><div>Quedan <b>6 ud</b>: da para <b>1 día</b> (se gastan unas 8 barras al día entre el pan con tomate y el servicio).</div><span class="btn pedir" data-p="Forn de Pa Sant Jaume">✉️ Pedir a Forn de Pa Sant Jaume</span></div>
+    </div>
+    <div class="peq mut">El mismo aviso, resumido, sale en <a href="#hoy">Hoy</a>. "Pedir a…" abre la ficha del proveedor con un pedido sugerido; no se envía nada sin que lo confirmes.</div>
+  </div>
+  <div class="grid provs" style="grid-template-columns:minmax(0,340px) minmax(0,1fr)">
     <div class="card">
-      <h3>Este mes <span class="sin-iva">sin IVA</span></h3>
+      <h3 style="margin-bottom:2px">Todos tus proveedores <span class="sin-iva">sin IVA</span></h3>
+      <div class="peq mut">Compras de agosto a octubre (3 meses). Pulsa un grupo para abrirlo o cerrarlo.</div>
       <div class="lista-prov" id="provLista"></div>
       <div class="peq mut" style="margin-top:8px">Pulsa un proveedor para ver su ficha. El nombre del proveedor en cualquier factura, en Documentos o en Recepción también abre su ficha.</div>
     </div>
@@ -361,8 +442,10 @@ Restaurante La Plaza</textarea>
     <div class="movil">
       <div class="barra"><span>📦 Recepción</span><span>La Plaza</span></div>
       <div class="cuerpo">
-        <div class="btn teja grande" style="width:100%;justify-content:center">📄 Foto al albarán</div>
-        <div class="foto" style="margin-top:12px"><div class="albaran">PESCADOS MAR NOU · ALBARÁN A-2210<br>10/10/2026 · Restaurante La Plaza<br>Lubina fresca ........ 4,20 kg<br>Calamar .............. 3,00 kg<br>Mejillón ............. 4,50 kg<br>Bacalao desalado ..... 4,00 kg<br>Gamba roja ........... 3,00 kg</div></div>
+        <div class="grid g2" style="gap:8px"><div class="btn teja grande" style="justify-content:center;padding:14px 8px">📄 Foto del albarán</div><div class="btn pri grande" style="justify-content:center;padding:14px 8px">🏷️ Foto de etiqueta</div></div>
+        <div class="peq mut" style="margin-top:8px;line-height:1.35"><b>Albarán:</b> al llegar el pedido, foto al papel del repartidor; la app apunta todo lo que ha llegado y lo compara con el pedido o la factura de ese proveedor. <b>Etiqueta:</b> solo en pescado y carne, para leer la fecha de caducidad y el lote.</div>
+        <div class="peq" style="margin-top:10px"><b>📄 Ejemplo: albarán leído</b></div>
+        <div class="foto" style="margin-top:6px"><div class="albaran">PESCADOS MAR NOU · ALBARÁN A-2210<br>10/10/2026 · Restaurante La Plaza<br>Lubina fresca ........ 4,20 kg<br>Calamar .............. 3,00 kg<br>Mejillón ............. 4,50 kg<br>Bacalao desalado ..... 4,00 kg<br>Gamba roja ........... 3,00 kg</div></div>
         <div class="leido">
           <div class="l"><span>Proveedor</span><b><a class="prov" data-p="Pescados Mar Nou">Pescados Mar Nou</a></b></div>
           <div class="l"><span>Lubina 4,20 kg</span><b style="color:var(--ok)">✔ coincide</b></div>
@@ -371,8 +454,14 @@ Restaurante La Plaza</textarea>
           <div class="l"><span>Bacalao y gamba</span><b style="color:var(--ok)">✔ coinciden</b></div>
         </div>
         <div class="alerta r" style="margin-top:10px"><b>Reclamar</b><div>Te cobran 0,5 kg de mejillón que no ha llegado (2,10 €).</div></div>
-        <div class="btn grande" style="width:100%;justify-content:center;margin-top:10px">📸 Foto a la etiqueta (solo pescado y carne)</div>
-        <div class="peq mut" style="margin-top:6px">Lubina: lote L2610-07, caduca <b>mar 13/10</b> (leído de la etiqueta).</div>
+        <div class="peq" style="margin-top:12px"><b>🏷️ Ejemplo: etiqueta leída</b></div>
+        <div class="foto" style="margin-top:6px;height:96px"><div class="albaran" style="transform:rotate(1.5deg)">PESCADOS MAR NOU · LUBINA FRESCA<br>Lote: L261010-01 · 4,20 kg<br>Envasado: 10/10/2026<br>CADUCIDAD: 12/10/2026 · 0-4 ºC</div></div>
+        <div class="leido">
+          <div class="l"><span>Producto</span><b>Lubina fresca · 4,20 kg</b></div>
+          <div class="l"><span>Lote</span><b>L261010-01</b></div>
+          <div class="l"><span>Caduca</span><b style="color:var(--aviso)">lun 12/10</b> <span class="chip c-ok">etiqueta</span></div>
+        </div>
+        <div class="peq mut" style="margin-top:6px">Con la fecha de la etiqueta, la lubina entra en "Caduca hoy y mañana" el lunes y en los platos a empujar.</div>
       </div>
     </div>
     <div class="pila">
@@ -412,6 +501,7 @@ Restaurante La Plaza</textarea>
         <div class="alerta r"><b>No pagar</b><div>Factura duplicada de <a class="prov" data-p="Carnes Vallès">Carnes Vallès</a> C-8841 (llegó el 5 y el 9 de octubre).</div></div>
         <div class="alerta a"><b>Caja justa</b><div>El 31 de octubre y el 1 de noviembre coinciden nóminas, Seguridad Social y alquiler: la caja baja a 746 €. <a href="#dueno">Ver caja →</a></div></div>
         <div class="alerta a"><b>Precio</b><div>Lubina +16 % en <a class="prov" data-p="Pescados Mar Nou">Pescados Mar Nou</a>: la lubina a la sal deja ahora 11,64 € en vez de 12,69 €.</div></div>
+        <div class="alerta r"><b>Se acaba</b><div>Calamar (2 días), entrecot (1 día), pan (1 día). <a href="#proveedores">Ver en Proveedores →</a></div></div>
       </div>
       <div class="card pila"><h3>🍽️ Platos a empujar hoy</h3>
         <div class="alerta v"><b>1. Calamares</b><div>El calamar caduca hoy y deja 8,42 € por ración.<br><i>"Hoy los calamares están recién llegados, ¿os pongo una ración para compartir?"</i></div></div>
@@ -474,37 +564,45 @@ Restaurante La Plaza</textarea>
   <div class="pant-cab"><span class="num">7</span><h2>Carta</h2><span class="sub">Comida y bebida: lo que cuesta, lo que deja, lo que se vende y cómo está frente a la competencia</span>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf">Trabajador</span></div></div>
   <div class="grid g4" id="cartaResumen"></div>
-  <div class="card pila" style="margin-top:14px">
+  <div class="card pila carta-tabla" style="margin-top:14px">
     <div class="pestanas" id="cartaTab"><span data-t="comida" class="on">🍽️ Comida</span><span data-t="bebida">🍷 Bebida</span></div>
+    <div class="leyenda"><b>Colores:</b>
+      <span><i class="sem s-v"></i><b>verde</b> = vende mucho y deja mucho → mantener (lleva ⭐)</span>
+      <span><i class="sem s-az"></i><b>azul</b> = vende mucho pero deja poco → subir precio o bajar coste</span>
+      <span><i class="sem s-a"></i><b>amarillo</b> = deja mucho pero vende poco → darle visibilidad</span>
+      <span><i class="sem s-r"></i><b>rojo</b> = vende poco y deja poco → cambiar o quitar</span>
+    </div>
     <div class="peq mut" id="cartaExplica"></div>
     <div class="tabla"><table id="cartaTabla" class="resp"></table></div>
-    <div class="peq mut">Precio de venta y margen <span class="sin-iva">sin IVA</span> (el precio de carta, con IVA, va debajo en gris). Unidades: últimos 3 meses, del cierre de caja. <b>Competencia</b>: cuántos de tus 3 competidores tienen ese plato y su precio medio; rojo si tú eres más caro, azul si eres más barato.</div>
+    <div class="peq mut">Precio de venta y "deja" <span class="sin-iva">sin IVA</span> (el precio de carta, con IVA, va debajo en gris). Vendidos: últimos 3 meses, del cierre de caja. "Deja mucho" = más euros por unidad que la media de su parte de la carta; "vende mucho" = más del 70 % de lo que vendería cada plato si todos se vendieran igual. Pulsa una categoría para abrirla o cerrarla. En <b>Competencia</b>, "¿mal casado?" sirve para corregir con qué plato de los demás se compara.</div>
   </div>
   <div class="grid g2" style="margin-top:14px">
-    <div class="card pila"><h3>Platos que tienen ellos y tú no</h3><div id="cartaEllos"></div></div>
-    <div class="card pila"><h3>Platos que tienes tú y ellos no</h3><div id="cartaYo"></div></div>
-  </div>
-  <div class="grid g2" style="margin-top:14px">
-    <div class="card"><h3>Qué hacer con cada tipo</h3>
-      <div class="matriz">
-        <div class="estrella"><b>⭐ Estrella · gana y se vende</b><br>Que no falte y que se vea.</div>
-        <div class="puzle"><b>🧩 Puzle · gana pero no se vende</b><br>Recomendarlo, mejor foto o mejor nombre.</div>
-        <div class="vaca"><b>🐄 Vaca · se vende pero gana poco</b><br>Ajustar ración o subir un poco el precio.</div>
-        <div class="perro"><b>🐕 Perro · ni gana ni se vende</b><br>Cambiarlo o quitarlo.</div>
-      </div>
-      <div class="peq mut" style="margin-top:8px">"Gana" = deja más euros por ración que la media de su parte de la carta (no más %). "Se vende" = más del 70 % de lo que vendería cada plato si todos se vendieran igual.</div>
+    <div class="card pila">
+      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienen ellos y tú no</h3><span class="btn" data-add="ellos" style="padding:4px 10px;font-size:13px">➕ añadir a mano</span></div>
+      <div class="fila" id="cartaEllosForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><input class="campo" placeholder="Precio €" type="number" step="0.10" style="width:100px"><span class="btn pri">Añadir</span></div>
+      <div class="pila" id="cartaEllos"></div>
     </div>
-    <div class="card pila"><h3>✏️ Receta: Arroz negro (1 ración)</h3>
-      <table class="peq resp">
-        <tr><th>Ingrediente</th><th class="num">Cantidad</th><th class="num">Rendimiento</th><th class="num">€</th></tr>
-        <tr><td>Arroz bomba</td><td class="num">0,100 kg</td><td class="num">100 %</td><td class="num">0,38</td></tr>
-        <tr><td>Calamar limpio, en tubo (11,50 €/kg)</td><td class="num">0,150 kg</td><td class="num">100 %</td><td class="num">1,73</td></tr>
-        <tr><td>Tinta de calamar</td><td class="num">0,008 kg</td><td class="num">100 %</td><td class="num">0,52</td></tr>
-        <tr><td>Fumet, sofrito y aceite</td><td class="num">—</td><td class="num">—</td><td class="num">1,27</td></tr>
-      </table>
-      <div class="cuenta">Precio de carta 16,50 € → sin IVA 15,00 € − coste 3,90 € = <b>deja 11,10 € (74 %)</b></div>
-      <div class="fila"><label class="peq">Precio de carta</label><input class="campo" style="width:110px" value="16,50 €"><span class="btn pri">Guardar</span><span class="mut peq">Alérgenos: moluscos, pescado, apio.</span></div>
-      <div class="peq mut">"Rendimiento" es lo que queda después de limpiar: una lubina entera en filete rinde la mitad, así que su kilo limpio cuesta el doble.</div>
+    <div class="card pila">
+      <div class="fila" style="justify-content:space-between"><h3 style="margin:0">Platos que tienes tú y ellos no</h3><span class="btn" data-add="yo" style="padding:4px 10px;font-size:13px">➕ añadir a mano</span></div>
+      <div class="fila" id="cartaYoForm" style="display:none"><input class="campo" placeholder="Nombre del plato" style="flex:1;min-width:140px"><span class="btn pri">Añadir</span></div>
+      <div class="pila" id="cartaYo"></div>
+    </div>
+  </div>
+  <div class="card pila" style="margin-top:14px" id="recetas">
+    <div class="fila" style="justify-content:space-between"><h3 style="margin:0">📖 Recetas</h3><span class="btn pri" id="recNueva">➕ Añadir receta</span></div>
+    <div class="peq mut">Cada receta usa el <b>último precio</b> de cada ingrediente en las facturas: si un proveedor sube un precio, el coste del plato cambia solo. Cantidades por ración, ya limpias (una lubina entera en filete rinde la mitad, así que su kilo limpio cuesta el doble).</div>
+    <div class="grid g2">
+      <div class="recetas" id="recLista"></div>
+      <div class="card pila" id="recForm" style="display:none;box-shadow:none;background:var(--suave)">
+        <b>Nueva receta</b>
+        <div class="grid g2 peq"><label>Categoría<select class="campo" id="recCat"></select></label><label>Nombre<input class="campo" id="recNombre" placeholder="Por ejemplo: Fideuá"></label></div>
+        <div class="grid g2 peq"><label>Precio de carta (con IVA)<input class="campo" id="recPrecio" type="number" step="0.10" min="0" value="14.00"></label><label>Otros (fumet, sofrito, especias…) €<input class="campo" id="recOtros" type="number" step="0.05" min="0" value="0.30"></label></div>
+        <b class="peq">Ingredientes <span class="mut" style="font-weight:400">(productos de las facturas, con su último precio)</span></b>
+        <div class="pila" id="recIngs"></div>
+        <span class="btn" id="recMasIng" style="align-self:flex-start;padding:4px 10px;font-size:13px">➕ otro ingrediente</span>
+        <div class="cuenta" id="recCuenta"></div>
+        <div class="fila"><span class="btn pri" id="recGuardar">Guardar receta</span><span class="btn" id="recCancelar">Cancelar</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -641,9 +739,27 @@ Restaurante La Plaza</textarea>
   </div>
 </section>
 
-<!-- 11 AJUSTES -->
+<!-- 11 ASISTENTE -->
+<section class="pant" id="asistente">
+  <div class="pant-cab"><span class="num">11</span><h2>Asistente</h2><span class="sub">Pregunta con tus palabras; responde con los datos de la app y te dice de qué pantalla los saca</span>
+    <div class="perfiles"><span class="pf si">Dueño</span><span class="pf si">Oficina</span><span class="pf si">Trabajador (sin precios)</span></div></div>
+  <div class="chat">
+    <div class="pila">
+      <div class="card pila"><h3 style="margin:0">💡 Preguntas de ejemplo</h3><div class="sugeridas" id="chatSug"></div></div>
+      <div class="card pila"><h3 style="margin:0">🕓 Conversaciones anteriores</h3><div class="convs" id="chatConvs"></div><div class="peq mut">Pulsa una para volver a verla.</div></div>
+    </div>
+    <div class="card pila">
+      <div class="fila" style="justify-content:space-between"><span class="fila"><span class="cara" style="width:30px;height:30px;border-radius:50%;background:var(--oro);display:grid;place-items:center;color:var(--verde);font-weight:800">R</span><b>Asistente de La Plaza</b></span><span class="btn" id="chatNueva" style="padding:4px 10px;font-size:13px">🗒️ Conversación nueva</span></div>
+      <div class="chat-cuerpo" id="chatCuerpo"></div>
+      <div class="fila"><input class="campo" id="chatInput" placeholder="Escribe tu pregunta…" style="flex:1;min-width:160px"><span class="btn pri" id="chatEnviar">Enviar</span></div>
+      <div class="alerta b"><b>Tranquilo</b><div>El asistente solo responde y propone; no cambia ningún dato sin que lo confirmes con un botón.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 AJUSTES -->
 <section class="pant" id="ajustes">
-  <div class="pant-cab"><span class="num">11</span><h2>Ajustes</h2><span class="sub">Tu restaurante, datos antiguos, banco, demo y usuarios</span>
+  <div class="pant-cab"><span class="num">12</span><h2>Ajustes</h2><span class="sub">Tu restaurante, datos antiguos, banco, demo y usuarios</span>
     <div class="perfiles"><span class="pf si">Dueño</span><span class="pf">Oficina</span><span class="pf">Trabajador</span></div></div>
   <div class="grid g2">
     <div class="pila">
@@ -742,7 +858,7 @@ Restaurante La Plaza</textarea>
   <div class="asis-cab"><span class="cara">R</span><div><b>Asistente</b><div class="peq" style="opacity:.85" id="asisDonde">Bandeja</div></div><span class="x" id="asisX">✕</span></div>
   <div class="asis-cuerpo" id="asisCuerpo"></div>
   <div class="sugeridas" id="asisSug"></div>
-  <div class="asis-pie"><input class="campo" placeholder="Pregúntame lo que quieras…"><span class="btn pri">Enviar</span></div>
+  <div class="asis-pie"><input class="campo" id="asisInput" placeholder="Pregúntame lo que quieras…"><span class="btn pri" id="asisEnviar">Enviar</span></div>
 </div>
 <script>
 /* ===== Utilidades comunes de la maqueta ===== */
@@ -771,6 +887,77 @@ document.addEventListener("click",function(e){
   if(window.verProveedor)window.verProveedor(a.dataset.p);
   document.getElementById("proveedores").scrollIntoView({behavior:"smooth"});
 });
+
+/* ===== Bandeja: correos de ejemplo con fecha y selector de periodo (hoy = domingo 11/10/2026) ===== */
+(function(){
+  var T={fact:["Factura","c-fact","Facturas"],res:["Reserva","c-res","Reservas"],con:["Consulta","c-con","Consultas"],queja:["Queja","c-queja","Quejas"],nom:["Nóminas","c-nom","Nóminas"],gasto:["Gasto","c-gasto","Gastos"],pub:["Publicidad","c-pub","Publicidad"],rev:["Raro: no sé clasificarlo","c-rev","Raros"],otros:["Otros","c-est","Otros"]};
+  var MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  var ARCH='<span class="chip c-ok">Archivada</span>',LISTA='<span class="chip c-rev">Respuesta lista</span>',ENV='<span class="chip c-ok">Enviada</span>';
+  // fecha, hora, iniciales, color, de, proveedor (abre su ficha), asunto, tipo, extra, nuevo, seleccionado
+  var C=[
+    ["2026-10-11","09:42","MG","#2d6a4f","Marta García",null,"Reserva para el sábado, 8 personas","res",'<span class="mut">+cliente</span>'+LISTA,1,1],
+    ["2026-10-11","08:15","PM","#2c4f9e","Pescados Mar Nou","Pescados Mar Nou","Factura F-2026-0412 · 412,30 €","fact",'<span class="mut">+proveedor</span>'+ARCH,1],
+    ["2026-10-10","","JR","#c0392b","Jordi Ribas",null,"Esperamos 50 minutos el segundo plato…","queja",'<span class="mut">+cliente</span>'+LISTA],
+    ["2026-10-10","","AY","#d08a00","Ayuntamiento (notificación)",null,"Aviso de renovación de la licencia de terraza","rev",'<span class="btn" style="padding:2px 8px;font-size:12px">Es otro</span><span class="btn" style="padding:2px 8px;font-size:12px">No es nada</span>'],
+    ["2026-10-10","","FO","#9a6200","Foto subida (Dueño)",null,"Ticket Mercat de la Boqueria · 46,00 €","gasto",'<span class="mut">+gasto</span>'+ARCH],
+    ["2026-10-09","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8841 · 688,15 €","fact",'<span class="mut">+proveedor</span><span class="chip c-dup">Posible duplicada</span>'],
+    ["2026-10-08","","HP","#2e7d4f","Hortalizas del Prat","Hortalizas del Prat","Factura (foto) · 156,40 €","fact",'<span class="mut">+proveedor</span><span class="chip c-rev">Escaneada: nº no legible</span>'],
+    ["2026-10-07","","BS","#1d6f7d","Bebidas Sol","Bebidas Sol","Factura BS-2210 · 534,60 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-06","","NG","#4a5568","Naturgy (gas)","Naturgy (gas)","Factura NG-55102 · 418,30 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-06","","FS","#9a6200","Ferretería Sant Pere",null,"Ticket grifo del baño · 42,35 €","gasto",'<span class="mut">+gasto</span>'+ARCH],
+    ["2026-10-05","","EN","#4a5568","Endesa (luz)","Endesa (luz)","Factura LZ-77120 · 734,90 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-05","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8841 · 688,15 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-04","","PS","#2d6a4f","Pere Soler",null,"¿Tenéis platos sin gluten para un grupo?","con",'<span class="mut">+cliente</span>'+ENV],
+    ["2026-10-02","","VR","#7a3fa0","Vins i Cafès Roca","Vins i Cafès Roca","Factura VR-1180 · 496,10 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-02","","FL","#4a5568","Frío Industrial Llobregat",null,"Contrato de mantenimiento de la cámara","otros",'<span class="mut">+otros</span>'+ARCH],
+    ["2026-10-01","","FR","#4a5568","Fincas Ronda (alquiler)","Fincas Ronda (alquiler)","Recibo del alquiler de octubre · 2.420,00 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-01","","SP","#4a5568","Seguros Previsora","Seguros Previsora","Recibo SP-26-1043 · 186,40 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-10-01","","PM","#2c4f9e","Pescados Mar Nou","Pescados Mar Nou","Factura F-2026-0398 · 378,02 €","fact",'<span class="mut">+proveedor</span><span class="chip c-rev">Sube la lubina +16 %</span>'],
+    ["2026-09-30","","GA","#7a3fa0","Gestoría Albà","Gestoría Albà","Nóminas de septiembre","nom",'<span class="mut">+gestoria</span><span class="chip c-ok">4 archivadas</span>'],
+    ["2026-09-30","","PR","#999","ProMenu Ofertas",null,"¡Digitaliza tu carta con un 40 % de descuento!","pub",'<span class="mut">sin respuesta</span>'],
+    ["2026-09-30","","FP","#9a6200","Forn de Pa Sant Jaume","Forn de Pa Sant Jaume","Factura FP-09 · 352,20 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-28","","AP","#2d6a4f","Anna Puig",null,"Reserva viernes 2 de octubre, 4 personas","res",'<span class="mut">+cliente</span>'+ENV],
+    ["2026-09-28","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8790 · 701,30 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-25","","TA","#999","TripAdvisor para negocios",null,"Mejora tu posición este otoño","pub",'<span class="mut">sin respuesta</span>'],
+    ["2026-09-24","","PM","#2c4f9e","Pescados Mar Nou","Pescados Mar Nou","Factura F-2026-0371 · 388,70 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-22","","LP","#2d6a4f","Laura Pons",null,"¿Aceptáis grupos de 20 para una cena de empresa?","con",'<span class="mut">+cliente</span>'+ENV],
+    ["2026-09-20","","PL","#4a5568","Publicidad Local SL","Publicidad Local SL","Factura PL-0920 · 145,20 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-15","","DO","#2e7d4f","Distribuciones Olivé","Distribuciones Olivé","Factura DO-0921 · 794,20 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-15","","NB","#4a5568","Neteges Brillant (limpieza)","Neteges Brillant (limpieza)","Factura NB-0915 · 96,80 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-09-14","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8712 · 695,40 €","fact",'<span class="mut">+proveedor</span><span class="chip c-rev">Sube el entrecot +13 %</span>'],
+    ["2026-09-12","","GL","#999","Glovo para restaurantes",null,"Llega a más clientes con reparto a domicilio","pub",'<span class="mut">sin respuesta</span>'],
+    ["2026-09-03","","LL","#2d6a4f","Lluís Casas",null,"Reserva sábado 5 de septiembre, 6 personas","res",'<span class="mut">+cliente</span>'+ENV],
+    ["2026-08-31","","GA","#7a3fa0","Gestoría Albà","Gestoría Albà","Nóminas de agosto","nom",'<span class="mut">+gestoria</span><span class="chip c-ok">4 archivadas</span>'],
+    ["2026-08-31","","FP","#9a6200","Forn de Pa Sant Jaume","Forn de Pa Sant Jaume","Factura FP-08 · 388,60 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-08-20","","MV","#2d6a4f","Marc Vila",null,"Cumpleaños el 29 de agosto, 12 personas","res",'<span class="mut">+cliente</span>'+ENV],
+    ["2026-08-18","","ME","#999","MenúFácil",null,"Códigos QR para tu carta, primer mes gratis","pub",'<span class="mut">sin respuesta</span>'],
+    ["2026-08-05","","EN","#4a5568","Endesa (luz)","Endesa (luz)","Factura LZ-76440 · 774,40 €","fact",'<span class="mut">+proveedor</span>'+ARCH],
+    ["2026-08-03","","CV","#9a6200","Carnes Vallès","Carnes Vallès","Factura C-8402 · 650,00 €","fact",'<span class="mut">+proveedor</span>'+ARCH]
+  ];
+  var st={modo:"mes",del:"2026-10-01",al:"2026-10-11"};
+  function largo(f){var p=f.split("-");return (+p[2])+" de "+["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"][+p[1]-1]}
+  function etiqueta(c){if(c[0]==="2026-10-11")return c[1];if(c[0]==="2026-10-10")return "ayer";var p=c[0].split("-");return (+p[2])+" "+MES[+p[1]-1]}
+  function rango(){
+    if(st.modo==="mes")return ["2026-10-01","2026-10-11","en octubre (hasta hoy, día 11)"];
+    if(st.modo==="semana")return ["2026-10-05","2026-10-11","esta semana (del 5 al 11 de octubre)"];
+    if(st.modo==="todo")return ["0000-00-00","9999-12-31","en total (desde el 3 de agosto)"];
+    var a=st.del<=st.al?st.del:st.al,b=st.del<=st.al?st.al:st.del;return [a,b,"del "+largo(a)+" al "+largo(b)];
+  }
+  function pinta(){
+    document.querySelectorAll("#bzPeriodo span").forEach(function(s){s.classList.toggle("on",s.dataset.p===st.modo)});
+    var r=rango(),lista=C.filter(function(c){return c[0]>=r[0]&&c[0]<=r[1]}),n={};
+    lista.forEach(function(c){n[c[7]]=(n[c[7]]||0)+1});
+    document.getElementById("bzCuenta").textContent=lista.length+(lista.length===1?" correo ":" correos ")+r[2];
+    document.getElementById("bzChips").innerHTML='<span class="chip">Todos '+lista.length+'</span>'+Object.keys(T).filter(function(k){return n[k]}).map(function(k){return '<span class="chip '+T[k][1]+'">'+T[k][2]+' '+n[k]+'</span>'}).join("");
+    document.getElementById("bzLista").innerHTML=lista.length?lista.map(function(c){
+      var de=c[5]?'<a class="prov" data-p="'+c[5]+'">'+c[4]+'</a>':c[4];
+      return '<div class="correo'+(c[10]?' sel':'')+'"><div class="av" style="background:'+c[3]+'">'+c[2]+'</div><div class="q"><div class="r"><b>'+(c[9]?'<span class="nuevo"></span>':'')+de+'</b><span class="mut peq">'+etiqueta(c)+'</span></div><div class="as">'+c[6]+'</div><div class="fila peq"><span class="chip '+T[c[7]][1]+'">'+T[c[7]][0]+'</span>'+c[8]+'</div></div></div>'}).join(""):
+      '<div class="mut peq" style="padding:14px">No hay correos en ese periodo.</div>';
+  }
+  document.getElementById("bzPeriodo").addEventListener("click",function(e){var p=e.target.dataset.p;if(!p)return;st.modo=p;pinta()});
+  document.getElementById("bzVer").addEventListener("click",function(){var d=document.getElementById("bzDel").value,a=document.getElementById("bzAl").value;if(!d||!a)return;st.modo="rango";st.del=d;st.al=a;pinta()});
+  pinta();
+})();
 
 /* ===== Documentos: calendario ===== */
 (function(){
@@ -1002,75 +1189,137 @@ document.addEventListener("click",function(e){
 
 /* ===== Proveedores ===== */
 (function(){
-  // Compras sin IVA por mes (ago, sep, oct hasta el 10). Ejemplo.
+  var MERCA={"Lubina fresca":8.06,"Calamar":16.66,"Mejillón":1.70,"Tomate maduro":0.70,"Cebolla seca":0.40,"Patata":0.70,"Pimiento rojo":2.60,"Limón":1.10};
+  var GRUPOS=[["comida","🍽️ Comida"],["bebida","🍷 Bebida"],["local","🏠 Local"],["servicios","🧾 Servicios"]];
+  // H(facturas, productos): precio de cada producto en cada factura (sin IVA). null = ese producto no va en esa factura.
+  function H(fs,pr){return fs.map(function(x,i){var p={};Object.keys(pr).forEach(function(k){if(pr[k][i]!==null&&pr[k][i]!==undefined)p[k]=pr[k][i]});return {f:x[0],n:x[1],p:p}})}
+  // Compras sin IVA por mes (ago, sep, oct hasta el 10), nº de facturas en 3 meses y precios por factura. Ejemplo.
   var P={
-    "Carnes Vallès":{tipo:"Carne",cat:"comida",tel:"93 000 12 34",mail:"pedidos@carnesvalles.example",cif:"B-00000001",dir:"C/ Ejemplo 12, Barcelona",
-      meses:[2690,2760,1251],facturas:[["2026-10-09","C-8841 (duplicada)",688.15,8,"No pagar"],["2026-10-05","C-8841",688.15,2,"Pendiente"],["2026-09-28","C-8790",701.30,null,"Pagada 30/9"],["2026-09-21","C-8744",689.90,null,"Pagada 23/9"]],
-      productos:{"Entrecot":[["03/08",21.50,"C-8402"],["17/08",21.50,"C-8511"],["31/08",21.50,"C-8603"],["14/09",21.50,"C-8701"],["15/09",24.20,"C-8712"],["28/09",24.20,"C-8790"],["05/10",24.20,"C-8841"]],
-                 "Pollo":[["03/08",4.35,"C-8402"],["31/08",4.35,"C-8603"],["28/09",4.35,"C-8790"],["05/10",4.35,"C-8841"]]},
-      aviso:"Entrecot +13 % desde el 15 sep"},
-    "Pescados Mar Nou":{tipo:"Pescado",cat:"comida",tel:"93 000 56 78",mail:"pedidos@marnou.example",cif:"B-00000002",dir:"Mercabarna, pabellón de pescado (ejemplo)",
-      meses:[1640,1705,375],facturas:[["2026-10-10","F-2026-0412",412.30,8,"Pendiente"],["2026-10-01","F-2026-0398",378.02,9,"Pagada 3/10"],["2026-09-24","F-2026-0371",388.70,null,"Pagada 26/9"]],
-      productos:{"Lubina fresca":[["06/08",12.80,"F-2026-0288"],["20/08",12.80,"F-2026-0311"],["03/09",12.80,"F-2026-0330"],["17/09",12.80,"F-2026-0352"],["24/09",12.80,"F-2026-0371"],["01/10",14.90,"F-2026-0398"],["10/10",14.90,"F-2026-0412"]],
-                 "Mejillón":[["06/08",4.20,"F-2026-0288"],["03/09",4.20,"F-2026-0330"],["10/10",4.20,"F-2026-0412"]]},
+    "Carnes Vallès":{grupo:"comida",sum:"Carne: vaca, cerdo, pollo y embutido",tel:"93 000 12 34",mail:"pedidos@carnesvalles.example",cif:"B-00000001",dir:"C/ Ejemplo 12, Barcelona",
+      meses:[2690,2760,1251],nf:10,facturas:[["2026-10-09","C-8841 (duplicada)",688.15,8,"No pagar"],["2026-10-05","C-8841",688.15,2,"Pendiente"],["2026-09-28","C-8790",701.30,null,"Pagada 30/9"],["2026-09-14","C-8712",695.40,null,"Pagada 16/9"]],
+      u:{"Entrecot de vaca":"kg","Solomillo de cerdo":"kg","Pollo":"kg","Jamón ibérico loncheado":"kg","Butifarra":"kg"},
+      hist:H([["03/08","C-8402"],["17/08","C-8511"],["31/08","C-8603"],["14/09","C-8712"],["28/09","C-8790"],["05/10","C-8841"]],
+        {"Entrecot de vaca":[21.50,21.50,21.50,24.20,24.20,24.20],"Solomillo de cerdo":[11.60,11.60,11.90,11.90,11.90,11.90],"Pollo":[4.35,4.35,4.35,4.35,4.35,4.35],"Jamón ibérico loncheado":[27.50,27.50,27.50,26.93,26.93,26.93],"Butifarra":[7.80,null,7.80,null,8.10,null]}),
+      aviso:"Entrecot +13 % desde el 14 sep"},
+    "Pescados Mar Nou":{grupo:"comida",sum:"Pescado y marisco fresco",tel:"93 000 56 78",mail:"pedidos@marnou.example",cif:"B-00000002",dir:"Mercabarna, pabellón de pescado (ejemplo)",
+      meses:[1640,1705,375],nf:10,facturas:[["2026-10-10","F-2026-0412",412.30,8,"Pendiente"],["2026-10-01","F-2026-0398",378.02,9,"Pagada 3/10"],["2026-09-24","F-2026-0371",388.70,null,"Pagada 26/9"]],
+      u:{"Lubina fresca":"kg","Calamar":"kg","Mejillón":"kg","Bacalao desalado":"kg","Gamba roja":"kg"},
+      hist:H([["20/08","F-2026-0311"],["03/09","F-2026-0330"],["17/09","F-2026-0352"],["24/09","F-2026-0371"],["01/10","F-2026-0398"],["10/10","F-2026-0412"]],
+        {"Lubina fresca":[12.80,12.80,12.80,12.80,14.90,14.90],"Calamar":[11.50,11.20,11.50,11.50,11.50,11.50],"Mejillón":[4.20,4.40,4.20,4.20,4.20,4.20],"Bacalao desalado":[21.90,21.90,22.40,22.40,21.90,21.90],"Gamba roja":[58.00,56.38,56.38,55.20,56.38,56.38]}),
       aviso:"Lubina +16 % desde el 1 oct"},
-    "Bebidas Sol":{tipo:"Bebida",cat:"comida",tel:"93 000 90 12",mail:"comercial@bebidassol.example",cif:"B-00000003",dir:"Pol. Ind. Ejemplo, L'Hospitalet",
-      meses:[980,890,442],facturas:[["2026-10-07","BS-2210",534.60,5,"Pagada 9/10"]],productos:{"Agua 0,5 l":[["04/08",0.25,"BS-2101"],["07/09",0.25,"BS-2160"],["07/10",0.25,"BS-2210"]]},
+    "Hortalizas del Prat":{grupo:"comida",sum:"Verdura, fruta y hierbas",tel:"93 000 34 56",mail:"hortalizasprat@ejemplo.example",cif:"B-00000004",dir:"El Prat de Llobregat (ejemplo)",
+      meses:[330,343,142],nf:5,facturas:[["2026-10-08","nº por revisar",156.40,6,"Pagada 8/10 · efectivo"],["2026-09-30","HP-370",148.20,null,"Pagada 30/9 · efectivo"]],
+      u:{"Tomate maduro":"kg","Cebolla seca":"kg","Patata":"kg","Pimiento rojo":"kg","Limón":"kg","Perejil":"manojo"},
+      hist:H([["02/09","HP-340"],["16/09","HP-352"],["23/09","HP-361"],["30/09","HP-370"],["08/10","(por revisar)"]],
+        {"Tomate maduro":[1.30,1.38,1.45,1.45,1.45],"Cebolla seca":[0.85,0.85,0.85,0.85,0.85],"Patata":[0.95,0.92,0.92,0.95,0.95],"Pimiento rojo":[2.90,3.05,3.20,3.20,3.20],"Limón":[1.60,1.60,1.60,1.60,1.60],"Perejil":[0.52,0.52,0.52,0.52,0.52]}),aviso:null},
+    "Distribuciones Olivé":{grupo:"comida",sum:"Aceite, arroz, harina y secos",tel:"93 000 66 77",mail:"olive@distribuciones.example",cif:"B-00000009",dir:"Badalona (ejemplo)",
+      meses:[650,722,310],nf:3,facturas:[["2026-10-06","DO-0983",341.00,null,"Pendiente · 6/11"],["2026-09-15","DO-0921",794.20,null,"Pagada 15/10"]],
+      u:{"Aceite de oliva virgen extra":"l","Arroz bomba":"kg","Harina":"kg","Tinta de calamar":"kg"},
+      hist:H([["06/08","DO-0812"],["27/08","DO-0866"],["15/09","DO-0921"],["06/10","DO-0983"]],
+        {"Aceite de oliva virgen extra":[7.90,7.90,8.40,8.40],"Arroz bomba":[3.80,3.80,3.80,3.80],"Harina":[0.95,0.95,0.95,0.95],"Tinta de calamar":[65.00,65.00,65.00,65.00]}),aviso:null},
+    "Forn de Pa Sant Jaume":{grupo:"comida",sum:"Pan de cada día",tel:"93 000 78 90",mail:"forn@santjaume.example",cif:"B-00000005",dir:"Barcelona (ejemplo)",
+      meses:[353,320,0],nf:2,facturas:[["2026-09-30","FP-09",352.20,null,"Pagada 2/10"],["2026-08-31","FP-08",388.60,null,"Pagada 2/9"]],
+      u:{"Pan de barra":"ud","Pan de coca":"ud","Pan rallado":"kg"},
+      hist:H([["30/06","FP-06"],["31/07","FP-07"],["31/08","FP-08"],["30/09","FP-09"]],
+        {"Pan de barra":[0.95,0.95,0.95,1.00],"Pan de coca":[1.80,1.80,1.80,1.80],"Pan rallado":[1.60,1.60,1.60,1.60]}),aviso:null},
+    "Bebidas Sol":{grupo:"bebida",sum:"Cerveza, agua y refrescos",tel:"93 000 90 12",mail:"comercial@bebidassol.example",cif:"B-00000003",dir:"Pol. Ind. Ejemplo, L'Hospitalet",
+      meses:[980,890,442],nf:5,facturas:[["2026-10-07","BS-2210",534.60,5,"Pagada 9/10"],["2026-09-21","BS-2185",512.40,null,"Pagada 23/9"]],
+      u:{"Cerveza (barril 30 l)":"ud","Agua 0,5 l":"ud","Refrescos (caja de 24)":"ud"},
+      hist:H([["04/08","BS-2101"],["21/08","BS-2130"],["07/09","BS-2160"],["21/09","BS-2185"],["07/10","BS-2210"]],
+        {"Cerveza (barril 30 l)":[88.00,88.00,89.50,89.50,89.50],"Agua 0,5 l":[0.25,0.25,0.25,0.25,0.25],"Refrescos (caja de 24)":[21.90,21.90,22.41,22.41,22.41]}),
       compara:{producto:"Agua 0,5 l",filas:[["Bebidas Sol","0,25 €/ud","factura BS-2210 (7/10)"],["Makro (ticket de gasto)","0,19 €/ud","ticket del 22/9"]],texto:"En Makro el agua sale un 24 % más barata. Con 240 botellas al mes serían unos 14 € al mes; vale la pena si alguien ya va a Makro."},aviso:null},
-    "Hortalizas del Prat":{tipo:"Verdura",cat:"comida",tel:"93 000 34 56",mail:"hortalizasprat@ejemplo.example",cif:"B-00000004",dir:"El Prat de Llobregat (ejemplo)",
-      meses:[330,343,142],facturas:[["2026-10-08","nº por revisar",156.40,6,"Pagada 8/10 · efectivo"]],productos:{"Tomate maduro":[["05/08",1.45,"HP-311"],["02/09",1.45,"HP-340"],["08/10",1.45,"?"]]},aviso:null},
-    "Vins i Cafès Roca":{tipo:"Vino y café",cat:"comida",tel:"93 000 44 55",mail:"pedidos@vinsroca.example",cif:"B-00000008",dir:"Barcelona (ejemplo)",meses:[1380,1240,410],facturas:[["2026-10-02","VR-1180",496.10,null,"Pendiente · 2/11"]],productos:{},aviso:null},
-    "Distribuciones Olivé":{tipo:"Aceite, arroz y secos",cat:"comida",tel:"93 000 66 77",mail:"olive@distribuciones.example",cif:"B-00000009",dir:"Badalona (ejemplo)",meses:[650,722,0],facturas:[["2026-09-15","DO-0921",794.20,null,"Pagada 15/10"]],productos:{},aviso:null},
-    "Forn de Pa Sant Jaume":{tipo:"Pan",cat:"comida",tel:"93 000 78 90",mail:"forn@santjaume.example",cif:"B-00000005",dir:"Barcelona (ejemplo)",meses:[353,320,0],facturas:[["2026-09-30","FP-09",352.20,null,"Pagada 2/10"]],productos:{},aviso:null},
-    "Fincas Ronda (alquiler)":{tipo:"Alquiler",cat:"local",tel:"93 000 11 22",mail:"admin@fincasronda.example",cif:"B-00000006",dir:"Barcelona (ejemplo)",meses:[2000,2000,2000],facturas:[["2026-10-01","A-10/26",2420.00,0,"Pagada 5/10"]],productos:{},aviso:null},
-    "Endesa (luz)":{tipo:"Luz",cat:"local",tel:"—",mail:"(factura por correo)",cif:"(de la factura)",dir:"—",meses:[640,607,0],facturas:[["2026-10-05","LZ-77120",734.90,3,"Pendiente · 20/10"]],productos:{},aviso:null},
-    "Naturgy (gas)":{tipo:"Gas",cat:"local",tel:"—",mail:"(factura por correo)",cif:"(de la factura)",dir:"—",meses:[330,346,0],facturas:[["2026-10-06","NG-55102",418.30,4,"Pendiente · 21/10"]],productos:{},aviso:null},
-    "Seguros Previsora":{tipo:"Seguro",cat:"local",tel:"93 000 33 44",mail:"clientes@previsora.example",cif:"A-00000007",dir:"Barcelona (ejemplo)",meses:[186,186,186],facturas:[["2026-10-01","SP-26-1043",186.40,1,"Pagada 5/10"]],productos:{},aviso:null}
+    "Vins i Cafès Roca":{grupo:"bebida",sum:"Vino, cava, café y licores",tel:"93 000 44 55",mail:"pedidos@vinsroca.example",cif:"B-00000008",dir:"Barcelona (ejemplo)",
+      meses:[1380,1240,410],nf:3,facturas:[["2026-10-02","VR-1180",496.10,null,"Pendiente · 2/11"],["2026-09-18","VR-1151",452.30,null,"Pagada 20/9"]],
+      u:{"Vino de la casa (botella 75 cl)":"ud","Cava (botella)":"ud","Café en grano":"kg","Ginebra (botella 70 cl)":"ud"},
+      hist:H([["04/08","VR-1062"],["02/09","VR-1120"],["18/09","VR-1151"],["02/10","VR-1180"]],
+        {"Vino de la casa (botella 75 cl)":[4.20,4.20,4.35,4.35],"Cava (botella)":[6.10,6.10,6.10,6.10],"Café en grano":[18.50,18.50,19.20,19.20],"Ginebra (botella 70 cl)":[14.80,14.80,14.80,14.80]}),aviso:null},
+    "Fincas Ronda (alquiler)":{grupo:"local",sum:"Alquiler del local",tel:"93 000 11 22",mail:"admin@fincasronda.example",cif:"B-00000006",dir:"Barcelona (ejemplo)",
+      meses:[2000,2000,2000],nf:3,facturas:[["2026-10-01","A-10/26",2420.00,0,"Pagada 5/10"],["2026-09-01","A-09/26",2420.00,null,"Pagada 5/9"]],
+      u:{"Alquiler mensual":"mes"},hist:H([["01/08","A-08/26"],["01/09","A-09/26"],["01/10","A-10/26"]],{"Alquiler mensual":[2000,2000,2000]}),aviso:null},
+    "Seguros Previsora":{grupo:"local",sum:"Seguro del local",tel:"93 000 33 44",mail:"clientes@previsora.example",cif:"A-00000007",dir:"Barcelona (ejemplo)",
+      meses:[186,186,186],nf:3,facturas:[["2026-10-01","SP-26-1043",186.40,1,"Pagada 5/10"],["2026-09-01","SP-26-1012",186.40,null,"Pagada 5/9"]],
+      u:{"Seguro multirriesgo":"mes"},hist:H([["01/08","SP-26-0981"],["01/09","SP-26-1012"],["01/10","SP-26-1043"]],{"Seguro multirriesgo":[186.40,186.40,186.40]}),aviso:null},
+    "Endesa (luz)":{grupo:"local",sum:"Luz",tel:"—",mail:"(factura por correo)",cif:"(de la factura)",dir:"—",
+      meses:[640,607,0],nf:2,facturas:[["2026-10-05","LZ-77120",734.90,3,"Pendiente · 20/10"],["2026-09-05","LZ-76790",774.40,null,"Pagada 20/9"]],
+      u:{"Electricidad":"kWh"},hist:H([["05/08","LZ-76440"],["05/09","LZ-76790"],["05/10","LZ-77120"]],{"Electricidad":[0.182,0.179,0.186]}),aviso:null},
+    "Naturgy (gas)":{grupo:"local",sum:"Gas",tel:"—",mail:"(factura por correo)",cif:"(de la factura)",dir:"—",
+      meses:[330,346,0],nf:2,facturas:[["2026-10-06","NG-55102",418.30,4,"Pendiente · 21/10"],["2026-09-06","NG-54960",399.30,null,"Pagada 21/9"]],
+      u:{"Gas":"kWh"},hist:H([["06/08","NG-54810"],["06/09","NG-54960"],["06/10","NG-55102"]],{"Gas":[0.078,0.080,0.081]}),aviso:null},
+    "Neteges Brillant (limpieza)":{grupo:"servicios",sum:"Limpieza a fondo, una vez por semana",tel:"93 000 22 33",mail:"info@neteges-brillant.example",cif:"B-00000010",dir:"Barcelona (ejemplo)",
+      meses:[80,80,0],nf:2,facturas:[["2026-09-15","NB-0915",96.80,null,"Pagada 17/9"],["2026-08-15","NB-0815",96.80,null,"Pagada 17/8"]],
+      u:{"Limpieza (mes)":"mes"},hist:H([["15/07","NB-0715"],["15/08","NB-0815"],["15/09","NB-0915"]],{"Limpieza (mes)":[80,80,80]}),aviso:null},
+    "Gestoría Albà":{grupo:"servicios",sum:"Gestoría: nóminas, impuestos y contabilidad",tel:"93 000 55 66",mail:"info@gestoriaalba.example",cif:"B-00000011",dir:"Barcelona (ejemplo)",
+      meses:[150,150,0],nf:2,facturas:[["2026-09-30","GA-09",181.50,null,"Pagada 2/10"],["2026-08-31","GA-08",181.50,null,"Pagada 2/9"]],
+      u:{"Cuota mensual":"mes"},hist:H([["31/07","GA-07"],["31/08","GA-08"],["30/09","GA-09"]],{"Cuota mensual":[150,150,150]}),aviso:null},
+    "TPV Soft":{grupo:"servicios",sum:"Programas: la caja (TPV) y la carta con código QR",tel:"900 000 123",mail:"soporte@tpvsoft.example",cif:"B-00000012",dir:"Madrid (ejemplo)",
+      meses:[49,49,49],nf:3,facturas:[["2026-10-01","TS-2610",59.29,null,"Pagada 1/10"],["2026-09-01","TS-2609",59.29,null,"Pagada 1/9"]],
+      u:{"Programa de caja (mes)":"mes"},hist:H([["01/08","TS-2608"],["01/09","TS-2609"],["01/10","TS-2610"]],{"Programa de caja (mes)":[49,49,49]}),aviso:null},
+    "Publicidad Local SL":{grupo:"servicios",sum:"Publicidad: anuncio en la revista del barrio",tel:"93 000 88 99",mail:"hola@publicidadlocal.example",cif:"B-00000013",dir:"Barcelona (ejemplo)",
+      meses:[120,120,0],nf:2,facturas:[["2026-09-20","PL-0920",145.20,null,"Pagada 25/9"],["2026-08-20","PL-0820",145.20,null,"Pagada 25/8"]],
+      u:{"Anuncio en la revista del barrio":"ud"},hist:H([["20/08","PL-0820"],["20/09","PL-0920"]],{"Anuncio en la revista del barrio":[120,120]}),aviso:null}
   };
-  var sel="Pescados Mar Nou",prodSel=null;
+  // Último precio de cada producto de comida y bebida (lo usan las recetas de Carta)
+  window.ULTIMOS_PRECIOS={};
+  Object.keys(P).forEach(function(k){if(P[k].grupo!=="comida"&&P[k].grupo!=="bebida")return;P[k].hist.forEach(function(f){Object.keys(f.p).forEach(function(x){window.ULTIMOS_PRECIOS[x]={precio:f.p[x],u:P[k].u[x],prov:k,fecha:f.f,n:f.n}})})});
+  var sel="Pescados Mar Nou",movil=window.matchMedia("(max-width:820px)").matches,cerrados={bebida:movil,local:movil,servicios:movil};
+  function total(p){return p.meses[0]+p.meses[1]+p.meses[2]}
+  function pr(v,u){return u==="kWh"?v.toFixed(3).replace(".",","):eur(v)}
   function lista(){
-    var h="";Object.keys(P).sort(function(a,b){return P[b].meses[1]-P[a].meses[1]}).forEach(function(k){var p=P[k];
-      h+='<div class="prov-fila'+(k===sel?' sel':'')+'" data-p="'+k+'"><div class="q"><b>'+k+'</b><div class="peq mut">'+p.tipo+' · sept. '+eur0(p.meses[1])+' € · oct. '+eur0(p.meses[2])+' €</div>'+(p.aviso?'<span class="chip c-rev">⚠ '+p.aviso+'</span>':'')+'</div><span class="mut">›</span></div>'});
+    var h="";
+    GRUPOS.forEach(function(g){
+      var ks=Object.keys(P).filter(function(k){return P[k].grupo===g[0]}).sort(function(a,b){return total(P[b])-total(P[a])});
+      var sub=ks.reduce(function(s,k){return s+total(P[k])},0),nf=ks.reduce(function(s,k){return s+P[k].nf},0);
+      h+='<div class="prov-grupo'+(cerrados[g[0]]?' cerrado':'')+'" data-g="'+g[0]+'"><span class="flechita">'+(cerrados[g[0]]?"▸":"▾")+'</span><span class="gl">'+g[1]+'</span><span class="mut">· '+ks.length+' proveedores · '+eur0(sub)+' € · '+nf+' facturas</span></div><div class="prov-items">';
+      ks.forEach(function(k){var p=P[k];
+        h+='<div class="prov-fila'+(k===sel?' sel':'')+'" data-p="'+k+'"><div class="q"><b>'+k+'</b><div class="peq mut">'+p.sum+'</div><div class="peq"><b>'+eur0(total(p))+' €</b> <span class="mut">en 3 meses · '+p.nf+(p.nf===1?' factura':' facturas')+'</span></div>'+(p.aviso?'<span class="chip c-rev">⚠ '+p.aviso+'</span>':'')+'</div><span class="mut">›</span></div>'});
+      h+='</div>';
+    });
     document.getElementById("provLista").innerHTML=h;
   }
-  function linea(prod){
-    var pts=P[sel].productos[prod],max=Math.max.apply(null,pts.map(function(p){return p[1]}))*1.15,min=Math.min.apply(null,pts.map(function(p){return p[1]}))*0.85;
-    var X=function(i){return 40+i*(560/Math.max(1,pts.length-1))},Y=function(v){return 120-(v-min)/(max-min)*100};
-    var h='<svg viewBox="0 0 640 150" width="100%" aria-label="Precio de '+prod+' en cada factura"><polyline fill="none" stroke="#2d6a4f" stroke-width="3" points="'+pts.map(function(p,i){return X(i)+","+Y(p[1])}).join(" ")+'"/>';
-    pts.forEach(function(p,i){var sube=i>0&&p[1]>pts[i-1][1]*1.05;
-      h+='<g class="punto-clic" data-i="'+i+'"><circle cx="'+X(i)+'" cy="'+Y(p[1])+'" r="'+(sube?8:5)+'" fill="'+(sube?"#c0392b":"#2d6a4f")+'"/><text x="'+X(i)+'" y="'+(Y(p[1])-12)+'" font-size="11" text-anchor="middle" fill="'+(sube?"#c0392b":"#1d1d1b")+'" font-weight="'+(sube?700:400)+'">'+eur(p[1])+'</text><text x="'+X(i)+'" y="142" font-size="11" text-anchor="middle" fill="#6b6b66">'+p[0]+'</text></g>'});
-    return h+'</svg>';
+  function tablaA(p){
+    var prods=Object.keys(p.u);
+    var h='<div class="tabla"><table class="peq pxf"><tr><th>Producto</th>'+p.hist.map(function(f){return '<th class="num">'+f.f+'<br><span class="mut">'+f.n+'</span></th>'}).join("")+'<th class="num">Mercabarna</th></tr>';
+    prods.forEach(function(k){var ant=null;h+='<tr><td><b>'+k+'</b> <span class="mut">€/'+p.u[k]+'</span></td>';
+      p.hist.forEach(function(f){var v=f.p[k];if(v===undefined){h+='<td class="num mut">—</td>';return}
+        var cls="",tx="";
+        if(ant!==null){var d=v/ant-1;if(d>0.005){cls=" sube";tx='<small>+'+Math.round(d*100)+' %</small>'}else if(d<-0.005){cls=" baja";tx='<small>−'+Math.round(-d*100)+' %</small>'}}
+        h+='<td class="num'+cls+'">'+pr(v,p.u[k])+tx+'</td>';ant=v});
+      h+='<td class="num">'+(MERCA[k]?window.enlaceMercabarna(k,eur(MERCA[k])+' €'):'<span class="mut">—</span>')+'</td></tr>'});
+    return h+'</table></div>';
+  }
+  function barrasB(p){
+    var prods=Object.keys(p.u),h='<div class="barras">';
+    prods.forEach(function(k){
+      var pts=p.hist.filter(function(f){return f.p[k]!==undefined}),max=Math.max.apply(null,pts.map(function(f){return f.p[k]}));
+      var d=pts[pts.length-1].p[k]/pts[0].p[k]-1,col=d>0.005?"var(--mal)":(d<-0.005?"var(--ok)":"var(--gris)"),tx=d>0.005?"+"+Math.round(d*100)+" %":(d<-0.005?"−"+Math.round(-d*100)+" %":"igual");
+      h+='<div class="bp"><div><b>'+k+'</b><div class="mut peq">€/'+p.u[k]+' · '+pts.length+(pts.length===1?' factura':' facturas')+'</div></div><div>'+
+        pts.map(function(f,i){return '<div class="b'+(i===pts.length-1?' ult':'')+'"><span class="f">'+f.f+'</span><i style="width:'+Math.round(f.p[k]/max*60)+'%"></i><span class="v">'+pr(f.p[k],p.u[k])+'</span></div>'}).join("")+
+        '</div><div class="t" style="color:'+col+'">'+tx+'<div class="mut peq" style="font-weight:400">desde '+pts[0].f+'</div></div></div>'});
+    return h+'</div>';
   }
   function ficha(){
-    var p=P[sel],h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+sel+'</h3><span class="chip '+(p.cat==="comida"?"c-fact":"c-est")+'">'+(p.cat==="comida"?"🍽️ Comida y bebida":"🏠 Local y servicios")+'</span></div>';
+    var p=P[sel],g=GRUPOS.filter(function(x){return x[0]===p.grupo})[0];
+    var h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+sel+'</h3><span class="chip '+(p.grupo==="comida"||p.grupo==="bebida"?"c-fact":"c-est")+'">'+g[1]+'</span></div>';
+    h+='<div class="peq">'+p.sum+'</div>';
     h+='<div class="ficha-datos"><div><span>Teléfono</span>'+p.tel+'</div><div><span>Correo</span>'+p.mail+'</div><div><span>CIF</span>'+p.cif+'</div><div><span>Dirección</span>'+p.dir+'</div></div><div class="peq mut">Sacado de sus facturas y de la firma de sus correos (datos de ejemplo).</div>';
     var mx=Math.max.apply(null,p.meses)||1;
-    h+='<div><b class="peq">Compras por mes <span class="sin-iva">sin IVA</span></b><div class="grid g3 peq" style="margin-top:6px">'+["Agosto","Septiembre","Octubre (hasta el 10)"].map(function(m,i){return '<div><div class="mut">'+m+'</div><b>'+eur0(p.meses[i])+' €</b><div class="prog" style="height:8px;margin-top:4px"><i style="width:'+(p.meses[i]/mx*100)+'%"></i></div></div>'}).join("")+'</div></div>';
-    h+='<div><b class="peq">Sus facturas</b><table class="peq resp"><tr><th>Fecha</th><th>Nº</th><th class="num">Total</th><th>Pago</th><th></th></tr>'+p.facturas.map(function(f){return '<tr><td>'+f[0].split("-").reverse().join("/")+'</td><td>'+(f[3]!==null?'<a href="#" class="ver-fac" data-i="'+f[3]+'">'+f[1]+'</a>':f[1])+'</td><td class="num">'+eur(f[2])+' €</td><td>'+f[4]+'</td><td class="num"><a href="#bandeja" class="mut">✉ ver correo</a></td></tr>'}).join("")+'</table></div>';
-    var prods=Object.keys(p.productos);
-    if(prods.length){
-      if(prods.indexOf(prodSel)<0)prodSel=prods[0];
-      h+='<div><b class="peq">Precio de cada producto en cada factura</b><div class="pestanas" id="provProd" style="margin-top:6px">'+prods.map(function(x){return '<span data-x="'+x+'" class="'+(x===prodSel?"on":"")+'">'+x+'</span>'}).join("")+'</div>'+linea(prodSel)+'<div class="peq" id="provPunto"></div></div>';
-    }
+    h+='<div><b class="peq">Compras por mes <span class="sin-iva">sin IVA</span> · total 3 meses: '+eur0(total(p))+' € en '+p.nf+' facturas</b><div class="grid g3 peq" style="margin-top:6px">'+["Agosto","Septiembre","Octubre (hasta el 10)"].map(function(m,i){return '<div><div class="mut">'+m+'</div><b>'+eur0(p.meses[i])+' €</b><div class="prog" style="height:8px;margin-top:4px"><i style="width:'+(p.meses[i]/mx*100)+'%"></i></div></div>'}).join("")+'</div></div>';
+    h+='<div><b class="peq">Sus últimas facturas</b><table class="peq resp"><tr><th>Fecha</th><th>Nº</th><th class="num">Total</th><th>Pago</th><th></th></tr>'+p.facturas.map(function(f){return '<tr><td>'+f[0].split("-").reverse().join("/")+'</td><td>'+(f[3]!==null?'<a href="#" class="ver-fac" data-i="'+f[3]+'">'+f[1]+'</a>':f[1])+'</td><td class="num">'+eur(f[2])+' €</td><td>'+f[4]+'</td><td class="num"><a href="#bandeja" class="mut">✉ ver correo</a></td></tr>'}).join("")+'</table></div>';
+    h+='<div class="pila"><b class="peq">Cómo cambia el precio de cada producto</b><div class="peq mut">Dos formas de verlo, para elegir una. Precios sin IVA, de sus facturas. Rojo = sube respecto a la factura anterior; verde = baja.</div>';
+    h+='<div class="opcion"><span class="tit">Opción A · tabla: precio en cada factura</span>'+tablaA(p)+'</div>';
+    h+='<div class="opcion"><span class="tit">Opción B · barras por producto</span><div class="peq mut" style="margin-bottom:4px">Cada barra es una factura (la última, más oscura). A la derecha, cuánto ha cambiado desde la primera.</div>'+barrasB(p)+'</div></div>';
     if(p.compara){h+='<div class="pila"><b class="peq">Mismo producto en dos sitios: '+p.compara.producto+'</b><table class="peq resp"><tr><th>Dónde</th><th class="num">Precio</th><th>De</th></tr>'+p.compara.filas.map(function(f){return '<tr><td>'+f[0]+'</td><td class="num">'+f[1]+'</td><td>'+f[2]+'</td></tr>'}).join("")+'</table><div class="alerta b"><b>Comparación</b><div>'+p.compara.texto+'</div></div></div>'}
     h+='<div class="fila"><span class="btn pri">✉️ Escribirle</span><span class="btn">📞 Llamar</span><span class="btn">🧾 Pedido sugerido</span></div>';
     document.getElementById("provFicha").innerHTML=h;
-    if(prods.length)punto(subidaIndex());
   }
-  function subidaIndex(){var pts=P[sel].productos[prodSel];for(var i=1;i<pts.length;i++)if(pts[i][1]>pts[i-1][1]*1.05)return i;return pts.length-1}
-  function punto(i){
-    var pts=P[sel].productos[prodSel],p=pts[i],ant=i>0?pts[i-1]:null,sube=ant&&p[1]>ant[1]*1.05,el=document.getElementById("provPunto");if(!el)return;
-    var fi=null;P[sel].facturas.forEach(function(f){if(f[1]===p[2]&&f[3]!==null)fi=f[3]});
-    el.innerHTML=(sube?'<div class="alerta r"><b>Subida</b><div>':'<div class="alerta v"><b>Precio</b><div>')+prodSel+' el '+p[0]+': <b>'+eur(p[1])+' €</b> en la factura '+(fi!==null?'<a href="#" class="ver-fac" data-i="'+fi+'">'+p[2]+' →</a>':p[2])+
-      (ant?' · antes <b>'+eur(ant[1])+' €</b> en '+ant[2]+' ('+ant[0]+')'+(sube?' · <b>+'+Math.round((p[1]/ant[1]-1)*100)+' %</b>':''):'')+'</div></div>';
-  }
-  document.getElementById("provLista").addEventListener("click",function(e){var f=e.target.closest(".prov-fila");if(!f)return;sel=f.dataset.p;prodSel=null;lista();ficha()});
+  document.getElementById("provLista").addEventListener("click",function(e){
+    var g=e.target.closest(".prov-grupo");if(g){cerrados[g.dataset.g]=!cerrados[g.dataset.g];lista();return}
+    var f=e.target.closest(".prov-fila");if(!f)return;sel=f.dataset.p;lista();ficha()});
   document.getElementById("provFicha").addEventListener("click",function(e){
-    var t=e.target.closest("#provProd span");if(t){prodSel=t.dataset.x;ficha();return}
-    var g=e.target.closest(".punto-clic");if(g){punto(+g.dataset.i);return}
     var v=e.target.closest("a.ver-fac");if(v){e.preventDefault();window.seleccionarFactura(+v.dataset.i)}
   });
-  window.verProveedor=function(nombre){var k=Object.keys(P).find(function(x){return x===nombre||x.indexOf(nombre)===0});if(k){sel=k;prodSel=null;lista();ficha()}};
+  document.getElementById("provFalta").addEventListener("click",function(e){var b=e.target.closest(".pedir");if(!b)return;window.verProveedor(b.dataset.p);document.getElementById("provFicha").scrollIntoView({behavior:"smooth",block:"start"})});
+  window.verProveedor=function(nombre){var k=Object.keys(P).find(function(x){return x===nombre||x.indexOf(nombre)===0});if(k){sel=k;cerrados[P[k].grupo]=false;lista();ficha()}};
   lista();ficha();
 })();
 
@@ -1098,89 +1347,214 @@ document.addEventListener("click",function(e){
 /* ===== Carta y Competencia (datos comunes). Precios de carta con IVA; todo el análisis sin IVA ===== */
 (function(){
   var IVA=1.10;
-  // nombre, precio carta (con IVA), coste por ración, unidades 3 meses, alérgenos/nota, clave para competencia
-  var COMIDA=[["Arroz negro",16.50,3.90,412,"arroz negro"],["Calamares a la andaluza",13.00,3.40,520,"calamares"],["Patatas bravas",6.50,1.10,890,"bravas"],
-    ["Entrecot a la brasa",22.00,9.80,365,"entrecot"],["Lubina a la sal",21.00,7.45,96,"lubina"],["Canelones de la abuela",12.00,2.60,88,"canelones"],
-    ["Ensalada de cabra",11.50,4.30,54,"ensalada cabra"],["Mejillones a la marinera",11.00,2.90,280,"mejillones"],["Croquetas caseras (6)",9.00,1.40,610,"croquetas"],["Crema catalana",5.50,0.90,300,"crema catalana"]];
-  var BEBIDA=[["Caña de cerveza",2.80,0.83,2150,"caña"],["Copa de vino de la casa",3.50,0.70,940,"copa vino"],["Agua mineral 0,5 l",2.20,0.25,1300,"agua"],
-    ["Refresco",2.90,0.93,820,"refresco"],["Café solo",1.50,0.18,1900,"café"],["Gin tonic",8.50,2.10,140,"gin tonic"]];
-  // Competidores inventados: nombre, distancia, valoración, opiniones, carta {clave: precio con IVA}
+  var CATS=[["Entrantes","comida"],["Paellas y arroces","comida"],["Pastas","comida"],["Carnes","comida"],["Pescados","comida"],["Postres","comida"],
+    ["Cervezas","bebida"],["Vinos","bebida"],["Aguas","bebida"],["Refrescos","bebida"],["Cafés e infusiones","bebida"],["Licores","bebida"]];
+  // nombre, precio de carta (con IVA), coste por ración, unidades en 3 meses, clave para la competencia, categoría
+  var PLATOS=[
+    ["Patatas bravas",6.50,1.10,890,"bravas","Entrantes"],["Croquetas caseras (6)",9.00,1.40,610,"croquetas","Entrantes"],["Pan con tomate",3.50,0.45,1450,"pan con tomate","Entrantes"],
+    ["Tortilla de patatas",7.50,1.30,310,"tortilla","Entrantes"],["Ensalada de cabra",11.50,4.30,54,"ensalada cabra","Entrantes"],["Ensalada verde",8.00,1.60,120,"ensalada verde","Entrantes"],
+    ["Escalivada",9.50,2.10,85,"escalivada","Entrantes"],["Jamón ibérico",18.00,8.10,160,"jamón","Entrantes"],["Huevos rotos con jamón",10.50,2.40,240,"huevos estrellados","Entrantes"],
+    ["Mejillones a la marinera",11.00,2.90,280,"mejillones","Entrantes"],
+    ["Arroz negro",16.50,3.90,412,"arroz negro","Paellas y arroces"],["Paella de marisco",18.50,5.60,230,"paella","Paellas y arroces"],
+    ["Canelones de la abuela",12.00,2.60,88,"canelones","Pastas"],
+    ["Entrecot a la brasa",22.00,9.80,365,"entrecot","Carnes"],["Pollo al ajillo",12.50,3.10,230,"pollo al ajillo","Carnes"],["Solomillo de cerdo",15.50,4.60,240,"solomillo","Carnes"],["Butifarra con judías",11.50,3.20,140,"butifarra","Carnes"],
+    ["Lubina a la sal",21.00,7.45,96,"lubina","Pescados"],["Bacalao con sanfaina",17.50,6.20,130,"bacalao","Pescados"],["Merluza a la plancha",16.00,5.40,75,"merluza","Pescados"],
+    ["Calamares a la andaluza",13.00,3.40,520,"calamares","Pescados"],["Gambas al ajillo",14.50,6.60,180,"gambas","Pescados"],
+    ["Crema catalana",5.50,0.90,300,"crema catalana","Postres"],["Arroz con leche",5.00,0.70,150,"arroz con leche","Postres"],["Flan casero",4.50,0.60,260,"flan","Postres"],
+    ["Caña de cerveza",2.80,0.83,2150,"caña","Cervezas"],["Copa de vino de la casa",3.50,0.70,940,"copa vino","Vinos"],["Copa de cava",4.00,0.95,310,"copa cava","Vinos"],
+    ["Agua mineral 0,5 l",2.20,0.25,1300,"agua","Aguas"],["Refresco",2.90,0.93,820,"refresco","Refrescos"],["Café solo",1.50,0.18,1900,"café","Cafés e infusiones"],
+    ["Café con leche",1.80,0.28,1100,"café con leche","Cafés e infusiones"],["Gin tonic",8.50,2.10,140,"gin tonic","Licores"]];
+  // Platos que tienen los competidores y tú no: nombre y categoría (null = fuera de la carta normal)
+  var EXTRAS={"pulpo":["Pulpo a la gallega","Entrantes"],"tarta de queso":["Tarta de queso","Postres"],"sangría":["Sangría (jarra)","Vinos"],"menú del día":["Menú del día",null]};
+  // Competidores inventados: nombre, distancia, valoración, opiniones, carta {clave: precio con IVA}, última lectura y cambios
   var COMP=[
-    {n:"Bar Nova Plaça",d:"150 m",v:4.2,o:860,carta:{"arroz negro":17.50,"calamares":12.00,"bravas":6.00,"croquetas":8.50,"mejillones":10.50,"crema catalana":5.50,"caña":2.50,"copa vino":3.20,"agua":2.20,"refresco":2.80,"café":1.40,"pulpo":18.00,"huevos estrellados":10.50}},
-    {n:"Taberna del Arco",d:"300 m",v:4.5,o:1420,carta:{"arroz negro":17.90,"calamares":12.50,"bravas":6.50,"entrecot":24.00,"croquetas":9.00,"crema catalana":6.00,"caña":2.70,"copa vino":3.50,"agua":2.30,"refresco":2.90,"café":1.50,"gin tonic":9.00,"pulpo":17.50,"menú del día":15.50,"huevos estrellados":11.50}},
-    {n:"Casa Vidal",d:"450 m",v:3.9,o:310,carta:{"arroz negro":16.20,"calamares":12.40,"bravas":6.10,"entrecot":23.00,"mejillones":10.50,"croquetas":8.30,"crema catalana":5.90,"caña":2.60,"copa vino":3.20,"agua":2.40,"refresco":2.70,"café":1.45,"gin tonic":9.00,"pulpo":17.00,"menú del día":15.50}}
+    {n:"Bar Nova Plaça",d:"150 m",v:4.2,o:860,leido:"20/09",cambios:"sin cambios.",
+      carta:{"bravas":6.00,"croquetas":8.50,"mejillones":10.50,"pan con tomate":3.20,"huevos estrellados":10.50,"pulpo":18.00,"arroz negro":17.50,"pollo al ajillo":11.90,"butifarra":11.00,"calamares":12.00,"bacalao":16.90,"crema catalana":5.50,"caña":2.50,"copa vino":3.20,"agua":2.20,"refresco":2.80,"café":1.40,"café con leche":1.70}},
+    {n:"Taberna del Arco",d:"300 m",v:4.5,o:1420,leido:"12/09",cambios:"han subido el arroz negro de 16,90 a 17,90 € y han quitado la paella (estaba a 19,50 €).",
+      carta:{"bravas":6.50,"croquetas":9.00,"pan con tomate":3.80,"jamón":19.50,"huevos estrellados":11.50,"pulpo":17.50,"arroz negro":17.90,"canelones":12.50,"entrecot":24.00,"solomillo":16.50,"pollo al ajillo":12.90,"calamares":12.50,"lubina":22.50,"bacalao":17.90,"gambas":15.00,"crema catalana":6.00,"tarta de queso":6.50,"caña":2.70,"copa vino":3.50,"copa cava":4.20,"agua":2.30,"refresco":2.90,"café":1.50,"café con leche":1.80,"gin tonic":9.00,"sangría":14.00,"menú del día":15.50}},
+    {n:"Casa Vidal",d:"450 m",v:3.9,o:310,leido:"05/09",cambios:"han añadido la tarta de queso (6,00 €) y han subido la caña de 2,50 a 2,60 €.",
+      carta:{"bravas":6.10,"croquetas":8.30,"mejillones":10.50,"escalivada":9.00,"pulpo":17.00,"arroz negro":16.20,"paella":18.00,"canelones":11.50,"entrecot":23.00,"butifarra":10.80,"calamares":12.40,"merluza":15.50,"crema catalana":5.90,"arroz con leche":4.80,"tarta de queso":6.00,"caña":2.60,"copa vino":3.20,"agua":2.40,"refresco":2.70,"café":1.45,"gin tonic":9.00,"menú del día":15.50}}
   ];
+  var MAPA={};// correcciones a mano: nombre del plato → clave de la competencia ("" = no lo tienen)
+  function keyDe(x){return MAPA[x[0]]!==undefined?MAPA[x[0]]:x[4]}
+  function nombreClave(k){var m=PLATOS.filter(function(x){return x[4]===k})[0];return m?m[0]:(EXTRAS[k]?EXTRAS[k][0]:k)}
   function clasifica(lista){
-    var filas=lista.map(function(x){var pv=x[1]/IVA,m=pv-x[2];return {n:x[0],pc:x[1],pv:pv,c:x[2],m:m,mp:m/pv,u:x[3],k:x[4]}});
+    var filas=lista.map(function(x){var pv=x[1]/IVA,m=pv-x[2];return {n:x[0],pc:x[1],pv:pv,c:x[2],m:m,mp:m/pv,u:x[3],k:keyDe(x),cat:x[5],x:x}});
     var tot=filas.reduce(function(s,f){return s+f.u},0),med=filas.reduce(function(s,f){return s+f.m*f.u},0)/tot,umbral=0.7*tot/filas.length;
-    filas.forEach(function(f){var g=f.m>=med,v=f.u>=umbral;f.tipo=g&&v?"estrella":(!g&&v?"vaca":(g&&!v?"puzle":"perro"))});
+    filas.forEach(function(f){var g=f.m>=med,v=f.u>=umbral;f.tipo=g&&v?"v":(!g&&v?"az":(g&&!v?"am":"r"))});
     return {filas:filas,med:med,umbral:umbral,tot:tot};
   }
-  var ETQ={estrella:"⭐ Estrella",vaca:"🐄 Vaca",puzle:"🧩 Puzle",perro:"🐕 Perro"};
+  var COLOR={v:"var(--ok)",az:"var(--azul)",am:"var(--aviso)",r:"var(--mal)"},NOMBRE={v:"verde",az:"azul",am:"amarillo",r:"rojo"};
+  var QUE={v:"Mantener: vende mucho y deja mucho.",az:"Vende mucho pero deja poco: subir precio o bajar coste.",am:"Deja mucho pero vende poco: darle visibilidad (recomendarlo, mejor sitio en la carta).",r:"Vende poco y deja poco: cambiar o quitar."};
   function frase(f,comp){
-    var base={estrella:"Que no falte y que se vea.",vaca:"Se vende mucho pero deja poco: ajustar ración o subir un poco.",puzle:"Deja mucho pero se vende poco: recomendarlo.",perro:"Ni deja ni se vende: cambiarlo o quitarlo."}[f.tipo];
-    if(comp&&comp.media&&f.pc<comp.media*0.95&&(f.tipo==="estrella"||f.tipo==="vaca"))base+=" Estás más barato que la competencia: puedes subir a "+eur(Math.round(comp.media*10)/10)+" €.";
+    var base=QUE[f.tipo];
+    if(comp&&comp.media&&f.pc<comp.media*0.95&&(f.tipo==="v"||f.tipo==="az"))base+=" Estás más barato que la competencia: puedes subir a "+eur(Math.round(comp.media*10)/10)+" €.";
     return base;
   }
-  function compDe(k){var ps=COMP.map(function(c){return c.carta[k]}).filter(function(x){return x});return {n:ps.length,media:ps.length?ps.reduce(function(a,b){return a+b},0)/ps.length:null}}
-  function chipComp(pc,c){
-    if(!c.n)return '<span class="chip igual">nadie lo tiene</span>';
-    var d=pc/c.media-1,cls=d>0.03?"mas-caro":(d<-0.03?"mas-barato":"igual"),t=d>0.03?"más caro":(d<-0.03?"más barato":"igual");
-    return c.n+' de 3 · media '+eur(c.media)+' € <span class="chip '+cls+'">'+(d>=0?"+":"")+Math.round(d*100)+' % '+t+'</span>';
+  function compDe(k){if(!k)return {n:0,media:null};var ps=COMP.map(function(c){return c.carta[k]}).filter(function(x){return x});return {n:ps.length,media:ps.length?ps.reduce(function(a,b){return a+b},0)/ps.length:null}}
+  function textoComp(pc,c){
+    if(!c.n)return 'nadie más lo tiene';
+    var d=pc/c.media-1,quien=c.n===3?'lo tienen tus 3 competidores':'lo tienen '+c.n+' de tus 3 competidores';
+    var s=quien+', a '+eur(c.media)+' € de media; ';
+    if(d>0.03)s+='<b style="color:var(--mal)">estás un '+Math.round(d*100)+' % más caro</b>';
+    else if(d<-0.03)s+='<b style="color:var(--azul)">estás un '+Math.round(-d*100)+' % más barato</b>';
+    else s+='estás en línea';
+    return s+'.';
   }
-  var tab="comida";
+  var tab="comida",movil=window.matchMedia("(max-width:820px)").matches,abiertas={};
+  CATS.forEach(function(c,i){abiertas[c[0]]=!movil||c[0]==="Entrantes"||c[0]==="Cervezas"});
+  function deTab(t){return PLATOS.filter(function(x){return CATS.filter(function(c){return c[0]===x[5]})[0][1]===t})}
   function pintaCarta(){
-    var R=clasifica(tab==="comida"?COMIDA:BEBIDA);
+    var R=clasifica(deTab(tab));
     document.querySelectorAll("#cartaTab span").forEach(function(s){s.classList.toggle("on",s.dataset.t===tab)});
-    document.getElementById("cartaExplica").innerHTML=(tab==="comida"?"Comida":"Bebida")+": deja de media <b>"+eur(R.med)+" € por unidad</b>; \"se vende\" a partir de <b>"+Math.round(R.umbral)+" unidades</b> en 3 meses. "+(tab==="bebida"?"El coste de las bebidas sale de las facturas de Bebidas Sol (por ejemplo, un barril de 30 l a 89,50 € con un 10 % de espuma y merma da 0,83 € por caña) y las unidades, del cierre de caja.":"El coste sale de la receta con el último precio de cada ingrediente y su rendimiento.");
-    var h='<tr><th>'+(tab==="comida"?"Plato":"Bebida")+'</th><th class="num">Precio</th><th class="num">Coste</th><th class="num">Deja</th><th class="num">Vendidos</th><th>Tipo</th><th>Competencia</th><th>Qué hacer</th></tr>';
-    R.filas.sort(function(a,b){return b.m*b.u-a.m*a.u}).forEach(function(f){var c=compDe(f.k);
-      h+='<tr><td><b>'+f.n+'</b></td><td class="num">'+eur(f.pv)+' €<div class="mut peq">carta '+eur(f.pc)+'</div></td><td class="num">'+eur(f.c)+' €</td><td class="num"><b>'+eur(f.m)+' €</b><div class="mut peq">'+Math.round(f.mp*100)+' %</div></td><td class="num">'+f.u+'</td><td><span class="chip '+f.tipo+'">'+ETQ[f.tipo]+'</span></td><td class="peq">'+chipComp(f.pc,c)+'</td><td class="peq">'+frase(f,c)+'</td></tr>'});
+    document.getElementById("cartaExplica").innerHTML=(tab==="comida"?"Comida":"Bebida")+": deja de media <b>"+eur(R.med)+" € por unidad</b>; \"vende mucho\" a partir de <b>"+Math.round(R.umbral)+" unidades</b> en 3 meses. "+(tab==="bebida"?"El coste de las bebidas sale de las facturas de Bebidas Sol y Vins i Cafès Roca (por ejemplo, un barril de 30 l a 89,50 € con un 10 % de espuma y merma da 0,83 € por caña) y las unidades, del cierre de caja.":"El coste sale de la receta con el último precio de cada ingrediente en las facturas.");
+    var h='<tr><th>'+(tab==="comida"?"Plato":"Bebida")+'</th><th class="num">Precio</th><th class="num">Coste</th><th class="num">Deja</th><th class="num">Vendidos</th><th>Competencia</th><th>Qué hacer</th></tr>';
+    CATS.filter(function(c){return c[1]===tab}).forEach(function(cat){
+      var fs=R.filas.filter(function(f){return f.cat===cat[0]}).sort(function(a,b){return b.m*b.u-a.m*a.u}),ab=abiertas[cat[0]];
+      var deja=fs.reduce(function(s,f){return s+f.m*f.u},0);
+      h+='<tr class="cat" data-c="'+cat[0]+'"><td colspan="6"><span class="flechita" style="color:#fff">'+(ab?"▾":"▸")+'</span> '+cat[0]+' <span class="mut peq" style="font-weight:400">· '+fs.length+(fs.length===1?' plato':' platos')+' · deja '+eur0(deja)+' € en 3 meses</span></td><td class="num">'+eur0(deja)+' €</td></tr>';
+      fs.forEach(function(f){var c=compDe(f.k);
+        h+='<tr class="sem-'+f.tipo+(ab?'':' oculto')+'"><td><span class="celda"><span class="sem" style="background:'+COLOR[f.tipo]+'" title="'+NOMBRE[f.tipo]+'"></span><b>'+f.n+'</b>'+(f.tipo==="v"?' ⭐':'')+'</span></td><td class="num">'+eur(f.pv)+' €<div class="mut peq">carta '+eur(f.pc)+'</div></td><td class="num">'+eur(f.c)+' €</td><td class="num"><b>'+eur(f.m)+' €</b><div class="mut peq">'+Math.round(f.mp*100)+' %</div></td><td class="num">'+f.u+'</td><td class="peq"><span class="celda">'+textoComp(f.pc,c)+' <a class="malcasado" data-n="'+f.n+'">¿mal casado? corregir</a></span></td><td class="peq"><span class="celda">'+frase(f,c)+'</span></td></tr>'});
+    });
     document.getElementById("cartaTabla").innerHTML=h;
   }
   function resumen(){
-    var C=clasifica(COMIDA),B=clasifica(BEBIDA);
+    var C=clasifica(deTab("comida")),B=clasifica(deTab("bebida"));
     var mC=C.filas.reduce(function(s,f){return s+f.m*f.u},0),mB=B.filas.reduce(function(s,f){return s+f.m*f.u},0);
-    var caros=0,baratos=0;COMIDA.concat(BEBIDA).forEach(function(x){var c=compDe(x[4]);if(c.n){var d=x[1]/c.media-1;if(d>0.03)caros++;if(d<-0.03)baratos++}});
+    var caros=0,baratos=0;PLATOS.forEach(function(x){var c=compDe(keyDe(x));if(c.n){var d=x[1]/c.media-1;if(d>0.03)caros++;if(d<-0.03)baratos++}});
     document.getElementById("cartaResumen").innerHTML=
-      '<div class="card kpi"><div class="l">Lo que deja la comida (3 meses)</div><div class="v">'+eur0(mC)+' €</div><div class="d mut">'+COMIDA.length+' platos a la vista de 25</div></div>'+
+      '<div class="card kpi"><div class="l">Lo que deja la comida (3 meses)</div><div class="v">'+eur0(mC)+' €</div><div class="d mut">'+C.filas.length+' platos en 6 categorías</div></div>'+
       '<div class="card kpi"><div class="l">Lo que deja la bebida (3 meses)</div><div class="v">'+eur0(mB)+' €</div><div class="d mut">la bebida deja mucho con poco trabajo</div></div>'+
       '<div class="card kpi"><div class="l">Más caro que la competencia</div><div class="v" style="color:var(--mal)">'+caros+'</div><div class="d mut">productos</div></div>'+
       '<div class="card kpi"><div class="l">Más barato que la competencia</div><div class="v" style="color:var(--azul)">'+baratos+'</div><div class="d mut">donde podrías subir</div></div>';
   }
+  // Listas "ellos y tú no" / "tú y ellos no", con quitar y añadir a mano
+  var quitados={},extraEllos=[],extraYo=[];
   function listas(){
-    var mias=COMIDA.concat(BEBIDA).map(function(x){return x[4]});
+    var mias=PLATOS.map(function(x){return keyDe(x)});
     var suyas={};COMP.forEach(function(c){Object.keys(c.carta).forEach(function(k){if(mias.indexOf(k)<0){(suyas[k]=suyas[k]||[]).push(c.carta[k])}})});
-    var FR={"pulpo":["Pulpo a la gallega","Probarlo: lo tienen los 3 y el pulpo fresco está a 7,91 €/kg en Mercabarna (real, sep. 2026)."],"menú del día":["Menú del día","Pensarlo: llenaría los mediodías entre semana, que hoy están flojos."],"huevos estrellados":["Huevos estrellados","Probarlo como plato barato para compartir: coste bajo y se vende solo."]};
-    document.getElementById("cartaEllos").innerHTML=Object.keys(suyas).map(function(k){var ps=suyas[k],m=ps.reduce(function(a,b){return a+b},0)/ps.length,f=FR[k]||[k,"Mirarlo."];
-      return '<div class="alerta b"><b>'+f[0]+'</b><div>'+ps.length+' de 3 · media '+eur(m)+' €<br>'+f[1]+'</div></div>'}).join("");
-    var C=clasifica(COMIDA).filas,yo=C.filter(function(f){return compDe(f.k).n===0});
-    var FY={puzle:"Mantenerlo como diferencia: es tuyo y deja mucho, pero hay que recomendarlo más.",estrella:"Mantenerlo y presumir de él: nadie más lo tiene.",vaca:"Mantenerlo y probar a subirlo un poco: nadie te compara.",perro:"Quitarlo o cambiarlo: ni lo tienen los demás ni se vende."};
-    document.getElementById("cartaYo").innerHTML=yo.map(function(f){return '<div class="alerta '+(f.tipo==="perro"?"r":"v")+'"><b>'+f.n+'</b><div><span class="chip '+f.tipo+'">'+ETQ[f.tipo]+'</span> '+FY[f.tipo]+'</div></div>'}).join("")||'<div class="mut">Ninguno.</div>';
+    var FR={"pulpo":"Probarlo: lo tienen los 3 y el pulpo fresco está a 7,91 €/kg en Mercabarna (real, sep. 2026).","menú del día":"Pensarlo: llenaría los mediodías entre semana, que hoy están flojos.","tarta de queso":"Postre fácil de tener hecho; se vende solo con el café.","sangría":"Mirarlo: en la terraza, en verano, sale sola."};
+    var h=Object.keys(suyas).filter(function(k){return !quitados["e:"+k]}).map(function(k){var ps=suyas[k],m=ps.reduce(function(a,b){return a+b},0)/ps.length;
+      return '<div class="alerta b"><b>'+nombreClave(k)+'</b><div>'+(ps.length===3?'lo tienen los 3':'lo tienen '+ps.length+' de 3')+', a '+eur(m)+' € de media.<br>'+(FR[k]||"Mirarlo.")+'</div><span class="btn quitar" data-q="e:'+k+'">✕ quitar</span></div>'});
+    h=h.concat(extraEllos.filter(function(x){return !quitados["e:"+x.n]}).map(function(x){return '<div class="alerta b"><b>'+x.n+'</b><div>'+(x.p?'a '+eur(x.p)+' €':'sin precio')+' · añadido a mano.</div><span class="btn quitar" data-q="e:'+x.n+'">✕ quitar</span></div>'}));
+    document.getElementById("cartaEllos").innerHTML=h.join("")||'<div class="mut">Ninguno.</div>';
+    var C=clasifica(PLATOS).filas,yo=C.filter(function(f){return compDe(f.k).n===0&&!quitados["y:"+f.n]});
+    var FY={am:"Mantenerlo como diferencia: es tuyo y deja mucho, pero hay que recomendarlo más.",v:"Mantenerlo y presumir de él: nadie más lo tiene.",az:"Mantenerlo y probar a subirlo un poco: nadie te compara.",r:"Quitarlo o cambiarlo: ni lo tienen los demás ni se vende."};
+    var hy=yo.map(function(f){return '<div class="alerta '+(f.tipo==="r"?"r":"v")+'"><b>'+f.n+'</b><div><span class="sem" style="background:'+COLOR[f.tipo]+'"></span>'+NOMBRE[f.tipo]+' · '+FY[f.tipo]+'</div><span class="btn quitar" data-q="y:'+f.n+'">✕ quitar</span></div>'});
+    hy=hy.concat(extraYo.filter(function(x){return !quitados["y:"+x]}).map(function(x){return '<div class="alerta v"><b>'+x+'</b><div>Añadido a mano.</div><span class="btn quitar" data-q="y:'+x+'">✕ quitar</span></div>'}));
+    document.getElementById("cartaYo").innerHTML=hy.join("")||'<div class="mut">Ninguno.</div>';
   }
+  function todo(){resumen();pintaCarta();listas();if(window.pintaCompetencia)window.pintaCompetencia()}
   document.getElementById("cartaTab").addEventListener("click",function(e){var t=e.target.dataset.t;if(!t)return;tab=t;pintaCarta()});
+  document.getElementById("cartaTabla").addEventListener("click",function(e){
+    var mc=e.target.closest("a.malcasado");
+    if(mc){
+      var n=mc.dataset.n,x=PLATOS.filter(function(p){return p[0]===n})[0],claves={};
+      COMP.forEach(function(c){Object.keys(c.carta).forEach(function(k){claves[k]=1})});
+      var s=document.createElement("select");s.className="campo peq";s.style.width="auto";s.style.padding="3px 6px";
+      s.innerHTML='<option value="">— no lo tienen (sin pareja) —</option>'+Object.keys(claves).sort().map(function(k){return '<option value="'+k+'"'+(k===keyDe(x)?' selected':'')+'>'+nombreClave(k)+' ('+k+')</option>'}).join("");
+      var lab=document.createElement("div");lab.className="peq mut";lab.textContent="Se compara con:";
+      mc.parentNode.appendChild(lab);mc.parentNode.appendChild(s);mc.remove();s.focus();
+      s.addEventListener("change",function(){MAPA[n]=s.value;todo()});
+      return;
+    }
+    var cat=e.target.closest("tr.cat");if(cat){abiertas[cat.dataset.c]=!abiertas[cat.dataset.c];pintaCarta()}
+  });
+  document.getElementById("carta").addEventListener("click",function(e){
+    var q=e.target.closest(".quitar");if(q){quitados[q.dataset.q]=1;listas();return}
+    var a=e.target.closest("[data-add]");if(a){var f=document.getElementById(a.dataset.add==="ellos"?"cartaEllosForm":"cartaYoForm");f.style.display=f.style.display==="none"?"flex":"none";if(f.style.display==="flex")f.querySelector("input").focus();return}
+    var b=e.target.closest("#cartaEllosForm .btn, #cartaYoForm .btn");if(b){var form=b.parentNode,ins=form.querySelectorAll("input"),n=ins[0].value.trim();if(!n)return;
+      if(form.id==="cartaEllosForm")extraEllos.push({n:n,p:+ins[1].value||0});else extraYo.push(n);
+      ins.forEach(function(i){i.value=""});form.style.display="none";listas()}
+  });
   resumen();pintaCarta();listas();
 
-  // Competencia
+  // ===== Recetas: coste con el último precio de cada ingrediente en las facturas =====
+  var UP=window.ULTIMOS_PRECIOS||{};
+  var RECETAS=[
+    {n:"Arroz negro",cat:"Paellas y arroces",p:16.50,ings:[["Arroz bomba",0.100],["Calamar",0.150],["Tinta de calamar",0.008],["Aceite de oliva virgen extra",0.030]],otros:1.00,nota:"Fumet y sofrito. Alérgenos: moluscos, pescado, apio."},
+    {n:"Paella de marisco",cat:"Paellas y arroces",p:18.50,ings:[["Arroz bomba",0.100],["Gamba roja",0.040],["Mejillón",0.150],["Calamar",0.080],["Aceite de oliva virgen extra",0.030]],otros:1.00,nota:"Fumet y sofrito."},
+    {n:"Patatas bravas",cat:"Entrantes",p:6.50,ings:[["Patata",0.300],["Aceite de oliva virgen extra",0.050]],otros:0.40,nota:"Salsa brava y alioli."},
+    {n:"Pan con tomate",cat:"Entrantes",p:3.50,ings:[["Pan de barra",0.350],["Tomate maduro",0.050],["Aceite de oliva virgen extra",0.010]],otros:0.02,nota:""},
+    {n:"Mejillones a la marinera",cat:"Entrantes",p:11.00,ings:[["Mejillón",0.600],["Tomate maduro",0.100],["Cebolla seca",0.050]],otros:0.20,nota:""},
+    {n:"Entrecot a la brasa",cat:"Carnes",p:22.00,ings:[["Entrecot de vaca",0.350],["Patata",0.200]],otros:1.10,nota:"Guarnición y sal gorda."},
+    {n:"Lubina a la sal",cat:"Pescados",p:21.00,ings:[["Lubina fresca",0.500]],otros:0.00,nota:"Media lubina limpia por ración."},
+    {n:"Calamares a la andaluza",cat:"Pescados",p:13.00,ings:[["Calamar",0.220],["Harina",0.040],["Aceite de oliva virgen extra",0.060],["Limón",0.050]],otros:0.15,nota:""}
+  ];
+  function precioDe(k){return UP[k]?UP[k].precio:0}
+  function coste(r){return r.ings.reduce(function(s,i){return s+i[1]*precioDe(i[0])},0)+(r.otros||0)}
+  function cant(q,u){return (u==="ud"||u==="manojo")?String(q).replace(".",","):eur(q*1000).replace(",00","")+" g"}
+  function pintaRecetas(){
+    var h="";
+    CATS.forEach(function(c){var rs=RECETAS.filter(function(r){return r.cat===c[0]});if(!rs.length)return;
+      h+='<div class="rec-cat">'+c[0]+'</div>';
+      rs.forEach(function(r){var co=coste(r),pv=r.p/IVA,m=pv-co;
+        h+='<div class="rec"><div class="fila" style="justify-content:space-between"><b>'+r.n+'</b><span class="peq">carta '+eur(r.p)+' € · coste <b>'+eur(co)+' €</b> → deja <b style="color:'+(m/pv>=0.6?"var(--ok)":"var(--aviso)")+'">'+eur(m)+' €</b> ('+Math.round(m/pv*100)+' %)</span></div>'+
+          '<div class="peq mut">'+r.ings.map(function(i){var u=UP[i[0]];return i[0]+' '+cant(i[1],u?u.u:"kg")+(u?' ('+eur(u.precio)+' €/'+u.u+', '+u.prov+' '+u.fecha+')':'')}).join(" · ")+(r.otros?' · otros '+eur(r.otros)+' €':'')+(r.nota?' · '+r.nota:'')+'</div></div>'});
+    });
+    document.getElementById("recLista").innerHTML=h;
+  }
+  var form=document.getElementById("recForm"),ingsEl=document.getElementById("recIngs");
+  document.getElementById("recCat").innerHTML=CATS.map(function(c){return '<option>'+c[0]+'</option>'}).join("");
+  function opciones(sel){return Object.keys(UP).sort().map(function(k){return '<option value="'+k+'"'+(k===sel?' selected':'')+'>'+k+' · '+eur(UP[k].precio)+' €/'+UP[k].u+' ('+UP[k].prov+')</option>'}).join("")}
+  function filaIng(k,q){var d=document.createElement("div");d.className="ing-fila";d.innerHTML='<select class="campo ing-p">'+opciones(k)+'</select><input class="campo ing-q" type="number" step="0.01" min="0" value="'+q+'"><span class="u"></span><span class="x" title="Quitar">✕</span>';ingsEl.appendChild(d);unidad(d)}
+  function unidad(d){var k=d.querySelector(".ing-p").value;d.querySelector(".u").textContent=UP[k]?UP[k].u:""}
+  function calcula(){
+    var p=+document.getElementById("recPrecio").value||0,otros=+document.getElementById("recOtros").value||0,c=otros;
+    [].forEach.call(ingsEl.children,function(d){c+=(+d.querySelector(".ing-q").value||0)*precioDe(d.querySelector(".ing-p").value)});
+    var pv=p/IVA,m=pv-c;
+    document.getElementById("recCuenta").innerHTML='Coste: <b>'+eur(c)+' €</b> (con el último precio de cada ingrediente en las facturas) → precio de carta '+eur(p)+' € = '+eur(pv)+' € sin IVA → <b style="color:'+(m>0?"var(--ok)":"var(--mal)")+'">deja '+eur(m)+' €</b>'+(pv>0?' ('+Math.round(m/pv*100)+' %)':'');
+  }
+  document.getElementById("recNueva").addEventListener("click",function(){form.style.display="";ingsEl.innerHTML="";filaIng("Calamar",0.15);filaIng("Arroz bomba",0.1);document.getElementById("recNombre").value="";calcula();form.scrollIntoView({behavior:"smooth",block:"nearest"})});
+  document.getElementById("recCancelar").addEventListener("click",function(){form.style.display="none"});
+  document.getElementById("recMasIng").addEventListener("click",function(){filaIng(Object.keys(UP).sort()[0],0.1);calcula()});
+  form.addEventListener("input",calcula);
+  form.addEventListener("change",function(e){var d=e.target.closest(".ing-fila");if(d)unidad(d);calcula()});
+  ingsEl.addEventListener("click",function(e){var x=e.target.closest(".x");if(!x)return;x.parentNode.remove();calcula()});
+  document.getElementById("recGuardar").addEventListener("click",function(){
+    var n=document.getElementById("recNombre").value.trim();if(!n){document.getElementById("recNombre").focus();return}
+    var r={n:n,cat:document.getElementById("recCat").value,p:+document.getElementById("recPrecio").value||0,otros:+document.getElementById("recOtros").value||0,nota:"Añadida a mano.",ings:[]};
+    [].forEach.call(ingsEl.children,function(d){var q=+d.querySelector(".ing-q").value||0;if(q>0)r.ings.push([d.querySelector(".ing-p").value,q])});
+    RECETAS.push(r);form.style.display="none";pintaRecetas();
+  });
+  pintaRecetas();
+
+  // ===== Competencia =====
   var selC=1;
   function listaC(){
-    document.getElementById("compLista").innerHTML=COMP.map(function(c,i){return '<div class="prov-fila'+(i===selC?' sel':'')+'" data-i="'+i+'"><div class="q"><b>'+c.n+'</b><div class="peq mut">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+' ('+eur0(c.o)+' opiniones) · '+Object.keys(c.carta).length+' platos</div></div><span class="mut">›</span></div>'}).join("")+
+    document.getElementById("compLista").innerHTML=COMP.map(function(c,i){return '<div class="prov-fila'+(i===selC?' sel':'')+'" data-i="'+i+'"><div class="q"><b>'+c.n+'</b><div class="peq mut">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+' ('+eur0(c.o)+' opiniones) · '+Object.keys(c.carta).length+' productos · carta leída el '+c.leido+'</div></div><span class="mut">›</span></div>'}).join("")+
       '<div class="peq mut" style="padding:8px">Tú: ★ 4,1 (930 opiniones). Competidores <b>inventados</b>; la valoración, escrita a mano en la demo.</div>';
   }
   function fichaC(){
-    var c=COMP[selC],todos=COMIDA.concat(BEBIDA),h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+c.n+'</h3><span class="mut peq">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+'</span></div>';
-    h+='<table class="resp"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tu precio</th><th class="num">Diferencia</th><th>Aviso</th></tr>';
-    var subir=0;
-    todos.forEach(function(x){var su=c.carta[x[4]];if(!su)return;var d=x[1]/su-1,cls=d>0.03?"mas-caro":(d<-0.03?"mas-barato":"igual"),av;
-      if(d<-0.05){av="Podrías subir a "+eur(su)+" €: estás un "+Math.round(-d*100)+" % por debajo.";subir++}
-      else if(d>0.08)av="Estás bastante por encima: si no se vende, revisa precio o ración.";
-      else av="En línea.";
-      h+='<tr><td>'+x[0]+'</td><td class="num">'+eur(su)+' €</td><td class="num">'+eur(x[1])+' €</td><td class="num"><span class="chip '+cls+'">'+(d>=0?"+":"")+Math.round(d*100)+' %</span></td><td class="peq">'+av+'</td></tr>'});
-    h+='</table><div class="peq mut">Precios de carta con IVA en los dos lados, para comparar lo mismo que ve el cliente.</div>';
-    h+='<div class="alerta b"><b>Resumen</b><div>Frente a '+c.n+' hay <b>'+subir+'</b> productos donde podrías subir el precio sin pasarte de ellos.</div></div>';
+    var c=COMP[selC],h='<div class="fila" style="justify-content:space-between"><h3 style="margin:0">'+c.n+'</h3><span class="mut peq">📍 '+c.d+' · ★ '+String(c.v).replace(".",",")+' · carta leída el '+c.leido+'</span></div>';
+    h+='<div class="tabla"><table class="resp"><tr><th>Producto</th><th class="num">Su precio</th><th class="num">Tu precio</th><th class="num">Diferencia</th><th>Aviso</th></tr>';
+    var caros=[],baratos=[],mios=[],suyos=[],mias=PLATOS.map(function(x){return keyDe(x)});
+    PLATOS.forEach(function(x){if(!c.carta[keyDe(x)])mios.push(x[0])});
+    Object.keys(c.carta).forEach(function(k){if(mias.indexOf(k)<0&&k!=="menú del día")suyos.push(nombreClave(k))});
+    CATS.forEach(function(cat){
+      var mine=PLATOS.filter(function(x){return x[5]===cat[0]&&c.carta[keyDe(x)]}),theirs=Object.keys(c.carta).filter(function(k){return mias.indexOf(k)<0&&EXTRAS[k]&&EXTRAS[k][1]===cat[0]});
+      if(!mine.length&&!theirs.length){h+='<tr class="cat notiene"><td colspan="4">'+cat[0]+' · no tiene '+cat[0].toLowerCase()+'</td><td></td></tr>';return}
+      h+='<tr class="cat"><td colspan="4">'+cat[0]+' <span class="mut peq" style="font-weight:400">· '+(mine.length+theirs.length)+(mine.length+theirs.length===1?' producto':' productos')+'</span></td><td class="num">'+(mine.length?mine.length+' en común':'')+'</td></tr>';
+      mine.forEach(function(x){var su=c.carta[keyDe(x)],d=x[1]/su-1,cls=d>0.03?"mas-caro":(d<-0.03?"mas-barato":"igual"),av;
+        if(d<-0.05){av="Podrías subir a "+eur(su)+" €: estás un "+Math.round(-d*100)+" % por debajo.";baratos.push(x[0]+" (−"+Math.round(-d*100)+" %)")}
+        else if(d>0.08){av="Estás bastante por encima: si no se vende, revisa precio o ración.";caros.push(x[0]+" (+"+Math.round(d*100)+" %)")}
+        else{av="En línea.";if(d>0.03)caros.push(x[0]+" (+"+Math.round(d*100)+" %)");if(d<-0.03)baratos.push(x[0]+" (−"+Math.round(-d*100)+" %)")}
+        h+='<tr><td>'+x[0]+'</td><td class="num">'+eur(su)+' €</td><td class="num">'+eur(x[1])+' €</td><td class="num"><span class="chip '+cls+'">'+(d>=0?"+":"")+Math.round(d*100)+' %</span></td><td class="peq">'+av+'</td></tr>'});
+      theirs.forEach(function(k){h+='<tr><td>'+nombreClave(k)+'</td><td class="num">'+eur(c.carta[k])+' €</td><td class="num mut">—</td><td><span class="chip c-est">tú no lo tienes</span></td><td class="peq">Mirarlo en la lista de Carta.</td></tr>'});
+    });
+    h+='</table></div><div class="peq mut">Precios de carta con IVA en los dos lados, para comparar lo mismo que ve el cliente.'+(c.carta["menú del día"]?' Además tiene <b>menú del día a '+eur(c.carta["menú del día"])+' €</b> (tú no).':'')+'</div>';
+    function corta(a){return a.length>6?a.slice(0,6).join(", ")+" y "+(a.length-6)+" más":a.join(", ")}
+    h+='<div class="pila peq" style="background:var(--suave);border-radius:10px;padding:10px">'+
+      '<div><b>Tienes tú y ellos no:</b> '+(mios.length?corta(mios):"nada")+'.</div>'+
+      '<div><b>Tienen ellos y tú no:</b> '+(suyos.length?suyos.join(", ")+(c.carta["menú del día"]?" y menú del día":""):(c.carta["menú del día"]?"menú del día":"nada"))+'.</div>'+
+      '<div><b style="color:var(--mal)">Estás más caro en:</b> '+(caros.length?caros.join(", "):"nada")+'.</div>'+
+      '<div><b style="color:var(--azul)">Estás más barato en:</b> '+(baratos.length?baratos.join(", "):"nada")+'.</div>'+
+      '<div><b>Desde la última lectura de su carta ('+c.leido+'):</b> '+c.cambios+'</div></div>';
+    h+='<div class="alerta b"><b>Resumen</b><div>Frente a '+c.n+' hay <b>'+baratos.length+'</b> productos donde podrías subir el precio sin pasarte de ellos.</div></div>';
     document.getElementById("compFicha").innerHTML=h;
   }
   document.getElementById("compLista").addEventListener("click",function(e){var f=e.target.closest(".prov-fila");if(!f)return;selC=+f.dataset.i;listaC();fichaC()});
+  window.pintaCompetencia=function(){listaC();fichaC()};
   listaC();fichaC();
 })();
 
@@ -1266,62 +1640,105 @@ document.addEventListener("click",function(e){
   a.addEventListener("click",function(){document.getElementById("actAviso").style.display="none";a.textContent="✔ Visto";document.getElementById("actTxt").textContent="Estás en la versión 1.1.";document.querySelector(".act-mini").classList.add("hecho")});
 })();
 
-/* ===== Asistente: cambia según la pantalla que estás viendo. Respuestas de ejemplo. ===== */
+/* ===== Asistente: pantalla completa y ventana pequeña. Respuestas de ejemplo con los datos de la maqueta ===== */
 (function(){
+  var PANT={bandeja:"Bandeja",documentos:"Documentos",proveedores:"Proveedores",recepcion:"Recepción",hoy:"Hoy",cuadro:"Cuadro del día",carta:"Carta",competencia:"Competencia",personal:"Personal",dueno:"Dueño",asistente:"Asistente",ajustes:"Ajustes"};
+  function fuente(id){return id?'<span class="fuente">Fuente: '+PANT[id]+' → <a href="#'+id+'">ver</a></span>':""}
+  // Preguntas de ejemplo de la pantalla Asistente: pregunta, respuesta, pantalla de la que sale el dato
+  var PREG=[
+    ["¿Cuánto vendí el sábado pasado?","El sábado 10 de octubre vendiste <b>1.386 € con IVA</b> (1.260 € sin IVA) con <b>62 cubiertos</b>: 1.039 € con tarjeta y 347 € en efectivo. En caja faltaron 20 €.","cuadro"],
+    ["¿Qué proveedor me ha subido más los precios este año?","<b>Pescados Mar Nou</b>: la lubina pasó de 12,80 a 14,90 €/kg el 1 de octubre (+16 %). Le sigue <b>Carnes Vallès</b> con el entrecot, de 21,50 a 24,20 €/kg el 14 de septiembre (+13 %). El resto de precios casi no se ha movido.","proveedores"],
+    ["¿Qué platos quito de la carta?","Los rojos (venden poco y dejan poco): <b>ensalada de cabra</b> (54 vendidas en 3 meses, deja 6,15 €), <b>ensalada verde</b> (120, deja 5,67 €) y <b>arroz con leche</b> (150, deja 3,85 €). Antes de quitarlos, prueba un mes a cambiarles el sitio en la carta o el nombre.","carta"],
+    ["¿Me llega la caja para pagar el alquiler el día 5?","Justo. Hoy hay 7.500 € en el banco y entran unos 575 € netos al día. El 20 toca IVA e IRPF (unos 7.204 €) y el 31 nóminas y Seguridad Social (7.866 €): el 1 de noviembre, tras pagar el alquiler y el seguro (2.606 €), quedarían <b>746 €</b>, por debajo de los 3.000 € que quieres tener. Si el alquiler se paga el día 5, entre el 1 y el 5 entran unos 2.300 € más. Conviene guardar dinero desde hoy.","dueno"],
+    ["¿Qué caduca mañana?","Mañana, lunes 12: <b>solomillo de cerdo</b> (3,1 kg, fecha de la etiqueta) y <b>tomate maduro</b> (6 kg, fecha estimada). Hoy caducan el calamar (1,8 kg) y el mejillón (2,5 kg): por eso hoy se empujan calamares, arroz negro y mejillones.","recepcion"],
+    ["¿Cómo subo un extracto del banco?","En <b>Ajustes → Banco → Subir extracto</b>. Descárgalo de la web de tu banco en CSV o Norma 43 y súbelo; nunca te pediremos la contraseña del banco. El último subido es del 10/10. Con él, las facturas pasan a «pagada» y el Cuadro del día enseña el banco real.","ajustes"]
+  ];
+  var CONV=[
+    {f:"sáb 10/10",t:"El descuadre de caja de 20 €",m:[["yo","¿Por qué faltan 20 € en caja?"],["ia","La caja esperada era 433 € (150 de fondo + 347 de ventas − 64 de gastos) y se contaron 413 €. No hay ningún ticket sin apuntar: puede ser un cambio mal dado o una propina mezclada. Lo dejo marcado como descuadre del 10/10.","cuadro"]]},
+    {f:"jue 08/10",t:"La factura de Hortalizas sin número",m:[["yo","¿Qué pasa con la factura de Hortalizas del Prat?"],["ia","Es una foto y no se lee el número. El importe (156,40 €) y las líneas sí: tomate, cebolla, patata, pimiento, limón y perejil. Si me dices el número, la archivo; si no, queda «por revisar».","documentos"],["yo","Déjala por revisar, mañana lo miro."],["ia","Hecho: sigue en Documentos como «nº por revisar». No cambio nada más."]]},
+    {f:"jue 01/10",t:"La subida de la lubina",m:[["yo","¿Me ha subido la lubina?"],["ia","Sí: Pescados Mar Nou la cobra a 14,90 €/kg desde la factura F-2026-0398 (1/10); antes, 12,80 €. La lubina a la sal pasa de dejar 12,69 € a 11,64 € por ración. Si quieres, te preparo un correo para pedir precio a otro proveedor; solo se envía si lo confirmas.","proveedores"]]}
+  ];
   var A={
     bandeja:{n:"Bandeja",hola:"Hoy han llegado una reserva para 8, una factura de Pescados Mar Nou y un correo del Ayuntamiento que no sé clasificar.",q:[
-      ["¿Qué necesita respuesta?","La reserva de Marta García (sábado, 8 personas) y la queja de Jordi Ribas. Las dos tienen respuesta propuesta; solo falta que pulses Enviar."],
-      ["¿Qué es el correo raro?","Un aviso del Ayuntamiento sobre la licencia de terraza. No es factura ni reserva: dime si lo archivo en Otros o si lo ignoro."],
-      ["¿Hay alguna factura rara?","La de Carnes Vallès C-8841 ha llegado dos veces (5 y 9 de octubre). La segunda está marcada para no pagarla."]]},
+      ["¿Qué necesita respuesta?","La reserva de Marta García (sábado, 8 personas) y la queja de Jordi Ribas. Las dos tienen respuesta propuesta; solo falta que pulses Enviar.","bandeja"],
+      ["¿Qué es el correo raro?","Un aviso del Ayuntamiento sobre la licencia de terraza. No es factura ni reserva: dime si lo archivo en Otros o si lo ignoro.","bandeja"],
+      ["¿Hay alguna factura rara?","La de Carnes Vallès C-8841 ha llegado dos veces (5 y 9 de octubre). La segunda está marcada para no pagarla.","documentos"]]},
     documentos:{n:"Documentos",hola:"Hay 3 facturas pendientes de pago y 1 duplicada. Las pagadas las he sacado del extracto del banco.",q:[
-      ["¿Qué facturas vencen esta semana?","Endesa (734,90 €, el 20/10) y Naturgy (418,30 €, el 21/10)."],
-      ["¿Cuánto le he pagado a Carnes Vallès en septiembre?","2.760 € sin IVA en 4 facturas. Un 3 % más que en agosto, por la subida del entrecot."],
-      ["¿Qué hay por revisar?","La factura escaneada de Hortalizas del Prat del 8/10: no se lee el número."]]},
-    proveedores:{n:"Proveedores",hola:"Dos proveedores han subido precios: Pescados Mar Nou (lubina +16 %) y Carnes Vallès (entrecot +13 %).",q:[
-      ["¿Dónde puedo ahorrar?","En mejillón, tomate, cebolla y lubina: frente a Mercabarna con un margen razonable serían unos 99 € al mes."],
-      ["¿Cuándo subió la lubina?","En la factura F-2026-0398 del 1 de octubre: de 12,80 € a 14,90 €."],
-      ["Dame el teléfono de Mar Nou","93 000 56 78 (sacado de sus facturas; dato de ejemplo)."]]},
+      ["¿Qué facturas vencen esta semana?","Endesa (734,90 €, el 20/10) y Naturgy (418,30 €, el 21/10).","documentos"],
+      ["¿Cuánto le he pagado a Carnes Vallès en septiembre?","2.760 € sin IVA en 4 facturas. Un 3 % más que en agosto, por la subida del entrecot.","proveedores"],
+      ["¿Qué hay por revisar?","La factura escaneada de Hortalizas del Prat del 8/10: no se lee el número.","documentos"]]},
+    proveedores:{n:"Proveedores",hola:"Dos proveedores han subido precios: Pescados Mar Nou (lubina +16 %) y Carnes Vallès (entrecot +13 %). Y se te pueden acabar el calamar, el entrecot y el pan.",q:[
+      ["¿Dónde puedo ahorrar?","En mejillón, tomate, cebolla y lubina: frente a Mercabarna con un margen razonable serían unos 99 € al mes.","proveedores"],
+      ["¿Cuándo subió la lubina?","En la factura F-2026-0398 del 1 de octubre: de 12,80 € a 14,90 €.","proveedores"],
+      ["¿Qué tengo que pedir?","Calamar (quedan 2,1 kg, para 2 días) a Pescados Mar Nou; entrecot (1,4 kg, para 1 día) a Carnes Vallès; pan (6 barras, para 1 día) al Forn de Pa Sant Jaume. Te preparo los tres correos y los envías tú.","proveedores"]]},
     recepcion:{n:"Recepción",hola:"En el último pedido de pescado faltan 0,5 kg de mejillón que sí te cobran.",q:[
-      ["¿Qué tengo que gastar hoy?","Calamar (1,8 kg) y mejillón (2,5 kg) caducan hoy. Mañana, el solomillo de cerdo y el tomate."],
-      ["¿Cuándo toca recuento?","El domingo 11. Son 12 productos y unos 15 minutos."],
-      ["¿Qué falta en la cámara?","En el último recuento faltaban 0,6 kg de entrecot y 0,4 kg de gamba: 37,07 € esta semana."]]},
+      ["¿Qué tengo que gastar hoy?","Calamar (1,8 kg) y mejillón (2,5 kg) caducan hoy. Mañana, el solomillo de cerdo y el tomate.","recepcion"],
+      ["¿Cuándo toca recuento?","El domingo 11. Son 12 productos y unos 15 minutos.","recepcion"],
+      ["¿Qué falta en la cámara?","En el último recuento faltaban 0,6 kg de entrecot y 0,4 kg de gamba: 37,07 € esta semana.","recepcion"]]},
     hoy:{n:"Hoy",hola:"Hoy se esperan entre 1.100 y 1.450 € por la feria. Te propongo empujar calamares, arroz negro y mejillones.",q:[
-      ["¿Por qué esos tres platos?","Usan calamar y mejillón que caducan hoy, y dejan entre 7 y 11 € por ración."],
-      ["¿Por qué no me das una cifra exacta?","Porque no hay ferias en tus datos para saber cuánto suben las ventas. Cuando importes más meses, el margen se estrecha."],
-      ["¿Cómo irá el sábado con el partido?","Tarde floja (de 17 a 20 h) y cena normal."]]},
+      ["¿Por qué esos tres platos?","Usan calamar y mejillón que caducan hoy, y dejan entre 7 y 11 € por ración.","hoy"],
+      ["¿Por qué no me das una cifra exacta?","Porque no hay ferias en tus datos para saber cuánto suben las ventas. Cuando importes más meses, el margen se estrecha.","hoy"],
+      ["¿Cómo irá el sábado con el partido?","Tarde floja (de 17 a 20 h) y cena normal.","hoy"]]},
     cuadro:{n:"Cuadro del día",hola:"Ayer se vendieron 1.386 €. En caja faltan 20 € y en el banco hay 90 € menos de lo esperado, ya explicados.",q:[
-      ["¿Por qué falta dinero en el banco?","Por las comisiones del datáfono de septiembre (61,40 €) y un recibo de la alarma sin factura (28,60 €)."],
-      ["¿Cómo vamos este mes?","Octubre lleva 9.976 € en 9 días abiertos: unos 1.108 € al día con IVA, algo mejor que septiembre."],
-      ["¿Cuándo llega la tarjeta de ayer?","El lunes, menos la comisión."]]},
-    carta:{n:"Carta",hola:"Tu estrella es el arroz negro. Las bravas se venden mucho pero dejan poco, y la ensalada de cabra ni se vende ni deja.",q:[
-      ["¿Qué plato debería quitar?","La ensalada de cabra: deja 6,15 € y solo se han vendido 54 en 3 meses."],
-      ["¿Dónde puedo subir precios?","En el arroz negro y el entrecot: estás por debajo de la media de la competencia y se venden bien."],
-      ["¿Qué deja más, la comida o la bebida?","Por unidad, la comida; pero la bebida deja mucho para el poco trabajo que da (la caña deja 1,72 €)."]]},
+      ["¿Por qué falta dinero en el banco?","Por las comisiones del datáfono de septiembre (61,40 €) y un recibo de la alarma sin factura (28,60 €).","dueno"],
+      ["¿Cómo vamos este mes?","Octubre lleva 9.976 € en 9 días abiertos: unos 1.108 € al día con IVA, algo mejor que septiembre.","cuadro"],
+      ["¿Cuándo llega la tarjeta de ayer?","El lunes, menos la comisión.","cuadro"]]},
+    carta:{n:"Carta",hola:"Tus verdes (venden y dejan) son el arroz negro, la paella y las croquetas. Las bravas y el pan con tomate se venden mucho pero dejan poco, y la ensalada de cabra ni se vende ni deja.",q:[
+      ["¿Qué plato debería quitar?","La ensalada de cabra: deja 6,15 € y solo se han vendido 54 en 3 meses. También la ensalada verde y el arroz con leche están en rojo.","carta"],
+      ["¿Dónde puedo subir precios?","En el arroz negro y el entrecot: estás por debajo de la media de la competencia y se venden bien.","carta"],
+      ["¿Qué deja más, la comida o la bebida?","Por unidad, la comida; pero la bebida deja mucho para el poco trabajo que da (la caña deja 1,72 €).","carta"]]},
     competencia:{n:"Competencia",hola:"Tienes 3 competidores a menos de 500 m. Taberna del Arco es la mejor valorada (4,5).",q:[
-      ["¿Qué tienen ellos que yo no?","Pulpo a la gallega (los 3), menú del día (2) y huevos estrellados (2)."],
-      ["¿Dónde soy más caro?","En los calamares: 13,00 € frente a 12,30 € de media."],
-      ["¿De dónde salen sus datos?","Solo de sus cartas públicas y de Google Maps. Nada de sus ventas."]]},
+      ["¿Qué tienen ellos que yo no?","Pulpo a la gallega (los 3), menú del día (2) y tarta de queso (2).","competencia"],
+      ["¿Dónde soy más caro?","En los calamares: 13,00 € frente a 12,30 € de media.","competencia"],
+      ["¿De dónde salen sus datos?","Solo de sus cartas públicas y de Google Maps. Nada de sus ventas.","competencia"]]},
     personal:{n:"Personal",hola:"De 16 a 19 h el personal cuesta más de lo que se vende; los viernes y sábados por la noche falta gente en sala.",q:[
-      ["¿Qué cambio de turnos me propones?","Que Óscar entre a las 19:00 en vez de a las 16:00 entre semana y haga esas horas el sábado por la noche."],
-      ["¿Cuánto cuesta cada hora de Rosa?","15,17 € (su coste para la empresa entre sus horas del mes)."],
-      ["¿Quién trabaja el sábado?","Laura y Óscar en sala, con horario partido; Rosa e Iván en cocina."]]},
+      ["¿Qué cambio de turnos me propones?","Que Óscar entre a las 19:00 en vez de a las 16:00 entre semana y haga esas horas el sábado por la noche.","personal"],
+      ["¿Cuánto cuesta cada hora de Rosa?","15,17 € (su coste para la empresa entre sus horas del mes).","personal"],
+      ["¿Quién trabaja el sábado?","Laura y Óscar en sala, con horario partido; Rosa e Iván en cocina.","personal"]]},
     dueno:{n:"Dueño",hola:"Septiembre: 24.500 € vendidos sin IVA y 3.422 € de beneficio antes de tu sueldo. El personal está en 37,7 %, por encima de lo normal.",q:[
-      ["¿Qué es lo más urgente?","La caja del 31 de octubre y el 1 de noviembre: nóminas, Seguridad Social y alquiler la dejan en 746 €."],
-      ["¿Por qué falta comida?","Deberías haber gastado 7.080 € según lo vendido y gastaste 7.595 €: 515 € en mermas, raciones grandes o género que no aparece."],
-      ["Explícame el punto de equilibrio","Tienes que vender 752 € al día sin IVA, abriendo 26 días, para no perder dinero. En septiembre vendiste 942 €."]]},
+      ["¿Qué es lo más urgente?","La caja del 31 de octubre y el 1 de noviembre: nóminas, Seguridad Social y alquiler la dejan en 746 €.","dueno"],
+      ["¿Por qué falta comida?","Deberías haber gastado 7.080 € según lo vendido y gastaste 7.595 €: 515 € en mermas, raciones grandes o género que no aparece.","dueno"],
+      ["Explícame el punto de equilibrio","Tienes que vender 752 € al día sin IVA, abriendo 26 días, para no perder dinero. En septiembre vendiste 942 €.","dueno"]]},
+    asistente:{n:"Asistente",hola:"Estás en la pantalla del asistente a tamaño completo. Aquí tienes las mismas preguntas de ejemplo, en pequeño.",q:PREG},
     ajustes:{n:"Ajustes",hola:"Aquí configuras tu restaurante, importas meses antiguos y subes el extracto del banco.",q:[
-      ["¿Por qué importar meses antiguos?","Con más meses, la previsión, las subidas de precio y la comparación entre meses son mucho más fiables."],
-      ["¿Es seguro subir el extracto?","Solo subes un archivo que descargas tú de tu banco; la app nunca pide la contraseña del banco."],
-      ["¿Cuánto dura la demo?","Unos 71 segundos a 1 día por segundo."]]}
+      ["¿Por qué importar meses antiguos?","Con más meses, la previsión, las subidas de precio y la comparación entre meses son mucho más fiables.","ajustes"],
+      ["¿Es seguro subir el extracto?","Solo subes un archivo que descargas tú de tu banco; la app nunca pide la contraseña del banco.","ajustes"],
+      ["¿Cuánto dura la demo?","Unos 71 segundos a 1 día por segundo.","ajustes"]]}
   };
-  var ORDEN=["bandeja","documentos","proveedores","recepcion","hoy","cuadro","carta","competencia","personal","dueno","ajustes"];
+  var GENERICA="En esta maqueta solo tengo preparadas las respuestas de las preguntas de ejemplo. En la app de verdad respondería con tus datos y te diría de qué pantalla los saco.";
+  function burbuja(cont,html,quien){var b=document.createElement("div");b.className="burbuja "+quien;b.innerHTML=html;cont.appendChild(b);cont.scrollTop=cont.scrollHeight}
+  function responde(cont,texto){
+    var t=texto.toLowerCase(),q=PREG.filter(function(p){return p[0].toLowerCase()===t})[0];
+    if(!q){var pal=t.replace(/[¿?]/g,"").split(/\s+/).filter(function(w){return w.length>3});var mejor=null,max=1;
+      PREG.forEach(function(p){var n=pal.filter(function(w){return p[0].toLowerCase().indexOf(w)>=0}).length;if(n>max){max=n;mejor=p}});q=mejor}
+    setTimeout(function(){burbuja(cont,q?q[1]+fuente(q[2]):GENERICA,"ia")},450);
+  }
+
+  // --- Pantalla Asistente (grande) ---
+  var cc=document.getElementById("chatCuerpo");
+  function inicio(){cc.innerHTML="";burbuja(cc,"Hola. Pregúntame por ventas, facturas, proveedores, caja, personal o la carta. Siempre te digo de qué pantalla saco el dato.","ia")}
+  document.getElementById("chatSug").innerHTML=PREG.map(function(p,i){return '<span data-i="'+i+'">'+p[0]+'</span>'}).join("");
+  document.getElementById("chatConvs").innerHTML=CONV.map(function(c,i){return '<div data-i="'+i+'"><b>'+c.t+'</b><span class="mut">'+c.f+' · '+c.m.length+' mensajes</span></div>'}).join("");
+  document.getElementById("chatSug").addEventListener("click",function(e){var i=e.target.dataset.i;if(i===undefined)return;var p=PREG[i];burbuja(cc,p[0],"yo");setTimeout(function(){burbuja(cc,p[1]+fuente(p[2]),"ia")},450)});
+  document.getElementById("chatConvs").addEventListener("click",function(e){var d=e.target.closest("[data-i]");if(!d)return;var c=CONV[+d.dataset.i];cc.innerHTML="";
+    burbuja(cc,'<span class="mut peq">Conversación del '+c.f+'</span>',"ia");c.m.forEach(function(m){burbuja(cc,m[1]+(m[0]==="ia"?fuente(m[2]):""),m[0])})});
+  document.getElementById("chatNueva").addEventListener("click",inicio);
+  function enviaGrande(){var i=document.getElementById("chatInput"),t=i.value.trim();if(!t)return;burbuja(cc,t,"yo");i.value="";responde(cc,t)}
+  document.getElementById("chatEnviar").addEventListener("click",enviaGrande);
+  document.getElementById("chatInput").addEventListener("keydown",function(e){if(e.key==="Enter")enviaGrande()});
+  inicio();
+
+  // --- Ventana pequeña (botón flotante): cambia según la pantalla que estás viendo ---
+  var ORDEN=["bandeja","documentos","proveedores","recepcion","hoy","cuadro","carta","competencia","personal","dueno","asistente","ajustes"];
   var actual="",panel=document.getElementById("asis"),cuerpo=document.getElementById("asisCuerpo");
-  function burbuja(t,quien){var b=document.createElement("div");b.className="burbuja "+quien;b.textContent=t;cuerpo.appendChild(b);cuerpo.scrollTop=cuerpo.scrollHeight}
-  function prepara(id){actual=id;var a=A[id];document.getElementById("asisDonde").textContent=a.n;cuerpo.innerHTML="";burbuja(a.hola,"ia");
+  function prepara(id){actual=id;var a=A[id];document.getElementById("asisDonde").textContent=a.n;cuerpo.innerHTML="";burbuja(cuerpo,a.hola,"ia");
     document.getElementById("asisSug").innerHTML=a.q.map(function(q,i){return '<span data-i="'+i+'">'+q[0]+'</span>'}).join("")}
-  document.getElementById("asisSug").addEventListener("click",function(e){var i=e.target.dataset.i;if(i===undefined)return;var q=A[actual].q[i];burbuja(q[0],"yo");setTimeout(function(){burbuja(q[1],"ia")},450)});
+  document.getElementById("asisSug").addEventListener("click",function(e){var i=e.target.dataset.i;if(i===undefined)return;var q=A[actual].q[i];burbuja(cuerpo,q[0],"yo");setTimeout(function(){burbuja(cuerpo,q[1]+fuente(q[2]),"ia")},450)});
   document.getElementById("asisBtn").addEventListener("click",function(){panel.classList.toggle("abierto")});
   document.getElementById("asisX").addEventListener("click",function(){panel.classList.remove("abierto")});
+  function enviaPeq(){var i=document.getElementById("asisInput"),t=i.value.trim();if(!t)return;burbuja(cuerpo,t,"yo");i.value="";responde(cuerpo,t)}
+  document.getElementById("asisEnviar").addEventListener("click",enviaPeq);
+  document.getElementById("asisInput").addEventListener("keydown",function(e){if(e.key==="Enter")enviaPeq()});
   function mira(){var mejor=null;ORDEN.forEach(function(id){var r=document.getElementById(id).getBoundingClientRect();if(r.top<window.innerHeight*0.45)mejor=id});mejor=mejor||"bandeja";if(mejor!==actual)prepara(mejor)}
   window.addEventListener("scroll",mira,{passive:true});mira();setInterval(mira,700);
 })();

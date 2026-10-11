@@ -41,7 +41,8 @@ class Proveedor(Base):
     __tablename__ = "proveedores"
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column(String(120), unique=True)
-    grupo: Mapped[str] = mapped_column(String(20), default="comida")  # comida / local
+    grupo: Mapped[str] = mapped_column(String(20), default="comida")  # comida / local (para el coste de comida)
+    familia: Mapped[str] = mapped_column(String(20), default="")  # comida / bebida / local / servicios (pestañas de Proveedores)
     tipo: Mapped[str] = mapped_column(String(60), default="")
     telefono: Mapped[str] = mapped_column(String(40), default="")
     correo: Mapped[str] = mapped_column(String(120), default="")
@@ -141,6 +142,7 @@ class Plato(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     nombre: Mapped[str] = mapped_column(String(120), unique=True)
     parte: Mapped[str] = mapped_column(String(20), default="comida")  # comida / bebida
+    categoria: Mapped[str] = mapped_column(String(40), default="")  # entrantes, carnes, vinos… (vacío = se deduce del nombre)
     precio_carta: Mapped[float] = mapped_column(Float)  # con IVA, como en la carta
     clave_competencia: Mapped[str] = mapped_column(String(60), default="")
     activo: Mapped[bool] = mapped_column(Boolean, default=True)
@@ -224,6 +226,21 @@ class Competidor(Base):
     valoracion: Mapped[float | None] = mapped_column(Float, nullable=True)
     opiniones: Mapped[int] = mapped_column(Integer, default=0)
     carta: Mapped[dict] = mapped_column(JSON, default=dict)  # clave -> precio con IVA
+    carta_anterior: Mapped[dict] = mapped_column(JSON, default=dict)  # la lectura anterior, para decir qué ha cambiado
+    leida: Mapped[date | None] = mapped_column(Date, nullable=True)  # cuándo se leyó la carta actual
+    leida_anterior: Mapped[date | None] = mapped_column(Date, nullable=True)
+
+
+class Charla(Base):
+    """Historial del asistente: cada pregunta con su respuesta y de dónde salió el dato."""
+    __tablename__ = "charlas"
+    id: Mapped[int] = mapped_column(primary_key=True)
+    fecha: Mapped[datetime] = mapped_column(DateTime, default=_ahora)
+    pantalla: Mapped[str] = mapped_column(String(30), default="")
+    pregunta: Mapped[str] = mapped_column(Text)
+    respuesta: Mapped[str] = mapped_column(Text, default="")
+    fuente: Mapped[str] = mapped_column(String(30), default="")  # id de la pantalla de donde sale el dato
+    sin_ia: Mapped[bool] = mapped_column(Boolean, default=False)
 
 
 class Aviso(Base):
@@ -256,10 +273,21 @@ motor = _crear_motor()
 SesionDB = sessionmaker(bind=motor, expire_on_commit=False)
 
 
+# Columnas añadidas después de la primera versión: create_all no las añade a tablas que ya existen.
+COLUMNAS_NUEVAS = [("proveedores", "familia", "VARCHAR(20) DEFAULT ''"), ("platos", "categoria", "VARCHAR(40) DEFAULT ''"),
+                   ("competidores", "carta_anterior", "JSON"), ("competidores", "leida", "DATE"), ("competidores", "leida_anterior", "DATE")]
+
+
 def crear_tablas() -> None:
     if config.URL_BASE_DATOS.startswith("sqlite"):
         config.CARPETA_LOCAL.mkdir(parents=True, exist_ok=True)
     Base.metadata.create_all(motor)
+    from sqlalchemy import inspect, text
+    insp = inspect(motor)
+    with motor.begin() as con:
+        for tabla, columna, tipo in COLUMNAS_NUEVAS:
+            if columna not in {c["name"] for c in insp.get_columns(tabla)}:
+                con.execute(text(f"ALTER TABLE {tabla} ADD COLUMN {columna} {tipo}"))
 
 
 def base_responde() -> bool:

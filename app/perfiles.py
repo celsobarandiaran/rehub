@@ -23,6 +23,7 @@ PANTALLAS = [
     {"id": "competencia", "titulo": "Competencia", "icono": "🔎", "perfiles": {DUENO}},
     {"id": "personal", "titulo": "Personal", "icono": "👥", "perfiles": {DUENO, OFICINA, TRABAJADOR}},
     {"id": "dueno", "titulo": "Dueño", "icono": "📊", "perfiles": {DUENO}},
+    {"id": "asistente", "titulo": "Asistente", "icono": "💬", "perfiles": {DUENO, OFICINA}},
     {"id": "ajustes", "titulo": "Ajustes", "icono": "⚙️", "perfiles": {DUENO}},
 ]
 PANTALLA_INICIO = {DUENO: "hoy", OFICINA: "bandeja", TRABAJADOR: "hoy"}

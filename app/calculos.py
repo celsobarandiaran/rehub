@@ -11,6 +11,9 @@ from datetime import date, datetime, timedelta
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+import json
+
+from . import catalogo
 from .db import (Ajuste, Aviso, Cierre, Competidor, Documento, Empleado, Entrada, Evento, LineaDocumento, LineaReceta, MovimientoBanco,
                  PagoFijo, Plato, Producto, Proveedor, Recuento, Turno)
 
@@ -78,13 +81,42 @@ def unidades_vendidas(s: Session, desde: date | None = None, hasta: date | None 
     return out
 
 
+def _eur(x: float) -> str:
+    return f"{x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def texto_competencia(n: int, n_comp: int, media: float | None, dif: float | None) -> str:
+    """'lo tienen 2 de tus 3 competidores, a 12,50 € de media; estás un 4 % más caro'."""
+    if not n or media is None:
+        return "nadie más lo tiene" if n_comp else "sin competidores apuntados"
+    quien = "lo tienen todos tus competidores" if n == n_comp else ("lo tiene 1 de tus %d competidores" % n_comp if n == 1 else f"lo tienen {n} de tus {n_comp} competidores")
+    t = f"{quien}, a {_eur(media)} € de media"
+    if dif is None:
+        return t
+    pct = round(abs(dif) * 100)
+    if dif > 0.03:
+        return f"{t}; estás un {pct} % más caro"
+    if dif < -0.03:
+        return f"{t}; estás un {pct} % más barato"
+    return f"{t}; estás en línea"
+
+
+def claves_ocultas(s: Session) -> set:
+    """Platos de la competencia que el dueño ha quitado a mano de las listas."""
+    try:
+        return set(json.loads(ajuste(s, "comp_ocultos", "[]")))
+    except (TypeError, ValueError):
+        return set()
+
+
 def carta(s: Session, hoy: date, dias=92) -> dict:
-    """Cada plato con precio sin IVA, coste, margen, unidades, tipo y competencia."""
+    """Cada plato con precio sin IVA, coste, margen, unidades, color (tipo), categoría y competencia."""
     precios = precios_actuales(s)
     productos = {p.id: p for p in s.scalars(select(Producto))}
     vendidas = unidades_vendidas(s, hoy - timedelta(days=dias), hoy)
     comps = list(s.scalars(select(Competidor)))
     platos = list(s.scalars(select(Plato).where(Plato.activo.is_(True))))
+    ocultas = claves_ocultas(s)
     filas = []
     for p in platos:
         coste, detalle = coste_receta(p.receta, precios, productos)
@@ -93,10 +125,11 @@ def carta(s: Session, hoy: date, dias=92) -> dict:
         suyos = [c.carta.get(p.clave_competencia) for c in comps if c.carta.get(p.clave_competencia)]
         media = round(sum(suyos) / len(suyos), 2) if suyos else None
         dif = round(p.precio_carta / media - 1, 3) if media else None
-        filas.append({"id": p.id, "nombre": p.nombre, "parte": p.parte, "precio_carta": p.precio_carta, "pv": pv, "coste": coste, "margen": round(pv - coste, 2),
+        filas.append({"id": p.id, "nombre": p.nombre, "parte": p.parte, "categoria": p.categoria or catalogo.categoria_de(p.nombre, p.clave_competencia, p.parte),
+                      "precio_carta": p.precio_carta, "pv": pv, "coste": coste, "margen": round(pv - coste, 2),
                       "margen_pct": round((pv - coste) / pv, 3) if pv else 0, "unidades": u, "receta": detalle, "comp_n": len(suyos), "comp_media": media,
-                      "comp_dif": dif, "alergenos": sorted({a.strip() for d in detalle for a in d["alergenos"].split(",") if a.strip()}),
-                      "clave": p.clave_competencia})
+                      "comp_dif": dif, "comp_texto": texto_competencia(len(suyos), len(comps), media, dif),
+                      "alergenos": sorted({a.strip() for d in detalle for a in d["alergenos"].split(",") if a.strip()}), "clave": p.clave_competencia})
     resumen = {}
     for parte in ("comida", "bebida"):
         fs = [f for f in filas if f["parte"] == parte]
@@ -106,23 +139,67 @@ def carta(s: Session, hoy: date, dias=92) -> dict:
         for f in fs:
             gana, vende = f["margen"] >= media, f["unidades"] >= umbral
             f["tipo"] = "estrella" if gana and vende else "vaca" if vende else "puzle" if gana else "perro"
-            f["que_hacer"] = QUE_HACER[f["tipo"]]
+            f["color"], f["color_hex"], f["que_hacer"] = catalogo.TIPO_COLOR[f["tipo"]]
+            f["estrella"] = f["tipo"] == "estrella"
             if f["comp_dif"] is not None and f["comp_dif"] < -0.05 and f["tipo"] in ("estrella", "vaca"):
-                f["que_hacer"] += f" Estás más barato que la competencia: podrías subir a {f['comp_media']:.2f} €.".replace(".", ",")
+                f["que_hacer"] += f". Estás más barato que la competencia: podrías subir a {_eur(f['comp_media'])} €"
             f["margen_total"] = round(f["margen"] * f["unidades"], 2)
         resumen[parte] = {"margen_medio": round(media, 2), "umbral": round(umbral), "margen_total": round(sum(f["margen_total"] for f in fs), 2), "platos": len(fs)}
     filas.sort(key=lambda f: -f["margen_total"])
+    # Por categorías, en el orden fijo de la carta
+    por_categoria = {"comida": [], "bebida": []}
+    for parte in ("comida", "bebida"):
+        for cat in catalogo.CATEGORIAS[parte]:
+            fs = [f for f in filas if f["parte"] == parte and f["categoria"] == cat]
+            if fs:
+                por_categoria[parte].append({"id": cat, "nombre": catalogo.NOMBRE_CATEGORIA[cat], "platos": fs,
+                                             "margen_total": round(sum(f["margen_total"] for f in fs), 2), "unidades": sum(f["unidades"] for f in fs)})
     mias = {f["clave"] for f in filas}
     suyas = defaultdict(list)
     for c in comps:
         for k, v in c.carta.items():
-            if k not in mias:
+            if k not in mias and k not in ocultas:
                 suyas[k].append(v)
-    ellos = [{"clave": k, "n": len(v), "media": round(sum(v) / len(v), 2)} for k, v in sorted(suyas.items(), key=lambda x: -len(x[1]))]
-    yo = [f for f in filas if f["comp_n"] == 0 and f["parte"] == "comida"]
-    return {"filas": filas, "resumen": resumen, "ellos": ellos, "yo": yo, "n_comp": len(comps),
+    ellos = [{"clave": k, "n": len(v), "media": round(sum(v) / len(v), 2), "parte": catalogo.categoria_clave(k)[0], "categoria": catalogo.categoria_clave(k)[1],
+              "texto": texto_competencia(len(v), len(comps), round(sum(v) / len(v), 2), None)} for k, v in sorted(suyas.items(), key=lambda x: -len(x[1]))]
+    yo = [f for f in filas if f["comp_n"] == 0 and f["parte"] == "comida" and f["clave"] not in ocultas]
+    claves_comp = sorted({k for c in comps for k in c.carta})
+    return {"filas": filas, "resumen": resumen, "por_categoria": por_categoria, "ellos": ellos, "yo": yo, "n_comp": len(comps), "claves_comp": claves_comp,
+            "leyenda": [{"tipo": t, "color": v[0], "hex": v[1], "texto": v[2]} for t, v in catalogo.TIPO_COLOR.items()],
             "mas_caro": sum(1 for f in filas if f["comp_dif"] is not None and f["comp_dif"] > 0.03),
             "mas_barato": sum(1 for f in filas if f["comp_dif"] is not None and f["comp_dif"] < -0.03)}
+
+
+def faltas(s: Session, hoy: date, dias_aviso=3) -> list:
+    """Qué se puede estar acabando: lo que queda (stock teórico) entre lo que se gasta al día (ventas × recetas)."""
+    st = stock(s, hoy)
+    productos = {p.id: p for p in s.scalars(select(Producto))}
+    recetas = defaultdict(list)  # producto -> [(plato, cantidad limpia)]
+    for p in s.scalars(select(Plato).where(Plato.activo.is_(True))):
+        for l in p.receta:
+            recetas[l.producto_id].append((p.nombre, l.cantidad / (productos[l.producto_id].rendimiento or 1.0)))
+    vendidas = unidades_vendidas(s, hoy - timedelta(days=28), hoy)
+    dias_con_ventas = max(1, s.scalar(select(func.count(Cierre.id)).where(Cierre.fecha > hoy - timedelta(days=28), Cierre.fecha <= hoy)) or 1)
+    ultimo_prov = {}
+    for pid, (_, _, did) in precios_actuales(s).items():
+        d = s.get(Documento, did)
+        if d and d.proveedor:
+            ultimo_prov[pid] = d.proveedor
+    out = []
+    for f in st["filas"]:
+        pid = f["id"]
+        consumo = sum(vendidas.get(plato, 0) * cant for plato, cant in recetas.get(pid, [])) / dias_con_ventas
+        if consumo <= 0:
+            continue
+        dias = f["queda"] / consumo
+        if dias <= dias_aviso:
+            usos = sorted(recetas.get(pid, []), key=lambda x: -vendidas.get(x[0], 0))[:3]
+            prov = ultimo_prov.get(pid)
+            out.append({"id": pid, "producto": f["producto"], "queda": round(max(0.0, f["queda"]), 1), "unidad": f["unidad"], "consumo_dia": round(consumo, 2),
+                        "dias": max(0, int(dias)), "platos": [u[0] for u in usos], "proveedor": prov.nombre if prov else "", "proveedor_id": prov.id if prov else None,
+                        "proveedor_correo": prov.correo if prov else ""})
+    out.sort(key=lambda x: (x["dias"], -x["consumo_dia"]))
+    return out[:8]
 
 
 # ---------------------------------------------------------------- ventas, compras, personal por mes
@@ -477,17 +554,37 @@ def personal_semana(s: Session, lunes: date) -> dict:
 
 
 # ---------------------------------------------------------------- proveedores
-def proveedores(s: Session, hoy: date) -> list:
+def familia_proveedor(p: Proveedor) -> str:
+    return p.familia or catalogo.familia_de(p.grupo, p.tipo)
+
+
+def proveedores(s: Session, hoy: date) -> dict:
+    """Todos los proveedores, agrupados en comida / bebida / local / servicios, con qué suministran y cuánto se les compra (3 meses)."""
     compras = compras_por_mes(s)
     meses = sorted(compras)[-3:]
-    avisos = {a.documento_id: a for a in s.scalars(select(Aviso).where(Aviso.tipo == "subida_precio"))}
-    out = []
+    # qué suministra cada uno: sus productos más comprados (en euros)
+    gasto_prod = defaultdict(lambda: defaultdict(float))
+    n_facturas = defaultdict(int)
+    for d in s.scalars(select(Documento).where(Documento.tipo == "factura", Documento.estado != "duplicada", Documento.proveedor_id.is_not(None))):
+        n_facturas[d.proveedor_id] += 1
+        for l in d.lineas:
+            if l.producto_id and l.precio_unitario and l.cantidad:
+                gasto_prod[d.proveedor_id][l.producto_id] += l.precio_unitario * l.cantidad
+    productos = {p.id: p.nombre for p in s.scalars(select(Producto))}
+    subidas_por_prov = defaultdict(list)
+    for a, pid in s.execute(select(Aviso, Documento.proveedor_id).join(Documento, Aviso.documento_id == Documento.id).where(Aviso.tipo == "subida_precio")):
+        subidas_por_prov[pid].append(a)
+    grupos = {f: [] for f in catalogo.FAMILIAS}
     for p in s.scalars(select(Proveedor).order_by(Proveedor.nombre)):
         por_mes = [round(compras.get(m, {"por_proveedor": {}})["por_proveedor"].get(p.nombre, 0.0), 2) for m in meses]
-        subidas = [a for a in s.scalars(select(Aviso).join(Documento, Aviso.documento_id == Documento.id).where(Aviso.tipo == "subida_precio", Documento.proveedor_id == p.id))]
-        out.append({"p": p, "meses": [f"{nombre_mes(m[1])}" for m in meses], "compras": por_mes, "subidas": subidas, "ultimo_mes": por_mes[-1] if por_mes else 0})
-    out.sort(key=lambda x: -(x["compras"][-2] if len(x["compras"]) > 1 else x["ultimo_mes"]))
-    return out
+        top = sorted(gasto_prod[p.id].items(), key=lambda x: -x[1])[:3]
+        suministra = ", ".join(productos[pid] for pid, _ in top) or (p.tipo or "")
+        grupos[familia_proveedor(p)].append({"p": p, "meses": [nombre_mes(m[1]) for m in meses], "compras": por_mes, "total": round(sum(por_mes), 2),
+                                             "subidas": subidas_por_prov[p.id], "n_facturas": n_facturas[p.id], "suministra": suministra, "tipo": p.tipo})
+    for lista in grupos.values():
+        lista.sort(key=lambda x: -x["total"])
+    return {"grupos": [{"id": f, "nombre": catalogo.NOMBRE_FAMILIA[f], "proveedores": grupos[f], "total": round(sum(x["total"] for x in grupos[f]), 2)} for f in catalogo.FAMILIAS],
+            "meses": [nombre_mes(m[1]) for m in meses], "todos": [x for f in catalogo.FAMILIAS for x in grupos[f]]}
 
 
 def ficha_proveedor(s: Session, prov_id: int) -> dict:
@@ -532,10 +629,40 @@ def ficha_proveedor(s: Session, prov_id: int) -> dict:
                     mio = pts[-1]["precio"]
                     comparaciones.append({"producto": productos[pid].nombre, "mio": mio, "otro": (d.datos or {}).get("comercio", "ticket"), "otro_precio": l["precio_unitario"],
                                           "fecha": d.fecha, "diferencia_pct": round((mio / l["precio_unitario"] - 1) * 100)})
+    # Vista A: una fila por producto y una columna por factura, con el cambio frente a la factura anterior
+    docs_con_lineas = sorted([d for d in docs if d.estado != "duplicada" and any(l.producto_id and l.precio_unitario for l in d.lineas)], key=lambda d: d.fecha or date.min)
+    columnas = [{"id": d.id, "numero": d.numero, "fecha": d.fecha.isoformat() if d.fecha else ""} for d in docs_con_lineas]
+    mercabarna = _precios_mercabarna()
+    filas_matriz = []
+    for pid, puntos in historial.items():
+        precios_doc = {pt["doc"]: pt["precio"] for pt in puntos}
+        cambios, anterior = {}, None
+        for c in columnas:
+            pr = precios_doc.get(c["id"])
+            if pr is None:
+                continue
+            cambios[c["id"]] = round((pr / anterior - 1) * 100) if anterior else None
+            anterior = pr
+        prod = productos[pid]
+        m = mercabarna.get(prod.codigo_mercabarna)
+        filas_matriz.append({"producto": prod.nombre, "unidad": prod.unidad, "precios": precios_doc, "cambios": cambios,
+                             "total_pct": round((puntos[-1]["precio"] / puntos[0]["precio"] - 1) * 100) if len(puntos) > 1 and puntos[0]["precio"] else 0,
+                             "mercabarna": m["precio"] if m else None, "codigo_mercabarna": prod.codigo_mercabarna})
+    filas_matriz.sort(key=lambda f: (-abs(f["total_pct"]), f["producto"]))
     compras = compras_por_mes(s)
     meses = sorted(compras)[-3:]
-    return {"p": p, "facturas": docs, "series": series, "comparaciones": comparaciones,
-            "compras": [(f"{nombre_mes(m[1])}", round(compras[m]["por_proveedor"].get(p.nombre, 0.0), 2)) for m in meses]}
+    por_mes = [(f"{nombre_mes(m[1])}", round(compras[m]["por_proveedor"].get(p.nombre, 0.0), 2)) for m in meses]
+    return {"p": p, "facturas": docs, "series": series, "comparaciones": comparaciones, "compras": por_mes, "total": round(sum(v for _, v in por_mes), 2),
+            "matriz": {"columnas": columnas, "filas": filas_matriz}, "familia": familia_proveedor(p), "n_facturas": len([d for d in docs if d.estado != "duplicada"]),
+            "suministra": ", ".join(sorted(productos[pid].nombre for pid in historial)) or p.tipo}
+
+
+def _precios_mercabarna() -> dict:
+    try:
+        from .vistas import MERCABARNA
+        return MERCABARNA.get("precios", {})
+    except Exception:
+        return {}
 
 
 def _mismo_producto(a: str, b: str) -> bool:

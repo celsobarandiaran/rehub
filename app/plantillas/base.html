@@ -28,5 +28,22 @@
 {% block contenido %}{% endblock %}
 </main>
 </div>
+{% if actual != "asistente" and (menu|selectattr("id", "equalto", "asistente")|list) %}
+<button class="asis-btn" id="asisBtn" type="button" title="Preguntar al asistente">💬 <span class="txt">Asistente</span></button>
+<div class="asis" id="asis" role="dialog" aria-label="Asistente">
+  <div class="asis-cab"><span class="cara">R</span><div><b>Asistente</b><div class="peq" style="opacity:.85">Pregunta con tus datos · estás en {{ pantalla.titulo if pantalla is defined and pantalla else actual }}</div></div><span class="x" id="asisX">✕</span></div>
+  <div class="asis-cuerpo" id="asisCuerpo"><div class="burbuja ia">Pregúntame lo que quieras de tu restaurante: ventas, facturas, proveedores, platos, caducidades, personal o caja. Solo respondo y propongo; no cambio nada sin que lo confirmes.</div></div>
+  <div class="sugeridas" id="asisSug"><span>¿Qué caduca mañana?</span><span>¿Cuánto vendí el sábado pasado?</span><span>¿Qué platos quito de la carta?</span><span>¿Cómo subo un extracto del banco?</span></div>
+  <div class="asis-pie"><input class="campo" id="asisInput" placeholder="Escribe tu pregunta…"><button class="btn pri" type="button" id="asisEnviar">Enviar</button></div>
+  <div class="peq mut" style="padding:0 14px 10px"><a href="/p/asistente">Abrir el asistente en grande y ver conversaciones anteriores →</a></div>
+</div>
+<script src="/static/asistente.js"></script>
+<script>
+  (function(){var p=document.getElementById("asis"),b=document.getElementById("asisBtn");
+    b.addEventListener("click",function(){p.classList.toggle("abierto");if(p.classList.contains("abierto"))document.getElementById("asisInput").focus()});
+    document.getElementById("asisX").addEventListener("click",function(){p.classList.remove("abierto")});
+    ReHubAsistente.montar({cuerpo:document.getElementById("asisCuerpo"),input:document.getElementById("asisInput"),boton:document.getElementById("asisEnviar"),sugeridas:document.getElementById("asisSug"),pantalla:"{{ actual }}"});})();
+</script>
+{% endif %}
 </body>
 </html>

@@ -15,6 +15,9 @@
         {% if caja and caja.falta %}
         <div class="alerta a"><b>Caja justa</b><div>El {{ caja.minimo_dia.strftime("%d/%m") }} el banco bajaría a {{ eur(caja.minimo_val, 0) }} €, por debajo del mínimo de {{ eur(caja.minimo, 0) }} €. <a href="/p/dueno">Ver caja →</a></div></div>
         {% endif %}
+        {% if faltas %}
+        <div class="alerta r"><b>Se acaba</b><div>{% for f in faltas %}{{ f.producto }} ({{ "hoy" if f.dias == 0 else (f.dias ~ " día" ~ ("s" if f.dias != 1 else "")) }}{% if f.proveedor %}, pedir a {{ f.proveedor }}{% endif %}){{ "; " if not loop.last }}{% endfor %}. Calculado con lo comprado, las recetas y lo vendido. <a href="/p/proveedores">Ver en Proveedores →</a></div></div>
+        {% endif %}
       </div>
       <div class="card pila"><h3>🍽️ Platos a empujar hoy</h3>
         {% for e in empujar %}

@@ -1,18 +1,18 @@
 """Datos que necesita cada pantalla, ya calculados. Respeta los perfiles con perfiles.puede_ver."""
 import json
 from collections import defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from . import calculos, perfiles
+from . import calculos, catalogo, perfiles
 from .db import Aviso, Cierre, Competidor, Correo, Documento, Empleado, Entrada, LineaDocumento, Producto, Proveedor, Recuento
 
 ETIQUETAS_CORREO = {"factura": ("Factura", "c-fact"), "reserva": ("Reserva", "c-res"), "consulta": ("Consulta", "c-con"), "queja": ("Queja", "c-queja"),
                     "nomina": ("Nóminas", "c-nom"), "gasto": ("Gasto", "c-gasto"), "publicidad": ("Publicidad", "c-pub"), "cierre": ("Cierre de caja", "c-con"),
-                    "etiqueta": ("Etiqueta", "c-est"), "raro": ("Raro: no sé clasificarlo", "c-rev"), "otro": ("Otro", "c-est"), "leyendo": ("Leyendo…", "c-est"),
+                    "etiqueta": ("Etiqueta", "c-est"), "albaran": ("Albarán", "c-est"), "raro": ("Raro: no sé clasificarlo", "c-rev"), "otro": ("Otro", "c-est"), "leyendo": ("Leyendo…", "c-est"),
                     "sin_clasificar": ("Sin clasificar", "c-est")}
 COLORES = ["#2d6a4f", "#2c4f9e", "#c0392b", "#9a6200", "#7a3fa0", "#1d6f7d", "#6b6b66"]
 
@@ -24,12 +24,22 @@ def eur(x, dec=2):
     return ("−" if x < 0 else "") + s
 
 
-def bandeja(s: Session, categoria: str | None, correo_id: int | None, perfil: str = perfiles.DUENO) -> dict:
-    cuenta = dict(s.execute(select(Correo.categoria, func.count()).group_by(Correo.categoria)).all())
-    q = select(Correo).order_by(Correo.recibido.desc())
+def bandeja(s: Session, categoria: str | None, correo_id: int | None, perfil: str = perfiles.DUENO, desde: date | None = None, hasta: date | None = None) -> dict:
+    """Correos del periodo (por defecto, el mes en curso), con el recuento por tipo dentro de ese periodo."""
+    filtro = []
+    if desde:
+        filtro.append(Correo.recibido >= datetime.combine(desde, datetime.min.time()))
+    if hasta:
+        filtro.append(Correo.recibido <= datetime.combine(hasta, datetime.max.time()))
+    cuenta = dict(s.execute(select(Correo.categoria, func.count()).where(*filtro).group_by(Correo.categoria)).all())
+    q = select(Correo).where(*filtro).order_by(Correo.recibido.desc())
     if categoria:
         q = q.where(Correo.categoria == categoria)
-    correos = list(s.scalars(q.limit(60)))
+    correos = list(s.scalars(q.limit(300)))
+    if correo_id and not any(c.id == correo_id for c in correos):
+        elegido = s.get(Correo, correo_id)
+        if elegido:
+            correos.insert(0, elegido)
     sel = s.get(Correo, correo_id) if correo_id else next((c for c in correos if c.categoria == "reserva" and not c.respuesta_enviada), correos[0] if correos else None)
     docs = [documento_json(d, perfil) for d in s.scalars(select(Documento).where(Documento.correo_id == sel.id))] if sel else []
     filas = []
@@ -57,7 +67,7 @@ def documento_json(d: Documento, perfil: str) -> dict:
 
 
 def documentos(s: Session, perfil: str, desde: date | None, hasta: date | None) -> dict:
-    q = select(Documento).where(Documento.tipo.in_(["factura", "gasto", "nomina", "cierre", "otro"]))
+    q = select(Documento).where(Documento.tipo.in_(["factura", "gasto", "nomina", "cierre", "albaran", "otro"]))
     if desde:
         q = q.where(Documento.fecha >= desde)
     if hasta:
@@ -151,7 +161,11 @@ def recepcion(s: Session, hoy: date, perfil: str) -> dict:
         st["mermas_mes"] = None
         st["valor_total"] = None
     caros = sorted([f for f in st["filas"] if f["queda"] > 0], key=lambda f: -(f["valor"] or 0))[:12]
+    albaranes = [{"id": d.id, "fecha": d.fecha, "numero": d.numero, "proveedor": d.proveedor.nombre if d.proveedor else "", "lineas": (d.datos or {}).get("lineas", 0),
+                  "casado": (d.datos or {}).get("casado", ""), "diferencias": (d.datos or {}).get("diferencias", []), "estado": d.estado, "motivo": d.motivo_revisar}
+                 for d in s.scalars(select(Documento).where(Documento.tipo == "albaran").order_by(Documento.id.desc()).limit(8))]
     return {"stock": st, "recientes": recientes, "ultimo_recuento": ultimo.fecha if ultimo else None, "caros": caros, "ver_precios": ver_precios,
+            "albaranes": albaranes,
             "pendientes_foto": s.scalar(select(func.count(Documento.id)).where(Documento.estado == "leyendo", Documento.tipo == "pendiente"))}
 
 
@@ -159,7 +173,9 @@ def competencia(s: Session, hoy: date, comp_id: int | None) -> dict:
     comps = list(s.scalars(select(Competidor).order_by(Competidor.distancia_m)))
     c = calculos.carta(s, hoy)
     sel = next((x for x in comps if x.id == comp_id), comps[0] if comps else None)
+    mias = {f["clave"]: f for f in c["filas"]}
     filas, subir = [], 0
+    por_categoria, sin, resumen = [], [], {}
     if sel:
         for f in c["filas"]:
             su = sel.carta.get(f["clave"])
@@ -172,5 +188,42 @@ def competencia(s: Session, hoy: date, comp_id: int | None) -> dict:
                 aviso = "Estás bastante por encima: si no se vende, revisa precio o ración."
             else:
                 aviso = "En línea."
-            filas.append({"nombre": f["nombre"], "suyo": su, "mio": f["precio_carta"], "dif": d, "aviso": aviso})
-    return {"competidores": comps, "sel": sel, "filas": filas, "subir": subir, "valoracion_propia": calculos.ajuste(s, "valoracion_google", 4.1)}
+            filas.append({"nombre": f["nombre"], "suyo": su, "mio": f["precio_carta"], "dif": d, "aviso": aviso, "clave": f["clave"]})
+        # Su carta por categorías (bebida y comida), y qué categorías de las mías no tiene
+        clasif = {k: catalogo.categoria_clave(k) for k in sel.carta}
+        mis_categorias = {(parte, cat["id"]) for parte in ("comida", "bebida") for cat in c["por_categoria"][parte]}
+        for parte in ("comida", "bebida"):
+            for cat in catalogo.CATEGORIAS[parte]:
+                platos = [{"clave": k, "precio": v, "mio": mias[k]["precio_carta"] if k in mias else None, "mio_nombre": mias[k]["nombre"] if k in mias else "",
+                           "dif": round(mias[k]["precio_carta"] / v - 1, 3) if k in mias and v else None}
+                          for k, v in sorted(sel.carta.items()) if clasif[k] == (parte, cat)]
+                if platos:
+                    por_categoria.append({"parte": parte, "id": cat, "nombre": catalogo.NOMBRE_CATEGORIA[cat], "platos": platos})
+                elif (parte, cat) in mis_categorias:
+                    sin.append(catalogo.NOMBRE_CATEGORIA[cat].lower())
+        resumen = {
+            "tengo_yo": [f["nombre"] for f in c["filas"] if f["clave"] not in sel.carta and f["parte"] == "comida"][:8],
+            "tienen_ellos": [k for k in sel.carta if k not in mias][:8],
+            "mas_caro": [f"{f['nombre']} (+{round(f['dif'] * 100)} %)" for f in filas if f["dif"] > 0.03],
+            "mas_barato": [f"{f['nombre']} ({round(f['dif'] * 100)} %)" for f in filas if f["dif"] < -0.03],
+            "cambios": _cambios_carta(sel),
+        }
+    return {"competidores": comps, "sel": sel, "filas": filas, "subir": subir, "valoracion_propia": calculos.ajuste(s, "valoracion_google", 4.1),
+            "por_categoria": por_categoria, "sin": sin, "resumen": resumen}
+
+
+def _cambios_carta(comp: Competidor) -> list[str]:
+    """Qué ha cambiado entre la lectura anterior de su carta y la actual, en frases."""
+    ant, act = comp.carta_anterior or {}, comp.carta or {}
+    if not ant:
+        return []
+    out = []
+    for k in sorted(set(ant) | set(act)):
+        a, b = ant.get(k), act.get(k)
+        if a and b and abs(a - b) > 0.01:
+            out.append(f"han {'subido' if b > a else 'bajado'} {k} de {eur(a)} a {eur(b)} €")
+        elif a and not b:
+            out.append(f"han quitado {k}")
+        elif b and not a:
+            out.append(f"han añadido {k} a {eur(b)} €")
+    return out

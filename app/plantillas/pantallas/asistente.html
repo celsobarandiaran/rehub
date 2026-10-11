@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block titulo %}Asistente{% endblock %}
+{% block contenido %}
+<section class="pant">
+  <div class="pant-cab"><span class="num">💬</span><h2>Asistente</h2><span class="sub">Pregunta en castellano y responde con los datos de tu restaurante, diciendo de qué pantalla salen</span></div>
+  <div class="grid provs" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)">
+    <div class="pila">
+      <div class="card pila"><h3>Para empezar</h3>
+        <div class="sugeridas" id="asisSug" style="padding:0">{% for e in ejemplos %}<span>{{ e }}</span>{% endfor %}</div>
+      </div>
+      <div class="card pila"><h3>Conversaciones anteriores</h3>
+        {% if charlas %}
+        <div class="charlas">
+          {% for ch in charlas %}
+          <div class="charla" data-p="{{ ch.pregunta }}"><div class="peq mut">{{ ch.fecha.strftime("%d/%m %H:%M") }} · {{ pantallas.get(ch.fuente, ch.fuente) }}</div><b class="peq">{{ ch.pregunta }}</b><div class="peq mut" style="white-space:pre-wrap">{{ ch.respuesta[:160] }}{% if ch.respuesta|length > 160 %}…{% endif %}</div></div>
+          {% endfor %}
+        </div>
+        <div class="peq mut">Pulsa una para volver a preguntarla.</div>
+        {% else %}<div class="mut">Todavía ninguna.</div>{% endif %}
+      </div>
+    </div>
+    <div class="card asis-grande">
+      <div class="asis-cab" style="border-radius:12px"><span class="cara">R</span><div><b>Asistente de {{ config.NOMBRE_RESTAURANTE }}</b><div class="peq" style="opacity:.85">Ventas, facturas, proveedores, platos y márgenes, stock y caducidades, personal y caja. También cómo se usa la app.</div></div></div>
+      <div class="asis-cuerpo" id="asisCuerpo" style="min-height:380px;max-height:60vh">
+        {% if not hay_datos %}<div class="burbuja ia">Todavía no hay datos: ve a <a href="/p/ajustes">Ajustes</a> y pulsa Cargar demo. Mientras, puedo explicarte cómo se usa la app.</div>
+        {% else %}<div class="burbuja ia">Hola. Pregúntame lo que quieras; cada respuesta te dice de qué pantalla sale el dato y te deja un enlace para ir allí.</div>{% endif %}
+      </div>
+      <div class="asis-pie" style="padding-left:0;padding-right:0"><input class="campo" id="asisInput" placeholder="Escribe tu pregunta…" autofocus><button class="btn pri" type="button" id="asisEnviar">Enviar</button></div>
+      <div class="alerta b"><b>Solo responde</b><div>El asistente responde y propone; no cambia ningún dato sin que lo confirmes tú con un botón en su pantalla.</div></div>
+    </div>
+  </div>
+  <script src="/static/asistente.js"></script>
+  <script>
+    var A=ReHubAsistente.montar({cuerpo:document.getElementById("asisCuerpo"),input:document.getElementById("asisInput"),boton:document.getElementById("asisEnviar"),sugeridas:document.getElementById("asisSug"),pantalla:"asistente"});
+    document.querySelectorAll(".charla").forEach(function(c){c.addEventListener("click",function(){A.preguntar(c.dataset.p)})});
+  </script>
+</section>
+{% endblock %}

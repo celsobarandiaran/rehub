@@ -3,13 +3,25 @@
 {% block contenido %}
 <section class="pant">
   <div class="pant-cab"><span class="num">✉️</span><h2>Bandeja</h2><span class="sub">Correos leídos, clasificados y con respuesta propuesta</span></div>
-  {% if not filas %}
+  {% if not filas and not hay_datos %}
   <div class="card pila" style="max-width:560px"><b>La bandeja está vacía.</b><div class="mut">Ve a <a href="/p/ajustes">Ajustes</a> y pulsa <b>Cargar demo</b>.</div></div>
   {% else %}
+  {% set qp = "periodo=" ~ periodo ~ (("&desde=" ~ (desde.isoformat() if desde else "") ~ "&hasta=" ~ (hasta.isoformat() if hasta else "")) if periodo == "rango" else "") %}
+  <div class="card fila" style="margin-bottom:12px;padding:10px 14px">
+    <span class="peq mut">Ver</span>
+    <a class="chip{% if periodo == 'mes' %} on-verde{% endif %}" href="/p/bandeja?periodo=mes" style="text-decoration:none">Este mes</a>
+    <a class="chip{% if periodo == 'semana' %} on-verde{% endif %}" href="/p/bandeja?periodo=semana" style="text-decoration:none">Esta semana</a>
+    <a class="chip{% if periodo == 'todo' %} on-verde{% endif %}" href="/p/bandeja?periodo=todo" style="text-decoration:none">Todo</a>
+    <form method="get" action="/p/bandeja" class="fila" style="gap:6px"><input type="hidden" name="periodo" value="rango">
+      <span class="peq mut">del</span><input class="campo" type="date" name="desde" value="{{ desde.isoformat() if desde else '' }}" style="width:auto;padding:5px 8px">
+      <span class="peq mut">al</span><input class="campo" type="date" name="hasta" value="{{ hasta.isoformat() if hasta else '' }}" style="width:auto;padding:5px 8px">
+      <button class="btn" type="submit" style="padding:5px 12px">Ver</button></form>
+    <span class="peq mut" style="margin-left:auto">{{ total }} correo{{ "s" if total != 1 }}{% if desde and hasta %} del {{ desde.strftime("%d/%m") }} al {{ hasta.strftime("%d/%m/%Y") }}{% elif periodo == "todo" %} en total{% endif %}</span>
+  </div>
   <div class="fila" style="margin-bottom:12px">
-    <a class="chip" href="/p/bandeja" style="text-decoration:none">Todos {{ total }}</a>
+    <a class="chip" href="/p/bandeja?{{ qp }}" style="text-decoration:none{% if not categoria %};outline:2px solid var(--verde){% endif %}">Todos {{ total }}</a>
     {% for cat, n in cuenta.items()|sort(attribute="1", reverse=True) %}
-    <a class="chip {{ etiquetas.get(cat, (cat, 'c-est'))[1] }}" href="/p/bandeja?cat={{ cat }}" style="text-decoration:none{% if cat == categoria %};outline:2px solid var(--verde){% endif %}">{{ etiquetas.get(cat, (cat, ''))[0] }} {{ n }}</a>
+    <a class="chip {{ etiquetas.get(cat, (cat, 'c-est'))[1] }}" href="/p/bandeja?{{ qp }}&cat={{ cat }}" style="text-decoration:none{% if cat == categoria %};outline:2px solid var(--verde){% endif %}">{{ etiquetas.get(cat, (cat, ''))[0] }} {{ n }}</a>
     {% endfor %}
     <span style="margin-left:auto" class="fila"><a class="btn" href="/p/ajustes">⬆️ Subir PDF o foto</a><button class="btn" type="button" id="btnRevisar" {% if not config.GMAIL_REFRESH_TOKEN %}disabled title="Gmail sin conectar"{% endif %}>🔄 Revisar correo</button></span>
   </div>
@@ -20,7 +32,7 @@
   <div class="grid g-35">
     <div class="card" style="padding:8px;max-height:75vh;overflow:auto">
       {% for f in filas %}
-      <a class="correo{% if sel and f.c.id == sel.id %} sel{% endif %}" href="/p/bandeja?id={{ f.c.id }}{% if categoria %}&cat={{ categoria }}{% endif %}" style="text-decoration:none;color:inherit">
+      <a class="correo{% if sel and f.c.id == sel.id %} sel{% endif %}" href="/p/bandeja?{{ qp }}&id={{ f.c.id }}{% if categoria %}&cat={{ categoria }}{% endif %}" style="text-decoration:none;color:inherit">
         <div class="av" style="background:{{ f.color }}">{{ f.iniciales }}</div>
         <div class="q"><div class="r"><b>{{ f.c.remitente }}</b><span class="mut peq">{{ f.c.recibido.strftime("%d/%m %H:%M") }}</span></div>
           <div class="as">{{ f.c.asunto }}</div>
@@ -28,7 +40,7 @@
             {% if f.c.respuesta_propuesta and not f.c.respuesta_enviada %}<span class="chip c-rev">Respuesta lista</span>{% endif %}
             {% if f.c.respuesta_enviada %}<span class="chip c-ok">Contestado</span>{% endif %}</div></div>
       </a>
-      {% endfor %}
+      {% else %}<div class="mut" style="padding:12px">Ningún correo en este periodo. Prueba con <a href="/p/bandeja?periodo=todo">Todo</a>.</div>{% endfor %}
     </div>
     {% if sel %}
     <div class="card pila">

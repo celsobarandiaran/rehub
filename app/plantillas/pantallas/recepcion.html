@@ -10,13 +10,25 @@
     <div class="pila">
       <div class="card pila">
         <h3>📸 Al llegar un pedido</h3>
-        <form id="formFoto" class="pila">
-          <label class="btn teja grande" style="width:100%;justify-content:center;cursor:pointer">📄 Foto al albarán o a la etiqueta<input type="file" name="archivo" accept="image/*,.pdf" capture="environment" style="display:none"></label>
-          <div class="peq mut">La etiqueta solo hace falta en pescado y carne: de ahí sale la fecha de caducidad exacta. Lo demás se estima por tipo de producto desde la fecha de la factura.</div>
-          <div id="txtFoto" class="peq"></div>
-        </form>
+        <div class="grid g2" id="formFoto">
+          <label class="btn teja grande" style="justify-content:center;cursor:pointer">📄 Foto del albarán<input type="file" data-tipo="albaran" accept="image/*,.pdf" capture="environment" style="display:none"></label>
+          <label class="btn pri grande" style="justify-content:center;cursor:pointer">🏷️ Foto de etiqueta<input type="file" data-tipo="etiqueta" accept="image/*" capture="environment" style="display:none"></label>
+        </div>
+        <div class="peq mut"><b>Albarán:</b> al llegar el pedido, foto al papel del repartidor. La app apunta todo lo que ha llegado y lo compara con la factura de ese proveedor; si falta algo, avisa.<br><b>Etiqueta:</b> solo en pescado y carne, para leer la fecha de caducidad y el lote. Lo demás se estima por tipo de producto.</div>
+        <div id="txtFoto" class="peq"></div>
         {% if pendientes_foto %}<div class="alerta a"><b>Leyendo</b><div>{{ pendientes_foto }} foto{{ "s" if pendientes_foto != 1 }} esperando a la IA.</div></div>{% endif %}
       </div>
+      {% if albaranes %}
+      <div class="card"><h3>📄 Últimos albaranes</h3>
+        <table class="peq resp">
+          <tr><th>Fecha</th><th>Proveedor</th><th>Líneas</th><th>Casado</th><th>Diferencias</th></tr>
+          {% for a in albaranes %}
+          <tr><td>{{ a.fecha.strftime("%d/%m") if a.fecha else "—" }}</td><td><a href="/archivo/{{ a.id }}" target="_blank">{{ a.proveedor or "sin proveedor" }}{% if a.numero %} · {{ a.numero }}{% endif %}</a></td><td class="num">{{ a.lineas }}</td>
+            <td>{{ a.casado }}</td><td>{% if a.diferencias %}<span class="chip c-rev">{{ a.diferencias|join("; ") }}</span>{% elif a.estado == "revisar" %}<span class="chip c-rev">{{ a.motivo }}</span>{% else %}<span class="chip c-ok">todo coincide</span>{% endif %}</td></tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endif %}
       <div class="card"><h3>📥 Entradas de los últimos 7 días</h3>
         <table class="peq resp">
           <tr><th>Fecha</th><th>Producto</th><th class="num">Cantidad</th><th>Caduca</th><th>Factura</th></tr>
@@ -56,8 +68,9 @@
     </div>
   </div>
   <script>
-    document.querySelector("#formFoto input").addEventListener("change",function(){var f=new FormData();f.append("archivo",this.files[0]);document.getElementById("txtFoto").textContent="Subiendo…";
-      fetch("/api/subir",{method:"POST",body:f}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtFoto").textContent=r.error||"Subida. La IA la lee en unos segundos y aparecerá en la lista de entradas."})});
+    document.querySelectorAll("#formFoto input").forEach(function(inp){inp.addEventListener("change",function(){var f=new FormData();f.append("archivo",this.files[0]);f.append("tipo",this.dataset.tipo);
+      document.getElementById("txtFoto").textContent="Subiendo "+(this.dataset.tipo==="albaran"?"el albarán":"la etiqueta")+"…";
+      fetch("/api/subir",{method:"POST",body:f}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtFoto").textContent=r.error||"Subida. La IA la lee en unos segundos; recarga la pantalla para verla."})})});
     document.getElementById("formRecuento").addEventListener("submit",function(e){e.preventDefault();
       fetch("/api/recuento",{method:"POST",body:new FormData(e.target)}).then(function(r){return r.json()}).then(function(r){document.getElementById("txtRecuento").textContent="Guardados "+r.guardados+" productos.";setTimeout(function(){location.reload()},800)})});
   </script>

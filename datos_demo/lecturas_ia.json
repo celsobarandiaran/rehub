@@ -99,6 +99,64 @@
 "tipo": "ticket",
 "total": 11.2
 },
+"foto:1c74c805c6404e50df4fcae9194edfc245e94545450a2b3a47f31f619c781a98": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "PESCADOS MAR NOU, S.L.",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.8,
+"descripcion": "Merluza",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 1.2,
+"descripcion": "Gamba roja",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 1.4,
+"descripcion": "Bacalao desalado",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 4.9,
+"descripcion": "Mejillón",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 5.3,
+"descripcion": "Calamar limpio",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 1.7,
+"descripcion": "Lubina fresca",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "ALB-26-0291",
+"peso_kg": null,
+"producto": null,
+"tipo": "albaran",
+"total": null
+},
 "foto:1de7fb6fff2778d1c8c20a1caa06a30dd52d00309d000a04d527d0a827393899": {
 "base": 96.11,
 "caducidad": null,
@@ -1027,6 +1085,50 @@
 "peso_kg": 5.7,
 "producto": "CALAMAR LIMPIO",
 "tipo": "etiqueta",
+"total": null
+},
+"foto:94fe7934f53406f210e6d518bd219294ca26768fe59da5c7667d04e34f3ca29d": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "PESCADOS MAR NOU, S.L.",
+"dudas": [],
+"fecha": "2026-10-08",
+"iva": null,
+"lineas": [
+{
+"cantidad": 1.9,
+"descripcion": "Merluza",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 1.0,
+"descripcion": "Gamba roja",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 1.3,
+"descripcion": "Bacalao desalado",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+},
+{
+"cantidad": 6.2,
+"descripcion": "Mejillón",
+"importe": null,
+"precio_unitario": null,
+"unidad": "kg"
+}
+],
+"lote": null,
+"numero": "ALB-26-0290",
+"peso_kg": null,
+"producto": null,
+"tipo": "albaran",
 "total": null
 },
 "foto:9691f3d795204a635e9ed2e536addc36730bc8cc31cc3693867078d60fa84c8f": {
