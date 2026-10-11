@@ -124,7 +124,8 @@ def entender_cliente(asunto: str, cuerpo: str, remitente: str, hoy: date, restau
             f"De: {remitente}\nAsunto: {asunto}\n\n{cuerpo}", ESQUEMA_CLIENTE)
         cache_ia.guardar(clave, r)
         return r
-    except (ia.SinIA, ia.CuotaAgotada):
+    except ia.SinIA:
+        # Sin clave de IA no hay otra: reglas y una plantilla. (Si la IA existe pero se agotó el tope, el correo espera.)
         cat = clasificar_texto(asunto, cuerpo)
         nombre = remitente.split()[0] if remitente else ""
         plantillas = {"reserva": f"Hola, {nombre}:\n\nGracias por escribirnos. Revisamos la disponibilidad y te confirmamos enseguida la fecha, la hora y el número de personas.\n\nUn saludo,\n{restaurante}",
@@ -281,13 +282,14 @@ def guardar_etiqueta(s, d, ruta_tmp, hoy: date) -> Entrada | None:
     if not prod:
         return None
     prov = buscar_proveedor(s, d.get("proveedor"), crear=False)
-    q = (select(Entrada).join(Documento).where(Entrada.producto_id == prod.id, Entrada.caducidad_estimada.is_(True))
-         .order_by(Documento.fecha.desc()))
+    q = select(Entrada).join(Documento).where(Entrada.producto_id == prod.id, Entrada.caducidad_estimada.is_(True))
     if prov:
         q = q.where(Documento.proveedor_id == prov.id)
-    if d.get("fecha"):
-        q = q.where(Documento.fecha <= d["fecha"] + timedelta(days=1), Documento.fecha >= d["fecha"] - timedelta(days=7))
-    e = s.scalars(q).first()
+    candidatas = list(s.scalars(q))
+    ref = d.get("fecha") or hoy
+    # La entrada del albarán más cercano a la fecha de la etiqueta (envasado), hasta 7 días antes o 1 después
+    candidatas = [e for e in candidatas if -1 <= (ref - e.fecha).days <= 7]
+    e = min(candidatas, key=lambda e: (abs((ref - e.fecha).days), -e.id), default=None)
     if not e:
         e = Entrada(producto_id=prod.id, fecha=d.get("fecha") or hoy, cantidad=d.get("peso") or 0)
         s.add(e)
@@ -343,7 +345,11 @@ def procesar_correo(s: Session, c: dict, adjuntos: list[tuple[str, bytes]], hoy:
 def procesar_pendientes(s: Session, hoy: date, restaurante: str, maximo=3) -> int:
     """Lee con IA unas pocas fotos o correos de clientes pendientes. Devuelve cuántos ha hecho."""
     hechos = 0
-    for doc in s.scalars(select(Documento).where(Documento.estado == "leyendo").order_by(Documento.id).limit(maximo)):
+    saltados: list[int] = []  # fotos que ahora mismo no se pueden leer (sin IA y sin caché): se dejan para después
+    docs = list(s.scalars(select(Documento).where(Documento.estado == "leyendo").order_by(Documento.id).limit(maximo + 50)))
+    for doc in docs:
+        if hechos >= maximo:
+            break
         try:
             contenido = almacen.leer(doc.archivo)
         except Exception:
@@ -351,7 +357,11 @@ def procesar_pendientes(s: Session, hoy: date, restaurante: str, maximo=3) -> in
             doc.tipo, doc.estado, doc.motivo_revisar = "otro", "revisar", "no se encuentra el archivo de la foto"
             hechos += 1
             continue
-        d = lectura.leer_foto(contenido)  # puede lanzar CuotaAgotada: se queda en cola
+        try:
+            d = lectura.leer_foto(contenido)  # puede lanzar CuotaAgotada: se queda en cola
+        except ia.SinIA:
+            saltados.append(doc.id)
+            continue
         correo = s.get(Correo, doc.correo_id) if doc.correo_id else None
         ruta = doc.archivo
         s.delete(doc)

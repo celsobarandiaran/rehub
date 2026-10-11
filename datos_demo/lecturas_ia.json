@@ -1,4 +1,11 @@
 {
+"correo:b2ce4259876d5bc6310bfda144ccf8d771e5a095241354ca36bea265285342ce": {
+"categoria": "publicidad",
+"fecha": null,
+"hora": null,
+"personas": null,
+"respuesta": ""
+},
 "foto:05cd053a23f02844f8a379e03aa32363c1a91939f6cd5868cfec9e1558263785": {
 "base": null,
 "caducidad": null,
@@ -51,6 +58,21 @@
 "producto": null,
 "tipo": "ticket",
 "total": 12.5
+},
+"foto:12db6e3321e68d5c813123e222f044aaae0ab0d01810e347dab06913ef3df219": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-03",
+"numero": null,
+"peso_kg": 5.4,
+"producto": "MEJILLÓN",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:188e2ffdb8f80031f41ff87655bf5abea9c5045de57db49dab758459bfb45db2": {
 "base": null,
@@ -418,6 +440,36 @@
 "tipo": "factura",
 "total": 96.19
 },
+"foto:466792e09ad6920a56bffc5c84a0b9127bf7ab970358a14cdc2911e0474d34e6": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-08-10",
+"iva": null,
+"lineas": [],
+"lote": "L261008-07",
+"numero": null,
+"peso_kg": 2,
+"producto": "LUBINA FRESCA",
+"tipo": "etiqueta",
+"total": null
+},
+"foto:4a8f378ce2cdbf34a2452e52410db007379319dc987fff50490a126d28fabdcc": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-08",
+"iva": null,
+"lineas": [],
+"lote": "L261008-11",
+"numero": null,
+"peso_kg": 1.0,
+"producto": "GAMBA ROJA",
+"tipo": "etiqueta",
+"total": null
+},
 "foto:4ea826258d3130f279bfa29ce0bd04fe964aec8d3becce3aab513a66236a5624": {
 "base": null,
 "caducidad": null,
@@ -447,6 +499,21 @@
 "producto": null,
 "tipo": "ticket",
 "total": 24.7
+},
+"foto:5a27a201b2a3a4b6dd4b90d64fd1d8727519ed27e29f29c13a2616ada2ba29eb": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-04",
+"numero": null,
+"peso_kg": 1.4,
+"producto": "BACALAO DESALADO",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:5db52cee0f0aa8bd322380a1be875329935a61fd347f55efdf0a6f0f47762faf": {
 "base": 93.51,
@@ -645,6 +712,21 @@
 "tipo": "ticket",
 "total": 18.0
 },
+"foto:6301d7170d8d6d9d3914a2464ba600dd986a641c4ada5576dbed2c4c03b154b0": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-05",
+"numero": null,
+"peso_kg": 1.2,
+"producto": "GAMBA ROJA",
+"tipo": "etiqueta",
+"total": null
+},
 "foto:640681f80f0dcdd99a8c0ba7442193670cd93bfedc116e2c7d33ccf642237de5": {
 "base": null,
 "caducidad": null,
@@ -755,6 +837,21 @@
 "producto": null,
 "tipo": "factura",
 "total": 102.21
+},
+"foto:6bd3bcb07076604419f00a28282d095a7d28f7236f690e1b953c8e118622fc04": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-08-10",
+"iva": null,
+"lineas": [],
+"lote": "L261008-12",
+"numero": null,
+"peso_kg": 1.9,
+"producto": "MERLUZA",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:813c28ac5e683111e01e0c0c1c1cfd8dbe8367ba093b084e2f9771ca17629ed9": {
 "base": null,
@@ -872,6 +969,21 @@
 "tipo": "factura",
 "total": 101.07
 },
+"foto:8d5cc5903374a59af015f20c5314d629fe83accc4f745871faa3cb9d4d1a9e46": {
+"base": null,
+"caducidad": "2026-10-11",
+"comercio_o_proveedor": "Carnes Vallès",
+"dudas": [],
+"fecha": null,
+"iva": null,
+"lineas": [],
+"lote": "L261005-15",
+"numero": null,
+"peso_kg": 7.3,
+"producto": "POLLO DE CORRAL",
+"tipo": "etiqueta",
+"total": null
+},
 "foto:94c6977e3ee7e1dd921f64a38d3b59a2222de1eff6446d90c16bf36d36ceda98": {
 "base": null,
 "caducidad": null,
@@ -902,6 +1014,21 @@
 "tipo": "ticket",
 "total": 27.3
 },
+"foto:94e53d6f854c1c0cdaad1f976e7e86b41f59a85e99ed48142d46b4607a00c955": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-08",
+"iva": null,
+"lineas": [],
+"lote": "L261008-08",
+"numero": null,
+"peso_kg": 5.7,
+"producto": "CALAMAR LIMPIO",
+"tipo": "etiqueta",
+"total": null
+},
 "foto:9691f3d795204a635e9ed2e536addc36730bc8cc31cc3693867078d60fa84c8f": {
 "base": null,
 "caducidad": null,
@@ -924,6 +1051,21 @@
 "producto": null,
 "tipo": "ticket",
 "total": 12.5
+},
+"foto:990977a3fea0d4d153b2e3a7517a022171736577568e4666eb5b82355b154516": {
+"base": null,
+"caducidad": "2026-10-11",
+"comercio_o_proveedor": "Carnes Vallès",
+"dudas": [],
+"fecha": "2026-10-05",
+"iva": null,
+"lineas": [],
+"lote": "L261005-14",
+"numero": null,
+"peso_kg": 3.4,
+"producto": "SOLOMILLO DE CERDO",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:99c50c1e63822b489a402831ba26651e7312d6656ebdfb1649d19e75931efba8": {
 "base": null,
@@ -954,6 +1096,21 @@
 "producto": null,
 "tipo": "ticket",
 "total": 19.46
+},
+"foto:9f4fdcdd04251afa744a74f69f8a39d763895d6d17029177670d9e6fd7e5e68e": {
+"base": null,
+"caducidad": "2026-10-11",
+"comercio_o_proveedor": "Carnes Vallès",
+"dudas": [],
+"fecha": "2026-10-05",
+"iva": null,
+"lineas": [],
+"lote": "L261005-13",
+"numero": null,
+"peso_kg": 9,
+"producto": "ENTRECOT DE VACA",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:a6adbe6aa8df178f8b58e50a865c1c718245ac68f2922fee7006f0a2a52d9d5f": {
 "base": 93.02,
@@ -1147,6 +1304,21 @@
 "tipo": "ticket",
 "total": 36.25
 },
+"foto:c7352fc5a27f69b85007f9f67803c72ffdb15eb99470f8d1ebb37b338d32a127": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-02",
+"numero": null,
+"peso_kg": 5.3,
+"producto": "CALAMAR LIMPIO",
+"tipo": "etiqueta",
+"total": null
+},
 "foto:d2801c3e09b3052ea8c054f9cc296306680e03e953c6103ab11bfc39d20af39a": {
 "base": null,
 "caducidad": null,
@@ -1171,6 +1343,74 @@
 "producto": null,
 "tipo": "ticket",
 "total": 11.2
+},
+"foto:db35e40c30a69d4b1c48a7183d7a6796c214bcf96a1574f49bac811f220c3ff7": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-06",
+"numero": null,
+"peso_kg": 1.8,
+"producto": "MERLUZA",
+"tipo": "etiqueta",
+"total": null
+},
+"foto:ddf9733dce70e751a1f20e08ee125a616b1d571562746183e00b45c2bff2864d": {
+"base": null,
+"caducidad": "2026-10-12",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-10",
+"iva": null,
+"lineas": [],
+"lote": "L261010-01",
+"numero": null,
+"peso_kg": 1.7,
+"producto": "LUBINA FRESCA",
+"tipo": "etiqueta",
+"total": null
+},
+"foto:e996e6ff0326e7122e57b3048a50048b4bb8c1ad294790a1ed5b64f965e00168": {
+"base": null,
+"caducidad": null,
+"comercio_o_proveedor": "HIELO CUBITOS BCN",
+"dudas": [],
+"fecha": "2026-10-11",
+"iva": null,
+"lineas": [
+{
+"cantidad": 2,
+"descripcion": "Saco hielo 10 kg",
+"importe": 18.0,
+"precio_unitario": 9.0,
+"unidad": null
+}
+],
+"lote": null,
+"numero": "T55120",
+"peso_kg": null,
+"producto": null,
+"tipo": "ticket",
+"total": 18.0
+},
+"foto:f1014e837aff01cc838125ca7a7bc6a09f65a207b713bae3f095650185a2b308": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-10-08",
+"iva": null,
+"lineas": [],
+"lote": "L261008-09",
+"numero": null,
+"peso_kg": 6.2,
+"producto": "MEJILLÓN",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:f143388aba4dd18108f63121c918402c8b7ef4b6933f7752ad1a064bcfcd1e94": {
 "base": null,
@@ -1287,6 +1527,21 @@
 "producto": null,
 "tipo": "factura",
 "total": 101.56
+},
+"foto:f9ef8829fc6424d7db39f97b6a06a1bc35ce1f62c33a84f948450e01e57ae711": {
+"base": null,
+"caducidad": "2026-10-10",
+"comercio_o_proveedor": "Pescados Mar Nou",
+"dudas": [],
+"fecha": "2026-08-10",
+"iva": null,
+"lineas": [],
+"lote": "L261008-10",
+"numero": null,
+"peso_kg": 1.3,
+"producto": "BACALAO DESALADO",
+"tipo": "etiqueta",
+"total": null
 },
 "foto:fb434439c259d3ff259e43c63b476c25efa781f5edf88cb4e0ad6e8b393e9f49": {
 "base": null,

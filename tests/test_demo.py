@@ -16,8 +16,8 @@ def test_cargar_demo_completa():
         time.sleep(0.2)
     assert not demo.ESTADO.error, demo.ESTADO.error
     assert time.time() - t0 < 600
-    # Sin clave de IA, las fotos que ya están en la caché (10 facturas escaneadas y 20 tickets) se leen igual;
-    # las 15 etiquetas no están en caché y se quedan esperando. Se espera a que el hilo de la IA termine.
+    # Sin clave de IA, las fotos que están en la caché (datos_demo/lecturas_ia.json: escaneadas, tickets y etiquetas)
+    # se leen igual. Se espera a que el hilo de la IA termine.
     for _ in range(300):
         if demo._hilo_ia is None or not demo._hilo_ia.is_alive():
             break
@@ -28,9 +28,13 @@ def test_cargar_demo_completa():
         assert n(select(db.Documento).where(db.Documento.tipo == "gasto")) == 20
         assert n(select(db.Documento).where(db.Documento.tipo == "nomina")) == 12
         assert n(select(db.Cierre)) == 61
-        assert n(select(db.Documento).where(db.Documento.estado == "leyendo")) == 15  # las etiquetas, sin IA
+        assert n(select(db.Documento).where(db.Documento.estado == "leyendo")) == 0  # todo está en la caché
+        etiquetas = list(s.scalars(select(db.Entrada).where(db.Entrada.caducidad_estimada.is_(False))))
+        assert len(etiquetas) >= 12 and all(e.caduca and e.lote for e in etiquetas)  # fecha y lote leídos de la etiqueta
         revisar = list(s.scalars(select(db.Documento).where(db.Documento.estado == "revisar")))
-        assert len(revisar) == 1 and "número" in revisar[0].motivo_revisar, [r.motivo_revisar for r in revisar]
+        # La escaneada con el número ilegible y los tickets de la farmacia (la IA avisa de que la descripción está cortada)
+        assert any(r.tipo == "factura" and "numero" in r.motivo_revisar.lower().replace("ú", "u") for r in revisar), [r.motivo_revisar for r in revisar]
+        assert all(r.tipo in ("factura", "gasto") for r in revisar) and len(revisar) <= 4, [(r.tipo, r.motivo_revisar) for r in revisar]
         dup = list(s.scalars(select(db.Documento).where(db.Documento.estado == "duplicada")))
         assert len(dup) == 1 and dup[0].proveedor.nombre == "Carnes Vallès"
         subidas = [a.texto for a in s.scalars(select(db.Aviso).where(db.Aviso.tipo == "subida_precio"))]

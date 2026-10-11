@@ -229,7 +229,10 @@ def _bucle_ia():
             n = 0
         ESTADO.ia_pendientes = _contar_pendientes()
         if not n:
-            if not ESTADO.en_marcha and ESTADO.ia_pendientes == 0:
+            if not ESTADO.en_marcha:
+                # Nada más que se pueda leer ahora (lo que queda espera a la IA): el hilo se vuelve a lanzar al arrancar o al subir algo.
+                if ESTADO.ia_pendientes and not ESTADO.ia_estado:
+                    ESTADO.ia_estado = f"{ESTADO.ia_pendientes} fotos o correos esperan a la IA."
                 return
             time.sleep(1)
 
