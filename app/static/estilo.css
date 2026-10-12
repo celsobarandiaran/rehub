@@ -501,3 +501,5 @@ nav.menu .grupo:not(.cerrado) .gt .cont{display:none}
 nav.menu .gt .chev{margin-left:8px}
 nav.menu .grupo.activo .gt{color:var(--tinta)}
 @media (max-width:820px){nav.menu .grupo .gt .cont{display:none}}
+/* Móvil: la barra del menú enseña todas las pantallas; las secciones no se pliegan (su cabecera está oculta) */
+@media (max-width:820px){nav.menu .grupo.cerrado a{display:flex}}
